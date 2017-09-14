@@ -20,6 +20,17 @@
         <property name="mappings">
             <props>
                 <prop key="index.htm">indexController</prop>
+                <!--
+                |
+                | Login Routes
+                |
+                -->
+                <prop key="login.htm">login</prop>
+                <prop key="postLogin.htm">login</prop>
+                <prop key="registrarse.htm">login</prop>
+                <prop key="registro.htm">login</prop>
+                <prop key="salir.htm">login</prop>
+                
             </props>
         </property>
     </bean>
@@ -28,7 +39,12 @@
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" />
-
+    
+    <!--
+    Beans controllers.
+    -->
+    <bean name="login" class="cl.duoc.pft8461.cem.controllers.LoginController"/>
+    
     <!--
     The index controller.
     -->

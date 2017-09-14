@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/* global swal, Pace */
+
 (function ($) {
     
     $(document).ajaxStart(function() { Pace.restart(); });
     $(document).ajaxComplete(function(){ $('table-ajax').dataTable(); });
+    
     if ($('.checkbox').length) {
         $('.checkbox').iCheck({
             checkboxClass: 'icheckbox_square-blue',
@@ -15,6 +18,35 @@
         });
     }
 
+    $('#recover-password').on('click', function () {
+        swal({
+            title: "Recuperar contraseña",
+            text: "Ingrese su correo en el sistema:",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            inputPlaceholder: "correo@ejemplo.cl"
+        }, function (inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "" || !validateEmail(inputValue)) {
+                swal.showInputError("Debe ingresar un correo válido.");
+                return false;
+            }
+            swal({
+                title: "Recuperar contraseña",
+                text: "Se enviará un correo con las instrucciones, está seguro?",
+                type: "info",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true
+            }, function () {
+                setTimeout(function () {
+                    swal("Correo enviado!", "", "success");
+                }, 2000);
+            });
+        });
+    });
+    
     $('#registra').on('click', function (e) {
         if (!cem.validForm())
             return;
@@ -312,5 +344,10 @@
                 j = (j = i.length) > 3 ? j % 3 : 0;
         return symbol + ' ' + negative + (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, '$1' + thousand) + (places ? decimal + Math.abs(number - i).toFixed(places).slice(2) : '');
     };
+    
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
     
 }(jQuery));
