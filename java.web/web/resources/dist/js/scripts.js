@@ -16,10 +16,10 @@
     }
 
     $('#registra').on('click', function (e) {
-        if (!sigecoApp.validForm())
+        if (!cem.validForm())
             return;
         else {
-            var data = sigecoApp.dataFormMantenedor();
+            var data = cem.dataFormMantenedor();
             $.ajax({
                 url: 'registrarse.htm',
                 data: 'action=register' + data,
@@ -71,243 +71,6 @@
             allowClear: true
         });
     }
-    
-    var countNumbersTicket = 0;
-    var numbers = {};
-    $('.numberTicket').change(function() {
-        if ($(this).prop('checked')) {
-            if (countNumbersTicket >= 6){
-                $(this).bootstrapToggle('off');
-                swal({
-                    title: "Límite alcanzado!",
-                    text: "Sólo puede seleccionar un máximo de 6 números.",
-                    type: "error"
-                });
-            }
-            numbers['num' + $(this).val()] = $(this).val();
-            countNumbersTicket++;
-        } else {
-            if (countNumbersTicket > 0) {
-                countNumbersTicket--;
-                delete numbers['num' + $(this).val()];
-            }
-                
-        }
-    });
-    
-    $('#buyTicket').on('click', function () {
-        $('.numberTicket').bootstrapToggle('off');
-        countNumbersTicket = 0;
-        numbers = {};
-        $('#newTicket').modal('show');
-    });
-    
-    $('#cancelTicket').on('click', function() {
-        $('.numberTicket').bootstrapToggle('off');
-    });
-    
-    $('#recharge').on('click', function () {
-        $('#rechargeModal').modal('show');
-    });
-    
-    $('#schedule').on('click', function () {
-        var url = $(this).attr('data-url');
-
-        swal({
-            title: 'Realizar Sorteo',
-            text: 'Seguro de empezar sorteo?',
-            type: "warning",
-            showCancelButton: true,
-            closeOnConfirm: false,
-            animation: 'slide-from-top',
-            showLoaderOnConfirm: true
-        },function () {
-            $.ajax({
-                url: url,
-                data: data,
-                type: "POST",
-                success: function (data) {
-                    if (data.response === 1) {
-                        swal({
-                            title: "Sorteo exitoso!",
-                            text: "",
-                            type: "success"
-                        },
-                        function () {
-                            location.reload();
-                        });
-                    } else {
-                        swal({
-                            title: "Error al generar Sorteo!",
-                            text: data.msg || "Intente nuevamente.",
-                            type: "error"
-                        });
-                    }
-                },
-                error: function () {
-                    swal({
-                        title: "Error al generar Sorteo!",
-                        text: "Intente nuevamente.",
-                        type: "error"
-                    });
-                }
-            });
-        });
-    });
-    
-    $('#makeRecharge').on('click', function () {
-        var url = $(this).attr('data-url');
-        var data = sigecoApp.dataFormMantenedor();
-
-        swal({
-            title: 'Recarga de Saldo',
-            text: 'Seguro de realizar recarga?',
-            type: "warning",
-            showCancelButton: true,
-            closeOnConfirm: false,
-            animation: 'slide-from-top',
-            showLoaderOnConfirm: true
-        },function () {
-            $.ajax({
-                url: url,
-                data: data,
-                type: "POST",
-                success: function (data) {
-                    if (data.response === 1) {
-                        swal({
-                            title: "Recarga exitosa!",
-                            text: "",
-                            type: "success"
-                        },
-                        function () {
-                            location.reload();
-                        });
-                    } else {
-                        swal({
-                            title: "Error al generar Recarga!",
-                            text: data.msg || "Intente nuevamente.",
-                            type: "error"
-                        });
-                    }
-                },
-                error: function () {
-                    swal({
-                        title: "Error al generar Recarga!",
-                        text: "Intente nuevamente.",
-                        type: "error"
-                    });
-                }
-            });
-        });
-    });
-    
-    $('#randomTicket').on('click', function () {
-        var url = $(this).attr('data-url');
-
-        swal({
-            title: 'Comprar Ticket',
-            text: 'Está seguro de la selección realizada?',
-            type: "warning",
-            showCancelButton: true,
-            closeOnConfirm: false,
-            animation: 'slide-from-top',
-            showLoaderOnConfirm: true
-        },
-        function () {
-            $.ajax({
-                url: url,
-                data: data,
-                type: "POST",
-                success: function (data) {
-                    if (data.response === 1) {
-                        swal({
-                            title: "Ticket Generado!",
-                            text: "",
-                            type: "success"
-                        },
-                        function () {
-                            location.reload();
-                        });
-                    } else {
-                        swal({
-                            title: "Error al generar Ticket!",
-                            text: data.msg || "Intente nuevamente.",
-                            type: "error"
-                        });
-                    }
-                },
-                error: function () {
-                    swal({
-                        title: "Error al generar Ticket!",
-                        text: "Intente nuevamente.",
-                        type: "error"
-                    });
-                }
-            });
-        });
-    });
-    
-    $('#confirmTicket').on('click', function () {
-        if (countNumbersTicket === 6) {
-            var data = {};
-            var url = $(this).attr('data-url');
-            var dataNum = '';
-            var count = 1;
-            for (var num in numbers) {
-                dataNum += ' ' + numbers[num];
-                data['num' + count] = numbers[num];
-                ++count;
-            }
-            
-            swal({
-                title: 'Comprar Ticket',
-                text: 'Está seguro de la selección realizada?\nNúmeros elegidos' + dataNum,
-                type: "warning",
-                showCancelButton: true,
-                closeOnConfirm: false,
-                animation: 'slide-from-top',
-                showLoaderOnConfirm: true
-            },
-            function () {
-                $.ajax({
-                    url: url,
-                    data: data,
-                    type: "POST",
-                    success: function (data) {
-                        if (data.response === 1) {
-                            swal({
-                                title: "Ticket Generado!",
-                                text: "",
-                                type: "success"
-                            },
-                            function () {
-                                location.reload();
-                            });
-                        } else {
-                            swal({
-                                title: "Error al generar Ticket!",
-                                text: data.msg || "Intente nuevamente.",
-                                type: "error"
-                            });
-                        }
-                    },
-                    error: function () {
-                        swal({
-                            title: "Error al generar Ticket!",
-                            text: "Intente nuevamente.",
-                            type: "error"
-                        });
-                    }
-                });
-            });
-        } else {
-            swal({
-                title: "Números insuficientes!",
-                text: "Debe seleccionar un mínimo de 6 números para realizar la compra.",
-                type: "error"
-            });
-        }
-    });
     
     $('#region_id').select2().on('change', function() {
         if (this.value > 0) {
@@ -370,13 +133,13 @@
     });
     
     $('#newItem').on('click', function () {
-        sigecoApp.clearFormMantanedor();
+        cem.clearFormMantanedor();
         $('#new').modal('show');
     });
 
     $('#addNew').on('click', function () {
-        var data = sigecoApp.dataFormMantenedor();
-        if (!sigecoApp.validForm())
+        var data = cem.dataFormMantenedor();
+        if (!cem.validForm())
             return;
         $('#new').modal('hide');
         var controller = $(this).attr('data-controller');
@@ -425,11 +188,11 @@
     });
 
     $('#new').on('hidden.bs.modal', function () {
-        sigecoApp.clearFormMantanedor();
+        cem.clearFormMantanedor();
     });
 
     $('.btnEditar').on('click', function () {
-        sigecoApp.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'));
+        cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'));
         $('#new').modal('show');
     });
 
@@ -479,7 +242,7 @@
         });
     });
 
-    var sigecoApp = {
+    var cem = {
         dataFormMantenedor: function () {
             var data = '';
             $('.form').find('.form-control').each(function () {
@@ -550,210 +313,4 @@
         return symbol + ' ' + negative + (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, '$1' + thousand) + (places ? decimal + Math.abs(number - i).toFixed(places).slice(2) : '');
     };
     
-    if (document.URL.indexOf('historialGastosComunes') > -1) {
-        //******* BAR CHART
-        var data = [[0, 11065161], [1, 15632865], [2, 15045372], [3, 14109583], [4, 13634087], [5, 17182678]];
-        var dataset = [{label: ' Gastos Comunes', data: data, color: '#5482FF'}];
-        var ticks = [[0, 'Enero'], [1, 'Febrero'], [2, 'Marzo'], [3, 'Abril'], [4, 'Mayo'], [5, 'Junio']];
-
-        var options = {
-            series: {
-                bars: {
-                    show: true,
-                    barWidth: 0.5,
-                    align: 'center'
-                }
-            },
-            bars: {
-                align: 'center',
-                barWidth: 0.5
-            },
-            xaxis: {
-                axisLabel: 'Meses',
-                axisLabelUseCanvas: true,
-                axisLabelFontSizePixels: 12,
-                axisLabelFontFamily: 'Verdana, Arial',
-                axisLabelPadding: 10,
-                tickLength: 0,
-                ticks: ticks
-            },
-            yaxis: {
-                axisLabel: 'Valor',
-                axisLabelUseCanvas: true,
-                axisLabelFontSizePixels: 12,
-                axisLabelFontFamily: 'Verdana, Arial',
-                axisLabelPadding: 3,
-                tickFormatter: function (v, axis) {
-                    return formatMoney(v);
-                }
-            },
-            legend: {
-                noColumns: 0,
-                labelBoxBorderColor: '#000000',
-                position: 'nw'
-            },
-            grid: {
-                hoverable: true,
-                clickable: true,
-                borderWidth: 1,
-                borderColor: '#f3f3f3',
-                tickColor: '#f3f3f3'
-            }
-        };
-
-        $(document).ready(function () {
-            $.plot($('#flot-placeholder'), dataset, options);
-            $('#flot-placeholder').useTooltip();
-            $("#flot-placeholder").bind("plotclick", function (event, pos, item) {
-                if (item) {
-                    var x = item.datapoint[0];
-                    var y = item.datapoint[1];
-                    alert(item.series.xaxis.ticks[x].label);
-                }
-            });
-        });
-
-        function gd(year, month, day) {
-            return new Date(year, month, day).getTime();
-        }
-
-        var previousPoint = null, previousLabel = null;
-
-        $.fn.useTooltip = function () {
-            $(this).bind("plothover", function (event, pos, item) {
-                if (item) {
-                    $("#flot-placeholder").css('cursor','pointer');
-                    if ((previousLabel != item.series.label) || (previousPoint != item.dataIndex)) {
-                        previousPoint = item.dataIndex;
-                        previousLabel = item.series.label;
-                        $("#tooltip").remove();
-
-                        var x = item.datapoint[0];
-                        var y = item.datapoint[1];
-
-                        var color = item.series.color;
-
-                        showTooltip(item.pageX,
-                            item.pageY,
-                            color,
-                            item.series.xaxis.ticks[x].label + ' : <strong>' + formatMoney(y) + '</strong>');
-                    }
-                } else {
-                    $('#tooltip').remove();
-                    $("#flot-placeholder").css('cursor','auto');
-                    previousPoint = null;
-                }
-            });
-        };
-
-        function showTooltip(x, y, color, contents) {
-            $('<div class="tooltip-inner" id="tooltip">' + contents + '</div>').css({
-                position: 'absolute',
-                display: 'none',
-                top: y - 40,
-                left: x - 90,
-                padding: '5px 8px',
-                'font-size': '11px',
-                'border-radius': '5px',
-                opacity: 0.82
-            }).appendTo('body').fadeIn(200);
-        }
-    }
-    
-    if (document.URL.indexOf('estacionamientos') > -1 || document.URL.indexOf('espaciosComunes') > -1) {
-        $('#fechas').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'DD/MM/YYYY h:mm A'});
-    }
-    
-    if (document.URL.indexOf('morosidad') > -1) {
-        var donutData = [
-            {label: "Debe", data: 30, color: "#3c8dbc"},
-            {label: "Morosos", data: 20, color: "#dd4b39"},
-            {label: "Pagos", data: 50, color: "#00c0ef"}
-        ];
-        $.plot("#donut-chart", donutData, {
-            series: {
-                pie: {
-                    show: true,
-                    radius: 1,
-                    innerRadius: 0.5,
-                    label: {
-                        show: true,
-                        radius: 2 / 3,
-                        formatter: labelFormatter,
-                        threshold: 0.1
-                    }
-
-                }
-            },
-            legend: {
-                show: false
-            }
-        });
-
-        /*
-         * Custom Label formatter
-         * ----------------------
-         */
-        function labelFormatter(label, series) {
-            return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
-                    + label
-                    + "<br>"
-                    + Math.round(series.percent) + "%</div>";
-        }
-    }
 }(jQuery));
-/*
-var obj = {
-  "users": {
-    "admin": {
-      "clave": "admin",
-      "condominio": 1
-    },
-    "conserje": {
-      "clave": "asdasd",
-      "condominio": 2
-    },
-    "usuario1": {
-      "clave": "usuario",
-      "condominio": 2
-    }
-  },
-  "gastosComunes": {
-    "usuario1": 51928
-  },
-  "morosidad": {
-    "usuario1": 0
-  },
-  "estacionamientos": {
-    "condominio": {
-      "2": {
-        "1": 0,
-        "2": 1,
-        "3": 1
-      }
-    }
-  },
-  "espaciosComunes": {
-    "condominio": {
-      "quincho": 0,
-      "salaMultiuso": 1
-    }
-  }
-};
-var data = JSON.stringify(obj);
-
-$("#clickMe").click(function () {
-       // do update
-      $.ajax({
-        url: "https://api.myjson.com/bins/2t2db",
-        type: "PUT",
-        data: data,
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (data, textStatus, jqXHR) {
-          var json = JSON.stringify(data);
-          $("#data").val(json);
-        }
-      });
-});
-*/
