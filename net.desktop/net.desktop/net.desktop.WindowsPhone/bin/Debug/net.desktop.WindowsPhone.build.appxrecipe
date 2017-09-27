@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>JOE-XIDU</Machine>
+    <WindowsUser>Joe-Xidu</WindowsUser>
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows Phone 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>bdc0849d-b06d-452e-90b6-97de071d9420</PackageIdentityName>
+    <PackageIdentityPublisher>CN=Joe-Xidu</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\obj\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType></RemoteDeploymentType>
+    <PackageRegistrationPath></PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\bin\Debug\net.desktop.WindowsPhone.exe">
+      <PackagePath>net.desktop.WindowsPhone.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\Assets\Logo.scale-240.png">
+      <PackagePath>Assets\Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\Assets\SmallLogo.scale-240.png">
+      <PackagePath>Assets\SmallLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\Assets\SplashScreen.scale-240.png">
+      <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\Assets\Square71x71Logo.scale-240.png">
+      <PackagePath>Assets\Square71x71Logo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\Assets\StoreLogo.scale-240.png">
+      <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\Assets\WideLogo.scale-240.png">
+      <PackagePath>Assets\WideLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\Assets\HubBackground.theme-dark.png">
+      <PackagePath>Assets\HubBackground.theme-dark.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\Assets\HubBackground.theme-light.png">
+      <PackagePath>Assets\HubBackground.theme-light.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\LightGray.png">
+      <PackagePath>Assets\LightGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\MediumGray.png">
+      <PackagePath>Assets\MediumGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\DarkGray.png">
+      <PackagePath>Assets\DarkGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\DataModel\SampleData.json">
+      <PackagePath>DataModel\SampleData.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\bin\Debug\net.desktop.WindowsPhone.xr.xml">
+      <PackagePath>net.desktop.WindowsPhone.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\bin\Debug\HubPage.xbf">
+      <PackagePath>HubPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\bin\Debug\SectionPage.xbf">
+      <PackagePath>SectionPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\bin\Debug\ItemPage.xbf">
+      <PackagePath>ItemPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.WindowsPhone\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

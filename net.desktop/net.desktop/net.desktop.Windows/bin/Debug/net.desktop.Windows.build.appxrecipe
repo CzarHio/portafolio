@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>JOE-XIDU</Machine>
+    <WindowsUser>Joe-Xidu</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>98d0647f-ce26-4a75-a64e-e205d53a1f4d</PackageIdentityName>
+    <PackageIdentityPublisher>CN=Joe-Xidu</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType></RemoteDeploymentType>
+    <PackageRegistrationPath></PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\net.desktop.Windows.exe">
+      <PackagePath>net.desktop.Windows.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\WideLogo.scale-100.png">
+      <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\LightGray.png">
+      <PackagePath>Assets\LightGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\MediumGray.png">
+      <PackagePath>Assets\MediumGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\DarkGray.png">
+      <PackagePath>Assets\DarkGray.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\DataModel\SampleData.json">
+      <PackagePath>DataModel\SampleData.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\net.desktop.Windows.xr.xml">
+      <PackagePath>net.desktop.Windows.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\HubPage.xbf">
+      <PackagePath>HubPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\SectionPage.xbf">
+      <PackagePath>SectionPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\ItemPage.xbf">
+      <PackagePath>ItemPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
