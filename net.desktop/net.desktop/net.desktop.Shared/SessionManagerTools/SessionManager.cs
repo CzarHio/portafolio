@@ -22,6 +22,9 @@ namespace net.desktop.SessionManagerTools
         {
         }
 
+        /// <summary>
+        /// Método que setea la configuración inicial de la sesión.
+        /// </summary>
         public async void Init()
         {
             try
@@ -42,6 +45,11 @@ namespace net.desktop.SessionManagerTools
             }
         }
 
+        /// <summary>
+        /// Método que agrega un atributo a la sesión actual.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
         public void Add(string key, string value)
         {
             this.CheckSesssion();
@@ -49,6 +57,11 @@ namespace net.desktop.SessionManagerTools
             this.WriteDataSession();
         }
 
+        /// <summary>
+        /// Método que retorna un atributo en específico de la sesión actual;
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns>Devuelve el valor en formato string</returns>
         public string Get(string key)
         {
             this.CheckSesssion();
@@ -56,6 +69,11 @@ namespace net.desktop.SessionManagerTools
             return (string)this.Session[key];
         }
 
+        /// <summary>
+        /// Método que elimina un atributo de la variable de sesión actual,
+        /// o en caso de no indicarlo, la sesión completa.
+        /// </summary>
+        /// <param name="key"></param>
         public void Delete(string key = "")
         {
             if (key.Length > 0)
@@ -66,6 +84,12 @@ namespace net.desktop.SessionManagerTools
             this.WriteDataSession();
         }
 
+        /// <summary>
+        /// Método que valida la existencia de un parámetro en particular,
+        /// dentro de la variable de sesión actual.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns>Si existe o no</returns>
         public async Task<bool> Exist(string key)
         {
 
@@ -81,16 +105,19 @@ namespace net.desktop.SessionManagerTools
             return false;
         }
 
+        /// <summary>
+        /// Método que valida los datos de la sesión guardada en sistema de archivos
+        /// </summary>
         private async void CheckSesssion()
         {
             await this.ReadDataSession();
         }
         
-        // Write data to a file
+        /// <summary>
+        /// Método que guarda los datos de la sesión actual en sistema de archivos
+        /// </summary>
         private async void WriteDataSession()
         {
-            DateTimeFormatter formatter = new DateTimeFormatter("longtime");
-
             StorageFile sessionFile = await this.localFolder.CreateFileAsync(this.SessionFile,
                 CreationCollisionOption.ReplaceExisting);
 
@@ -103,8 +130,11 @@ namespace net.desktop.SessionManagerTools
                 Debug.WriteLine("algo pasó");
             }
         }
-
-        // Read data from a file
+        
+        /// <summary>
+        /// Método que lee la información de la sesión en sistema de archivos
+        /// </summary>
+        /// <returns></returns>
         private async Task ReadDataSession()
         {
             try
@@ -112,7 +142,6 @@ namespace net.desktop.SessionManagerTools
                 StorageFile sessionFile = await this.localFolder.GetFileAsync(this.SessionFile);
                 String dataSession = await FileIO.ReadTextAsync(sessionFile);
                 this.Session = JObject.Parse(@dataSession);
-                // Data is contained in timestamp
             }
             catch (FileNotFoundException e)
             {
