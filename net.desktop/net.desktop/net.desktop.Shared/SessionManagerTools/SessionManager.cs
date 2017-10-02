@@ -11,6 +11,9 @@ using Newtonsoft.Json;
 
 namespace net.desktop.SessionManagerTools
 {
+    /// <summary>
+    /// Clase que administra la sesión durante el ciclo de vida de la aplicación.
+    /// </summary>
     class SessionManager
     {
         private JObject Session;
