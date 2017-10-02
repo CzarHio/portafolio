@@ -14,6 +14,10 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using net.desktop.Data;
 using net.desktop.Common;
+using System.Threading.Tasks;
+using net.desktop.Utilities;
+using net.desktop.SessionManagerTools;
+using System.Diagnostics;
 
 // The Universal Hub Application project template is documented at http://go.microsoft.com/fwlink/?LinkID=391955
 
@@ -26,6 +30,7 @@ namespace net.desktop
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private SessionManager SessionManager = new SessionManager();
 
         /// <summary>
         /// Gets the NavigationHelper used to aid in navigation and process lifetime management.
@@ -48,8 +53,83 @@ namespace net.desktop
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.SessionManager.Init();
+            this.CheckSession();
         }
 
+        private async void CheckSession()
+        {
+            this.ShowSections(await this.SessionManager.Exist("usuario"));
+        }
+
+        private void ShowSections(bool show)
+        {
+            Sections.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
+            bottomAppBar.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
+            Login.Visibility = show ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void ClearInput_Click(object sender, RoutedEventArgs e)
+        {
+            ((TextBox)FindChildControl<TextBox>(LoginForm, "Usuario")).Text = "";
+            ((PasswordBox)FindChildControl<PasswordBox>(LoginForm, "Password")).Password = "";
+        }
+
+        private async void Authenticate_Click(object sender, RoutedEventArgs e)
+        {
+            this.Loading_Show(true);
+            string usuario = ((TextBox)FindChildControl<TextBox>(LoginForm, "Usuario")).Text;
+            string password = ((PasswordBox)FindChildControl<PasswordBox>(LoginForm, "Password")).Password;
+            bool remember = (bool)((AppBarToggleButton)FindChildControl<AppBarToggleButton>(LoginForm, "Remember")).IsChecked;
+            
+            if (usuario.Equals("") || password.Equals(""))
+            {
+                Alert.CreateAlert("Ingrese los datos correctos.", "Sistema CEM - Error en credenciales");
+            }
+            else
+            {
+                this.SessionManager.Add("usuario", usuario);
+                this.SessionManager.Add("remember", remember.ToString());
+                await Task.Delay(2000);
+                this.ShowSections(true);
+            }
+
+            this.Loading_Show(false);
+        }
+
+        private async void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            if (await Alert.CreateConfirm("¿Está Seguro? Perderá los datos que no haya guardado.", "Cerrar sessión"))
+            {
+                this.SessionManager.Delete();
+                this.ShowSections(false);
+            }
+        }
+
+        private void Loading_Show(Boolean loading)
+        {
+            Button ClearInput = (Button)FindChildControl<Button>(LoginForm, "ClearInput");
+            Button Authenticate = (Button)FindChildControl<Button>(LoginForm, "Authenticate");
+            TextBlock ProcessTextLogin = (TextBlock)FindChildControl<TextBlock>(LoginForm, "ProcessTextLogin");
+            ProgressRing ProgressLogin = (ProgressRing)FindChildControl<ProgressRing>(LoginForm, "ProgressLogin");
+
+            if (loading)
+            {
+                ClearInput.Visibility = Visibility.Collapsed;
+                Authenticate.Visibility = Visibility.Collapsed;
+                ProcessTextLogin.Visibility = Visibility.Visible;
+                ProgressLogin.IsActive = true;
+                Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Wait, 10);
+            }
+            else
+            {
+                ClearInput.Visibility = Visibility.Visible;
+                Authenticate.Visibility = Visibility.Visible;
+                ProcessTextLogin.Visibility = Visibility.Collapsed;
+                ProgressLogin.IsActive = false;
+                Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
+            }
+        }
         /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
         /// provided when recreating a page from a prior session.
@@ -63,6 +143,7 @@ namespace net.desktop
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            this.ShowSections(false);
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-4");
             this.DefaultViewModel["Section3Items"] = sampleDataGroup;
@@ -115,5 +196,37 @@ namespace net.desktop
         }
 
         #endregion
+
+        private DependencyObject FindChildControl<T>(DependencyObject control, string ctrlName)
+        {
+            int childNumber = VisualTreeHelper.GetChildrenCount(control);
+            for (int i = 0; i < childNumber; i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(control, i);
+                FrameworkElement fe = child as FrameworkElement;
+                // Not a framework element or is null
+                if (fe == null) return null;
+
+                if (child is T && fe.Name == ctrlName)
+                {
+                    // Found the control so return
+                    return child;
+                }
+                else
+                {
+                    // Not found it - search children
+                    DependencyObject nextLevel = FindChildControl<T>(child, ctrlName);
+                    if (nextLevel != null)
+                        return nextLevel;
+                }
+            }
+            return null;
+        }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HubPage));
+        }
+        
     }
 }

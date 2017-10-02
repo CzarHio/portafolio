@@ -1,4 +1,6 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
+    <LocalAssembly PathName="c:\portafolio\portafolioweb\portafolioweb\net.desktop\net.desktop\net.desktop.windowsphone\obj\debug\intermediatexaml\net.desktop.windowsphone.exe" HashGuid="c00358c1-2c12-bd6a-dccc-22002056a3bf" />
+    <ReferenceAssembly PathName="c:\portafolio\portafolioweb\portafolioweb\net.desktop\packages\newtonsoft.json.10.0.3\lib\portable-net45+win8+wp8+wpa81\newtonsoft.json.dll" HashGuid="e252f182-a27a-2e87-e780-fe0ba98fcc94" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

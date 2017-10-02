@@ -28,17 +28,49 @@
             </Grid>
         </DataTemplate>
     </Page.Resources>
+    <Page.BottomAppBar>
+        <CommandBar x:Name="bottomAppBar" 
+                Visibility="Collapsed" 
+                IsOpen="True" 
+                IsSticky="True" Height="90" BorderBrush="White" Background="#FF3C8DBC">
+            <AppBarButton x:Name="Home" Icon="Home" Label="Inicio" Click="Home_Click"/>
+            <AppBarButton x:Name="Profile" Icon="Contact" Label="Cuenta"/>
+            <AppBarButton x:Name="Logout" Icon="Cancel" Label="Desconectar" Click="Logout_Click"/>
+        </CommandBar>
+
+    </Page.BottomAppBar>
 
     <!--
     This grid acts as a root panel for the page.
   -->
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource AppBarToggleButtonCheckedPointerOverBorderThemeBrush}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
-        <Hub SectionHeaderClick="Hub_SectionHeaderClick">
+
+        <Hub x:Name="Login" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Hub.Background>
+                <ImageBrush ImageSource="Assets/LightGray.png" Stretch="UniformToFill" />
+            </Hub.Background>
+            <HubSection x:Name="LoginForm" Width="500" Height="548" Margin="0,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <DataTemplate>
+                    <Grid>
+                        <Image x:Name="Image" HorizontalAlignment="Left" Height="80" Margin="0,-60,0,0" VerticalAlignment="Top" Width="420" Source="Assets/logo_large.png"/>
+                        <TextBox x:Name="Usuario" HorizontalAlignment="Left" Padding="10" Margin="0,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="420" PlaceholderText="Usuario" FontSize="30"/>
+                        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Padding="10" Margin="0,170,0,0" VerticalAlignment="Top" Width="420" PlaceholderText="Contraseña" FontSize="30"/>
+                        <AppBarToggleButton x:Name="Remember" Margin="-20,250,0,0" Foreground="#FF3C8DBC"/>
+                        <TextBlock x:Name="RememberText" Margin="60,260,0,0" Text="Recordarme en este equipo" Padding="10" FontSize="25" Foreground="#FF3C8DBC"/>
+                        <Button x:Name="ClearInput" Content="Limpiar" Padding="30,10,30,10" HorizontalAlignment="Left" Margin="0,330,0,0" VerticalAlignment="Top" FontSize="30" Background="#FF3C8DBC" BorderBrush="#FF3C8DBC" Click="ClearInput_Click"/>
+                        <Button x:Name="Authenticate" Content="Ingresar" Padding="30,10,30,10" HorizontalAlignment="Right" Margin="0,330,0,0" VerticalAlignment="Top" FontSize="30" Background="#FF3C8DBC" BorderBrush="#FF3C8DBC" Click="Authenticate_Click"/>
+                        <ProgressRing x:Name="ProgressLogin" IsActive="false" HorizontalAlignment="Left" Margin="0,330,0,0" Height="50" Width="50" Foreground="#FF3C8DBC"/>
+                        <TextBlock x:Name="ProcessTextLogin" Visibility="Collapsed" Margin="60,330,0,0" Text="conectando..." Padding="10" FontSize="30" Foreground="#FF3C8DBC"/>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+        <Hub x:Name="Sections" Visibility="Collapsed" SectionHeaderClick="Hub_SectionHeaderClick" Background="#FF3C8DBC">
             <Hub.Header>
                 <!-- Back button and page title -->
                 <Grid>
@@ -52,9 +84,10 @@
                         Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>
-                    <TextBlock x:Name="pageTitle" x:Uid="Header" Text="application name" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        AutomationProperties.ItemType="Navigation Button" BorderBrush="White" Foreground="White"/>
+                    <TextBlock x:Name="pageTitle" x:Uid="Header" Text="Sistema CEM" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
+
                 </Grid>
             </Hub.Header>
             <HubSection Width="780" Margin="0,0,80,0">
@@ -114,8 +147,7 @@
                         SelectionMode="None"
                         IsSwipeEnabled="false"
                         IsItemClickEnabled="True"
-                        ItemClick="ItemView_ItemClick">
-                    </GridView>
+                        ItemClick="ItemView_ItemClick"/>
                 </DataTemplate>
             </HubSection>
             <HubSection x:Uid="Section4Header" Header="Section 4">

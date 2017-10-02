@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>JOE-XIDU</Machine>
+    <WindowsUser>Joe-Xidu</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>30bedbe5-7197-43eb-8da6-549fbe6531a7</PackageIdentityName>
+    <PackageIdentityPublisher>CN=Joe-Xidu</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <RegisteredManifestChecksum>7E2531BEF9166B0B7D89185508DAFDF49D127F8CCAEB9853E849F8B0D89BE45E</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>30bedbe5-7197-43eb-8da6-549fbe6531a7_1.0.0.0_neutral__9kyck5ztcczrp</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>30bedbe5-7197-43eb-8da6-549fbe6531a7_9kyck5ztcczrp!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>30bedbe5-7197-43eb-8da6-549fbe6531a7</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Joe-Xidu</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-10-01T20:42:30.810</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\net.desktop.Windows.exe">
+      <PackagePath>net.desktop.Windows.exe</PackagePath>
+      <Modified>2017-10-02T01:36:09.807</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2017-06-18T17:57:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <Modified>2015-07-07T01:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\logo_large.png">
+      <PackagePath>Assets\logo_large.png</PackagePath>
+      <Modified>2017-09-14T04:26:26.495</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-10-01T07:29:16.259</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-07T01:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-10-01T07:11:48.636</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\Square150x150Logo.scale-140.png">
+      <PackagePath>Assets\Square150x150Logo.scale-140.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-10-01T07:20:13.128</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\Square150x150Logo.scale-180.png">
+      <PackagePath>Assets\Square150x150Logo.scale-180.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-10-01T07:18:38.904</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\Square150x150Logo.scale-80.png">
+      <PackagePath>Assets\Square150x150Logo.scale-80.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-10-01T07:21:18.575</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-07T01:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\Assets\WideLogo.scale-100.png">
+      <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
+      <Modified>2015-07-07T01:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\favicon.scale-140.png">
+      <PackagePath>Assets\favicon.scale-140.png</PackagePath>
+      <Modified>2017-09-14T04:32:26.345</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\logo-cem.png">
+      <PackagePath>Assets\logo-cem.png</PackagePath>
+      <Modified>2017-09-14T04:29:28.159</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\LightGray.png">
+      <PackagePath>Assets\LightGray.png</PackagePath>
+      <Modified>2015-07-07T01:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\MediumGray.png">
+      <PackagePath>Assets\MediumGray.png</PackagePath>
+      <Modified>2015-07-07T01:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\Assets\DarkGray.png">
+      <PackagePath>Assets\DarkGray.png</PackagePath>
+      <Modified>2015-07-07T01:01:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Shared\DataModel\SampleData.json">
+      <PackagePath>DataModel\SampleData.json</PackagePath>
+      <Modified>2017-09-27T02:51:10.804</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\net.desktop.Windows.xr.xml">
+      <PackagePath>net.desktop.Windows.xr.xml</PackagePath>
+      <Modified>2017-10-02T01:21:49.629</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2017-10-01T20:07:40.043</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\HubPage.xbf">
+      <PackagePath>HubPage.xbf</PackagePath>
+      <Modified>2017-10-02T01:31:31.672</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\SectionPage.xbf">
+      <PackagePath>SectionPage.xbf</PackagePath>
+      <Modified>2017-10-01T20:07:40.043</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\ItemPage.xbf">
+      <PackagePath>ItemPage.xbf</PackagePath>
+      <Modified>2017-10-01T20:07:40.043</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2017-10-01T20:42:30.630</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
