@@ -34,7 +34,7 @@ namespace net.desktop.SessionManagerTools
             {
                 await this.ReadDataSession();
 
-                if (!(bool)this.Session["remember"])
+                if (this.Session["remember"] != null && !(bool)this.Session["remember"])
                     this.Delete();
             }
             catch (JsonReaderException)
