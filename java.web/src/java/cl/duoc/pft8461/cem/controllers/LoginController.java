@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import ws.UsuarioWS_Service;
 
 /**
  *
@@ -24,6 +25,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @SessionAttributes
 public class LoginController {
+    
+    private final UsuarioWS_Service ws = new UsuarioWS_Service();
     
     public LoginController() {
     }
@@ -61,10 +64,16 @@ public class LoginController {
         HttpSession session = request.getSession();
         ModelAndView mav = new ModelAndView();
         // Users user = this.users.authenticate(request.getParameter("login"), request.getParameter("password"));
-        
-        mav.addObject("error", "Usuario o Contraseña no válidos.");
 
-        mav.setViewName("login");
+        
+        request.getParameter("login");
+        if(ws.getUsuarioWSPort().autenticar(request.getParameter("login"), request.getParameter("password"))!=null){
+           mav.setViewName("home"); 
+        } else{
+            mav.addObject("error", "Usuario o Contraseña no válidos.");
+            mav.setViewName("login");
+            
+        }
         return mav;
     }
     

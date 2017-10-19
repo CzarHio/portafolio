@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://ec2-13-58-3-235.us-east-2.compute.amazonaws.com/webservice/UsuarioWS?xsd=1" uri="src/conf/xml-resources/web-service-references/UsuarioWS_xsd_1/wsdl/ec2-13-58-3-235.us-east-2.compute.amazonaws.com/webservice/UsuarioWS.xsd_1.xsd"/>
+    <system systemId="http://ec2-13-58-3-235.us-east-2.compute.amazonaws.com/webservice/UsuarioWS?WSDL" uri="src/conf/xml-resources/web-service-references/UsuarioWS/wsdl/ec2-13-58-3-235.us-east-2.compute.amazonaws.com/webservice/UsuarioWS.wsdl"/>
+    <system systemId="http://ec2-13-58-3-235.us-east-2.compute.amazonaws.com:80/webservice/UsuarioWS?xsd=1" uri="src/conf/xml-resources/web-service-references/UsuarioWS/wsdl/ec2-13-58-3-235.us-east-2.compute.amazonaws.com_80/webservice/UsuarioWS.xsd_1.xsd"/>
+    <system systemId="http://ws.huevoscopita.cl/webservice/UsuarioWS?WSDL" uri="src/conf/xml-resources/web-service-references/UsuarioWS/wsdl/ws.huevoscopita.cl/webservice/UsuarioWS.wsdl"/>
+    <system systemId="http://ws.huevoscopita.cl:80/webservice/UsuarioWS?xsd=1" uri="src/conf/xml-resources/web-service-references/UsuarioWS/wsdl/ws.huevoscopita.cl_80/webservice/UsuarioWS.xsd_1.xsd"/>
+</catalog>
