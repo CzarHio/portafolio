@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using net.desktop.Utilities;
 using net.desktop.SessionManagerTools;
 using System.Diagnostics;
+using net.desktop.Services;
 
 // The Universal Hub Application project template is documented at http://go.microsoft.com/fwlink/?LinkID=391955
 
@@ -31,6 +32,7 @@ namespace net.desktop
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private SessionManager SessionManager = new SessionManager();
+        private AuthenticationService authService = new AuthenticationService();
 
         /// <summary>
         /// Gets the NavigationHelper used to aid in navigation and process lifetime management.
@@ -80,6 +82,7 @@ namespace net.desktop
             this.Loading_Show(true);
             string usuario = ((TextBox)FindChildControl<TextBox>(LoginForm, "Usuario")).Text;
             string password = ((PasswordBox)FindChildControl<PasswordBox>(LoginForm, "Password")).Password;
+
             bool remember = (bool)((AppBarToggleButton)FindChildControl<AppBarToggleButton>(LoginForm, "Remember")).IsChecked;
             
             if (usuario.Equals("") || password.Equals(""))
@@ -88,10 +91,26 @@ namespace net.desktop
             }
             else
             {
-                this.SessionManager.Add("usuario", usuario);
-                this.SessionManager.Add("remember", remember.ToString());
-                await Task.Delay(2000);
-                this.ShowSections(true);
+                Object response = false;
+
+                try
+                {
+                    response = await this.authService.aunthenticate(usuario, password);
+
+                    if (response.Equals(false))
+                        Alert.CreateAlert("Ingrese los datos correctos.", "Sistema CEM - Error en credenciales");
+                    else
+                    {
+                        this.SessionManager.Add("usuario", response);
+                        this.SessionManager.Add("remember", remember.ToString());
+                        this.ShowSections(true);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    Alert.CreateAlert("Ocurrió un error al intentar conectar. Compruebe su conexión e intente más tarde.", "Sistema CEM - Error de conexión");
+                }
             }
 
             this.Loading_Show(false);
