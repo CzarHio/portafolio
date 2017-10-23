@@ -20,17 +20,17 @@
         <property name="mappings">
             <props>
                 <prop key="index.htm">indexController</prop>
-                <!--
-                |
-                | Login Routes
-                |
-                -->
+                <!-- Login Routes  -->
                 <prop key="login.htm">login</prop>
                 <prop key="postLogin.htm">login</prop>
                 <prop key="registrarse.htm">login</prop>
                 <prop key="registro.htm">login</prop>
                 <prop key="salir.htm">login</prop>
-                
+                <!-- Home Routes  -->
+                <prop key="home.htm">home</prop>
+                <!-- Usuario Routes  -->
+                <prop key="usuario/lista.htm">usuario</prop>
+                <prop key="usuario/nuevo.htm">usuario</prop>
             </props>
         </property>
     </bean>
@@ -44,7 +44,8 @@
     Beans controllers.
     -->
     <bean name="login" class="cl.duoc.pft8461.cem.controllers.LoginController"/>
-    
+    <bean name="home" class="cl.duoc.pft8461.cem.controllers.HomeController"/>
+    <bean name="usuario" class="cl.duoc.pft8461.cem.controllers.UsuarioController"/>
     <!--
     The index controller.
     -->

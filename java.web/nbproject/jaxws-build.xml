@@ -26,9 +26,233 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
+    <target name="wsimport-client-CentroWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CentroWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CentroWS" destdir="${build.generated.dir}/jax-wsCache/CentroWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CentroWS/wsdl/ws.huevoscopita.cl/webservice/CentroWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/CentroWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CentroWS/wsdl/ws.huevoscopita.cl/webservice/CentroWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CentroWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CentroWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CentroWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CentroWS"/>
+    </target>
+    <target name="wsimport-client-ParticipacionWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ParticipacionWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ParticipacionWS" destdir="${build.generated.dir}/jax-wsCache/ParticipacionWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ParticipacionWS/wsdl/ws.huevoscopita.cl/webservice/ParticipacionWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/ParticipacionWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ParticipacionWS/wsdl/ws.huevoscopita.cl/webservice/ParticipacionWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ParticipacionWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ParticipacionWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ParticipacionWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ParticipacionWS"/>
+    </target>
+    <target name="wsimport-client-EstadoParticipacionWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/EstadoParticipacionWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/EstadoParticipacionWS" destdir="${build.generated.dir}/jax-wsCache/EstadoParticipacionWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoParticipacionWS/wsdl/ws.huevoscopita.cl/webservice/EstadoParticipacionWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/EstadoParticipacionWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoParticipacionWS/wsdl/ws.huevoscopita.cl/webservice/EstadoParticipacionWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/EstadoParticipacionWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/EstadoParticipacionWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-EstadoParticipacionWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/EstadoParticipacionWS"/>
+    </target>
+    <target name="wsimport-client-ProgramaWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ProgramaWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ProgramaWS" destdir="${build.generated.dir}/jax-wsCache/ProgramaWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ProgramaWS/wsdl/ws.huevoscopita.cl/webservice/ProgramaWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/ProgramaWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ProgramaWS/wsdl/ws.huevoscopita.cl/webservice/ProgramaWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ProgramaWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ProgramaWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ProgramaWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/ProgramaWS"/>
+    </target>
+    <target name="wsimport-client-EstadoProgramaWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/EstadoProgramaWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/EstadoProgramaWS" destdir="${build.generated.dir}/jax-wsCache/EstadoProgramaWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoProgramaWS/wsdl/ws.huevoscopita.cl/webservice/EstadoProgramaWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/EstadoProgramaWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoProgramaWS/wsdl/ws.huevoscopita.cl/webservice/EstadoProgramaWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/EstadoProgramaWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/EstadoProgramaWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-EstadoProgramaWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/EstadoProgramaWS"/>
+    </target>
+    <target name="wsimport-client-PaisWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PaisWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PaisWS" destdir="${build.generated.dir}/jax-wsCache/PaisWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PaisWS/wsdl/ws.huevoscopita.cl/webservice/PaisWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/PaisWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/PaisWS/wsdl/ws.huevoscopita.cl/webservice/PaisWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PaisWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PaisWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PaisWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/PaisWS"/>
+    </target>
+    <target name="wsimport-client-CiudadWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CiudadWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CiudadWS" destdir="${build.generated.dir}/jax-wsCache/CiudadWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CiudadWS/wsdl/ws.huevoscopita.cl/webservice/CiudadWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/CiudadWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CiudadWS/wsdl/ws.huevoscopita.cl/webservice/CiudadWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CiudadWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CiudadWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CiudadWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CiudadWS"/>
+    </target>
+    <target name="wsimport-client-PerfilUsuarioWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PerfilUsuarioWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PerfilUsuarioWS" destdir="${build.generated.dir}/jax-wsCache/PerfilUsuarioWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PerfilUsuarioWS/wsdl/ws.huevoscopita.cl/webservice/PerfilUsuarioWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/PerfilUsuarioWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/PerfilUsuarioWS/wsdl/ws.huevoscopita.cl/webservice/PerfilUsuarioWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PerfilUsuarioWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PerfilUsuarioWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PerfilUsuarioWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/PerfilUsuarioWS"/>
+    </target>
+    <target name="wsimport-client-NotaWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/NotaWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/NotaWS" destdir="${build.generated.dir}/jax-wsCache/NotaWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/NotaWS/wsdl/ws.huevoscopita.cl/webservice/NotaWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/NotaWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/NotaWS/wsdl/ws.huevoscopita.cl/webservice/NotaWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/NotaWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/NotaWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-NotaWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/NotaWS"/>
+    </target>
+    <target name="wsimport-client-CursoWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CursoWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CursoWS" destdir="${build.generated.dir}/jax-wsCache/CursoWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CursoWS/wsdl/ws.huevoscopita.cl/webservice/CursoWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/CursoWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CursoWS/wsdl/ws.huevoscopita.cl/webservice/CursoWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CursoWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CursoWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CursoWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CursoWS"/>
+    </target>
+    <target name="wsimport-client-DocumentoWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/DocumentoWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/DocumentoWS" destdir="${build.generated.dir}/jax-wsCache/DocumentoWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/DocumentoWS/wsdl/ws.huevoscopita.cl/webservice/DocumentoWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/DocumentoWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/DocumentoWS/wsdl/ws.huevoscopita.cl/webservice/DocumentoWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/DocumentoWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/DocumentoWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-DocumentoWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/DocumentoWS"/>
+    </target>
+    <target name="wsimport-client-TipoDocumentoWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/TipoDocumentoWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/TipoDocumentoWS" destdir="${build.generated.dir}/jax-wsCache/TipoDocumentoWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/TipoDocumentoWS/wsdl/ws.huevoscopita.cl/webservice/TipoDocumentoWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/TipoDocumentoWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/TipoDocumentoWS/wsdl/ws.huevoscopita.cl/webservice/TipoDocumentoWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/TipoDocumentoWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/TipoDocumentoWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-TipoDocumentoWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/TipoDocumentoWS"/>
+    </target>
+    <target name="wsimport-client-EstadoDocumentoWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/EstadoDocumentoWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/EstadoDocumentoWS" destdir="${build.generated.dir}/jax-wsCache/EstadoDocumentoWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoDocumentoWS/wsdl/ws.huevoscopita.cl/webservice/EstadoDocumentoWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/EstadoDocumentoWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoDocumentoWS/wsdl/ws.huevoscopita.cl/webservice/EstadoDocumentoWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/EstadoDocumentoWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/EstadoDocumentoWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-EstadoDocumentoWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/EstadoDocumentoWS"/>
+    </target>
+    <target name="wsimport-client-RegionWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/RegionWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegionWS" destdir="${build.generated.dir}/jax-wsCache/RegionWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/RegionWS/wsdl/ws.huevoscopita.cl/webservice/RegionWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/RegionWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/RegionWS/wsdl/ws.huevoscopita.cl/webservice/RegionWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/RegionWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/RegionWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-RegionWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/RegionWS"/>
+    </target>
     <target name="wsimport-client-UsuarioWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/UsuarioWS"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/UsuarioWS" destdir="${build.generated.dir}/jax-wsCache/UsuarioWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/UsuarioWS/wsdl/ws.huevoscopita.cl/webservice/UsuarioWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/UsuarioWS?WSDL" xnocompile="true" xendorsed="true" package="cl.duoc.pft8461.cem.ws">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/UsuarioWS" destdir="${build.generated.dir}/jax-wsCache/UsuarioWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/UsuarioWS/wsdl/ws.huevoscopita.cl/webservice/UsuarioWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/UsuarioWS?WSDL" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/UsuarioWS/wsdl/ws.huevoscopita.cl/webservice/UsuarioWS.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/UsuarioWS"/>
         </wsimport>
@@ -42,5 +266,101 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/UsuarioWS"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-UsuarioWS"/>
+    <target name="wsimport-client-MenuWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/MenuWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MenuWS" destdir="${build.generated.dir}/jax-wsCache/MenuWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MenuWS/wsdl/ws.huevoscopita.cl/webservice/MenuWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/MenuWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MenuWS/wsdl/ws.huevoscopita.cl/webservice/MenuWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/MenuWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/MenuWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-MenuWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/MenuWS"/>
+    </target>
+    <target name="wsimport-client-MenuItemWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/MenuItemWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MenuItemWS" destdir="${build.generated.dir}/jax-wsCache/MenuItemWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MenuItemWS/wsdl/ws.huevoscopita.cl/webservice/MenuItemWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/MenuItemWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MenuItemWS/wsdl/ws.huevoscopita.cl/webservice/MenuItemWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/MenuItemWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/MenuItemWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-MenuItemWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/MenuItemWS"/>
+    </target>
+    <target name="wsimport-client-PostulacionWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PostulacionWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PostulacionWS" destdir="${build.generated.dir}/jax-wsCache/PostulacionWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/PostulacionWS/wsdl/ws.huevoscopita.cl/webservice/PostulacionWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/PostulacionWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/PostulacionWS/wsdl/ws.huevoscopita.cl/webservice/PostulacionWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PostulacionWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PostulacionWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PostulacionWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/PostulacionWS"/>
+    </target>
+    <target name="wsimport-client-EstadoPostulacionWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/EstadoPostulacionWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/EstadoPostulacionWS" destdir="${build.generated.dir}/jax-wsCache/EstadoPostulacionWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoPostulacionWS/wsdl/ws.huevoscopita.cl/webservice/EstadoPostulacionWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/EstadoPostulacionWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoPostulacionWS/wsdl/ws.huevoscopita.cl/webservice/EstadoPostulacionWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/EstadoPostulacionWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/EstadoPostulacionWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-EstadoPostulacionWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/EstadoPostulacionWS"/>
+    </target>
+    <target name="wsimport-client-FamiliaWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/FamiliaWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/FamiliaWS" destdir="${build.generated.dir}/jax-wsCache/FamiliaWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/FamiliaWS/wsdl/ws.huevoscopita.cl/webservice/FamiliaWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/FamiliaWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/FamiliaWS/wsdl/ws.huevoscopita.cl/webservice/FamiliaWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/FamiliaWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/FamiliaWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-FamiliaWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/FamiliaWS"/>
+    </target>
+    <target name="wsimport-client-EstadoFamiliaWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/EstadoFamiliaWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/EstadoFamiliaWS" destdir="${build.generated.dir}/jax-wsCache/EstadoFamiliaWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoFamiliaWS/wsdl/ws.huevoscopita.cl/webservice/EstadoFamiliaWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/EstadoFamiliaWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/EstadoFamiliaWS/wsdl/ws.huevoscopita.cl/webservice/EstadoFamiliaWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/EstadoFamiliaWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/EstadoFamiliaWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-EstadoFamiliaWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/EstadoFamiliaWS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-CentroWS, wsimport-client-ParticipacionWS, wsimport-client-EstadoParticipacionWS, wsimport-client-ProgramaWS, wsimport-client-EstadoProgramaWS, wsimport-client-PaisWS, wsimport-client-CiudadWS, wsimport-client-PerfilUsuarioWS, wsimport-client-NotaWS, wsimport-client-CursoWS, wsimport-client-DocumentoWS, wsimport-client-TipoDocumentoWS, wsimport-client-EstadoDocumentoWS, wsimport-client-RegionWS, wsimport-client-UsuarioWS, wsimport-client-MenuWS, wsimport-client-MenuItemWS, wsimport-client-PostulacionWS, wsimport-client-EstadoPostulacionWS, wsimport-client-FamiliaWS, wsimport-client-EstadoFamiliaWS"/>
 </project>
