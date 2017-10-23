@@ -16,6 +16,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\SampleDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\CentroEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\CiudadEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\CursoEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\FamiliaEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\NotaEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\PaisEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\ParticipacionEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\PostulacionEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\ProgramaEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\RegionEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\UsuarioEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SessionManagerTools\SessionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Alert.cs" />

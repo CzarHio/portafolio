@@ -113,12 +113,93 @@
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WebServiceCurso\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceNota\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceRegion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceCentro\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceCiudad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceEsadoFamilia\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceEstadoParticipacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceEstadoPostulacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceEstadoPrograma\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceFamilia\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServicePais\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServiceParticipacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServicePostulacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WebServicePrograma\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\WebServiceUsuario\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\CentroService.cs" />
+    <Compile Include="Services\CiudadService.cs" />
+    <Compile Include="Services\CursoService.cs" />
+    <Compile Include="Services\FamiliaService.cs" />
+    <Compile Include="Services\NotaService.cs" />
+    <Compile Include="Services\ParticipacionService.cs" />
+    <Compile Include="Services\PaisService.cs" />
+    <Compile Include="Services\PostulacionService.cs" />
+    <Compile Include="Services\ProgramaService.cs" />
+    <Compile Include="Services\RegionService.cs" />
+    <Compile Include="Services\UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -127,6 +208,188 @@
     <None Include="net.desktop.Windows_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\WebServiceCurso\CursoWS.wsdl" />
+    <None Include="Service References\WebServiceCurso\CursoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceCurso\net.desktop.WebServiceCurso.findAllCursoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceCurso\net.desktop.WebServiceCurso.findCursoPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceCurso\net.desktop.WebServiceCurso.findCursoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceNota\net.desktop.WebServiceNota.findAllNotaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceNota\net.desktop.WebServiceNota.findNotaPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceNota\net.desktop.WebServiceNota.findNotaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceNota\NotaWS.wsdl" />
+    <None Include="Service References\WebServiceNota\NotaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceRegion\net.desktop.WebServiceRegion.findAllRegionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceRegion\net.desktop.WebServiceRegion.findRegionPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceRegion\net.desktop.WebServiceRegion.findRegionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceRegion\RegionWS.wsdl" />
+    <None Include="Service References\WebServiceRegion\RegionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceCentro\CentroWS.wsdl" />
+    <None Include="Service References\WebServiceCentro\CentroWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceCentro\net.desktop.WebServiceCentro.findAllCentroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceCentro\net.desktop.WebServiceCentro.findCentroPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceCentro\net.desktop.WebServiceCentro.findCentroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceCiudad\CiudadWS.wsdl" />
+    <None Include="Service References\WebServiceCiudad\CiudadWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceCiudad\net.desktop.WebServiceCiudad.findAllCiudadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceCiudad\net.desktop.WebServiceCiudad.findCiudadPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceCiudad\net.desktop.WebServiceCiudad.findCiudadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEsadoFamilia\EstadoFamiliaWS.wsdl" />
+    <None Include="Service References\WebServiceEsadoFamilia\EstadoFamiliaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceEsadoFamilia\net.desktop.WebServiceEsadoFamilia.findAllEstadoFamiliaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEsadoFamilia\net.desktop.WebServiceEsadoFamilia.findEstadoFamiliaPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEsadoFamilia\net.desktop.WebServiceEsadoFamilia.findEstadoFamiliaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEstadoParticipacion\EstadoParticipacionWS.wsdl" />
+    <None Include="Service References\WebServiceEstadoParticipacion\EstadoParticipacionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceEstadoParticipacion\net.desktop.WebServiceEstadoParticipacion.findAllEstadoParticipacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEstadoParticipacion\net.desktop.WebServiceEstadoParticipacion.findEstadoParticipacionPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEstadoParticipacion\net.desktop.WebServiceEstadoParticipacion.findEstadoParticipacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEstadoPostulacion\EstadoPostulacionWS.wsdl" />
+    <None Include="Service References\WebServiceEstadoPostulacion\EstadoPostulacionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceEstadoPostulacion\net.desktop.WebServiceEstadoPostulacion.findAllEstadoPostulacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEstadoPostulacion\net.desktop.WebServiceEstadoPostulacion.findEstadoPostulacionPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEstadoPostulacion\net.desktop.WebServiceEstadoPostulacion.findEstadoPostulacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEstadoPrograma\EstadoProgramaWS.wsdl" />
+    <None Include="Service References\WebServiceEstadoPrograma\EstadoProgramaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceEstadoPrograma\net.desktop.WebServiceEstadoPrograma.findAllEstadoProgramaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEstadoPrograma\net.desktop.WebServiceEstadoPrograma.findEstadoProgramaPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceEstadoPrograma\net.desktop.WebServiceEstadoPrograma.findEstadoProgramaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceFamilia\FamiliaWS.wsdl" />
+    <None Include="Service References\WebServiceFamilia\FamiliaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceFamilia\net.desktop.WebServiceFamilia.findAllFamiliaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceFamilia\net.desktop.WebServiceFamilia.findFamiliaPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceFamilia\net.desktop.WebServiceFamilia.findFamiliaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePais\net.desktop.WebServicePais.findAllPaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePais\net.desktop.WebServicePais.findPaisPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePais\net.desktop.WebServicePais.findPaisResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePais\PaisWS.wsdl" />
+    <None Include="Service References\WebServicePais\PaisWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceParticipacion\net.desktop.WebServiceParticipacion.findAllParticipacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceParticipacion\net.desktop.WebServiceParticipacion.findParticipacionPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceParticipacion\net.desktop.WebServiceParticipacion.findParticipacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceParticipacion\ParticipacionWS.wsdl" />
+    <None Include="Service References\WebServiceParticipacion\ParticipacionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServicePostulacion\net.desktop.WebServicePostulacion.findAllPostulacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePostulacion\net.desktop.WebServicePostulacion.findPostulacionPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePostulacion\net.desktop.WebServicePostulacion.findPostulacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePostulacion\PostulacionWS.wsdl" />
+    <None Include="Service References\WebServicePostulacion\PostulacionWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServicePrograma\net.desktop.WebServicePrograma.findAllProgramaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePrograma\net.desktop.WebServicePrograma.findProgramaPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePrograma\net.desktop.WebServicePrograma.findProgramaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePrograma\ProgramaWS.wsdl" />
+    <None Include="Service References\WebServicePrograma\ProgramaWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\WebServiceUsuario\net.desktop.WebServiceUsuario.autenticarResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -152,6 +415,90 @@
     <Content Include="Assets\Square150x150Logo.scale-80.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\WideLogo.scale-100.png" />
+    <None Include="Service References\WebServiceCurso\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceCurso\configuration.svcinfo" />
+    <None Include="Service References\WebServiceCurso\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceNota\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceNota\configuration.svcinfo" />
+    <None Include="Service References\WebServiceNota\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceRegion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceRegion\configuration.svcinfo" />
+    <None Include="Service References\WebServiceRegion\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceCiudad\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceCiudad\configuration.svcinfo" />
+    <None Include="Service References\WebServiceCiudad\configuration91.svcinfo" />
+    <None Include="Service References\WebServicePais\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServicePais\configuration.svcinfo" />
+    <None Include="Service References\WebServicePais\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceEstadoPrograma\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceEstadoPrograma\configuration.svcinfo" />
+    <None Include="Service References\WebServiceEstadoPrograma\configuration91.svcinfo" />
+    <None Include="Service References\WebServicePrograma\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServicePrograma\configuration.svcinfo" />
+    <None Include="Service References\WebServicePrograma\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceEstadoParticipacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceEstadoParticipacion\configuration.svcinfo" />
+    <None Include="Service References\WebServiceEstadoParticipacion\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceFamilia\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceFamilia\configuration.svcinfo" />
+    <None Include="Service References\WebServiceFamilia\configuration91.svcinfo" />
+    <None Include="Service References\WebServicePostulacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServicePostulacion\configuration.svcinfo" />
+    <None Include="Service References\WebServicePostulacion\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceParticipacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceParticipacion\configuration.svcinfo" />
+    <None Include="Service References\WebServiceParticipacion\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceCentro\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceCentro\configuration.svcinfo" />
+    <None Include="Service References\WebServiceCentro\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceEsadoFamilia\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceEsadoFamilia\configuration.svcinfo" />
+    <None Include="Service References\WebServiceEsadoFamilia\configuration91.svcinfo" />
+    <None Include="Service References\WebServiceEstadoPostulacion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceEstadoPostulacion\configuration.svcinfo" />
+    <None Include="Service References\WebServiceEstadoPostulacion\configuration91.svcinfo" />
     <None Include="Service References\WebServiceUsuario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -183,6 +530,20 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WebServiceCurso\" />
+    <WCFMetadataStorage Include="Service References\WebServiceNota\" />
+    <WCFMetadataStorage Include="Service References\WebServiceRegion\" />
+    <WCFMetadataStorage Include="Service References\WebServiceCentro\" />
+    <WCFMetadataStorage Include="Service References\WebServiceCiudad\" />
+    <WCFMetadataStorage Include="Service References\WebServiceEsadoFamilia\" />
+    <WCFMetadataStorage Include="Service References\WebServiceEstadoParticipacion\" />
+    <WCFMetadataStorage Include="Service References\WebServiceEstadoPostulacion\" />
+    <WCFMetadataStorage Include="Service References\WebServiceEstadoPrograma\" />
+    <WCFMetadataStorage Include="Service References\WebServiceFamilia\" />
+    <WCFMetadataStorage Include="Service References\WebServicePais\" />
+    <WCFMetadataStorage Include="Service References\WebServiceParticipacion\" />
+    <WCFMetadataStorage Include="Service References\WebServicePostulacion\" />
+    <WCFMetadataStorage Include="Service References\WebServicePrograma\" />
     <WCFMetadataStorage Include="Service References\WebServiceUsuario\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

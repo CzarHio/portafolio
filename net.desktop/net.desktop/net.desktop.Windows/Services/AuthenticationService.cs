@@ -16,7 +16,6 @@ namespace net.desktop.Services
 
         public async Task<Object> aunthenticate(string usuario, string clave)
         {
-
             
             this.response = await this.service.autenticarAsync(usuario, clave);
             

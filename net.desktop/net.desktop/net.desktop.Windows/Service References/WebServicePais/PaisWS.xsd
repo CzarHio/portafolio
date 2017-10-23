@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="createPais" type="tns:createPais" />
+  <xs:element name="editPais" type="tns:editPais" />
+  <xs:element name="findAllPais" type="tns:findAllPais" />
+  <xs:element name="findAllPaisResponse" type="tns:findAllPaisResponse" />
+  <xs:element name="findPais" type="tns:findPais" />
+  <xs:element name="findPaisPor" type="tns:findPaisPor" />
+  <xs:element name="findPaisPorResponse" type="tns:findPaisPorResponse" />
+  <xs:element name="findPaisResponse" type="tns:findPaisResponse" />
+  <xs:element name="pais" type="tns:pais" />
+  <xs:element name="removePais" type="tns:removePais" />
+  <xs:complexType name="findPais">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPaisResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:pais" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pais">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idPais" type="xs:decimal" />
+      <xs:element minOccurs="0" name="nombrePais" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removePais">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllPais">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllPaisResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:pais" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createPais">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre_pais" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editPais">
+    <xs:sequence>
+      <xs:element name="id_pais" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_pais" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPaisPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPaisPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:pais" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

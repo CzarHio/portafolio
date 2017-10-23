@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ciudad" type="tns:ciudad" />
+  <xs:element name="createCiudad" type="tns:createCiudad" />
+  <xs:element name="editCiudad" type="tns:editCiudad" />
+  <xs:element name="findAllCiudad" type="tns:findAllCiudad" />
+  <xs:element name="findAllCiudadResponse" type="tns:findAllCiudadResponse" />
+  <xs:element name="findCiudad" type="tns:findCiudad" />
+  <xs:element name="findCiudadPor" type="tns:findCiudadPor" />
+  <xs:element name="findCiudadPorResponse" type="tns:findCiudadPorResponse" />
+  <xs:element name="findCiudadResponse" type="tns:findCiudadResponse" />
+  <xs:element name="removeCiudad" type="tns:removeCiudad" />
+  <xs:complexType name="removeCiudad">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createCiudad">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre_ciudad" type="xs:string" />
+      <xs:element name="id_region" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editCiudad">
+    <xs:sequence>
+      <xs:element name="id_ciudad" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_ciudad" type="xs:string" />
+      <xs:element name="id_region" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllCiudad">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllCiudadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ciudad" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ciudad">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idCiudad" type="xs:decimal" />
+      <xs:element name="idRegion" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreCiudad" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCiudad">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCiudadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:ciudad" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCiudadPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCiudadPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:ciudad" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

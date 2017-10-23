@@ -67,6 +67,11 @@ namespace net.desktop.Entities
             get;
         }
 
+        public string Nombre_Completo
+        {
+            set;
+            get;
+        }
 
     }
 }

@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
+using net.desktop.Services;
 
 // The Universal Hub Application project template is documented at http://go.microsoft.com/fwlink/?LinkID=391955
 
@@ -28,6 +30,8 @@ namespace net.desktop
     {
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private CentroService CentroService = new CentroService();
+        private ParticipacionService ParticipacionService = new ParticipacionService();
 
         public ItemPage()
         {
@@ -65,8 +69,9 @@ namespace net.desktop
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var item = await SampleDataSource.GetItemAsync((string)e.NavigationParameter);
+            var item = await this.CentroService.Find((int)e.NavigationParameter);
+            item.Participaciones = await this.ParticipacionService.All("id_centro", item.Id_Centro.ToString());
+            
             this.DefaultViewModel["Item"] = item;
         }
 

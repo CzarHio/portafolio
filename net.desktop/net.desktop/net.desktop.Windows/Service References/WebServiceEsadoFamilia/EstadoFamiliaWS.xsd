@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="createEstadoFamilia" type="tns:createEstadoFamilia" />
+  <xs:element name="editEstadoFamilia" type="tns:editEstadoFamilia" />
+  <xs:element name="estadoFamilia" type="tns:estadoFamilia" />
+  <xs:element name="findAllEstadoFamilia" type="tns:findAllEstadoFamilia" />
+  <xs:element name="findAllEstadoFamiliaResponse" type="tns:findAllEstadoFamiliaResponse" />
+  <xs:element name="findEstadoFamilia" type="tns:findEstadoFamilia" />
+  <xs:element name="findEstadoFamiliaPor" type="tns:findEstadoFamiliaPor" />
+  <xs:element name="findEstadoFamiliaPorResponse" type="tns:findEstadoFamiliaPorResponse" />
+  <xs:element name="findEstadoFamiliaResponse" type="tns:findEstadoFamiliaResponse" />
+  <xs:element name="removeEstadoFamilia" type="tns:removeEstadoFamilia" />
+  <xs:complexType name="findEstadoFamiliaPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findEstadoFamiliaPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:estadoFamilia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoFamilia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="idEstado" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editEstadoFamilia">
+    <xs:sequence>
+      <xs:element name="id_estado" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findEstadoFamilia">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findEstadoFamiliaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:estadoFamilia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createEstadoFamilia">
+    <xs:sequence>
+      <xs:element name="id_estado" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllEstadoFamilia">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllEstadoFamiliaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:estadoFamilia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeEstadoFamilia">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

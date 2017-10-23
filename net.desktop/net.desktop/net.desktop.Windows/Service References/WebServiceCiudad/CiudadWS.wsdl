@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="CiudadWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/CiudadWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="findAllCiudad">
+    <part name="parameters" element="tns:findAllCiudad" />
+  </message>
+  <message name="findAllCiudadResponse">
+    <part name="parameters" element="tns:findAllCiudadResponse" />
+  </message>
+  <message name="editCiudad">
+    <part name="parameters" element="tns:editCiudad" />
+  </message>
+  <message name="findCiudad">
+    <part name="parameters" element="tns:findCiudad" />
+  </message>
+  <message name="findCiudadResponse">
+    <part name="parameters" element="tns:findCiudadResponse" />
+  </message>
+  <message name="findCiudadPor">
+    <part name="parameters" element="tns:findCiudadPor" />
+  </message>
+  <message name="findCiudadPorResponse">
+    <part name="parameters" element="tns:findCiudadPorResponse" />
+  </message>
+  <message name="removeCiudad">
+    <part name="parameters" element="tns:removeCiudad" />
+  </message>
+  <message name="createCiudad">
+    <part name="parameters" element="tns:createCiudad" />
+  </message>
+  <portType name="CiudadWS">
+    <operation name="findAllCiudad">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CiudadWS/findAllCiudadRequest" message="tns:findAllCiudad" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CiudadWS/findAllCiudadResponse" message="tns:findAllCiudadResponse" />
+    </operation>
+    <operation name="editCiudad">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CiudadWS/editCiudad" message="tns:editCiudad" />
+    </operation>
+    <operation name="findCiudad">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CiudadWS/findCiudadRequest" message="tns:findCiudad" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CiudadWS/findCiudadResponse" message="tns:findCiudadResponse" />
+    </operation>
+    <operation name="findCiudadPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CiudadWS/findCiudadPorRequest" message="tns:findCiudadPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CiudadWS/findCiudadPorResponse" message="tns:findCiudadPorResponse" />
+    </operation>
+    <operation name="removeCiudad">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CiudadWS/removeCiudad" message="tns:removeCiudad" />
+    </operation>
+    <operation name="createCiudad">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CiudadWS/createCiudad" message="tns:createCiudad" />
+    </operation>
+  </portType>
+  <binding name="CiudadWSPortBinding" type="tns:CiudadWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="findAllCiudad">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editCiudad">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findCiudad">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findCiudadPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="removeCiudad">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="createCiudad">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+  </binding>
+  <service name="CiudadWS">
+    <port name="CiudadWSPort" binding="tns:CiudadWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/CiudadWS" />
+    </port>
+  </service>
+</definitions>
