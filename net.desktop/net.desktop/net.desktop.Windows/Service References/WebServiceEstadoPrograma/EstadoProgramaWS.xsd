@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="createEstadoPrograma" type="tns:createEstadoPrograma" />
+  <xs:element name="editEstadoPrograma" type="tns:editEstadoPrograma" />
+  <xs:element name="estadoPrograma" type="tns:estadoPrograma" />
+  <xs:element name="findAllEstadoPrograma" type="tns:findAllEstadoPrograma" />
+  <xs:element name="findAllEstadoProgramaResponse" type="tns:findAllEstadoProgramaResponse" />
+  <xs:element name="findEstadoPrograma" type="tns:findEstadoPrograma" />
+  <xs:element name="findEstadoProgramaPor" type="tns:findEstadoProgramaPor" />
+  <xs:element name="findEstadoProgramaPorResponse" type="tns:findEstadoProgramaPorResponse" />
+  <xs:element name="findEstadoProgramaResponse" type="tns:findEstadoProgramaResponse" />
+  <xs:element name="removeEstadoPrograma" type="tns:removeEstadoPrograma" />
+  <xs:complexType name="findEstadoPrograma">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findEstadoProgramaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:estadoPrograma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="estadoPrograma">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+      <xs:element minOccurs="0" name="idEstado" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllEstadoPrograma">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllEstadoProgramaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:estadoPrograma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findEstadoProgramaPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findEstadoProgramaPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:estadoPrograma" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createEstadoPrograma">
+    <xs:sequence>
+      <xs:element name="id_estado" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editEstadoPrograma">
+    <xs:sequence>
+      <xs:element name="id_estado" type="xs:int" />
+      <xs:element minOccurs="0" name="estado" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeEstadoPrograma">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

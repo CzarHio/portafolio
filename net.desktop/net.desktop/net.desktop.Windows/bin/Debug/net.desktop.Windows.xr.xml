@@ -2,16 +2,39 @@
 <Roots xmlns="clr-namespace:Microsoft.Xaml.Tools.XamlCompiler.RootLog;assembly=Microsoft.Windows.UI.Xaml.81.Build.Tasks">
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="DefaultViewModel" />
-    <RootPropertyPathName Name="Description" />
-    <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="Ciudad" />
+    <RootPropertyPathName Name="Region" />
+    <RootPropertyPathName Name="Pais" />
+    <RootPropertyPathName Name="Nombre_Pais" />
+    <RootPropertyPathName Name="Nombre_Region" />
+    <RootPropertyPathName Name="Nombre_Ciudad" />
+    <RootPropertyPathName Name="Usuario" />
+    <RootPropertyPathName Name="Nombre_Completo" />
+    <RootPropertyPathName Name="Nombre_Centro" />
     <RootPropertyPathName Name="ImagePath" />
     <RootPropertyPathName Name="NavigationHelper" />
     <RootPropertyPathName Name="GoBackCommand" />
     <RootPropertyPathName Name="Section3Items" />
     <RootPropertyPathName Name="Items" />
     <RootPropertyPathName Name="Group" />
+    <RootPropertyPathName Name="Description" />
     <RootPropertyPathName Name="Subtitle" />
+    <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="Postulaciones" />
+    <RootPropertyPathName Name="Fecha_Creacion" />
+    <RootPropertyPathName Name="Familia" />
+    <RootPropertyPathName Name="Id_familia" />
+    <RootPropertyPathName Name="Alumno" />
+    <RootPropertyPathName Name="Nombre" />
+    <RootPropertyPathName Name="Programa" />
+    <RootPropertyPathName Name="Nombre_Programa" />
     <RootPropertyPathName Name="Item" />
+    <RootPropertyPathName Name="Participaciones" />
+    <RootPropertyPathName Name="Notas" />
+    <RootPropertyPathName Name="Curso" />
+    <RootPropertyPathName Name="Nombre_Curso" />
+    <RootPropertyPathName Name="Nota" />
+    <RootPropertyPathName Name="Representante" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -44,8 +67,6 @@
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
-      <RootMethod Name="GetColumnSpan" />
-      <RootMethod Name="SetColumnSpan" />
       <RootMethod Name="GetRowSpan" />
       <RootMethod Name="SetRowSpan" />
     </RootType>
@@ -57,19 +78,20 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Child" />
       <RootProperty Name="Width" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="BorderThickness" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
-      <RootProperty Name="Orientation" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="Text" />
       <RootProperty Name="Style" />
       <RootProperty Name="TextWrapping" />
-      <RootProperty Name="MaxHeight" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="IsHitTestVisible" />
       <RootProperty Name="Margin" />
@@ -77,17 +99,19 @@
       <RootProperty Name="FontSize" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="MaxHeight" />
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="Stretch" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Automation.AutomationProperties">
       <RootMethod Name="GetName" />
@@ -145,7 +169,6 @@
       <RootProperty Name="Background" />
       <RootProperty Name="Header" />
       <RootProperty Name="ContentTemplate" />
-      <RootProperty Name="IsHeaderInteractive" />
       <RootProperty Name="DataContext" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Height" />
@@ -212,6 +235,27 @@
       <RootProperty Name="Value" />
     </RootType>
     <RootType FullName="net.desktop.SectionPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Control">
+      <RootProperty Name="Background" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="BorderBrush" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="Resources" />
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="SelectionMode" />
+      <RootProperty Name="ItemContainerStyle" />
+      <RootProperty Name="ItemsSource" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="ItemTemplate" />
+    </RootType>
     <RootType FullName="net.desktop.ItemPage" />
   </Roots.RootTypes>
 </Roots>

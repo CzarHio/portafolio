@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="PaisWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/PaisWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="findPais">
+    <part name="parameters" element="tns:findPais" />
+  </message>
+  <message name="findPaisResponse">
+    <part name="parameters" element="tns:findPaisResponse" />
+  </message>
+  <message name="editPais">
+    <part name="parameters" element="tns:editPais" />
+  </message>
+  <message name="createPais">
+    <part name="parameters" element="tns:createPais" />
+  </message>
+  <message name="removePais">
+    <part name="parameters" element="tns:removePais" />
+  </message>
+  <message name="findAllPais">
+    <part name="parameters" element="tns:findAllPais" />
+  </message>
+  <message name="findAllPaisResponse">
+    <part name="parameters" element="tns:findAllPaisResponse" />
+  </message>
+  <message name="findPaisPor">
+    <part name="parameters" element="tns:findPaisPor" />
+  </message>
+  <message name="findPaisPorResponse">
+    <part name="parameters" element="tns:findPaisPorResponse" />
+  </message>
+  <portType name="PaisWS">
+    <operation name="findPais">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PaisWS/findPaisRequest" message="tns:findPais" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PaisWS/findPaisResponse" message="tns:findPaisResponse" />
+    </operation>
+    <operation name="editPais">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PaisWS/editPais" message="tns:editPais" />
+    </operation>
+    <operation name="createPais">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PaisWS/createPais" message="tns:createPais" />
+    </operation>
+    <operation name="removePais">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PaisWS/removePais" message="tns:removePais" />
+    </operation>
+    <operation name="findAllPais">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PaisWS/findAllPaisRequest" message="tns:findAllPais" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PaisWS/findAllPaisResponse" message="tns:findAllPaisResponse" />
+    </operation>
+    <operation name="findPaisPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PaisWS/findPaisPorRequest" message="tns:findPaisPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PaisWS/findPaisPorResponse" message="tns:findPaisPorResponse" />
+    </operation>
+  </portType>
+  <binding name="PaisWSPortBinding" type="tns:PaisWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="findPais">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editPais">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="createPais">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="removePais">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findAllPais">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findPaisPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="PaisWS">
+    <port name="PaisWSPort" binding="tns:PaisWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/PaisWS" />
+    </port>
+  </service>
+</definitions>

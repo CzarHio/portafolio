@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="RegionWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/RegionWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="editRegion">
+    <part name="parameters" element="tns:editRegion" />
+  </message>
+  <message name="removeRegion">
+    <part name="parameters" element="tns:removeRegion" />
+  </message>
+  <message name="findRegion">
+    <part name="parameters" element="tns:findRegion" />
+  </message>
+  <message name="findRegionResponse">
+    <part name="parameters" element="tns:findRegionResponse" />
+  </message>
+  <message name="findRegionPor">
+    <part name="parameters" element="tns:findRegionPor" />
+  </message>
+  <message name="findRegionPorResponse">
+    <part name="parameters" element="tns:findRegionPorResponse" />
+  </message>
+  <message name="createRegion">
+    <part name="parameters" element="tns:createRegion" />
+  </message>
+  <message name="findAllRegion">
+    <part name="parameters" element="tns:findAllRegion" />
+  </message>
+  <message name="findAllRegionResponse">
+    <part name="parameters" element="tns:findAllRegionResponse" />
+  </message>
+  <portType name="RegionWS">
+    <operation name="editRegion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/RegionWS/editRegion" message="tns:editRegion" />
+    </operation>
+    <operation name="removeRegion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/RegionWS/removeRegion" message="tns:removeRegion" />
+    </operation>
+    <operation name="findRegion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/RegionWS/findRegionRequest" message="tns:findRegion" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/RegionWS/findRegionResponse" message="tns:findRegionResponse" />
+    </operation>
+    <operation name="findRegionPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/RegionWS/findRegionPorRequest" message="tns:findRegionPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/RegionWS/findRegionPorResponse" message="tns:findRegionPorResponse" />
+    </operation>
+    <operation name="createRegion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/RegionWS/createRegion" message="tns:createRegion" />
+    </operation>
+    <operation name="findAllRegion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/RegionWS/findAllRegionRequest" message="tns:findAllRegion" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/RegionWS/findAllRegionResponse" message="tns:findAllRegionResponse" />
+    </operation>
+  </portType>
+  <binding name="RegionWSPortBinding" type="tns:RegionWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="editRegion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="removeRegion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findRegion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findRegionPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="createRegion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findAllRegion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="RegionWS">
+    <port name="RegionWSPort" binding="tns:RegionWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/RegionWS" />
+    </port>
+  </service>
+</definitions>

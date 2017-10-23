@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="createPrograma" type="tns:createPrograma" />
+  <xs:element name="editPrograma" type="tns:editPrograma" />
+  <xs:element name="findAllPrograma" type="tns:findAllPrograma" />
+  <xs:element name="findAllProgramaResponse" type="tns:findAllProgramaResponse" />
+  <xs:element name="findPrograma" type="tns:findPrograma" />
+  <xs:element name="findProgramaPor" type="tns:findProgramaPor" />
+  <xs:element name="findProgramaPorResponse" type="tns:findProgramaPorResponse" />
+  <xs:element name="findProgramaResponse" type="tns:findProgramaResponse" />
+  <xs:element name="programa" type="tns:programa" />
+  <xs:element name="removePrograma" type="tns:removePrograma" />
+  <xs:complexType name="findPrograma">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findProgramaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:programa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="programa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element name="idEstado" type="xs:int" />
+      <xs:element name="idPais" type="xs:int" />
+      <xs:element minOccurs="0" name="idPrograma" type="xs:decimal" />
+      <xs:element minOccurs="0" name="nombrePrograma" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createPrograma">
+    <xs:sequence>
+      <xs:element name="id_estado" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_programa" type="xs:string" />
+      <xs:element minOccurs="0" name="id_pais" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removePrograma">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editPrograma">
+    <xs:sequence>
+      <xs:element name="id_programa" type="xs:int" />
+      <xs:element name="id_estado" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_programa" type="xs:string" />
+      <xs:element minOccurs="0" name="id_pais" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findProgramaPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findProgramaPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:programa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllPrograma">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllProgramaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:programa" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

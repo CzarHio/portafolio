@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="createRegion" type="tns:createRegion" />
+  <xs:element name="editRegion" type="tns:editRegion" />
+  <xs:element name="findAllRegion" type="tns:findAllRegion" />
+  <xs:element name="findAllRegionResponse" type="tns:findAllRegionResponse" />
+  <xs:element name="findRegion" type="tns:findRegion" />
+  <xs:element name="findRegionPor" type="tns:findRegionPor" />
+  <xs:element name="findRegionPorResponse" type="tns:findRegionPorResponse" />
+  <xs:element name="findRegionResponse" type="tns:findRegionResponse" />
+  <xs:element name="region" type="tns:region" />
+  <xs:element name="removeRegion" type="tns:removeRegion" />
+  <xs:complexType name="findRegionPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findRegionPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:region" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="region">
+    <xs:sequence>
+      <xs:element name="idPais" type="xs:int" />
+      <xs:element minOccurs="0" name="idRegion" type="xs:decimal" />
+      <xs:element minOccurs="0" name="nombreRegion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre_region" type="xs:string" />
+      <xs:element name="id_pais" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeRegion">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findRegion">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findRegionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:region" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllRegion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllRegionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:region" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editRegion">
+    <xs:sequence>
+      <xs:element name="id_region" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_region" type="xs:string" />
+      <xs:element name="id_pais" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

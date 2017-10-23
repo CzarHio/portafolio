@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="NotaWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/NotaWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="createNota">
+    <part name="parameters" element="tns:createNota" />
+  </message>
+  <message name="findAllNota">
+    <part name="parameters" element="tns:findAllNota" />
+  </message>
+  <message name="findAllNotaResponse">
+    <part name="parameters" element="tns:findAllNotaResponse" />
+  </message>
+  <message name="findNotaPor">
+    <part name="parameters" element="tns:findNotaPor" />
+  </message>
+  <message name="findNotaPorResponse">
+    <part name="parameters" element="tns:findNotaPorResponse" />
+  </message>
+  <message name="removeNota">
+    <part name="parameters" element="tns:removeNota" />
+  </message>
+  <message name="findNota">
+    <part name="parameters" element="tns:findNota" />
+  </message>
+  <message name="findNotaResponse">
+    <part name="parameters" element="tns:findNotaResponse" />
+  </message>
+  <message name="editNota">
+    <part name="parameters" element="tns:editNota" />
+  </message>
+  <portType name="NotaWS">
+    <operation name="createNota">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/createNota" message="tns:createNota" />
+    </operation>
+    <operation name="findAllNota">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findAllNotaRequest" message="tns:findAllNota" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findAllNotaResponse" message="tns:findAllNotaResponse" />
+    </operation>
+    <operation name="findNotaPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaPorRequest" message="tns:findNotaPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaPorResponse" message="tns:findNotaPorResponse" />
+    </operation>
+    <operation name="removeNota">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/removeNota" message="tns:removeNota" />
+    </operation>
+    <operation name="findNota">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaRequest" message="tns:findNota" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaResponse" message="tns:findNotaResponse" />
+    </operation>
+    <operation name="editNota">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/editNota" message="tns:editNota" />
+    </operation>
+  </portType>
+  <binding name="NotaWSPortBinding" type="tns:NotaWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="createNota">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findAllNota">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findNotaPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="removeNota">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findNota">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editNota">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+  </binding>
+  <service name="NotaWS">
+    <port name="NotaWSPort" binding="tns:NotaWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/NotaWS" />
+    </port>
+  </service>
+</definitions>

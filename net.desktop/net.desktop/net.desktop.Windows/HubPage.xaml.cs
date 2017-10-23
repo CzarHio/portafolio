@@ -19,6 +19,7 @@ using net.desktop.Utilities;
 using net.desktop.SessionManagerTools;
 using System.Diagnostics;
 using net.desktop.Services;
+using net.desktop.Entities;
 
 // The Universal Hub Application project template is documented at http://go.microsoft.com/fwlink/?LinkID=391955
 
@@ -32,7 +33,8 @@ namespace net.desktop
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private SessionManager SessionManager = new SessionManager();
-        private AuthenticationService authService = new AuthenticationService();
+        private AuthenticationService AuthService = new AuthenticationService();
+        private CentroService CentroService = new CentroService();
 
         /// <summary>
         /// Gets the NavigationHelper used to aid in navigation and process lifetime management.
@@ -69,6 +71,7 @@ namespace net.desktop
             Sections.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
             bottomAppBar.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
             Login.Visibility = show ? Visibility.Collapsed : Visibility.Visible;
+            this.Find_Centros();
         }
 
         private void ClearInput_Click(object sender, RoutedEventArgs e)
@@ -95,7 +98,7 @@ namespace net.desktop
 
                 try
                 {
-                    response = await this.authService.aunthenticate(usuario, password);
+                    response = await this.AuthService.aunthenticate(usuario, password);
 
                     if (response.Equals(false))
                         Alert.CreateAlert("Ingrese los datos correctos.", "Sistema CEM - Error en credenciales");
@@ -165,7 +168,8 @@ namespace net.desktop
             this.ShowSections(false);
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-4");
-            this.DefaultViewModel["Section3Items"] = sampleDataGroup;
+            var centros = await CentroService.All();
+            this.DefaultViewModel["Section3Items"] = centros;
         }
 
         /// <summary>
@@ -190,7 +194,7 @@ namespace net.desktop
         {
             // Navigate to the appropriate destination page, configuring the new page
             // by passing required information as a navigation parameter
-            var itemId = ((SampleDataItem)e.ClickedItem).UniqueId;
+            var itemId = ((CentroEntity)e.ClickedItem).Id_Centro;
             this.Frame.Navigate(typeof(ItemPage), itemId);
         }
         #region NavigationHelper registration
@@ -245,6 +249,21 @@ namespace net.desktop
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HubPage));
+        }
+
+        private async void Find_Centros()
+        {
+            Object response = null;
+            try
+            {
+                response = await this.CentroService.All();
+                
+
+            }
+            catch (Exception)
+            {
+                Alert.CreateAlert("Ocurrió un error al intentar conectar. Compruebe su conexión e intente más tarde.", "Sistema CEM - Error de conexión");
+            }
         }
         
     }

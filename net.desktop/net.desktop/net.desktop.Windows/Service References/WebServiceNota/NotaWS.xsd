@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="createNota" type="tns:createNota" />
+  <xs:element name="editNota" type="tns:editNota" />
+  <xs:element name="findAllNota" type="tns:findAllNota" />
+  <xs:element name="findAllNotaResponse" type="tns:findAllNotaResponse" />
+  <xs:element name="findNota" type="tns:findNota" />
+  <xs:element name="findNotaPor" type="tns:findNotaPor" />
+  <xs:element name="findNotaPorResponse" type="tns:findNotaPorResponse" />
+  <xs:element name="findNotaResponse" type="tns:findNotaResponse" />
+  <xs:element name="nota" type="tns:nota" />
+  <xs:element name="removeNota" type="tns:removeNota" />
+  <xs:complexType name="findAllNota">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllNotaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:nota" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nota">
+    <xs:sequence>
+      <xs:element name="idCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="idNota" type="xs:decimal" />
+      <xs:element name="idPostulacion" type="xs:int" />
+      <xs:element minOccurs="0" name="nota" type="xs:integer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findNotaPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findNotaPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:nota" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findNota">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findNotaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:nota" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createNota">
+    <xs:sequence>
+      <xs:element name="id_postulacion" type="xs:int" />
+      <xs:element name="id_curso" type="xs:int" />
+      <xs:element name="nota" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editNota">
+    <xs:sequence>
+      <xs:element name="id_nota" type="xs:int" />
+      <xs:element name="id_postulacion" type="xs:int" />
+      <xs:element name="id_curso" type="xs:int" />
+      <xs:element name="nota" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeNota">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="EstadoFamiliaWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/EstadoFamiliaWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="findEstadoFamilia">
+    <part name="parameters" element="tns:findEstadoFamilia" />
+  </message>
+  <message name="findEstadoFamiliaResponse">
+    <part name="parameters" element="tns:findEstadoFamiliaResponse" />
+  </message>
+  <message name="removeEstadoFamilia">
+    <part name="parameters" element="tns:removeEstadoFamilia" />
+  </message>
+  <message name="editEstadoFamilia">
+    <part name="parameters" element="tns:editEstadoFamilia" />
+  </message>
+  <message name="findEstadoFamiliaPor">
+    <part name="parameters" element="tns:findEstadoFamiliaPor" />
+  </message>
+  <message name="findEstadoFamiliaPorResponse">
+    <part name="parameters" element="tns:findEstadoFamiliaPorResponse" />
+  </message>
+  <message name="createEstadoFamilia">
+    <part name="parameters" element="tns:createEstadoFamilia" />
+  </message>
+  <message name="findAllEstadoFamilia">
+    <part name="parameters" element="tns:findAllEstadoFamilia" />
+  </message>
+  <message name="findAllEstadoFamiliaResponse">
+    <part name="parameters" element="tns:findAllEstadoFamiliaResponse" />
+  </message>
+  <portType name="EstadoFamiliaWS">
+    <operation name="findEstadoFamilia">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoFamiliaWS/findEstadoFamiliaRequest" message="tns:findEstadoFamilia" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoFamiliaWS/findEstadoFamiliaResponse" message="tns:findEstadoFamiliaResponse" />
+    </operation>
+    <operation name="removeEstadoFamilia">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoFamiliaWS/removeEstadoFamilia" message="tns:removeEstadoFamilia" />
+    </operation>
+    <operation name="editEstadoFamilia">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoFamiliaWS/editEstadoFamilia" message="tns:editEstadoFamilia" />
+    </operation>
+    <operation name="findEstadoFamiliaPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoFamiliaWS/findEstadoFamiliaPorRequest" message="tns:findEstadoFamiliaPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoFamiliaWS/findEstadoFamiliaPorResponse" message="tns:findEstadoFamiliaPorResponse" />
+    </operation>
+    <operation name="createEstadoFamilia">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoFamiliaWS/createEstadoFamilia" message="tns:createEstadoFamilia" />
+    </operation>
+    <operation name="findAllEstadoFamilia">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoFamiliaWS/findAllEstadoFamiliaRequest" message="tns:findAllEstadoFamilia" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoFamiliaWS/findAllEstadoFamiliaResponse" message="tns:findAllEstadoFamiliaResponse" />
+    </operation>
+  </portType>
+  <binding name="EstadoFamiliaWSPortBinding" type="tns:EstadoFamiliaWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="findEstadoFamilia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="removeEstadoFamilia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="editEstadoFamilia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findEstadoFamiliaPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="createEstadoFamilia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findAllEstadoFamilia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="EstadoFamiliaWS">
+    <port name="EstadoFamiliaWSPort" binding="tns:EstadoFamiliaWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/EstadoFamiliaWS" />
+    </port>
+  </service>
+</definitions>

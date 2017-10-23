@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="centro" type="tns:centro" />
+  <xs:element name="createCentro" type="tns:createCentro" />
+  <xs:element name="editCentro" type="tns:editCentro" />
+  <xs:element name="findAllCentro" type="tns:findAllCentro" />
+  <xs:element name="findAllCentroResponse" type="tns:findAllCentroResponse" />
+  <xs:element name="findCentro" type="tns:findCentro" />
+  <xs:element name="findCentroPor" type="tns:findCentroPor" />
+  <xs:element name="findCentroPorResponse" type="tns:findCentroPorResponse" />
+  <xs:element name="findCentroResponse" type="tns:findCentroResponse" />
+  <xs:element name="removeCentro" type="tns:removeCentro" />
+  <xs:complexType name="findCentro">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCentroResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:centro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="centro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idCentro" type="xs:decimal" />
+      <xs:element name="idCiudad" type="xs:int" />
+      <xs:element name="idUsuario" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreCentro" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllCentro">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllCentroResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:centro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editCentro">
+    <xs:sequence>
+      <xs:element name="id_centro" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_centro" type="xs:string" />
+      <xs:element name="id_usuario" type="xs:int" />
+      <xs:element name="id_ciudad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createCentro">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre_centro" type="xs:string" />
+      <xs:element name="id_usuario" type="xs:int" />
+      <xs:element name="id_ciudad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeCentro">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCentroPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCentroPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:centro" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

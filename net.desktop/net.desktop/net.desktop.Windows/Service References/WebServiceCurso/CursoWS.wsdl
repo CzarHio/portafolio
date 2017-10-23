@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="CursoWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/CursoWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="findCursoPor">
+    <part name="parameters" element="tns:findCursoPor" />
+  </message>
+  <message name="findCursoPorResponse">
+    <part name="parameters" element="tns:findCursoPorResponse" />
+  </message>
+  <message name="findAllCurso">
+    <part name="parameters" element="tns:findAllCurso" />
+  </message>
+  <message name="findAllCursoResponse">
+    <part name="parameters" element="tns:findAllCursoResponse" />
+  </message>
+  <message name="findCurso">
+    <part name="parameters" element="tns:findCurso" />
+  </message>
+  <message name="findCursoResponse">
+    <part name="parameters" element="tns:findCursoResponse" />
+  </message>
+  <message name="removeCurso">
+    <part name="parameters" element="tns:removeCurso" />
+  </message>
+  <message name="createCurso">
+    <part name="parameters" element="tns:createCurso" />
+  </message>
+  <message name="editCurso">
+    <part name="parameters" element="tns:editCurso" />
+  </message>
+  <portType name="CursoWS">
+    <operation name="findCursoPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CursoWS/findCursoPorRequest" message="tns:findCursoPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CursoWS/findCursoPorResponse" message="tns:findCursoPorResponse" />
+    </operation>
+    <operation name="findAllCurso">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CursoWS/findAllCursoRequest" message="tns:findAllCurso" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CursoWS/findAllCursoResponse" message="tns:findAllCursoResponse" />
+    </operation>
+    <operation name="findCurso">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CursoWS/findCursoRequest" message="tns:findCurso" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CursoWS/findCursoResponse" message="tns:findCursoResponse" />
+    </operation>
+    <operation name="removeCurso">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CursoWS/removeCurso" message="tns:removeCurso" />
+    </operation>
+    <operation name="createCurso">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CursoWS/createCurso" message="tns:createCurso" />
+    </operation>
+    <operation name="editCurso">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CursoWS/editCurso" message="tns:editCurso" />
+    </operation>
+  </portType>
+  <binding name="CursoWSPortBinding" type="tns:CursoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="findCursoPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findAllCurso">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findCurso">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="removeCurso">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="createCurso">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="editCurso">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+  </binding>
+  <service name="CursoWS">
+    <port name="CursoWSPort" binding="tns:CursoWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/CursoWS" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ParticipacionWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/ParticipacionWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="findAllParticipacion">
+    <part name="parameters" element="tns:findAllParticipacion" />
+  </message>
+  <message name="findAllParticipacionResponse">
+    <part name="parameters" element="tns:findAllParticipacionResponse" />
+  </message>
+  <message name="editParticipacion">
+    <part name="parameters" element="tns:editParticipacion" />
+  </message>
+  <message name="createParticipacion">
+    <part name="parameters" element="tns:createParticipacion" />
+  </message>
+  <message name="removeParticipacion">
+    <part name="parameters" element="tns:removeParticipacion" />
+  </message>
+  <message name="findParticipacion">
+    <part name="parameters" element="tns:findParticipacion" />
+  </message>
+  <message name="findParticipacionResponse">
+    <part name="parameters" element="tns:findParticipacionResponse" />
+  </message>
+  <message name="findParticipacionPor">
+    <part name="parameters" element="tns:findParticipacionPor" />
+  </message>
+  <message name="findParticipacionPorResponse">
+    <part name="parameters" element="tns:findParticipacionPorResponse" />
+  </message>
+  <portType name="ParticipacionWS">
+    <operation name="findAllParticipacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findAllParticipacionRequest" message="tns:findAllParticipacion" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findAllParticipacionResponse" message="tns:findAllParticipacionResponse" />
+    </operation>
+    <operation name="editParticipacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/editParticipacion" message="tns:editParticipacion" />
+    </operation>
+    <operation name="createParticipacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/createParticipacion" message="tns:createParticipacion" />
+    </operation>
+    <operation name="removeParticipacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/removeParticipacion" message="tns:removeParticipacion" />
+    </operation>
+    <operation name="findParticipacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findParticipacionRequest" message="tns:findParticipacion" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findParticipacionResponse" message="tns:findParticipacionResponse" />
+    </operation>
+    <operation name="findParticipacionPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findParticipacionPorRequest" message="tns:findParticipacionPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findParticipacionPorResponse" message="tns:findParticipacionPorResponse" />
+    </operation>
+  </portType>
+  <binding name="ParticipacionWSPortBinding" type="tns:ParticipacionWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="findAllParticipacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editParticipacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="createParticipacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="removeParticipacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findParticipacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findParticipacionPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ParticipacionWS">
+    <port name="ParticipacionWSPort" binding="tns:ParticipacionWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/ParticipacionWS" />
+    </port>
+  </service>
+</definitions>

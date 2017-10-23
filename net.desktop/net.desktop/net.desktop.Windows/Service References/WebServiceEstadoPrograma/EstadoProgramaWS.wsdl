@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="EstadoProgramaWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/EstadoProgramaWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="editEstadoPrograma">
+    <part name="parameters" element="tns:editEstadoPrograma" />
+  </message>
+  <message name="removeEstadoPrograma">
+    <part name="parameters" element="tns:removeEstadoPrograma" />
+  </message>
+  <message name="createEstadoPrograma">
+    <part name="parameters" element="tns:createEstadoPrograma" />
+  </message>
+  <message name="findAllEstadoPrograma">
+    <part name="parameters" element="tns:findAllEstadoPrograma" />
+  </message>
+  <message name="findAllEstadoProgramaResponse">
+    <part name="parameters" element="tns:findAllEstadoProgramaResponse" />
+  </message>
+  <message name="findEstadoProgramaPor">
+    <part name="parameters" element="tns:findEstadoProgramaPor" />
+  </message>
+  <message name="findEstadoProgramaPorResponse">
+    <part name="parameters" element="tns:findEstadoProgramaPorResponse" />
+  </message>
+  <message name="findEstadoPrograma">
+    <part name="parameters" element="tns:findEstadoPrograma" />
+  </message>
+  <message name="findEstadoProgramaResponse">
+    <part name="parameters" element="tns:findEstadoProgramaResponse" />
+  </message>
+  <portType name="EstadoProgramaWS">
+    <operation name="editEstadoPrograma">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoProgramaWS/editEstadoPrograma" message="tns:editEstadoPrograma" />
+    </operation>
+    <operation name="removeEstadoPrograma">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoProgramaWS/removeEstadoPrograma" message="tns:removeEstadoPrograma" />
+    </operation>
+    <operation name="createEstadoPrograma">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoProgramaWS/createEstadoPrograma" message="tns:createEstadoPrograma" />
+    </operation>
+    <operation name="findAllEstadoPrograma">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoProgramaWS/findAllEstadoProgramaRequest" message="tns:findAllEstadoPrograma" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoProgramaWS/findAllEstadoProgramaResponse" message="tns:findAllEstadoProgramaResponse" />
+    </operation>
+    <operation name="findEstadoProgramaPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoProgramaWS/findEstadoProgramaPorRequest" message="tns:findEstadoProgramaPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoProgramaWS/findEstadoProgramaPorResponse" message="tns:findEstadoProgramaPorResponse" />
+    </operation>
+    <operation name="findEstadoPrograma">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoProgramaWS/findEstadoProgramaRequest" message="tns:findEstadoPrograma" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/EstadoProgramaWS/findEstadoProgramaResponse" message="tns:findEstadoProgramaResponse" />
+    </operation>
+  </portType>
+  <binding name="EstadoProgramaWSPortBinding" type="tns:EstadoProgramaWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="editEstadoPrograma">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="removeEstadoPrograma">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="createEstadoPrograma">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findAllEstadoPrograma">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findEstadoProgramaPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findEstadoPrograma">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="EstadoProgramaWS">
+    <port name="EstadoProgramaWSPort" binding="tns:EstadoProgramaWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/EstadoProgramaWS" />
+    </port>
+  </service>
+</definitions>
