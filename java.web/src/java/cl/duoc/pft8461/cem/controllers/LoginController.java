@@ -144,7 +144,6 @@ public class LoginController {
             
         } else {
         
-            System.out.println("pasa2");
             mav.addObject("error", "Contraseñas no coinciden.");
             mav.setViewName("register");
             return mav;
