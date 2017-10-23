@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.cem.pft8461.duoc.cl/">
+
+<xs:element name="createEstadoDocumento" type="tns:createEstadoDocumento"/>
+
+<xs:element name="editEstadoDocumento" type="tns:editEstadoDocumento"/>
+
+<xs:element name="estadoDocumento" type="tns:estadoDocumento"/>
+
+<xs:element name="findAllEstadoDocumento" type="tns:findAllEstadoDocumento"/>
+
+<xs:element name="findAllEstadoDocumentoResponse" type="tns:findAllEstadoDocumentoResponse"/>
+
+<xs:element name="findEstadoDocumento" type="tns:findEstadoDocumento"/>
+
+<xs:element name="findEstadoDocumentoPor" type="tns:findEstadoDocumentoPor"/>
+
+<xs:element name="findEstadoDocumentoPorResponse" type="tns:findEstadoDocumentoPorResponse"/>
+
+<xs:element name="findEstadoDocumentoResponse" type="tns:findEstadoDocumentoResponse"/>
+
+<xs:element name="removeEstadoDocumento" type="tns:removeEstadoDocumento"/>
+
+<xs:complexType name="findAllEstadoDocumento">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllEstadoDocumentoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:estadoDocumento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="estadoDocumento">
+<xs:sequence>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="idEstado" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findEstadoDocumentoPor">
+<xs:sequence>
+<xs:element name="campo" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findEstadoDocumentoPorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:estadoDocumento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createEstadoDocumento">
+<xs:sequence>
+<xs:element name="id_estado" type="xs:int"/>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editEstadoDocumento">
+<xs:sequence>
+<xs:element name="id_estado" type="xs:int"/>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeEstadoDocumento">
+<xs:sequence>
+<xs:element name="entity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findEstadoDocumento">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findEstadoDocumentoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:estadoDocumento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

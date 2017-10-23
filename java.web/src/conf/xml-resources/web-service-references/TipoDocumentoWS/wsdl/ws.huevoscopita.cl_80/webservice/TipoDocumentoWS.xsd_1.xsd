@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.cem.pft8461.duoc.cl/">
+
+<xs:element name="createTipoDocumento" type="tns:createTipoDocumento"/>
+
+<xs:element name="editTipoDocumento" type="tns:editTipoDocumento"/>
+
+<xs:element name="findAllTipoDocumento" type="tns:findAllTipoDocumento"/>
+
+<xs:element name="findAllTipoDocumentoResponse" type="tns:findAllTipoDocumentoResponse"/>
+
+<xs:element name="findTipoDocumento" type="tns:findTipoDocumento"/>
+
+<xs:element name="findTipoDocumentoPor" type="tns:findTipoDocumentoPor"/>
+
+<xs:element name="findTipoDocumentoPorResponse" type="tns:findTipoDocumentoPorResponse"/>
+
+<xs:element name="findTipoDocumentoResponse" type="tns:findTipoDocumentoResponse"/>
+
+<xs:element name="removeTipoDocumento" type="tns:removeTipoDocumento"/>
+
+<xs:element name="tipoDocumento" type="tns:tipoDocumento"/>
+
+<xs:complexType name="createTipoDocumento">
+<xs:sequence>
+<xs:element name="id_tipo_documento" type="xs:int"/>
+<xs:element name="tipo_documento" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findTipoDocumento">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findTipoDocumentoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tipoDocumento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoDocumento">
+<xs:sequence>
+<xs:element name="idTipoDocumento" type="xs:decimal" minOccurs="0"/>
+<xs:element name="tipoDocumento" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editTipoDocumento">
+<xs:sequence>
+<xs:element name="id_tipo_documento" type="xs:int"/>
+<xs:element name="tipo_documento" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAllTipoDocumento">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllTipoDocumentoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tipoDocumento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeTipoDocumento">
+<xs:sequence>
+<xs:element name="entity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findTipoDocumentoPor">
+<xs:sequence>
+<xs:element name="campo" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findTipoDocumentoPorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tipoDocumento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

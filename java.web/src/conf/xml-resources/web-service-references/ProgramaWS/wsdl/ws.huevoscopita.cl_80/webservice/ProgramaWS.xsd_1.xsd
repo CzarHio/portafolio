@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.cem.pft8461.duoc.cl/">
+
+<xs:element name="createPrograma" type="tns:createPrograma"/>
+
+<xs:element name="editPrograma" type="tns:editPrograma"/>
+
+<xs:element name="findAllPrograma" type="tns:findAllPrograma"/>
+
+<xs:element name="findAllProgramaResponse" type="tns:findAllProgramaResponse"/>
+
+<xs:element name="findPrograma" type="tns:findPrograma"/>
+
+<xs:element name="findProgramaPor" type="tns:findProgramaPor"/>
+
+<xs:element name="findProgramaPorResponse" type="tns:findProgramaPorResponse"/>
+
+<xs:element name="findProgramaResponse" type="tns:findProgramaResponse"/>
+
+<xs:element name="programa" type="tns:programa"/>
+
+<xs:element name="removePrograma" type="tns:removePrograma"/>
+
+<xs:complexType name="findPrograma">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findProgramaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:programa" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="programa">
+<xs:sequence>
+<xs:element name="fechaCreacion" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="idEstado" type="xs:int"/>
+<xs:element name="idPais" type="xs:int"/>
+<xs:element name="idPrograma" type="xs:decimal" minOccurs="0"/>
+<xs:element name="nombrePrograma" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createPrograma">
+<xs:sequence>
+<xs:element name="id_estado" type="xs:int"/>
+<xs:element name="nombre_programa" type="xs:string" minOccurs="0"/>
+<xs:element name="id_pais" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removePrograma">
+<xs:sequence>
+<xs:element name="entity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editPrograma">
+<xs:sequence>
+<xs:element name="id_programa" type="xs:int"/>
+<xs:element name="id_estado" type="xs:int"/>
+<xs:element name="nombre_programa" type="xs:string" minOccurs="0"/>
+<xs:element name="id_pais" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findProgramaPor">
+<xs:sequence>
+<xs:element name="campo" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findProgramaPorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:programa" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAllPrograma">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllProgramaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:programa" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
