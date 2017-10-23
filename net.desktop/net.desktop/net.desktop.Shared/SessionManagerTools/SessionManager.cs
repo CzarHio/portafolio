@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Windows.Storage;
-using Windows.Globalization.DateTimeFormatting;
 using Newtonsoft.Json;
 
 namespace net.desktop.SessionManagerTools
@@ -61,6 +60,18 @@ namespace net.desktop.SessionManagerTools
         }
 
         /// <summary>
+        /// Método que agrega un atributo a la sesión actual.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        public void Add(string key, Object value)
+        {
+            this.CheckSesssion();
+            this.Session.Add(key, JObject.FromObject(value).ToString());
+            this.WriteDataSession();
+        }
+
+        /// <summary>
         /// Método que retorna un atributo en específico de la sesión actual;
         /// </summary>
         /// <param name="key"></param>
@@ -85,6 +96,7 @@ namespace net.desktop.SessionManagerTools
                 this.Session.RemoveAll();
 
             this.WriteDataSession();
+            Debug.WriteLine(this.Session.ToString());
         }
 
         /// <summary>
@@ -121,11 +133,11 @@ namespace net.desktop.SessionManagerTools
         /// </summary>
         private async void WriteDataSession()
         {
-            StorageFile sessionFile = await this.localFolder.CreateFileAsync(this.SessionFile,
-                CreationCollisionOption.ReplaceExisting);
 
             try
             {
+                StorageFile sessionFile = await this.localFolder.CreateFileAsync(this.SessionFile,
+                    CreationCollisionOption.ReplaceExisting);
                 await FileIO.WriteTextAsync(sessionFile, this.Session.ToString());
             }
             catch (Exception)

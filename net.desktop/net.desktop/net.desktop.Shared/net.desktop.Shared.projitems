@@ -17,7 +17,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)DataModel\SampleDataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\UsuarioEntity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\AuthenticationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SessionManagerTools\SessionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Alert.cs" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\favicon.scale-140.png" />
