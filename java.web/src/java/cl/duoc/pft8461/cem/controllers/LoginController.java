@@ -5,6 +5,7 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
+import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS_Service;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,7 @@ import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
 public class LoginController {
     
     private final UsuarioWS_Service ws = new UsuarioWS_Service();
+    private final PerfilUsuarioWS_Service wsPerfil = new PerfilUsuarioWS_Service();
     
     public LoginController() {
     }
@@ -68,7 +70,10 @@ public class LoginController {
 
         Usuario usr = this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), request.getParameter("password"));
         if(usr!=null){
-            session.setAttribute("logeado",1); 
+            session.setAttribute("logeado",1);
+            System.out.println(usr);
+            session.setAttribute("userSession", usr.getNombre() + " " + usr.getApellidoPat() + " " + usr.getApellidoMat());
+            //session.setAttribute("since", usr.getCreado().toString());
             response.sendRedirect("./home.htm");
             return null;
             //response.sendRedirect("home.jsp");
