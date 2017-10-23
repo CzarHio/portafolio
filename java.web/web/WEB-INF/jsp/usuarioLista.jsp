@@ -5,8 +5,7 @@
     <div class="col-xs-12 col-lg-12">
         <div class="box">
             <div class="box-header pull-right">
-
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalNuevo">
                     <i class="fa-plus fa"></i>
                 </button>
             </div>
@@ -33,8 +32,15 @@
                                 <td>${usuario.getApellidoPat()}</td>
                                 <td>${usuario.getApellidoMat()}</td>
                                 <td>${usuario.getEmail()}</td>
-                                <td>${usuario.getIdPerfilUsuario()}</td>
-                                <td></td>
+                                <td>${perfilesUsuario.get(usuario.getIdPerfilUsuario()-1).getNombrePerfil()}</td>
+                                <td>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalEditar" data-id="${usuario.getIdUsuario()}">
+                                        <i class="fa-pencil fa"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalBorrar" data-id="${usuario.getIdUsuario()}">
+                                        <i class="fa-eraser fa"></i>
+                                    </button>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -45,77 +51,28 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-default" style="display: none;">
+<div class="modal fade" id="modalEditar" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form class="form-horizontal">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title">Agregar Usuario</h4>
-                </div>
-                <div class="modal-body">
 
-                    <div class="form-group">
-                        <label for="inputUsuario" class="col-sm-2 control-label">Usuario</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputUsuario" placeholder="usuario">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputClave" class="col-sm-2 control-label">Clave</label>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="modalNuevo" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputClave" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputNombre" class="col-sm-2 control-label">Nombre</label>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="modalBorrar" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
 
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputNombre" placeholder="Juan">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputApellidoPat" class="col-sm-2 control-label">Apellido Paterno</label>
-
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputApellidoPat" placeholder="Perez">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputApellidoMat" class="col-sm-2 control-label">Apellido Materno</label>
-
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputApellidoMat" placeholder="González">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputEmail" placeholder="jperez@email.cl">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputClave" class="col-sm-2 control-label">Perfil Usuario</label>
-
-                        <div class="col-sm-10">
-                            <select class="form-control">
-                                <option></option>
-                                <c:forEach items="${perfilesUsuario}" var="perfil">
-                                    <option value="${perfil.getIdPerfilUsuario()}">${perfil.getNombrePerfil()}</option>
-                                </c:forEach>
-                            </select>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
-            </form>
         </div>
         <!-- /.modal-content -->
     </div>
@@ -123,3 +80,16 @@
 </div>
 
 <jsp:include page="include/bottom.jsp" />
+<script>
+    $("#modalEditar").on("show.bs.modal", function (e) {
+        id = $(e.relatedTarget).data('id');
+        $(this).find(".modal-content").load("editar.htm?id=" + id);
+    });
+    $("#modalNuevo").on("show.bs.modal", function (e) {
+        $(this).find(".modal-content").load("nuevo.htm");
+    });
+    $("#modalBorrar").on("show.bs.modal", function (e) {
+        id = $(e.relatedTarget).data('id');
+        $(this).find(".modal-content").load("borrar.htm?id="+id);
+    });
+</script>

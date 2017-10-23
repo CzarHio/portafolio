@@ -15,7 +15,7 @@
                 <c:if test="${menuItem.getPadre()==0}">
                     <li class="treeview">
                         <a href="${menuItem.getUrl()}">
-                            <i class="fa fa-dashboard"></i>
+                            <i class="fa ${menuItem.getIcono()}"></i>
                             <span>${menuItem.getTitulo()}</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>

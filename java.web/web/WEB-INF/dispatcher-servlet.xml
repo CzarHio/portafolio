@@ -31,6 +31,8 @@
                 <!-- Usuario Routes  -->
                 <prop key="usuario/lista.htm">usuario</prop>
                 <prop key="usuario/nuevo.htm">usuario</prop>
+                <prop key="usuario/editar.htm">usuario</prop>
+                <prop key="usuario/borrar.htm">usuario</prop>
             </props>
         </property>
     </bean>
