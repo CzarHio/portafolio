@@ -15,24 +15,27 @@
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
-                            <th>Ciudad</th>
-                            <th>Usuario</th>
+                            <th>Estado</th>
+                            <th>Pais</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${listado}" var="centro">
+                        <c:forEach items="${listado}" var="programa">
                             <tr>
-                                <td>${centro.getIdCentro()}</td>
-                                <td>${centro.getNombreCentro()}</td>
-                                <td>${centro.getIdCiudad()}</td>
-                                <td>${centro.getIdUsuario()}</td>
+                                <td>${programa.getIdPrograma()}</td>
+                                <td>${programa.getNombrePrograma()}</td>
+                                <td>${programa.getIdEstado()}</td>
+                                <td>${programa.getIdPais()}</td>
                                 <td>
-                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalEditar" data-id="${centro.getIdCentro()}">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalEditar" data-id="${programa.getIdPrograma()}">
                                         <i class="fa-pencil fa"></i>
                                     </button>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalBorrar" data-id="${centro.getIdCentro()}">
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalBorrar" data-id="${programa.getIdPrograma()}">
                                         <i class="fa-eraser fa"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBorrar" data-id="${programa.getIdPrograma()}">
+                                        Publicar
                                     </button>
                                 </td>
                             </tr>

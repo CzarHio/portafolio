@@ -7,12 +7,12 @@
             <h4 class="modal-title">Borrar Usuario</h4>
         </div>
         <div class="modal-body">
-            <p>¿Confirmar borrar el usuario ${usr.getNombre()} ${usr.getApellidoPat()}?</p>
+            <p>¿Confirmar borrar el centro ${centro.getNombreCentro()}?</p>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">No</button>
             <form method="post" action="borrar.htm">
-                <input type="hidden" name="inputIdUsuario" value="${usr.getIdUsuario()}"/>
+                <input type="hidden" name="inputIdCentro" value="${centro.getIdCentro()}"/>
                 <button type="submit" class="btn btn-danger">Si</button>
             </form>
         </div>
