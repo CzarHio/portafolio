@@ -66,10 +66,11 @@ public class LoginController {
         ModelAndView mav = new ModelAndView();
         // Users user = this.users.authenticate(request.getParameter("login"), request.getParameter("password"));
 
-        Usuario usr = ws.getUsuarioWSPort().autenticar(request.getParameter("login"), request.getParameter("password"));
+        Usuario usr = this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), request.getParameter("password"));
         if(usr!=null){
             session.setAttribute("logeado",1); 
             response.sendRedirect("./home.htm");
+            return null;
             //response.sendRedirect("home.jsp");
         } else{
            mav.addObject("error", "Usuario o Contraseña no válidos.");
@@ -124,13 +125,32 @@ public class LoginController {
     @RequestMapping(value = {"registro.htm"}, method = RequestMethod.POST)
     public ModelAndView postRegister(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        //HttpSession session = request.getSession();
         ModelAndView mav = new ModelAndView();
         
-        mav.addObject("error", "Usuario o Contraseña no válidos.");
-
-        mav.setViewName("register");
-        return mav;
+        if (request.getParameter("pass").equals(request.getParameter("pass1"))) {
+            
+            String usuario = request.getParameter("login");
+            String clave = request.getParameter("pass");
+            String email = request.getParameter("email");
+            String nombre = request.getParameter("nombre");
+            String apellidoPat = request.getParameter("apellidoPat");
+            String apellidoMat = request.getParameter("apellidoMat");
+            
+            this.ws.getUsuarioWSPort().createUsuario(usuario, clave, nombre, apellidoPat, apellidoMat, email, 0);
+            
+            response.sendRedirect("./login.htm");
+            return null;
+            
+        } else {
+        
+            System.out.println("pasa2");
+            mav.addObject("error", "Contraseñas no coinciden.");
+            mav.setViewName("register");
+            return mav;
+            
+        }
+        
     }
     
 }

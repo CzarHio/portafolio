@@ -12,19 +12,31 @@
                 <p class="login-box-msg">Ingresar a Sistema CEM</p>
                 <form action="./registro.htm" method="POST">
                     <div class="form-group has-feedback">
-                        <input class="form-control" placeholder="Ingrese usuario" id="login" name="login" type="text" required="required">
+                        <input class="form-control" placeholder="Ingrese Nombre" id="nombre" name="nombre" type="text" required="required">
+                        <span class="glyphicon glyphicon-bookmark form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input class="form-control" placeholder="Ingrese Apellido Paterno" id="apellidoPat" name="apellidoPat" type="text" required="required">
+                        <span class="glyphicon glyphicon-briefcase form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input class="form-control" placeholder="Ingrese Apellido Materno" id="apellidoMat" name="apellidoMat" type="text" required="required">
+                        <span class="glyphicon glyphicon-cutlery form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input class="form-control" placeholder="Ingrese Usuario" id="login" name="login" type="text" required="required">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input class="form-control" placeholder="Correo" type="email" required="required">
+                        <input class="form-control" placeholder="Correo" type="email" name="email" required="required">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input class="form-control" placeholder="Contraseña" type="password" required="required">
+                        <input class="form-control" placeholder="Contraseña" type="password" name="pass" required="required">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input class="form-control" placeholder="Repetir Contraseña" type="password" required="required">
+                        <input class="form-control" placeholder="Repetir Contraseña" type="password" name="pass1" required="required">
                         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                     </div>
                     <div class="row">
