@@ -14,30 +14,24 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Usuario</th>
                             <th>Nombre</th>
-                            <th>Apellido Pat</th>
-                            <th>Apellido Mat</th>
-                            <th>Email</th>
-                            <th>Perfil Usuario</th>
+                            <th>Ciudad</th>
+                            <th>Usuario</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${listado}" var="usuario">
+                        <c:forEach items="${listado}" var="centro">
                             <tr>
-                                <td>${usuario.getIdUsuario()}</td>
-                                <td>${usuario.getUsuario()}</td>
-                                <td>${usuario.getNombre()}</td>
-                                <td>${usuario.getApellidoPat()}</td>
-                                <td>${usuario.getApellidoMat()}</td>
-                                <td>${usuario.getEmail()}</td>
-                                <td>${perfilesUsuario.get(usuario.getIdPerfilUsuario()-1).getNombrePerfil()}</td>
+                                <td>${centro.getIdCentro()}</td>
+                                <td>${centro.getNombreCentro()}</td>
+                                <td>${centro.getIdCiudad()}</td>
+                                <td>${centro.getIdUsuario()}</td>
                                 <td>
-                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalEditar" data-id="${usuario.getIdUsuario()}">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalEditar" data-id="${centro.getIdCentro()}">
                                         <i class="fa-pencil fa"></i>
                                     </button>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalBorrar" data-id="${usuario.getIdUsuario()}">
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalBorrar" data-id="${centro.getIdCentro()}">
                                         <i class="fa-eraser fa"></i>
                                     </button>
                                 </td>
@@ -50,7 +44,6 @@
 
     </div>
 </div>
-
 <div class="modal fade" id="modalEditar" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
