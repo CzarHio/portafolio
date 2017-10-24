@@ -27,8 +27,8 @@
                 <img src="/java.web/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  ${useSession}
+                  <small>MIenbro desde Ayer</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -48,10 +48,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="/java.web/home.htm" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="/java.web/salir.htm" class="btn btn-default btn-flat">Salir</a>
                 </div>
               </li>
             </ul>

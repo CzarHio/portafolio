@@ -71,7 +71,6 @@ public class LoginController {
         Usuario usr = this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), request.getParameter("password"));
         if(usr!=null){
             session.setAttribute("logeado",1);
-            System.out.println(usr);
             session.setAttribute("userSession", usr.getNombre() + " " + usr.getApellidoPat() + " " + usr.getApellidoMat());
             //session.setAttribute("since", usr.getCreado().toString());
             response.sendRedirect("./home.htm");
