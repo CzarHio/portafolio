@@ -21,11 +21,9 @@ import cl.duoc.pft8461.cem.ws.Menu;
 import cl.duoc.pft8461.cem.ws.MenuItem;
 import cl.duoc.pft8461.cem.ws.MenuItemWS_Service;
 import cl.duoc.pft8461.cem.ws.MenuWS_Service;
-import cl.duoc.pft8461.cem.ws.PerfilUsuario;
-import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS_Service;
-import cl.duoc.pft8461.cem.ws.Usuario;
-import cl.duoc.pft8461.cem.ws.UsuarioWS;
-import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
+import cl.duoc.pft8461.cem.ws.Programa;
+import cl.duoc.pft8461.cem.ws.ProgramaWS;
+import cl.duoc.pft8461.cem.ws.ProgramaWS_Service;
 import java.util.LinkedList;
 import sun.reflect.generics.tree.Tree;
 
@@ -35,14 +33,12 @@ import sun.reflect.generics.tree.Tree;
  */
 @Controller
 @SessionAttributes
-public class UsuarioController {
+public class ProgramaController {
 
-    private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
-    private List<PerfilUsuario> perfilesUsuario;
+    private final ProgramaWS programaWS = new ProgramaWS_Service().getProgramaWSPort();
 
-    public UsuarioController() {
-        PerfilUsuarioWS_Service perfilUsuarioWS = new PerfilUsuarioWS_Service();
-        perfilesUsuario = perfilUsuarioWS.getPerfilUsuarioWSPort().findAllPerfilUsuario();
+    public ProgramaController() {
+
     }
 
     /**
@@ -55,87 +51,85 @@ public class UsuarioController {
      * @throws ServletException
      * @throws IOException
      */
-    @RequestMapping(value = {"usuario/lista.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"programa/lista.htm"}, method = RequestMethod.GET)
     public ModelAndView lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        List<Usuario> listaUsuario = usuarioWS.findAllUsuarios();
-        mav.addObject("listado", listaUsuario);
-        mav.addObject("perfilesUsuario", perfilesUsuario);
+        List<Programa> listaPrograma = programaWS.findAllPrograma();
+        mav.addObject("listado", listaPrograma);;
 
         mav.addObject("listaMenu", this.getMenu());
-        mav.addObject("tituloPagina", "Usuario");
-        mav.addObject("subtituloPagina", "Listado de Usuarios:");
-        mav.setViewName("usuarioLista");
+        mav.addObject("tituloPagina", "Programa");
+        mav.addObject("subtituloPagina", "Listado de Programas:");
+        mav.setViewName("programaLista");
         return mav;
     }
 
-    @RequestMapping(value = {"usuario/nuevo.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"programa/nuevo.htm"}, method = RequestMethod.GET)
     public ModelAndView nuevo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        mav.addObject("perfilesUsuario", perfilesUsuario);
-        mav.setViewName("usuarioForm");
+        mav.setViewName("programaForm");
 
         return mav;
     }
 
-    @RequestMapping(value = {"usuario/editar.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"programa/editar.htm"}, method = RequestMethod.GET)
     public ModelAndView editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        Usuario usr = usuarioWS.findUsuario(Integer.parseInt(request.getParameter("id")));
+        Programa usr = programaWS.findPrograma(Integer.parseInt(request.getParameter("id")));
         mav.addObject("usr", usr);
-        mav.addObject("perfilesUsuario", perfilesUsuario);
-        mav.setViewName("usuarioForm");
+
+        mav.setViewName("programaForm");
 
         return mav;
     }
 
-    @RequestMapping(value = {"usuario/borrar.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"programa/borrar.htm"}, method = RequestMethod.GET)
     public ModelAndView borrarGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        Usuario usr = usuarioWS.findUsuario(Integer.parseInt(request.getParameter("id")));
+        Programa usr = programaWS.findPrograma(Integer.parseInt(request.getParameter("id")));
         mav.addObject("usr", usr);
-        mav.setViewName("usuarioBorrar");
+        mav.setViewName("programaBorrar");
         return mav;
     }
 
-    @RequestMapping(value = {"usuario/borrar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"programa/borrar.htm"}, method = RequestMethod.POST)
     public void borrarPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ModelAndView mav = new ModelAndView();
-        usuarioWS.removeUsuario(Integer.parseInt(request.getParameter("inputIdUsuario")));
+
+        programaWS.removePrograma(Integer.parseInt(request.getParameter("inputIdPrograma")));
 
         response.sendRedirect("lista.htm");;
     }
 
-    @RequestMapping(value = {"usuario/guardar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"programa/guardar.htm"}, method = RequestMethod.POST)
     public void guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("inputIdUsuario") == null) {
-            usuarioWS.createUsuario(
-                    request.getParameter("inputUsuario"),
+      /*  if (request.getParameter("inputIdPrograma") == null) {
+            programaWS.createPrograma(
+                    request.getParameter("inputPrograma"),
                     request.getParameter("inputClave"),
                     request.getParameter("inputNombre"),
                     request.getParameter("inputApellidoPat"),
                     request.getParameter("inputApellidoMat"),
                     request.getParameter("inputEmail"),
-                    Integer.parseInt(request.getParameter("inputPerfilUsuario")));
+                    Integer.parseInt(request.getParameter("inputPerfilPrograma")));
         } else {
-            usuarioWS.editUsuario(
-                    Integer.parseInt(request.getParameter("inputIdUsuario")),
-                    request.getParameter("inputUsuario"),
+            programaWS.editPrograma(
+                    Integer.parseInt(request.getParameter("inputIdPrograma")),
+                    request.getParameter("inputPrograma"),
                     request.getParameter("inputNombre"),
                     request.getParameter("inputApellidoPat"),
                     request.getParameter("inputApellidoMat"),
                     request.getParameter("inputEmail"),
-                    Integer.parseInt(request.getParameter("inputPerfilUsuario")));
-        }
+                    Integer.parseInt(request.getParameter("inputPerfilPrograma")));
+        }*/
         response.sendRedirect("lista.htm");
 
     }

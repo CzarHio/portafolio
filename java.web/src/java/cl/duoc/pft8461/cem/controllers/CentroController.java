@@ -6,6 +6,9 @@
 package cl.duoc.pft8461.cem.controllers;
 
 import cl.duoc.pft8461.cem.entidades.ArbolMenu;
+import cl.duoc.pft8461.cem.ws.Centro;
+import cl.duoc.pft8461.cem.ws.CentroWS;
+import cl.duoc.pft8461.cem.ws.CentroWS_Service;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -21,8 +24,12 @@ import cl.duoc.pft8461.cem.ws.Menu;
 import cl.duoc.pft8461.cem.ws.MenuItem;
 import cl.duoc.pft8461.cem.ws.MenuItemWS_Service;
 import cl.duoc.pft8461.cem.ws.MenuWS_Service;
-import cl.duoc.pft8461.cem.ws.PerfilUsuario;
-import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS_Service;
+import cl.duoc.pft8461.cem.ws.Centro;
+import cl.duoc.pft8461.cem.ws.CentroWS;
+import cl.duoc.pft8461.cem.ws.CentroWS_Service;
+import cl.duoc.pft8461.cem.ws.Ciudad;
+import cl.duoc.pft8461.cem.ws.CiudadWS;
+import cl.duoc.pft8461.cem.ws.CiudadWS_Service;
 import cl.duoc.pft8461.cem.ws.Usuario;
 import cl.duoc.pft8461.cem.ws.UsuarioWS;
 import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
@@ -35,14 +42,11 @@ import sun.reflect.generics.tree.Tree;
  */
 @Controller
 @SessionAttributes
-public class UsuarioController {
+public class CentroController {
 
-    private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
-    private List<PerfilUsuario> perfilesUsuario;
+    private final CentroWS centroWS = new CentroWS_Service().getCentroWSPort();
 
-    public UsuarioController() {
-        PerfilUsuarioWS_Service perfilUsuarioWS = new PerfilUsuarioWS_Service();
-        perfilesUsuario = perfilUsuarioWS.getPerfilUsuarioWSPort().findAllPerfilUsuario();
+    public CentroController() {
     }
 
     /**
@@ -55,86 +59,88 @@ public class UsuarioController {
      * @throws ServletException
      * @throws IOException
      */
-    @RequestMapping(value = {"usuario/lista.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"centro/lista.htm"}, method = RequestMethod.GET)
     public ModelAndView lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        List<Usuario> listaUsuario = usuarioWS.findAllUsuarios();
-        mav.addObject("listado", listaUsuario);
-        mav.addObject("perfilesUsuario", perfilesUsuario);
+        List<Centro> listaCentro = centroWS.findAllCentro();
+        mav.addObject("listado", listaCentro);
 
         mav.addObject("listaMenu", this.getMenu());
-        mav.addObject("tituloPagina", "Usuario");
-        mav.addObject("subtituloPagina", "Listado de Usuarios:");
-        mav.setViewName("usuarioLista");
+        mav.addObject("tituloPagina", "Centro");
+        mav.addObject("subtituloPagina", "Listado de Centros:");
+        mav.setViewName("centroLista");
         return mav;
     }
 
-    @RequestMapping(value = {"usuario/nuevo.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"centro/nuevo.htm"}, method = RequestMethod.GET)
     public ModelAndView nuevo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
+        UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
+        CiudadWS ciudadWS = new CiudadWS_Service().getCiudadWSPort();
 
-        mav.addObject("perfilesUsuario", perfilesUsuario);
-        mav.setViewName("usuarioForm");
+        List<Usuario> celUsuario = usuarioWS.findUsuarioPor("ID_PERFIL_USUARIO", "3");
+        List<Ciudad> ciudades = ciudadWS.findAllCiudad();
+        mav.addObject("celUsuario", celUsuario);
+        mav.addObject("ciudades", ciudades);
+        mav.setViewName("centroForm");
 
         return mav;
     }
 
-    @RequestMapping(value = {"usuario/editar.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"centro/editar.htm"}, method = RequestMethod.GET)
     public ModelAndView editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
+        UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
+        CiudadWS ciudadWS = new CiudadWS_Service().getCiudadWSPort();
 
-        Usuario usr = usuarioWS.findUsuario(Integer.parseInt(request.getParameter("id")));
-        mav.addObject("usr", usr);
-        mav.addObject("perfilesUsuario", perfilesUsuario);
-        mav.setViewName("usuarioForm");
+        List<Usuario> celUsuario = usuarioWS.findUsuarioPor("ID_PERFIL_USUARIO", "3");
+        List<Ciudad> ciudades = ciudadWS.findAllCiudad();
+        mav.addObject("celUsuario", celUsuario);
+        mav.addObject("ciudades", ciudades);
+        Centro centro = centroWS.findCentro(Integer.parseInt(request.getParameter("id")));
+        mav.addObject("centro", centro);
+        mav.setViewName("centroForm");
 
         return mav;
     }
 
-    @RequestMapping(value = {"usuario/borrar.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"centro/borrar.htm"}, method = RequestMethod.GET)
     public ModelAndView borrarGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        Usuario usr = usuarioWS.findUsuario(Integer.parseInt(request.getParameter("id")));
-        mav.addObject("usr", usr);
-        mav.setViewName("usuarioBorrar");
+        Centro centro = centroWS.findCentro(Integer.parseInt(request.getParameter("id")));
+        mav.addObject("centro", centro);
+        mav.setViewName("centroBorrar");
         return mav;
     }
 
-    @RequestMapping(value = {"usuario/borrar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"centro/borrar.htm"}, method = RequestMethod.POST)
     public void borrarPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        usuarioWS.removeUsuario(Integer.parseInt(request.getParameter("inputIdUsuario")));
+        centroWS.removeCentro(Integer.parseInt(request.getParameter("inputIdCentro")));
 
         response.sendRedirect("lista.htm");;
     }
 
-    @RequestMapping(value = {"usuario/guardar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"centro/guardar.htm"}, method = RequestMethod.POST)
     public void guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("inputIdUsuario") == null) {
-            usuarioWS.createUsuario(
-                    request.getParameter("inputUsuario"),
-                    request.getParameter("inputClave"),
-                    request.getParameter("inputNombre"),
-                    request.getParameter("inputApellidoPat"),
-                    request.getParameter("inputApellidoMat"),
-                    request.getParameter("inputEmail"),
-                    Integer.parseInt(request.getParameter("inputPerfilUsuario")));
+            if (request.getParameter("inputIdCentro") == null) {
+            centroWS.createCentro(
+                    request.getParameter("inputNombreCentro"),
+                    Integer.parseInt(request.getParameter("inputUsuario")),
+                    Integer.parseInt(request.getParameter("inputCiudad")));
         } else {
-            usuarioWS.editUsuario(
-                    Integer.parseInt(request.getParameter("inputIdUsuario")),
-                    request.getParameter("inputUsuario"),
-                    request.getParameter("inputNombre"),
-                    request.getParameter("inputApellidoPat"),
-                    request.getParameter("inputApellidoMat"),
-                    request.getParameter("inputEmail"),
-                    Integer.parseInt(request.getParameter("inputPerfilUsuario")));
+            centroWS.editCentro(
+                    Integer.parseInt(request.getParameter("inputIdCentro")),
+                    request.getParameter("inputNombreCentro"),
+                    Integer.parseInt(request.getParameter("inputUsuario")),
+                    Integer.parseInt(request.getParameter("inputCiudad")));
         }
         response.sendRedirect("lista.htm");
 
