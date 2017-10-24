@@ -14,10 +14,6 @@
 
 <xs:element name="findUsuario" type="tns:findUsuario"/>
 
-<xs:element name="findUsuarioPor" type="tns:findUsuarioPor"/>
-
-<xs:element name="findUsuarioPorResponse" type="tns:findUsuarioPorResponse"/>
-
 <xs:element name="findUsuarioResponse" type="tns:findUsuarioResponse"/>
 
 <xs:element name="removeUsuario" type="tns:removeUsuario"/>
@@ -76,19 +72,6 @@
 <xs:element name="apellido_mat" type="xs:string" minOccurs="0"/>
 <xs:element name="email" type="xs:string" minOccurs="0"/>
 <xs:element name="perfil_usuario" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="findUsuarioPor">
-<xs:sequence>
-<xs:element name="campo" type="xs:string" minOccurs="0"/>
-<xs:element name="valor" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="findUsuarioPorResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:usuario" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
