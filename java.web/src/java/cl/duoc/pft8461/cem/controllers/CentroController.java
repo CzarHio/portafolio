@@ -5,10 +5,6 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
-import cl.duoc.pft8461.cem.entidades.ArbolMenu;
-import cl.duoc.pft8461.cem.ws.Centro;
-import cl.duoc.pft8461.cem.ws.CentroWS;
-import cl.duoc.pft8461.cem.ws.CentroWS_Service;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -20,10 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-import cl.duoc.pft8461.cem.ws.Menu;
-import cl.duoc.pft8461.cem.ws.MenuItem;
-import cl.duoc.pft8461.cem.ws.MenuItemWS_Service;
-import cl.duoc.pft8461.cem.ws.MenuWS_Service;
 import cl.duoc.pft8461.cem.ws.Centro;
 import cl.duoc.pft8461.cem.ws.CentroWS;
 import cl.duoc.pft8461.cem.ws.CentroWS_Service;
@@ -33,8 +25,6 @@ import cl.duoc.pft8461.cem.ws.CiudadWS_Service;
 import cl.duoc.pft8461.cem.ws.Usuario;
 import cl.duoc.pft8461.cem.ws.UsuarioWS;
 import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
-import java.util.LinkedList;
-import sun.reflect.generics.tree.Tree;
 
 /**
  *
@@ -67,7 +57,6 @@ public class CentroController {
         List<Centro> listaCentro = centroWS.findAllCentro();
         mav.addObject("listado", listaCentro);
 
-        mav.addObject("listaMenu", this.getMenu());
         mav.addObject("tituloPagina", "Centro");
         mav.addObject("subtituloPagina", "Listado de Centros:");
         mav.setViewName("centroLista");
@@ -146,17 +135,4 @@ public class CentroController {
 
     }
 
-    private List<ArbolMenu> getMenu() {
-        MenuWS_Service menuWS = new MenuWS_Service();
-        MenuItemWS_Service menuItemWS = new MenuItemWS_Service();
-        List<ArbolMenu> arbol = new LinkedList<>();
-        List<Menu> listaMenu = menuWS.getMenuWSPort().findMenuPor("PERFIL_USUARIO", "1");
-
-        for (Menu m : listaMenu) {
-            ArbolMenu am = new ArbolMenu(m);
-            am.setListaMenu(menuItemWS.getMenuItemWSPort().findMenuItemPor("ID_MENU", m.getIdMenu().toString()));
-            arbol.add(am);
-        }
-        return arbol;
-    }
 }

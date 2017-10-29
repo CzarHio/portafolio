@@ -5,7 +5,7 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
-import cl.duoc.pft8461.cem.entidades.ArbolMenu;
+
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -17,15 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-import cl.duoc.pft8461.cem.ws.Menu;
-import cl.duoc.pft8461.cem.ws.MenuItem;
-import cl.duoc.pft8461.cem.ws.MenuItemWS_Service;
-import cl.duoc.pft8461.cem.ws.MenuWS_Service;
 import cl.duoc.pft8461.cem.ws.Programa;
 import cl.duoc.pft8461.cem.ws.ProgramaWS;
 import cl.duoc.pft8461.cem.ws.ProgramaWS_Service;
-import java.util.LinkedList;
-import sun.reflect.generics.tree.Tree;
+
 
 /**
  *
@@ -59,7 +54,6 @@ public class ProgramaController {
         List<Programa> listaPrograma = programaWS.findAllPrograma();
         mav.addObject("listado", listaPrograma);;
 
-        mav.addObject("listaMenu", this.getMenu());
         mav.addObject("tituloPagina", "Programa");
         mav.addObject("subtituloPagina", "Listado de Programas:");
         mav.setViewName("programaLista");
@@ -134,17 +128,4 @@ public class ProgramaController {
 
     }
 
-    private List<ArbolMenu> getMenu() {
-        MenuWS_Service menuWS = new MenuWS_Service();
-        MenuItemWS_Service menuItemWS = new MenuItemWS_Service();
-        List<ArbolMenu> arbol = new LinkedList<>();
-        List<Menu> listaMenu = menuWS.getMenuWSPort().findMenuPor("PERFIL_USUARIO", "1");
-
-        for (Menu m : listaMenu) {
-            ArbolMenu am = new ArbolMenu(m);
-            am.setListaMenu(menuItemWS.getMenuItemWSPort().findMenuItemPor("ID_MENU", m.getIdMenu().toString()));
-            arbol.add(am);
-        }
-        return arbol;
-    }
 }
