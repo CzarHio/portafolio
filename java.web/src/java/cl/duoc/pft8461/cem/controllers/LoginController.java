@@ -5,6 +5,7 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
+import cl.duoc.pft8461.cem.utilities.HashPwd;
 import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS_Service;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -67,7 +68,13 @@ public class LoginController {
         HttpSession session = request.getSession();
         ModelAndView mav = new ModelAndView();
         // Users user = this.users.authenticate(request.getParameter("login"), request.getParameter("password"));
-
+        
+        try {
+            System.out.println(HashPwd.getHash(request.getParameter("password")));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+ 
         Usuario usr = this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), request.getParameter("password"));
         if(usr!=null){
             session.setAttribute("usuario", usr);

@@ -104,7 +104,7 @@ public class UsuarioController {
         ModelAndView mav = new ModelAndView();
         usuarioWS.removeUsuario(Integer.parseInt(request.getParameter("inputIdUsuario")));
 
-        response.sendRedirect("lista.htm");;
+        response.sendRedirect("lista.htm");
     }
 
     @RequestMapping(value = {"usuario/guardar.htm"}, method = RequestMethod.POST)
