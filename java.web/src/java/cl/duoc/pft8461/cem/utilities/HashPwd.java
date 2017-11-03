@@ -60,13 +60,19 @@ public class HashPwd {
     private static String hash(String password, String key) throws Exception {
         if (password == null || password.length() == 0)
             throw new IllegalArgumentException("Empty passwords are not supported.");
-        MessageDigest md = MessageDigest.getInstance("MD5");
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
         md.update((password + key).getBytes());
         byte[] b = md.digest();
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
+        String hex;
         
-        for (byte bl : b)
-            sb.append(Integer.toHexString(bl & 0xff).toString());
+        for (int i=0;i<b.length;i++) {
+            hex = Integer.toHexString(0xFF & b[i]);
+            if(hex.length() == 1)
+                sb.append('0');
+
+            sb.append(hex);
+        }
         
         return sb.toString();
     }
