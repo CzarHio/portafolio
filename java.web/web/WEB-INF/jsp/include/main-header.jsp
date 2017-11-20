@@ -19,7 +19,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="/java.web/resources/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">${sessionScope.userSession}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -31,7 +31,7 @@
                   <small>MIenbro desde Ayer</small>
                 </p>
               </li>
-              <!-- Menu Body -->
+              <!-- Menu Body 
               <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
@@ -44,7 +44,7 @@
                     <a href="#">Friends</a>
                   </div>
                 </div>
-              </li>
+              </li>-->
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
@@ -56,10 +56,10 @@
               </li>
             </ul>
           </li>
-          <!-- Control Sidebar Toggle Button -->
+          <!-- Control Sidebar Toggle Button 
           <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+          </li>-->
         </ul>
       </div>
     </nav>

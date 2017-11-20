@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="PerfilUsuarioWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.PerfilUsuarioWS</implementation-class>
+    </service>
+    <service name="TipoDocumentoWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.TipoDocumentoWS</implementation-class>
+    </service>
+    <service name="CiudadWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.CiudadWS</implementation-class>
+    </service>
+    <service name="ParticipacionWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.ParticipacionWS</implementation-class>
+    </service>
+    <service name="MenuItemWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.MenuItemWS</implementation-class>
+    </service>
+    <service name="NotaWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.NotaWS</implementation-class>
+    </service>
+    <service name="RegionWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.RegionWS</implementation-class>
+    </service>
+    <service name="UsuarioWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.UsuarioWS</implementation-class>
+    </service>
+    <service name="DocumentoWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.DocumentoWS</implementation-class>
+    </service>
+    <service name="EstadoParticipacionWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.EstadoParticipacionWS</implementation-class>
+    </service>
+    <service name="EstadoFamiliaWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.EstadoFamiliaWS</implementation-class>
+    </service>
+    <service name="CursoWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.CursoWS</implementation-class>
+    </service>
+    <service name="PostulacionWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.PostulacionWS</implementation-class>
+    </service>
+    <service name="FamiliaWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.FamiliaWS</implementation-class>
+    </service>
+    <service name="PaisWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.PaisWS</implementation-class>
+    </service>
+    <service name="CentroWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.CentroWS</implementation-class>
+    </service>
+    <service name="EstadoPostulacionWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.EstadoPostulacionWS</implementation-class>
+    </service>
+    <service name="ProgramaWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.ProgramaWS</implementation-class>
+    </service>
+    <service name="MenuWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.MenuWS</implementation-class>
+    </service>
+    <service name="EstadoProgramaWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.EstadoProgramaWS</implementation-class>
+    </service>
+    <service name="EstadoDocumentoWS">
+      <implementation-class>cl.duoc.pft8461.cem.ws.EstadoDocumentoWS</implementation-class>
+    </service>
+  </services>
+  <clients>
+  </clients>
+  <jsr109>true</jsr109>
+</jax-ws>

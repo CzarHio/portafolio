@@ -17,6 +17,11 @@
     define an explicit mapping for it.
     -->
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="interceptors">
+            <list>
+                <ref bean="SessionInterceptor" />
+            </list>
+        </property>
         <property name="mappings">
             <props>
                 <prop key="index.htm">indexController</prop>
@@ -66,5 +71,7 @@
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
+    
+    <bean id="SessionInterceptor" class="cl.duoc.pft8461.cem.interceptors.SessionInterceptor"/>
 
 </beans>

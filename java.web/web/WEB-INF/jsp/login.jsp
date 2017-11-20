@@ -7,7 +7,7 @@
     <body class="hold-transition login-page">
         <div class="login-box">
             <div class="login-logo">
-                <a href="index.htm">
+                <a href="/java.web">
                     <img alt="Sistema CEM" class="img-responsive" width="350" src="/java.web/resources/dist/img/logo_large.png">
                 </a>
             </div>

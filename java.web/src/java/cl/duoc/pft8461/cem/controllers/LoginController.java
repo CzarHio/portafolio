@@ -5,6 +5,7 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
+import cl.duoc.pft8461.cem.utilities.HashPwd;
 import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS_Service;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -67,11 +68,22 @@ public class LoginController {
         HttpSession session = request.getSession();
         ModelAndView mav = new ModelAndView();
         // Users user = this.users.authenticate(request.getParameter("login"), request.getParameter("password"));
-
+        
+        try {
+            System.out.println(HashPwd.getHash(request.getParameter("password")));
+            // test string "asdasd"
+            System.out.println("L0+h5zDT8Q==$ee0ce6c01fe5d84297de6b7c4da5c83d2bd4746874cf5c07e33d1d1da76cef5347d8f1ba686a355a7f7eed8ea78842163efe46292b7e2bdc85964f1f6c1ba951");
+            System.out.println(HashPwd.check(request.getParameter("password"), "L0+h5zDT8Q==$ee0ce6c01fe5d84297de6b7c4da5c83d2bd4746874cf5c07e33d1d1da76cef5347d8f1ba686a355a7f7eed8ea78842163efe46292b7e2bdc85964f1f6c1ba951"));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+ 
         Usuario usr = this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), request.getParameter("password"));
         if(usr!=null){
-            session.setAttribute("logeado",1);
+            session.setAttribute("usuario", usr);
+            session.setAttribute("logeado", "1");
             session.setAttribute("userSession", usr.getNombre() + " " + usr.getApellidoPat() + " " + usr.getApellidoMat());
+            session.setAttribute("perfil", usr.getIdPerfilUsuario());
             //session.setAttribute("since", usr.getCreado().toString());
             response.sendRedirect("./home.htm");
             return null;
