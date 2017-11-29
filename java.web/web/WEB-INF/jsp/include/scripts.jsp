@@ -8,5 +8,13 @@
 <script src="/java.web/resources/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/java.web/resources/dist/js/adminlte.min.js"></script>
+<script src="/java.web/resources/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/java.web/resources/dist/js/demo.js"></script>
+<script src="/java.web/resources/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/java.web/resources/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/java.web/resources/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="/java.web/resources/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="/java.web/resources/plugins/pace/pace.js"></script>
+<script src="/java.web/resources/plugins/select2/select2.full.min.js"></script>
+<script src="/java.web/resources/dist/js/scripts.js"></script>

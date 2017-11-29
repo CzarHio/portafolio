@@ -6,6 +6,7 @@
 package cl.duoc.pft8461.cem.controllers;
 
 
+import cl.duoc.pft8461.cem.entidades.UsuarioEntity;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -64,72 +65,70 @@ public class UsuarioController {
         return mav;
     }
 
-    @RequestMapping(value = {"usuario/nuevo.htm"}, method = RequestMethod.GET)
-    public ModelAndView nuevo(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        ModelAndView mav = new ModelAndView();
-
-        mav.addObject("perfilesUsuario", perfilesUsuario);
-        mav.setViewName("usuarioForm");
-
-        return mav;
-    }
-
-    @RequestMapping(value = {"usuario/editar.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"usuario/editar.htm"}, method = RequestMethod.POST)
     public ModelAndView editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        Usuario usr = usuarioWS.findUsuario(Integer.parseInt(request.getParameter("id")));
-        mav.addObject("usr", usr);
-        mav.addObject("perfilesUsuario", perfilesUsuario);
-        mav.setViewName("usuarioForm");
-
-        return mav;
-    }
-
-    @RequestMapping(value = {"usuario/borrar.htm"}, method = RequestMethod.GET)
-    public ModelAndView borrarGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        ModelAndView mav = new ModelAndView();
-        Usuario usr = usuarioWS.findUsuario(Integer.parseInt(request.getParameter("id")));
-        mav.addObject("usr", usr);
-        mav.setViewName("usuarioBorrar");
+        UsuarioEntity usr = new UsuarioEntity(usuarioWS.findUsuario(Integer.parseInt(request.getParameter("id"))));
+        mav.addObject("json", usr.toJson());
+        mav.setViewName("include/json");
+        
         return mav;
     }
 
     @RequestMapping(value = {"usuario/borrar.htm"}, method = RequestMethod.POST)
-    public void borrarPost(HttpServletRequest request, HttpServletResponse response)
+    public ModelAndView borrarPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        usuarioWS.removeUsuario(Integer.parseInt(request.getParameter("inputIdUsuario")));
-
-        response.sendRedirect("lista.htm");
+        String json = "{\"response\": 0}";
+        try {
+            json = "{\"response\": 1}";
+            usuarioWS.removeUsuario(Integer.parseInt(request.getParameter("id")));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
+        
+        return mav;
     }
 
     @RequestMapping(value = {"usuario/guardar.htm"}, method = RequestMethod.POST)
-    public void guardar(HttpServletRequest request, HttpServletResponse response)
+    public ModelAndView guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("inputIdUsuario") == null) {
-            usuarioWS.createUsuario(
-                    request.getParameter("inputUsuario"),
-                    request.getParameter("inputClave"),
-                    request.getParameter("inputNombre"),
-                    request.getParameter("inputApellidoPat"),
-                    request.getParameter("inputApellidoMat"),
-                    request.getParameter("inputEmail"),
-                    Integer.parseInt(request.getParameter("inputPerfilUsuario")));
-        } else {
-            usuarioWS.editUsuario(
-                    Integer.parseInt(request.getParameter("inputIdUsuario")),
-                    request.getParameter("inputUsuario"),
-                    request.getParameter("inputNombre"),
-                    request.getParameter("inputApellidoPat"),
-                    request.getParameter("inputApellidoMat"),
-                    request.getParameter("inputEmail"),
-                    Integer.parseInt(request.getParameter("inputPerfilUsuario")));
+        ModelAndView mav = new ModelAndView();
+        String json = "{\"response\": 0}";
+        try {
+            json = "{\"response\": 1}";
+            if (request.getParameter("idUsuario") == null) {
+                usuarioWS.createUsuario(
+                    request.getParameter("usuario"),
+                    request.getParameter("clave"),
+                    request.getParameter("nombre"),
+                    request.getParameter("apellidoPat"),
+                    request.getParameter("apellidoMat"),
+                    request.getParameter("email"),
+                    Integer.parseInt(request.getParameter("idPerfilUsuario")));
+            } else {
+                usuarioWS.editUsuario(
+                        Integer.parseInt(request.getParameter("idUsuario")),
+                        request.getParameter("usuario"),
+                        request.getParameter("nombre"),
+                        request.getParameter("apellidoPat"),
+                        request.getParameter("apellidoMat"),
+                        request.getParameter("email"),
+                        Integer.parseInt(request.getParameter("idPerfilUsuario")));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        response.sendRedirect("lista.htm");
+        
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
+        
+        return mav;
 
     }
 }

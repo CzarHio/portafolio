@@ -90,14 +90,14 @@
         $('#mantenedor').DataTable({
             "paging": true,
             "lengthChange": false,
-            "searching": false,
+            "searching": true,
             "ordering": true,
             "info": true,
             "autoWidth": false
         });
     }
 
-    if ($('select').length) {
+   if ($('select').length) {
         $('select').select2({
             placeholder: "Seleccione...",
             allowClear: true
@@ -174,7 +174,6 @@
         if (!cem.validForm())
             return;
         $('#new').modal('hide');
-        var controller = $(this).attr('data-controller');
         var url = $(this).attr('data-url');
         swal({
             title: 'Envío de datos',
@@ -188,7 +187,7 @@
         function () {
             $.ajax({
                 url: url,
-                data: 'controller=' + controller + data,
+                data: data,
                 type: "POST",
                 success: function (data) {
                     if (data.response === 1) {
@@ -223,12 +222,12 @@
         cem.clearFormMantanedor();
     });
 
-    $('.btnEditar').on('click', function () {
+    $('body').on('click', '.btnEditar', function () {
         cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'));
         $('#new').modal('show');
     });
 
-    $('.btnEliminar').on('click', function () {
+    $('body').on('click', '.btnEliminar', function () {
         var id = $(this).attr('data-id');
         var url = $(this).attr('data-url');
         swal({

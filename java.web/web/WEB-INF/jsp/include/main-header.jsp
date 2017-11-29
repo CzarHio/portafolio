@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo">
+    <a href="/java.web" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>CE</b>M</span>
       <!-- logo for regular state and mobile devices -->
@@ -28,7 +28,7 @@
 
                 <p>
                   ${useSession}
-                  <small>MIenbro desde Ayer</small>
+                  <small>Miembro desde Ayer</small>
                 </p>
               </li>
               <!-- Menu Body 
