@@ -5,12 +5,12 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
+import cl.duoc.pft8461.cem.entidades.CentroEntity;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +35,8 @@ import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
 public class CentroController {
 
     private final CentroWS centroWS = new CentroWS_Service().getCentroWSPort();
+    private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
+    private final CiudadWS ciudadWS = new CiudadWS_Service().getCiudadWSPort();
 
     public CentroController() {
     }
@@ -55,83 +57,73 @@ public class CentroController {
         ModelAndView mav = new ModelAndView();
 
         List<Centro> listaCentro = centroWS.findAllCentro();
+        List<Usuario> celUsuario = usuarioWS.findUsuarioPor("ID_PERFIL_USUARIO", "3");
+        List<Ciudad> ciudades = ciudadWS.findAllCiudad();
+        mav.addObject("celUsuario", celUsuario);
+        mav.addObject("ciudades", ciudades);
         mav.addObject("listado", listaCentro);
-
         mav.addObject("tituloPagina", "Centro");
         mav.addObject("subtituloPagina", "Listado de Centros:");
         mav.setViewName("centroLista");
         return mav;
     }
 
-    @RequestMapping(value = {"centro/nuevo.htm"}, method = RequestMethod.GET)
-    public ModelAndView nuevo(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        ModelAndView mav = new ModelAndView();
-        UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
-        CiudadWS ciudadWS = new CiudadWS_Service().getCiudadWSPort();
-
-        List<Usuario> celUsuario = usuarioWS.findUsuarioPor("ID_PERFIL_USUARIO", "3");
-        List<Ciudad> ciudades = ciudadWS.findAllCiudad();
-        mav.addObject("celUsuario", celUsuario);
-        mav.addObject("ciudades", ciudades);
-        mav.setViewName("centroForm");
-
-        return mav;
-    }
-
-    @RequestMapping(value = {"centro/editar.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"centro/editar.htm"}, method = RequestMethod.POST)
     public ModelAndView editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
-        CiudadWS ciudadWS = new CiudadWS_Service().getCiudadWSPort();
 
-        List<Usuario> celUsuario = usuarioWS.findUsuarioPor("ID_PERFIL_USUARIO", "3");
-        List<Ciudad> ciudades = ciudadWS.findAllCiudad();
-        mav.addObject("celUsuario", celUsuario);
-        mav.addObject("ciudades", ciudades);
-        Centro centro = centroWS.findCentro(Integer.parseInt(request.getParameter("id")));
-        mav.addObject("centro", centro);
-        mav.setViewName("centroForm");
-
-        return mav;
-    }
-
-    @RequestMapping(value = {"centro/borrar.htm"}, method = RequestMethod.GET)
-    public ModelAndView borrarGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        ModelAndView mav = new ModelAndView();
-        Centro centro = centroWS.findCentro(Integer.parseInt(request.getParameter("id")));
-        mav.addObject("centro", centro);
-        mav.setViewName("centroBorrar");
+        CentroEntity centro = new CentroEntity(centroWS.findCentro(Integer.parseInt(request.getParameter("id"))));
+        mav.addObject("json", centro.toJson());
+        mav.setViewName("include/json");
+        
         return mav;
     }
 
     @RequestMapping(value = {"centro/borrar.htm"}, method = RequestMethod.POST)
-    public void borrarPost(HttpServletRequest request, HttpServletResponse response)
+    public ModelAndView borrarPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        centroWS.removeCentro(Integer.parseInt(request.getParameter("inputIdCentro")));
-
-        response.sendRedirect("lista.htm");;
+        String json = "{\"response\": 0}";
+        try {
+            json = "{\"response\": 1}";
+            centroWS.removeCentro(Integer.parseInt(request.getParameter("id")));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
+        
+        return mav;
     }
 
     @RequestMapping(value = {"centro/guardar.htm"}, method = RequestMethod.POST)
-    public void guardar(HttpServletRequest request, HttpServletResponse response)
+    public ModelAndView guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            if (request.getParameter("inputIdCentro") == null) {
-            centroWS.createCentro(
-                    request.getParameter("inputNombreCentro"),
-                    Integer.parseInt(request.getParameter("inputUsuario")),
-                    Integer.parseInt(request.getParameter("inputCiudad")));
-        } else {
-            centroWS.editCentro(
-                    Integer.parseInt(request.getParameter("inputIdCentro")),
-                    request.getParameter("inputNombreCentro"),
-                    Integer.parseInt(request.getParameter("inputUsuario")),
-                    Integer.parseInt(request.getParameter("inputCiudad")));
+        ModelAndView mav = new ModelAndView();
+        String json = "{\"response\": 0}";
+        try {
+            if (request.getParameter("idCentro") == null) {
+                centroWS.createCentro(
+                        request.getParameter("nombreCentro"),
+                        Integer.parseInt(request.getParameter("idUsuario")),
+                        Integer.parseInt(request.getParameter("idCiudad")));
+            } else {
+                centroWS.editCentro(
+                        Integer.parseInt(request.getParameter("idCentro")),
+                        request.getParameter("nombreCentro"),
+                        Integer.parseInt(request.getParameter("idUsuario")),
+                        Integer.parseInt(request.getParameter("idCiudad")));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        response.sendRedirect("lista.htm");
+        
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
+        
+        return mav;
 
     }
 

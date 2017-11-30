@@ -6,12 +6,18 @@
 package cl.duoc.pft8461.cem.controllers;
 
 
+import cl.duoc.pft8461.cem.entidades.ProgramaEntity;
+import cl.duoc.pft8461.cem.ws.EstadoPrograma;
+import cl.duoc.pft8461.cem.ws.EstadoProgramaWS;
+import cl.duoc.pft8461.cem.ws.EstadoProgramaWS_Service;
+import cl.duoc.pft8461.cem.ws.Pais;
+import cl.duoc.pft8461.cem.ws.PaisWS;
+import cl.duoc.pft8461.cem.ws.PaisWS_Service;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +37,8 @@ import cl.duoc.pft8461.cem.ws.ProgramaWS_Service;
 public class ProgramaController {
 
     private final ProgramaWS programaWS = new ProgramaWS_Service().getProgramaWSPort();
+    private final PaisWS paisWS = new PaisWS_Service().getPaisWSPort();
+    private final EstadoProgramaWS estadoProgramaWS = new EstadoProgramaWS_Service().getEstadoProgramaWSPort();
 
     public ProgramaController() {
 
@@ -52,7 +60,11 @@ public class ProgramaController {
         ModelAndView mav = new ModelAndView();
 
         List<Programa> listaPrograma = programaWS.findAllPrograma();
-        mav.addObject("listado", listaPrograma);;
+        List<Pais> listaPais = paisWS.findAllPais();
+        List<EstadoPrograma> listaEstadoPrograma = estadoProgramaWS.findAllEstadoPrograma();
+        mav.addObject("listado", listaPrograma);
+        mav.addObject("paises", listaPais);
+        mav.addObject("estados", listaEstadoPrograma);
 
         mav.addObject("tituloPagina", "Programa");
         mav.addObject("subtituloPagina", "Listado de Programas:");
@@ -60,71 +72,63 @@ public class ProgramaController {
         return mav;
     }
 
-    @RequestMapping(value = {"programa/nuevo.htm"}, method = RequestMethod.GET)
-    public ModelAndView nuevo(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        ModelAndView mav = new ModelAndView();
-
-        mav.setViewName("programaForm");
-
-        return mav;
-    }
-
-    @RequestMapping(value = {"programa/editar.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"programa/editar.htm"}, method = RequestMethod.POST)
     public ModelAndView editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        Programa usr = programaWS.findPrograma(Integer.parseInt(request.getParameter("id")));
-        mav.addObject("usr", usr);
-
-        mav.setViewName("programaForm");
-
-        return mav;
-    }
-
-    @RequestMapping(value = {"programa/borrar.htm"}, method = RequestMethod.GET)
-    public ModelAndView borrarGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        ModelAndView mav = new ModelAndView();
-        Programa usr = programaWS.findPrograma(Integer.parseInt(request.getParameter("id")));
-        mav.addObject("usr", usr);
-        mav.setViewName("programaBorrar");
+        ProgramaEntity pro = new ProgramaEntity(programaWS.findPrograma(Integer.parseInt(request.getParameter("id"))));
+        mav.addObject("json", pro.toJson());
+        mav.setViewName("include/json");
+        
         return mav;
     }
 
     @RequestMapping(value = {"programa/borrar.htm"}, method = RequestMethod.POST)
-    public void borrarPost(HttpServletRequest request, HttpServletResponse response)
+    public ModelAndView borrarGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        programaWS.removePrograma(Integer.parseInt(request.getParameter("inputIdPrograma")));
-
-        response.sendRedirect("lista.htm");;
+        ModelAndView mav = new ModelAndView();
+        String json = "{\"response\": 0}";
+        try {
+            json = "{\"response\": 1}";
+            programaWS.removePrograma(Integer.parseInt(request.getParameter("id")));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
+        
+        return mav;
     }
 
     @RequestMapping(value = {"programa/guardar.htm"}, method = RequestMethod.POST)
-    public void guardar(HttpServletRequest request, HttpServletResponse response)
+    public ModelAndView guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      /*  if (request.getParameter("inputIdPrograma") == null) {
-            programaWS.createPrograma(
-                    request.getParameter("inputPrograma"),
-                    request.getParameter("inputClave"),
-                    request.getParameter("inputNombre"),
-                    request.getParameter("inputApellidoPat"),
-                    request.getParameter("inputApellidoMat"),
-                    request.getParameter("inputEmail"),
-                    Integer.parseInt(request.getParameter("inputPerfilPrograma")));
-        } else {
-            programaWS.editPrograma(
-                    Integer.parseInt(request.getParameter("inputIdPrograma")),
-                    request.getParameter("inputPrograma"),
-                    request.getParameter("inputNombre"),
-                    request.getParameter("inputApellidoPat"),
-                    request.getParameter("inputApellidoMat"),
-                    request.getParameter("inputEmail"),
-                    Integer.parseInt(request.getParameter("inputPerfilPrograma")));
-        }*/
-        response.sendRedirect("lista.htm");
+        ModelAndView mav = new ModelAndView();
+        String json = "{\"response\": 0}";
+        try {
+            json = "{\"response\": 1}";
+            if (request.getParameter("idPrograma") == null) {
+                programaWS.createPrograma(
+                    Integer.parseInt(request.getParameter("idEstado")),
+                    request.getParameter("nombrePrograma"),
+                    request.getParameter("idPais"));
+            } else {
+                programaWS.editPrograma(
+                    Integer.parseInt(request.getParameter("idPrograma")),
+                    Integer.parseInt(request.getParameter("idEstado")),
+                    request.getParameter("nombrePrograma"),
+                    request.getParameter("idPais"));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
+        
+        return mav;
 
     }
 

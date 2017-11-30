@@ -6,7 +6,6 @@
 package cl.duoc.pft8461.cem.entidades;
 import cl.duoc.pft8461.cem.ws.Menu;
 import cl.duoc.pft8461.cem.ws.MenuItem;
-import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -16,12 +15,11 @@ import java.util.List;
 public class ArbolMenu extends Menu{
     private List<MenuItem> listaMenu;
 
-
     public ArbolMenu(Menu m) {
-            this.idMenu = m.getIdMenu();
-            this.orden = m.getOrden();
-            this.perfilUsuario = m.getPerfilUsuario();
-            this.titulo = m.getTitulo();
+        this.idMenu = m.getIdMenu();
+        this.orden = m.getOrden();
+        this.perfilUsuario = m.getPerfilUsuario();
+        this.titulo = m.getTitulo();
     }
     
     /**

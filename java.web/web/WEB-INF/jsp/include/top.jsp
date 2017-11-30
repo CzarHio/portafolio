@@ -1,8 +1,5 @@
 <html>
     <jsp:include page="head.jsp" />
-    <c:if test="${sessionScope.user!= null}">
-        <c:redirect url="./perfil.htm"/>
-    </c:if>
     <body class="skin-blue fixed sidebar-mini sidebar-mini-expand-feature">
         <!-- Site wrapper -->
         <div class="wrapper" style="height: auto; min-height: 100%;">

@@ -15,7 +15,6 @@ import java.io.Serializable;
 public class UsuarioEntity extends Usuario implements Model, Serializable {
 
     public UsuarioEntity(Usuario u) {
-        System.out.println(u);
         this.apellidoMat = u.getApellidoMat();
         this.apellidoPat = u.getApellidoPat();
         this.clave = u.getClave();

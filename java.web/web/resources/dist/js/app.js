@@ -385,7 +385,7 @@ function _init() {
    * @type Function
    * @Usage: $.AdminLTE.tree('.sidebar')
    */
-  $.AdminLTE.tree = function (menu) {
+ /* $.AdminLTE.tree = function (menu) {
     var _this = this;
     var animationSpeed = $.AdminLTE.options.animationSpeed;
     $(document).on('click', menu + ' li a', function (e) {
@@ -429,7 +429,7 @@ function _init() {
         e.preventDefault();
       }
     });
-  };
+  };*/
 
   /* ControlSidebar
    * ==============

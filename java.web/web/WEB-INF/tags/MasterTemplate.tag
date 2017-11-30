@@ -1,5 +1,9 @@
 <%@tag description="Pagina Maestra con Template" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${!sessionScope.logeado.equals('1')}">
+   <c:redirect url="/java.web/login.htm"/>
+</c:if>
 <html>
     <%@attribute name="header" fragment="true" %>
     <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->

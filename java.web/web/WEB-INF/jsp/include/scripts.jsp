@@ -8,7 +8,7 @@
 <script src="/java.web/resources/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/java.web/resources/dist/js/adminlte.min.js"></script>
-<script src="/java.web/resources/dist/js/app.min.js"></script>
+<script src="/java.web/resources/dist/js/app.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/java.web/resources/dist/js/demo.js"></script>
 <script src="/java.web/resources/plugins/datatables/jquery.dataTables.min.js"></script>

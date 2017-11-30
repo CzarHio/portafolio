@@ -14,8 +14,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.ModelAndViewDefiningException;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
@@ -33,13 +31,13 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
                 && !request.getRequestURI().equals("/java.web/registro.htm")
                 && !request.getRequestURI().equals("/java.web/registrarse.htm")
                 && !request.getRequestURI().equals("/java.web/salir.htm")) {
-            if (session.getAttribute("logeado") != "1") {
+            if (session.getAttribute("logeado") == null || !session.getAttribute("logeado").equals("1")) {
                 //whatever you want to do
                 //return throw new ModelAndViewDefiningException(new ModelAndView("userLogout", "command", null));
                 response.sendRedirect("/java.web/login.htm");
                 return false;
             } else {
-                if (session.getAttribute("menu") == null || session.getAttribute("menu") == "") {
+                if (session.getAttribute("menu") == null || session.getAttribute("menu").equals("")) {
                     session.setAttribute("menu", getMenu((Integer) session.getAttribute("perfil")));
                 }
                 return true;
