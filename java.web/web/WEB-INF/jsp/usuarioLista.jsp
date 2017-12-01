@@ -68,34 +68,34 @@
                             <div class="form-group">
                                 <label for="usuario" class="col-sm-2 control-label">Usuario</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario" value="${usr.getUsuario()}">
+                                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="usuario" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="nombre" class="col-sm-2 control-label">Nombre</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Juan" value="${usr.getNombre()}">
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Juan" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="apellidoPat" class="col-sm-2 control-label">Apellido Paterno</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="apellidoPat" name="apellidoPat" placeholder="Perez">
+                                    <input type="text" class="form-control" id="apellidoPat" name="apellidoPat" placeholder="Perez" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="apellidoMat" class="col-sm-2 control-label">Apellido Materno</label>
 
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="apellidoMat" name="apellidoMat" placeholder="González">
+                                    <input type="text" class="form-control" id="apellidoMat" name="apellidoMat" placeholder="González" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="col-sm-2 control-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="jperez@email.cl">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="jperez@email.cl" required="required">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -108,14 +108,14 @@
                             <div class="form-group">
                                 <label for="idPerfilUsuario" class="col-sm-2 control-label">Perfil Usuario</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" id="idPerfilUsuario" name="idPerfilUsuario" style="width: 100%;">
+                                    <select class="form-control" id="idPerfilUsuario" name="idPerfilUsuario" style="width: 100%;" required="required">
                                         <c:forEach items="${perfilesUsuario}" var="perfil">
-                                            <option value="${perfil.getIdPerfilUsuario()}" <c:if test="${usr.getIdPerfilUsuario()==perfil.getIdPerfilUsuario()}">selected</c:if> >${perfil.getNombrePerfil()}</option>
+                                            <option value="${perfil.getIdPerfilUsuario()}" >${perfil.getNombrePerfil()}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                             </div>
-                                <input type="hidden" id="idUsuario" name="idUsuario" value="${usr.getIdUsuario()}">
+                                <input type="hidden" id="idUsuario" name="idUsuario">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>

@@ -35,19 +35,26 @@
                 <prop key="home.htm">home</prop>
                 <!-- Usuario Routes  -->
                 <prop key="usuario/lista.htm">usuario</prop>
-                <prop key="usuario/nuevo.htm">usuario</prop>
                 <prop key="usuario/editar.htm">usuario</prop>
                 <prop key="usuario/borrar.htm">usuario</prop>
+                <prop key="usuario/guardar.htm">usuario</prop>
                 <!-- Centro Routes  -->
                 <prop key="centro/lista.htm">centro</prop>
-                <prop key="centro/nuevo.htm">centro</prop>
                 <prop key="centro/editar.htm">centro</prop>
                 <prop key="centro/borrar.htm">centro</prop>
+                <prop key="centro/guardar.htm">centro</prop>
                 <!-- Programa Routes  -->
                 <prop key="programa/lista.htm">programa</prop>
-                <prop key="programa/nuevo.htm">programa</prop>
                 <prop key="programa/editar.htm">programa</prop>
                 <prop key="programa/borrar.htm">programa</prop>
+                <prop key="programa/guardar.htm">programa</prop>
+                <prop key="programa/unirse.htm">programa</prop>
+                <prop key="programa/postulacion.htm">programa</prop>
+                <!-- Cursos Routes  -->
+                <prop key="cursos/lista.htm">curso</prop>
+                <prop key="cursos/editar.htm">curso</prop>
+                <prop key="cursos/borrar.htm">curso</prop>
+                <prop key="cursos/guardar.htm">curso</prop>
             </props>
         </property>
     </bean>
@@ -65,6 +72,7 @@
     <bean name="usuario" class="cl.duoc.pft8461.cem.controllers.UsuarioController"/>
     <bean name="centro" class="cl.duoc.pft8461.cem.controllers.CentroController"/>
     <bean name="programa" class="cl.duoc.pft8461.cem.controllers.ProgramaController"/>
+    <bean name="curso" class="cl.duoc.pft8461.cem.controllers.CursosController"/>
     <!--
     The index controller.
     -->

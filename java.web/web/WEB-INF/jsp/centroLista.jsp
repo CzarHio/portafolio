@@ -62,13 +62,13 @@
                             <div class="form-group">
                                 <label for="nombreCentro" class="col-sm-2 control-label">Nombre Centro</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="nombreCentro" name="nombreCentro" placeholder="Nombre...">
+                                    <input type="text" class="form-control" id="nombreCentro" name="nombreCentro" placeholder="Nombre..." required="required">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="idCiudad" class="col-sm-2 control-label">Ciudad</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" id="idCiudad" name="idCiudad" style="width: 100%">
+                                    <select class="form-control" id="idCiudad" name="idCiudad" style="width: 100%" required="required">
                                         <c:forEach items="${ciudades}" var="ciudad">
                                             <option value="${ciudad.getIdCiudad()}">${ciudad.getNombreCiudad()}</option>
                                         </c:forEach>
@@ -78,7 +78,7 @@
                              <div class="form-group">
                                 <label for="idUsuario" class="col-sm-2 control-label">Usuario</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" id="idUsuario" name="idUsuario" style="width: 100%">
+                                    <select class="form-control" id="idUsuario" name="idUsuario" style="width: 100%" required="required">
                                         <c:forEach items="${celUsuario}" var="usuario">
                                             <option value="${usuario.getIdUsuario()}">${usuario.getNombre()} ${usuario.getApellidoPat()} (${usuario.getUsuario()})</option>
                                         </c:forEach>

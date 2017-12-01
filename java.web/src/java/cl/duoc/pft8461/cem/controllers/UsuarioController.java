@@ -77,7 +77,7 @@ public class UsuarioController {
     }
 
     @RequestMapping(value = {"usuario/borrar.htm"}, method = RequestMethod.POST)
-    public ModelAndView borrarPost(HttpServletRequest request, HttpServletResponse response)
+    public ModelAndView borrar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
         String json = "{\"response\": 0}";
