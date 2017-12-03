@@ -29,9 +29,9 @@
                                     <c:forEach items="${listado}" var="familia">
                                         <tr>
                                             <td>${familia.getIdFamilia()}</td>
-                                            <td>${familia.getIdCentro()}</td>
-                                            <td>${familia.getIdUsuario()}</td>
-                                            <td>${familia.getIdEstado()}</td>
+                                            <td>${centros.get(familia.getIdCentro()).getNombreCentro()}</td>
+                                            <td>${usuarios.get(familia.getIdUsuario()).getNombre()} ${usuarios.get(familia.getIdUsuario()).getApellidoPat()}</td>
+                                            <td>${estadosFamilia.get(familia.getIdEstado()).getEstado()}</td>
                                             <td>${familia.getPostulacion()}</td>
                                             <td>
                                                 <a class="btn btn-primary btnEditar" data-url="editar.htm" data-toggle="tooltip" data-original-title="Editar" data-id="${familia.getIdFamilia()}">
@@ -62,27 +62,31 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="nombrePrograma" class="col-sm-2 control-label">Nombre Programa</label>
+                                <label for="idCentro" class="col-sm-2 control-label">Centro</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="nombrePrograma" name="nombrePrograma" placeholder="Nombre..." required="required">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="idPais" class="col-sm-2 control-label">País</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" id="idPais" name="idPais" style="width: 100%" required="required">
-                                        <c:forEach items="${paises}" var="pais">
-                                            <option value="${pais.key}">${pais.value.getNombrePais()}</option>
+                                    <select class="form-control" id="idCentro" name="idCentro" style="width: 100%" required="required">
+                                        <c:forEach items="${centros}" var="centro">
+                                            <option value="${centro.key}">${centro.value.getNombreCentro()}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
+                                <label for="idUsuario" class="col-sm-2 control-label">Usuario</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="idUsuario" name="idUsuario" style="width: 100%" required="required">
+                                        <c:forEach items="${usuarios}" var="usuario">
+                                            <option value="${usuario.key}">${usuario.value.getNombre()} ${usuario.value.getApellidoPat()}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="idEstado" class="col-sm-2 control-label">Estado</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="idEstado" name="idEstado" style="width: 100%" required="required">
-                                        <c:forEach items="${estados}" var="estado">
-                                            <option value="${estado.getIdEstado()}">${estado.getEstado()}</option>
+                                        <c:forEach items="${estadosFamilia}" var="estado">
+                                            <option value="${estado.key}">${estado.value.getEstado()}</option>
                                         </c:forEach>
                                     </select>
                                 </div>

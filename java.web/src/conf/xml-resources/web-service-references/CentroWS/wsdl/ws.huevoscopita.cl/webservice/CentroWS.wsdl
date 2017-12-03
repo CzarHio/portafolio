@@ -31,17 +31,17 @@
 <message name="findCentroPorResponse">
 <part name="parameters" element="tns:findCentroPorResponse"/>
 </message>
-<message name="seleccionarFullPor">
-<part name="parameters" element="tns:seleccionarFullPor"/>
+<message name="seleccionarCentroFull">
+<part name="parameters" element="tns:seleccionarCentroFull"/>
 </message>
-<message name="seleccionarFullPorResponse">
-<part name="parameters" element="tns:seleccionarFullPorResponse"/>
+<message name="seleccionarCentroFullResponse">
+<part name="parameters" element="tns:seleccionarCentroFullResponse"/>
 </message>
-<message name="seleccionarFull">
-<part name="parameters" element="tns:seleccionarFull"/>
+<message name="seleccionarCentroFullPor">
+<part name="parameters" element="tns:seleccionarCentroFullPor"/>
 </message>
-<message name="seleccionarFullResponse">
-<part name="parameters" element="tns:seleccionarFullResponse"/>
+<message name="seleccionarCentroFullPorResponse">
+<part name="parameters" element="tns:seleccionarCentroFullPorResponse"/>
 </message>
 <portType name="CentroWS">
 <operation name="removeCentro">
@@ -65,13 +65,13 @@
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorRequest" message="tns:findCentroPor"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorResponse" message="tns:findCentroPorResponse"/>
 </operation>
-<operation name="seleccionarFullPor">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarFullPorRequest" message="tns:seleccionarFullPor"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarFullPorResponse" message="tns:seleccionarFullPorResponse"/>
+<operation name="seleccionarCentroFull">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullRequest" message="tns:seleccionarCentroFull"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullResponse" message="tns:seleccionarCentroFullResponse"/>
 </operation>
-<operation name="seleccionarFull">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarFullRequest" message="tns:seleccionarFull"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarFullResponse" message="tns:seleccionarFullResponse"/>
+<operation name="seleccionarCentroFullPor">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullPorRequest" message="tns:seleccionarCentroFullPor"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullPorResponse" message="tns:seleccionarCentroFullPorResponse"/>
 </operation>
 </portType>
 <binding name="CentroWSPortBinding" type="tns:CentroWS">
@@ -121,7 +121,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="seleccionarFullPor">
+<operation name="seleccionarCentroFull">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -130,7 +130,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="seleccionarFull">
+<operation name="seleccionarCentroFullPor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
