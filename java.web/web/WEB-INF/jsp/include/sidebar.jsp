@@ -23,7 +23,8 @@
                                       <c:if test="${menuItem2.getPadre()==menuItem.getIdMenuItem()}">
                                          <li>
                                              <a href="${menuItem2.getUrl()}">
-                                                 <i class="fa fa-circle-o"></i> ${menuItem2.getTitulo()}</a>
+                                                 <i class="fa fa-circle-o"></i> ${menuItem2.getTitulo()}
+                                             </a>
                                          </li>
                                       </c:if>
                                     </c:forEach>

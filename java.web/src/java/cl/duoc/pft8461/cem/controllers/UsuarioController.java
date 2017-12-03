@@ -29,14 +29,14 @@ import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
  */
 @Controller
 @SessionAttributes
-public class UsuarioController {
+public class UsuarioController extends BaseController {
 
     private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
     private List<PerfilUsuario> perfilesUsuario;
 
     public UsuarioController() {
         PerfilUsuarioWS_Service perfilUsuarioWS = new PerfilUsuarioWS_Service();
-        perfilesUsuario = perfilUsuarioWS.getPerfilUsuarioWSPort().findAllPerfilUsuario();
+        this.perfilesUsuario = perfilUsuarioWS.getPerfilUsuarioWSPort().findAllPerfilUsuario();
     }
 
     /**
@@ -54,9 +54,9 @@ public class UsuarioController {
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        List<Usuario> listaUsuario = usuarioWS.findAllUsuarios();
+        List<Usuario> listaUsuario = this.usuarioWS.findAllUsuarios();
         mav.addObject("listado", listaUsuario);
-        mav.addObject("perfilesUsuario", perfilesUsuario);
+        mav.addObject("perfilesUsuario", this.perfilesUsuario);
 
         mav.addObject("tituloPagina", "Usuario");
         mav.addObject("subtituloPagina", "Listado de Usuarios:");
@@ -69,7 +69,7 @@ public class UsuarioController {
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        UsuarioEntity usr = new UsuarioEntity(usuarioWS.findUsuario(Integer.parseInt(request.getParameter("id"))));
+        UsuarioEntity usr = new UsuarioEntity(this.usuarioWS.findUsuario(Integer.parseInt(request.getParameter("id"))));
         mav.addObject("json", usr.toJson());
         mav.setViewName("include/json");
         
@@ -83,7 +83,7 @@ public class UsuarioController {
         String json = "{\"response\": 0}";
         try {
             json = "{\"response\": 1}";
-            usuarioWS.removeUsuario(Integer.parseInt(request.getParameter("id")));
+            this.usuarioWS.removeUsuario(Integer.parseInt(request.getParameter("id")));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -101,8 +101,8 @@ public class UsuarioController {
         String json = "{\"response\": 0}";
         try {
             json = "{\"response\": 1}";
-            if (request.getParameter("idUsuario") == null) {
-                usuarioWS.createUsuario(
+            if (this.isEmpty(request.getParameter("idUsuario"))) {
+                this.usuarioWS.createUsuario(
                     request.getParameter("usuario"),
                     request.getParameter("clave"),
                     request.getParameter("nombre"),
@@ -111,7 +111,7 @@ public class UsuarioController {
                     request.getParameter("email"),
                     Integer.parseInt(request.getParameter("idPerfilUsuario")));
             } else {
-                usuarioWS.editUsuario(
+                this.usuarioWS.editUsuario(
                         Integer.parseInt(request.getParameter("idUsuario")),
                         request.getParameter("usuario"),
                         request.getParameter("nombre"),

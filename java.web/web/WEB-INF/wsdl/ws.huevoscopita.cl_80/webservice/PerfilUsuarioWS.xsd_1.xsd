@@ -49,7 +49,6 @@
 
 <xs:complexType name="createPerfilUsuario">
 <xs:sequence>
-<xs:element name="id_perfil_usuario" type="xs:int"/>
 <xs:element name="nombre_perfil" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>

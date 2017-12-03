@@ -5,13 +5,14 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
-import cl.duoc.pft8461.cem.entidades.CursoEntity;
-import cl.duoc.pft8461.cem.ws.Curso;
-import cl.duoc.pft8461.cem.ws.CursoWS;
-import cl.duoc.pft8461.cem.ws.CursoWS_Service;
+import cl.duoc.pft8461.cem.entidades.PerfilUsuarioEntity;
+import cl.duoc.pft8461.cem.entidades.RegionEntity;
+import cl.duoc.pft8461.cem.ws.PerfilUsuario;
+import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS;
+import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS_Service;
+import cl.duoc.pft8461.cem.ws.Region;
 import java.io.IOException;
 import java.util.List;
-import org.json.JSONArray;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,45 +28,57 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @SessionAttributes
-public class CursosController extends BaseController {
+public class PerfilUsuarioController extends BaseController {
     
-    private final CursoWS cursoWS = new CursoWS_Service().getCursoWSPort();
-    
-    public CursosController() {
+    private final PerfilUsuarioWS perfilUsuarioWS = new PerfilUsuarioWS_Service().getPerfilUsuarioWSPort();
+
+    public PerfilUsuarioController() {
     }
-    
-    @RequestMapping(value = {"cursos/lista.htm"}, method = RequestMethod.POST)
+
+    /**
+     * Método form, que carga el formulario de login de la aplicación del
+     * Sistema CEM.
+     *
+     * @param request
+     * @param response
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
+    @RequestMapping(value = {"perfil-usuario/lista.htm"}, method = RequestMethod.GET)
     public ModelAndView lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        List<Curso> listaCurso = this.cursoWS.findCursoPor("id_programa", request.getParameter("id"));
-        JSONArray json = new JSONArray(listaCurso);
-        mav.addObject("json", json);
-        mav.setViewName("include/json");
-        
+
+        List<PerfilUsuario> listaPerfilUsuario = this.perfilUsuarioWS.findAllPerfilUsuario();
+        mav.addObject("listado", listaPerfilUsuario);
+
+        mav.addObject("tituloPagina", "Perfil Usuario");
+        mav.addObject("subtituloPagina", "Listado de Perfiles de Usuario:");
+        mav.setViewName("perfilUsuario/lista");
         return mav;
     }
 
-    @RequestMapping(value = {"cursos/editar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"perfil-usuario/editar.htm"}, method = RequestMethod.POST)
     public ModelAndView editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        CursoEntity cur = new CursoEntity(this.cursoWS.findCurso(Integer.parseInt(request.getParameter("id"))));
-        mav.addObject("json", cur.toJson());
+        PerfilUsuarioEntity pu = new PerfilUsuarioEntity(this.perfilUsuarioWS.findPerfilUsuario(Integer.parseInt(request.getParameter("id"))));
+        mav.addObject("json", pu.toJson());
         mav.setViewName("include/json");
         
         return mav;
     }
 
-    @RequestMapping(value = {"cursos/borrar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"perfil-usuario/borrar.htm"}, method = RequestMethod.POST)
     public ModelAndView borrar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
         String json = "{\"response\": 0}";
         try {
             json = "{\"response\": 1}";
-            this.cursoWS.removeCurso(Integer.parseInt(request.getParameter("id")));
+            this.perfilUsuarioWS.removePerfilUsuario(Integer.parseInt(request.getParameter("id")));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -76,22 +89,20 @@ public class CursosController extends BaseController {
         return mav;
     }
 
-    @RequestMapping(value = {"cursos/guardar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"perfil-usuario/guardar.htm"}, method = RequestMethod.POST)
     public ModelAndView guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
         String json = "{\"response\": 0}";
         try {
             json = "{\"response\": 1}";
-            if (this.isEmpty(request.getParameter("idCurso"))) {
-                this.cursoWS.createCurso(
-                    Integer.parseInt(request.getParameter("idPrograma")),
-                    request.getParameter("nombreCurso"));
+            if (this.isEmpty(request.getParameter("idPerfilUsuario"))) {
+                this.perfilUsuarioWS.createPerfilUsuario(
+                    request.getParameter("nombrePerfil"));
             } else {
-                this.cursoWS.editCurso(
-                    Integer.parseInt(request.getParameter("idCurso")),
-                    Integer.parseInt(request.getParameter("idPrograma")),
-                    request.getParameter("nombreCurso"));
+                this.perfilUsuarioWS.editPerfilUsuario(
+                    Integer.parseInt(request.getParameter("idPerfilUsuario")),
+                    request.getParameter("nombrePerfil"));
             }
         } catch (Exception e) {
             System.out.println(e);

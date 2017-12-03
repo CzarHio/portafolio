@@ -5,13 +5,12 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
-import cl.duoc.pft8461.cem.entidades.CursoEntity;
-import cl.duoc.pft8461.cem.ws.Curso;
-import cl.duoc.pft8461.cem.ws.CursoWS;
-import cl.duoc.pft8461.cem.ws.CursoWS_Service;
+import cl.duoc.pft8461.cem.entidades.PaisEntity;
+import cl.duoc.pft8461.cem.ws.Pais;
+import cl.duoc.pft8461.cem.ws.PaisWS;
+import cl.duoc.pft8461.cem.ws.PaisWS_Service;
 import java.io.IOException;
 import java.util.List;
-import org.json.JSONArray;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,45 +26,57 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @SessionAttributes
-public class CursosController extends BaseController {
+public class PaisController extends BaseController {
     
-    private final CursoWS cursoWS = new CursoWS_Service().getCursoWSPort();
-    
-    public CursosController() {
+    private final PaisWS paisWS = new PaisWS_Service().getPaisWSPort();
+
+    public PaisController() {
     }
-    
-    @RequestMapping(value = {"cursos/lista.htm"}, method = RequestMethod.POST)
+
+    /**
+     * Método form, que carga el formulario de login de la aplicación del
+     * Sistema CEM.
+     *
+     * @param request
+     * @param response
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
+    @RequestMapping(value = {"pais/lista.htm"}, method = RequestMethod.GET)
     public ModelAndView lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        List<Curso> listaCurso = this.cursoWS.findCursoPor("id_programa", request.getParameter("id"));
-        JSONArray json = new JSONArray(listaCurso);
-        mav.addObject("json", json);
-        mav.setViewName("include/json");
-        
+
+        List<Pais> listaPais = this.paisWS.findAllPais();
+        mav.addObject("listado", listaPais);
+
+        mav.addObject("tituloPagina", "País");
+        mav.addObject("subtituloPagina", "Listado de Paises:");
+        mav.setViewName("pais/lista");
         return mav;
     }
 
-    @RequestMapping(value = {"cursos/editar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"pais/editar.htm"}, method = RequestMethod.POST)
     public ModelAndView editar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        CursoEntity cur = new CursoEntity(this.cursoWS.findCurso(Integer.parseInt(request.getParameter("id"))));
-        mav.addObject("json", cur.toJson());
+        PaisEntity usr = new PaisEntity(this.paisWS.findPais(Integer.parseInt(request.getParameter("id"))));
+        mav.addObject("json", usr.toJson());
         mav.setViewName("include/json");
         
         return mav;
     }
 
-    @RequestMapping(value = {"cursos/borrar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"pais/borrar.htm"}, method = RequestMethod.POST)
     public ModelAndView borrar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
         String json = "{\"response\": 0}";
         try {
             json = "{\"response\": 1}";
-            this.cursoWS.removeCurso(Integer.parseInt(request.getParameter("id")));
+            this.paisWS.removePais(Integer.parseInt(request.getParameter("id")));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -76,22 +87,20 @@ public class CursosController extends BaseController {
         return mav;
     }
 
-    @RequestMapping(value = {"cursos/guardar.htm"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"pais/guardar.htm"}, method = RequestMethod.POST)
     public ModelAndView guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
         String json = "{\"response\": 0}";
         try {
             json = "{\"response\": 1}";
-            if (this.isEmpty(request.getParameter("idCurso"))) {
-                this.cursoWS.createCurso(
-                    Integer.parseInt(request.getParameter("idPrograma")),
-                    request.getParameter("nombreCurso"));
+            if (this.isEmpty(request.getParameter("idPais"))) {
+                this.paisWS.createPais(
+                    request.getParameter("nombrePais"));
             } else {
-                this.cursoWS.editCurso(
-                    Integer.parseInt(request.getParameter("idCurso")),
-                    Integer.parseInt(request.getParameter("idPrograma")),
-                    request.getParameter("nombreCurso"));
+                this.paisWS.editPais(
+                    Integer.parseInt(request.getParameter("idPais")),
+                    request.getParameter("nombrePais"));
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -103,4 +112,5 @@ public class CursosController extends BaseController {
         return mav;
 
     }
+    
 }

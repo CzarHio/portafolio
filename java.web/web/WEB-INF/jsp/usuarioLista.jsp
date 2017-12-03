@@ -115,7 +115,7 @@
                                     </select>
                                 </div>
                             </div>
-                                <input type="hidden" id="idUsuario" name="idUsuario">
+                            <input class="form-control" type="hidden" id="idUsuario" name="idUsuario">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>

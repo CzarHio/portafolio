@@ -43,6 +43,26 @@
                 <prop key="centro/editar.htm">centro</prop>
                 <prop key="centro/borrar.htm">centro</prop>
                 <prop key="centro/guardar.htm">centro</prop>
+                <!-- País Routes  -->
+                <prop key="pais/lista.htm">pais</prop>
+                <prop key="pais/editar.htm">pais</prop>
+                <prop key="pais/borrar.htm">pais</prop>
+                <prop key="pais/guardar.htm">pais</prop>
+                <!-- Región Routes  -->
+                <prop key="region/lista.htm">region</prop>
+                <prop key="region/editar.htm">region</prop>
+                <prop key="region/borrar.htm">region</prop>
+                <prop key="region/guardar.htm">region</prop>
+                <!-- Ciudad Routes  -->
+                <prop key="ciudad/lista.htm">ciudad</prop>
+                <prop key="ciudad/editar.htm">ciudad</prop>
+                <prop key="ciudad/borrar.htm">ciudad</prop>
+                <prop key="ciudad/guardar.htm">ciudad</prop>
+                <!-- PerfilUsuario Routes  -->
+                <prop key="perfil-usuario/lista.htm">perfilUsuario</prop>
+                <prop key="perfil-usuario/editar.htm">perfilUsuario</prop>
+                <prop key="perfil-usuario/borrar.htm">perfilUsuario</prop>
+                <prop key="perfil-usuario/guardar.htm">perfilUsuario</prop>
                 <!-- Programa Routes  -->
                 <prop key="programa/lista.htm">programa</prop>
                 <prop key="programa/editar.htm">programa</prop>
@@ -55,6 +75,8 @@
                 <prop key="cursos/editar.htm">curso</prop>
                 <prop key="cursos/borrar.htm">curso</prop>
                 <prop key="cursos/guardar.htm">curso</prop>
+                <!-- Familia Routes  -->
+                <prop key="familia/lista.htm">familia</prop>
             </props>
         </property>
     </bean>
@@ -73,6 +95,11 @@
     <bean name="centro" class="cl.duoc.pft8461.cem.controllers.CentroController"/>
     <bean name="programa" class="cl.duoc.pft8461.cem.controllers.ProgramaController"/>
     <bean name="curso" class="cl.duoc.pft8461.cem.controllers.CursosController"/>
+    <bean name="familia" class="cl.duoc.pft8461.cem.controllers.FamiliaController"/>
+    <bean name="pais" class="cl.duoc.pft8461.cem.controllers.PaisController"/>
+    <bean name="region" class="cl.duoc.pft8461.cem.controllers.RegionController"/>
+    <bean name="ciudad" class="cl.duoc.pft8461.cem.controllers.CiudadController"/>
+    <bean name="perfilUsuario" class="cl.duoc.pft8461.cem.controllers.PerfilUsuarioController"/>
     <!--
     The index controller.
     -->

@@ -36,7 +36,7 @@ import java.util.Map;
  */
 @Controller
 @SessionAttributes
-public class ProgramaController {
+public class ProgramaController extends BaseController {
 
     private final ProgramaWS programaWS = new ProgramaWS_Service().getProgramaWSPort();
     private final PaisWS paisWS = new PaisWS_Service().getPaisWSPort();
@@ -45,7 +45,6 @@ public class ProgramaController {
     private List<Pais> listaPais = this.paisWS.findAllPais();
 
     public ProgramaController() {
-        
         for (Pais pais : this.listaPais) {
             this.paises.put(pais.getIdPais().intValue(), pais);
         }
@@ -147,7 +146,7 @@ public class ProgramaController {
         String json = "{\"response\": 0}";
         try {
             json = "{\"response\": 1}";
-            if (request.getParameter("idPrograma") == null) {
+            if (this.isEmpty(request.getParameter("idPrograma"))) {
                 this.programaWS.createPrograma(
                     Integer.parseInt(request.getParameter("idEstado")),
                     request.getParameter("nombrePrograma"),

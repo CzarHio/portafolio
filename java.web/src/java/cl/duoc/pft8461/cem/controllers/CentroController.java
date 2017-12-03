@@ -32,7 +32,7 @@ import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
  */
 @Controller
 @SessionAttributes
-public class CentroController {
+public class CentroController extends BaseController {
 
     private final CentroWS centroWS = new CentroWS_Service().getCentroWSPort();
     private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
@@ -55,10 +55,10 @@ public class CentroController {
     public ModelAndView lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-
-        List<Centro> listaCentro = centroWS.findAllCentro();
-        List<Usuario> celUsuario = usuarioWS.findUsuarioPor("ID_PERFIL_USUARIO", "3");
-        List<Ciudad> ciudades = ciudadWS.findAllCiudad();
+        //System.out.println(this.centroWS.findFullCentroPor("id_centro", "1"));
+        List<Centro> listaCentro = this.centroWS.findAllCentro();
+        List<Usuario> celUsuario = this.usuarioWS.findUsuarioPor("ID_PERFIL_USUARIO", "3");
+        List<Ciudad> ciudades = this.ciudadWS.findAllCiudad();
         mav.addObject("celUsuario", celUsuario);
         mav.addObject("ciudades", ciudades);
         mav.addObject("listado", listaCentro);
@@ -73,7 +73,7 @@ public class CentroController {
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
 
-        CentroEntity centro = new CentroEntity(centroWS.findCentro(Integer.parseInt(request.getParameter("id"))));
+        CentroEntity centro = new CentroEntity(this.centroWS.findCentro(Integer.parseInt(request.getParameter("id"))));
         mav.addObject("json", centro.toJson());
         mav.setViewName("include/json");
         
@@ -87,7 +87,7 @@ public class CentroController {
         String json = "{\"response\": 0}";
         try {
             json = "{\"response\": 1}";
-            centroWS.removeCentro(Integer.parseInt(request.getParameter("id")));
+            this.centroWS.removeCentro(Integer.parseInt(request.getParameter("id")));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -104,13 +104,13 @@ public class CentroController {
         ModelAndView mav = new ModelAndView();
         String json = "{\"response\": 0}";
         try {
-            if (request.getParameter("idCentro") == null) {
-                centroWS.createCentro(
+            if (this.isEmpty(request.getParameter("idCentro"))) {
+                this.centroWS.createCentro(
                         request.getParameter("nombreCentro"),
                         Integer.parseInt(request.getParameter("idUsuario")),
                         Integer.parseInt(request.getParameter("idCiudad")));
             } else {
-                centroWS.editCentro(
+                this.centroWS.editCentro(
                         Integer.parseInt(request.getParameter("idCentro")),
                         request.getParameter("nombreCentro"),
                         Integer.parseInt(request.getParameter("idUsuario")),

@@ -20,6 +20,14 @@
 
 <xs:element name="removeCentro" type="tns:removeCentro"/>
 
+<xs:element name="seleccionarFull" type="tns:seleccionarFull"/>
+
+<xs:element name="seleccionarFullPor" type="tns:seleccionarFullPor"/>
+
+<xs:element name="seleccionarFullPorResponse" type="tns:seleccionarFullPorResponse"/>
+
+<xs:element name="seleccionarFullResponse" type="tns:seleccionarFullResponse"/>
+
 <xs:complexType name="findCentro">
 <xs:sequence>
 <xs:element name="id" type="xs:int"/>
@@ -60,6 +68,12 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="removeCentro">
+<xs:sequence>
+<xs:element name="entity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="createCentro">
 <xs:sequence>
 <xs:element name="nombre_centro" type="xs:string" minOccurs="0"/>
@@ -68,9 +82,28 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="removeCentro">
+<xs:complexType name="seleccionarFullPor">
 <xs:sequence>
-<xs:element name="entity" type="xs:int"/>
+<xs:element name="campo" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="seleccionarFullPorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:centro" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="seleccionarFull">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="seleccionarFullResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:centro" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

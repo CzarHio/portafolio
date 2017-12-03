@@ -9,7 +9,7 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <button type="button" class="btn btn-success pull-right" data-toggle="tooltip" data-original-title="Nuevo Registro" id="newItem">
-                            <i class="fa-plus fa"></i> Nuevo Programa
+                            <i class="fa-plus fa"></i> Nueva Familia
                         </button>
                     </div>
                     <div class="box-body">
@@ -18,27 +18,26 @@
                                 <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Nombre</th>
-                                        <th>País</th>
+                                        <th>Centro</th>
+                                        <th>Usuario</th>
                                         <th>Estado</th>
+                                        <th>Postulación</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:forEach items="${listado}" var="programa">
+                                    <c:forEach items="${listado}" var="familia">
                                         <tr>
-                                            <td>${programa.getIdPrograma()}</td>
-                                            <td>${programa.getNombrePrograma()}</td>
-                                            <td>${paises.get(programa.getIdPais()).getNombrePais()}</td>
-                                            <td>${programa.getIdEstado()}</td>
+                                            <td>${familia.getIdFamilia()}</td>
+                                            <td>${familia.getIdCentro()}</td>
+                                            <td>${familia.getIdUsuario()}</td>
+                                            <td>${familia.getIdEstado()}</td>
+                                            <td>${familia.getPostulacion()}</td>
                                             <td>
-                                                <a class="btn btn-warning btnCursos" data-url="/java.web/cursos/lista.htm" data-toggle="tooltip" data-original-title="Cursos" data-id="${programa.getIdPrograma()}">
-                                                    <i class="fa fa-cubes"></i>
-                                                </a>
-                                                <a class="btn btn-primary btnEditar" data-url="editar.htm" data-toggle="tooltip" data-original-title="Editar" data-id="${programa.getIdPrograma()}">
+                                                <a class="btn btn-primary btnEditar" data-url="editar.htm" data-toggle="tooltip" data-original-title="Editar" data-id="${familia.getIdFamilia()}">
                                                     <i class="fa fa-pencil-square-o"></i>
                                                 </a>
-                                                <a class="btn btn-danger btnEliminar" data-url="borrar.htm" data-toggle="tooltip" data-original-title="Eliminar" data-id="${programa.getIdPrograma()}">
+                                                <a class="btn btn-danger btnEliminar" data-url="borrar.htm" data-toggle="tooltip" data-original-title="Eliminar" data-id="${familia.getIdFamilia()}">
                                                     <i class="fa fa-times-circle"></i>
                                                 </a>
                                             </td>
@@ -59,7 +58,7 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title">Campos Programa</h4>
+                            <h4 class="modal-title">Campos Familia</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
@@ -88,7 +87,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <input class="form-control" type="hidden" id="idPrograma" name="idPrograma">
+                            <input class="form-control" type="hidden" id="idFamilia" name="idFamilia">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
@@ -99,42 +98,5 @@
             </div>
         </div>
         
-        <div class="modal fade" id="cursos" style="display: none;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="form-horizontal cursoForm" id="addCurso">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span></button>
-                            <h4 class="modal-title">Cursos</h4>
-                        </div>
-                        <div class="modal-body">
-                            <table class="table table-bordered table-hover" id="table-cursos">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Nombre</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                            <div class="form-group">
-                                <label for="nombreCurso" class="col-sm-4 control-label">Nombre Curso</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="nombreCurso" name="nombreCurso" placeholder="Nombre..." required="required">
-                                </div>
-                            </div>
-                            <input class="form-control" type="hidden" id="idCurso" name="idCurso">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-primary" data-url="/java.web/cursos/guardar.htm" data-programa="" id="saveCurso">Guardar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </jsp:body>
 </t:Master>

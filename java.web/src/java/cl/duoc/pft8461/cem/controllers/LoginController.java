@@ -74,9 +74,9 @@ public class LoginController {
             System.out.println("L0+h5zDT8Q==$ee0ce6c01fe5d84297de6b7c4da5c83d2bd4746874cf5c07e33d1d1da76cef5347d8f1ba686a355a7f7eed8ea78842163efe46292b7e2bdc85964f1f6c1ba951");
             System.out.println(HashPwd.check(request.getParameter("password"), "L0+h5zDT8Q==$ee0ce6c01fe5d84297de6b7c4da5c83d2bd4746874cf5c07e33d1d1da76cef5347d8f1ba686a355a7f7eed8ea78842163efe46292b7e2bdc85964f1f6c1ba951"));
             
-            //UsuarioEntity usr = new UsuarioEntity(this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), HashPwd.getHash(request.getParameter("password"))));
-            UsuarioEntity usr = new UsuarioEntity(this.ws.getUsuarioWSPort().findUsuario(1));
-
+System.out.println(this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), HashPwd.getHash(request.getParameter("password"))));
+            UsuarioEntity usr = new UsuarioEntity(this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), HashPwd.getHash(request.getParameter("password"))));
+            //UsuarioEntity usr = new UsuarioEntity(this.ws.getUsuarioWSPort().findUsuario(2));
             if(usr != null){
                 session.setAttribute("usuario", usr);
                 session.setAttribute("logeado", "1");
