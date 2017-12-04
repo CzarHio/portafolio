@@ -362,5 +362,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/EstadoFamiliaWS"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-CentroWS, wsimport-client-ParticipacionWS, wsimport-client-EstadoParticipacionWS, wsimport-client-ProgramaWS, wsimport-client-EstadoProgramaWS, wsimport-client-PaisWS, wsimport-client-CiudadWS, wsimport-client-PerfilUsuarioWS, wsimport-client-NotaWS, wsimport-client-CursoWS, wsimport-client-DocumentoWS, wsimport-client-TipoDocumentoWS, wsimport-client-EstadoDocumentoWS, wsimport-client-RegionWS, wsimport-client-UsuarioWS, wsimport-client-MenuWS, wsimport-client-MenuItemWS, wsimport-client-PostulacionWS, wsimport-client-EstadoPostulacionWS, wsimport-client-FamiliaWS, wsimport-client-EstadoFamiliaWS"/>
+    <target name="wsimport-client-FotoWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/FotoWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/FotoWS" destdir="${build.generated.dir}/jax-wsCache/FotoWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/FotoWS/wsdl/ws.huevoscopita.cl/webservice/FotoWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/FotoWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/FotoWS/wsdl/ws.huevoscopita.cl/webservice/FotoWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/FotoWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/FotoWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-FotoWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/FotoWS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-CentroWS, wsimport-client-ParticipacionWS, wsimport-client-EstadoParticipacionWS, wsimport-client-ProgramaWS, wsimport-client-EstadoProgramaWS, wsimport-client-PaisWS, wsimport-client-CiudadWS, wsimport-client-PerfilUsuarioWS, wsimport-client-NotaWS, wsimport-client-CursoWS, wsimport-client-DocumentoWS, wsimport-client-TipoDocumentoWS, wsimport-client-EstadoDocumentoWS, wsimport-client-RegionWS, wsimport-client-UsuarioWS, wsimport-client-MenuWS, wsimport-client-MenuItemWS, wsimport-client-PostulacionWS, wsimport-client-EstadoPostulacionWS, wsimport-client-FamiliaWS, wsimport-client-EstadoFamiliaWS, wsimport-client-FotoWS"/>
 </project>

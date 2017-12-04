@@ -266,7 +266,7 @@
             });
         });
     });
-
+    
     $('#new').on('hidden.bs.modal', function () {
         cem.clearFormMantanedor();
     });
@@ -287,6 +287,13 @@
     $('body').on('click', '.btnEditar', function () {
         cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'));
         $('#new').modal('show');
+    });
+
+    $('body').on('click', '.btnImagen', function () {
+        cem.clearFormMantanedor('addImage');
+        $('#idInstancia').val($(this).attr('data-id'));
+        //cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'));
+        $('#image').modal('show');
     });
 
     $('body').on('click', '.btnEliminar', function () {

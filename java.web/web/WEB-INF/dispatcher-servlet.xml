@@ -38,6 +38,7 @@
                 <prop key="usuario/editar.htm">usuario</prop>
                 <prop key="usuario/borrar.htm">usuario</prop>
                 <prop key="usuario/guardar.htm">usuario</prop>
+                <prop key="usuario/imagen.htm">usuario</prop>
                 <!-- Centro Routes  -->
                 <prop key="centro/lista.htm">centro</prop>
                 <prop key="centro/editar.htm">centro</prop>

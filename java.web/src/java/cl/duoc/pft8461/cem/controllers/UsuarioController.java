@@ -22,6 +22,8 @@ import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS_Service;
 import cl.duoc.pft8461.cem.ws.Usuario;
 import cl.duoc.pft8461.cem.ws.UsuarioWS;
 import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -37,6 +39,8 @@ public class UsuarioController extends BaseController {
     public UsuarioController() {
         PerfilUsuarioWS_Service perfilUsuarioWS = new PerfilUsuarioWS_Service();
         this.perfilesUsuario = perfilUsuarioWS.getPerfilUsuarioWSPort().findAllPerfilUsuario();
+        
+        this.reloadFotos();
     }
 
     /**
@@ -53,9 +57,10 @@ public class UsuarioController extends BaseController {
     public ModelAndView lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-
+        
         List<Usuario> listaUsuario = this.usuarioWS.findAllUsuarios();
         mav.addObject("listado", listaUsuario);
+        mav.addObject("fotos", this.fotos);
         mav.addObject("perfilesUsuario", this.perfilesUsuario);
 
         mav.addObject("tituloPagina", "Usuario");
@@ -129,5 +134,37 @@ public class UsuarioController extends BaseController {
         
         return mav;
 
+    }
+    
+    @RequestMapping(value = {"usuario/imagen.htm"},headers = "Content-Type=multipart/form-data", method = RequestMethod.POST)
+    public void imagen(@RequestParam("file") MultipartFile file, HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+        UsuarioEntity usrSession = (UsuarioEntity) request.getSession().getAttribute("usuario");
+        try {
+            if (!file.isEmpty()) {
+                String tipo = this.pm.getProperty("TIPO_USUARIO");
+                String id = request.getParameter("id");
+                String fileName = "user_" + id + "." + file.getContentType().split("/")[1];
+                String path = request.getSession().getServletContext().getRealPath("/resources/") + this.pm.getProperty("FILES_PATH") + fileName;
+                String web_path = this.pm.getProperty("WEB_PATH") + fileName;
+                
+                if (this.saveFile(file.getBytes(), path)) {
+                    if (!this.fotos.containsKey(id.concat(tipo))) {
+                        this.fotoWS.createFoto(tipo, usrSession.getIdUsuario().intValue(), web_path, 1, Integer.parseInt(id), "Foto Perfil", "");
+                    } else {
+                        this.fotoWS.editFoto(tipo, this.fotos.get(id.concat(tipo)).getIdFoto().intValue(), usrSession.getIdUsuario().intValue(), web_path, 1, Integer.parseInt(id), "Foto Perfil", "");
+                    }
+                } else
+                    mav.addObject("error", "Ocurrió un error al intentar subir el archivo. Intente nuevamente.");
+            }
+        } catch (Exception e) {
+            mav.addObject("error", "Ocurrió un error al intentar subir el archivo. Intente nuevamente.");
+            System.out.println(e);
+        }
+        
+        this.reloadFotos();
+        response.sendRedirect("/java.web/usuario/lista.htm");
+        
     }
 }

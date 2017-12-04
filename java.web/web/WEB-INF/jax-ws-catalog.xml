@@ -44,4 +44,6 @@
     <system systemId="http://ws.huevoscopita.cl:80/webservice/EstadoDocumentoWS?xsd=1" uri="wsdl/ws.huevoscopita.cl_80/webservice/EstadoDocumentoWS.xsd_1.xsd"/>
     <system systemId="http://ws.huevoscopita.cl/webservice/RegionWS?WSDL" uri="wsdl/ws.huevoscopita.cl/webservice/RegionWS.wsdl"/>
     <system systemId="http://ws.huevoscopita.cl:80/webservice/RegionWS?xsd=1" uri="wsdl/ws.huevoscopita.cl_80/webservice/RegionWS.xsd_1.xsd"/>
+    <system systemId="http://ws.huevoscopita.cl/webservice/FotoWS?WSDL" uri="wsdl/ws.huevoscopita.cl/webservice/FotoWS.wsdl"/>
+    <system systemId="http://ws.huevoscopita.cl:80/webservice/FotoWS?xsd=1" uri="wsdl/ws.huevoscopita.cl_80/webservice/FotoWS.xsd_1.xsd"/>
 </catalog>

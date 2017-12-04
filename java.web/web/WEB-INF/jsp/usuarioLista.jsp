@@ -13,15 +13,19 @@
                         </button>
                     </div>
                     <div class="box-body">
+                        <c:if test="{error}">
+                            <div class="alert alert-danger">
+                                <strong>Error!</strong> ${error}
+                            </div>
+                        </c:if>
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="mantenedor">
                                 <thead>
                                     <tr>
                                         <th>Id</th>
+                                        <th>Foto</th>
                                         <th>Usuario</th>
                                         <th>Nombre</th>
-                                        <th>Apellido Pat</th>
-                                        <th>Apellido Mat</th>
                                         <th>Email</th>
                                         <th>Perfil Usuario</th>
                                         <th>Acciones</th>
@@ -31,10 +35,13 @@
                                     <c:forEach items="${listado}" var="usuario">
                                         <tr>
                                             <td>${usuario.getIdUsuario()}</td>
+                                            <td>
+                                                <a class="btn btnImagen" data-toggle="tooltip" data-original-title="Seleccionar Imagen" data-id="${usuario.getIdUsuario()}">
+                                                    <img class="img-circle img-bordered-sm" width="40" src="${fotos.containsKey(usuario.getIdUsuario().toString()+='1')?fotos.get(usuario.getIdUsuario()+='1').getNombreArchivo():'/java.web/resources/dist/img/app/no_img.png'}">
+                                                </a>
+                                            </td>
                                             <td>${usuario.getUsuario()}</td>
-                                            <td>${usuario.getNombre()}</td>
-                                            <td>${usuario.getApellidoPat()}</td>
-                                            <td>${usuario.getApellidoMat()}</td>
+                                            <td>${usuario.getNombre()} ${usuario.getApellidoPat()} ${usuario.getApellidoMat()}</td>
                                             <td>${usuario.getEmail()}</td>
                                             <td>${perfilesUsuario.get(usuario.getIdPerfilUsuario()-1).getNombrePerfil()}</td>
                                             <td>
@@ -123,9 +130,34 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dialog -->
+        </div>
+
+        <div class="modal fade" id="image" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form class="form-horizontal" action="imagen.htm" method="post" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Imagen Usuario</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="img" class="col-sm-2 control-label">Imagen</label>
+                                <div class="col-sm-10">
+                                    <input type="file" id="file" name="file" placeholder="Seleccione archivo" required="required">
+                                </div>
+                            </div>
+                            <input class="form-control" type="hidden" id="idInstancia" name="id">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" data-url="imagen.htm" id="saveImage">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </jsp:body>
 </t:Master>

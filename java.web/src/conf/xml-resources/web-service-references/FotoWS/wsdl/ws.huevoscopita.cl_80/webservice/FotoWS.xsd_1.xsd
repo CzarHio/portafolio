@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.cem.pft8461.duoc.cl/">
+
+<xs:element name="createFoto" type="tns:createFoto"/>
+
+<xs:element name="editFoto" type="tns:editFoto"/>
+
+<xs:element name="findAllFoto" type="tns:findAllFoto"/>
+
+<xs:element name="findAllFotoResponse" type="tns:findAllFotoResponse"/>
+
+<xs:element name="findFoto" type="tns:findFoto"/>
+
+<xs:element name="findFotoPor" type="tns:findFotoPor"/>
+
+<xs:element name="findFotoPorResponse" type="tns:findFotoPorResponse"/>
+
+<xs:element name="findFotoResponse" type="tns:findFotoResponse"/>
+
+<xs:element name="findInstanciaFoto" type="tns:findInstanciaFoto"/>
+
+<xs:element name="findInstanciaFotoResponse" type="tns:findInstanciaFotoResponse"/>
+
+<xs:element name="foto" type="tns:foto"/>
+
+<xs:element name="removeFoto" type="tns:removeFoto"/>
+
+<xs:complexType name="findFoto">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFotoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:foto" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="foto">
+<xs:sequence>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaSubida" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="idFoto" type="xs:decimal" minOccurs="0"/>
+<xs:element name="idInstancia" type="xs:integer" minOccurs="0"/>
+<xs:element name="nombreArchivo" type="xs:string" minOccurs="0"/>
+<xs:element name="orden" type="xs:integer" minOccurs="0"/>
+<xs:element name="tipo" type="xs:integer" minOccurs="0"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAllFoto">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllFotoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:foto" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createFoto">
+<xs:sequence>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="id_usaurio" type="xs:int"/>
+<xs:element name="nombre_archivo" type="xs:string" minOccurs="0"/>
+<xs:element name="orden" type="xs:int"/>
+<xs:element name="id_instancia" type="xs:int"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFotoPor">
+<xs:sequence>
+<xs:element name="campo" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFotoPorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:foto" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editFoto">
+<xs:sequence>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="id_foto" type="xs:int"/>
+<xs:element name="id_usaurio" type="xs:int"/>
+<xs:element name="nombre_archivo" type="xs:string" minOccurs="0"/>
+<xs:element name="orden" type="xs:int"/>
+<xs:element name="id_instancia" type="xs:int"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findInstanciaFoto">
+<xs:sequence>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findInstanciaFotoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:foto" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeFoto">
+<xs:sequence>
+<xs:element name="entity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

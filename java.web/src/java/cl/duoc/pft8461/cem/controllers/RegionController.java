@@ -35,8 +35,8 @@ public class RegionController extends BaseController {
     
     private final RegionWS regionWS = new RegionWS_Service().getRegionWSPort();
     private final PaisWS paisWS = new PaisWS_Service().getPaisWSPort();
-    private Map<Integer, Pais> paises = new HashMap<Integer, Pais>();
     private List<Pais> listaPais = this.paisWS.findAllPais();
+    private Map<Integer, Pais> paises = new HashMap<Integer, Pais>();
 
     public RegionController() {
         for (Pais pais : this.listaPais) {
