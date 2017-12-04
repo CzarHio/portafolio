@@ -29,11 +29,15 @@
                                         <tr>
                                             <td>${centro.getIdCentro()}</td>
                                             <td>${centro.getNombreCentro()}</td>
-                                            <td>${centro.getIdCiudad()}</td>
-                                            <td>${centro.getIdUsuario()}</td>
+                                            <td>${ciudades.get(centro.getIdCiudad()).getNombreCiudad()}</td>
+                                            <td>${usuarios.get(centro.getIdUsuario()).getNombre()} ${usuarios.get(centro.getIdUsuario()).getApellidoPat()}</td>
+                                      
                                             <td>
                                                 <a class="btn btn-primary btnEditar" data-url="editar.htm" data-toggle="tooltip" data-original-title="Editar" data-id="${centro.getIdCentro()}">
                                                     <i class="fa fa-pencil-square-o"></i>
+                                                </a>
+                                                <a class="btn btn-warning btnImagen" data-url="findImagen.htm" data-toggle="tooltip" data-original-title="Seleccionar Imagen" data-id="${centro.getIdCentro()}">
+                                                    <i class="fa fa-picture-o"></i>
                                                 </a>
                                                 <a class="btn btn-danger btnEliminar" data-url="borrar.htm" data-toggle="tooltip" data-original-title="Eliminar" data-id="${centro.getIdCentro()}">
                                                     <i class="fa fa-times-circle"></i>
@@ -70,7 +74,7 @@
                                 <div class="col-sm-10">
                                     <select class="form-control" id="idCiudad" name="idCiudad" style="width: 100%" required="required">
                                         <c:forEach items="${ciudades}" var="ciudad">
-                                            <option value="${ciudad.getIdCiudad()}">${ciudad.getNombreCiudad()}</option>
+                                            <option value="${ciudad.key}">${ciudad.value.getNombreCiudad()}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -79,8 +83,8 @@
                                 <label for="idUsuario" class="col-sm-2 control-label">Usuario</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="idUsuario" name="idUsuario" style="width: 100%" required="required">
-                                        <c:forEach items="${celUsuario}" var="usuario">
-                                            <option value="${usuario.getIdUsuario()}">${usuario.getNombre()} ${usuario.getApellidoPat()} (${usuario.getUsuario()})</option>
+                                        <c:forEach items="${usuarios}" var="usuario">
+                                            <option value="${usuario.key}">${usuario.value.getNombre()} ${usuario.value.getApellidoPat()} (${usuario.value.getUsuario()})</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -96,6 +100,40 @@
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
+        </div>
+        
+        <div class="modal fade" id="image" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form class="form-horizontal" action="imagen.htm" method="post" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title">Imagen Centro</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-12 image"></div>
+                            </div>
+                            <div class="row" style="margin-top: 30px;">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label for="img" class="col-sm-2 control-label">Imagen</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" id="file" name="file" placeholder="Seleccione archivo" required="required">
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="idInstancia" name="id">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" data-url="imagen.htm" id="saveImage">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </jsp:body>
 </t:Master>

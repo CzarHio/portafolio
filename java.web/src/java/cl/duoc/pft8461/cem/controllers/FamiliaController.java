@@ -6,7 +6,6 @@
 package cl.duoc.pft8461.cem.controllers;
 
 import cl.duoc.pft8461.cem.entidades.FamiliaEntity;
-import cl.duoc.pft8461.cem.entidades.RegionEntity;
 import cl.duoc.pft8461.cem.ws.Centro;
 import cl.duoc.pft8461.cem.ws.CentroWS;
 import cl.duoc.pft8461.cem.ws.CentroWS_Service;
@@ -16,7 +15,6 @@ import cl.duoc.pft8461.cem.ws.EstadoFamiliaWS_Service;
 import cl.duoc.pft8461.cem.ws.Familia;
 import cl.duoc.pft8461.cem.ws.FamiliaWS;
 import cl.duoc.pft8461.cem.ws.FamiliaWS_Service;
-import cl.duoc.pft8461.cem.ws.Pais;
 import cl.duoc.pft8461.cem.ws.Usuario;
 import cl.duoc.pft8461.cem.ws.UsuarioWS;
 import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
@@ -48,7 +46,7 @@ public class FamiliaController extends BaseController {
     private Map<Integer, Centro> centros = new HashMap<Integer, Centro>();
     private List<Centro> listaCentro = this.centroWS.findAllCentro();
     private Map<Integer, Usuario> usuarios = new HashMap<Integer, Usuario>();
-    private List<Usuario> listaUsuario = this.usuarioWS.findAllUsuarios();
+    private List<Usuario> listaUsuario = this.usuarioWS.findUsuarioPor("ID_PERFIL_USUARIO", "5");
     private Map<Integer, EstadoFamilia> estadosFamilia = new HashMap<Integer, EstadoFamilia>();
     private List<EstadoFamilia> listaEstadoFamilia = this.estadoFamiliaWS.findAllEstadoFamilia();
 

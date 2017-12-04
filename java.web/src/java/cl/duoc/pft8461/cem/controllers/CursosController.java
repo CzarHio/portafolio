@@ -6,11 +6,16 @@
 package cl.duoc.pft8461.cem.controllers;
 
 import cl.duoc.pft8461.cem.entidades.CursoEntity;
+import cl.duoc.pft8461.cem.ws.Ciudad;
+import cl.duoc.pft8461.cem.ws.CiudadWS;
+import cl.duoc.pft8461.cem.ws.CiudadWS_Service;
 import cl.duoc.pft8461.cem.ws.Curso;
 import cl.duoc.pft8461.cem.ws.CursoWS;
 import cl.duoc.pft8461.cem.ws.CursoWS_Service;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.json.JSONArray;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

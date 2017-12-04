@@ -44,6 +44,8 @@
                 <prop key="centro/editar.htm">centro</prop>
                 <prop key="centro/borrar.htm">centro</prop>
                 <prop key="centro/guardar.htm">centro</prop>
+                <prop key="centro/findImagen.htm">centro</prop>
+                <prop key="centro/imagen.htm">centro</prop>
                 <!-- País Routes  -->
                 <prop key="pais/lista.htm">pais</prop>
                 <prop key="pais/editar.htm">pais</prop>

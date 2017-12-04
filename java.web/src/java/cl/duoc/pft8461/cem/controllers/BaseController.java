@@ -25,9 +25,6 @@ public class BaseController {
     protected final FotoWS fotoWS = new FotoWS_Service().getFotoWSPort();
     protected List<Foto> listaFotos = this.fotoWS.findAllFoto();
     protected Map<String, Foto> fotos = new HashMap<String, Foto>();
-    protected final static String FILES_PATH = "\\dist\\img\\app\\";
-    protected final static String WEB_PATH = "/java.web/resources/dist/img/app/";
-    protected final static String TIPO_USUARIO = "1";
     protected PropertiesManager pm = new PropertiesManager();
     
     protected boolean isEmpty(String data) {

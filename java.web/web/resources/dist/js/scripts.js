@@ -292,7 +292,9 @@
     $('body').on('click', '.btnImagen', function () {
         cem.clearFormMantanedor('addImage');
         $('#idInstancia').val($(this).attr('data-id'));
-        //cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'));
+        if ($(this).attr('data-url')) {
+            cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'), 'image');
+        }
         $('#image').modal('show');
     });
 
@@ -380,8 +382,13 @@
                             type: "error"
                         });
                     } else {
-                        $('#' + form).find('.form-control').each(function () {
-                            if ($(this).is('select'))
+                        $('#' + form).find('.form-control, .image').each(function () {
+                            if ($(this).hasClass('image')) {
+                                if (data.data.src !== undefined)
+                                    $(this).html('<img src="' + data.data['src'] + '" class="img-responsive img-thumbnail"/>');
+                                else
+                                    $(this).html('<div class="alert alert-warning"><strong>Atención!</strong> EL Centro no registra una imagen.</div>');
+                            } else if ($(this).is('select'))
                                 $(this).select2('val', data.data[$(this).attr('name')]);
                             else
                                 $(this).val(data.data[$(this).attr('name')]);
