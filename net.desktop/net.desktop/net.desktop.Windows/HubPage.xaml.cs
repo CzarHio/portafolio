@@ -66,12 +66,12 @@ namespace net.desktop
             this.ShowSections(await this.SessionManager.Exist("usuario"));
         }
 
-        private void ShowSections(bool show)
+        private async void ShowSections(bool show)
         {
             Sections.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
             bottomAppBar.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
             Login.Visibility = show ? Visibility.Collapsed : Visibility.Visible;
-            this.Find_Centros();
+            await this.Find_Centros();
         }
 
         private void ClearInput_Click(object sender, RoutedEventArgs e)
@@ -84,6 +84,8 @@ namespace net.desktop
         {
             this.Loading_Show(true);
             string usuario = ((TextBox)FindChildControl<TextBox>(LoginForm, "Usuario")).Text;
+            
+            //string password = HashPwd.GetHash(((PasswordBox)FindChildControl<PasswordBox>(LoginForm, "Password")).Password);
             string password = ((PasswordBox)FindChildControl<PasswordBox>(LoginForm, "Password")).Password;
 
             bool remember = (bool)((AppBarToggleButton)FindChildControl<AppBarToggleButton>(LoginForm, "Remember")).IsChecked;
@@ -165,11 +167,20 @@ namespace net.desktop
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            this.ShowSections(false);
-            // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-4");
-            var centros = await CentroService.All();
-            this.DefaultViewModel["Section3Items"] = centros;
+            try
+            {
+
+            } catch (Exception)
+            {
+
+            }
+            //this.ShowSections(false);
+            var centros = await this.Find_Centros();
+
+            this.DefaultViewModel["Section2Items"] = centros;
+            
+            ProgressRing LoadingSection = (ProgressRing)FindChildControl<ProgressRing>(Sections, "ProgressCentros");
+            LoadingSection.Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -251,19 +262,20 @@ namespace net.desktop
             Frame.Navigate(typeof(HubPage));
         }
 
-        private async void Find_Centros()
+        private async Task<Object> Find_Centros()
         {
             Object response = null;
             try
             {
-                response = await this.CentroService.All();
-                
+                response = await this.CentroService.All(); 
 
             }
             catch (Exception)
             {
                 Alert.CreateAlert("Ocurrió un error al intentar conectar. Compruebe su conexión e intente más tarde.", "Sistema CEM - Error de conexión");
             }
+
+            return response;
         }
         
     }

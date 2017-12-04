@@ -5,11 +5,8 @@
       <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/CentroWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
     </xsd:schema>
   </types>
-  <message name="findCentro">
-    <part name="parameters" element="tns:findCentro" />
-  </message>
-  <message name="findCentroResponse">
-    <part name="parameters" element="tns:findCentroResponse" />
+  <message name="removeCentro">
+    <part name="parameters" element="tns:removeCentro" />
   </message>
   <message name="findAllCentro">
     <part name="parameters" element="tns:findAllCentro" />
@@ -17,54 +14,74 @@
   <message name="findAllCentroResponse">
     <part name="parameters" element="tns:findAllCentroResponse" />
   </message>
+  <message name="editCentro">
+    <part name="parameters" element="tns:editCentro" />
+  </message>
+  <message name="findCentro">
+    <part name="parameters" element="tns:findCentro" />
+  </message>
+  <message name="findCentroResponse">
+    <part name="parameters" element="tns:findCentroResponse" />
+  </message>
+  <message name="createCentro">
+    <part name="parameters" element="tns:createCentro" />
+  </message>
   <message name="findCentroPor">
     <part name="parameters" element="tns:findCentroPor" />
   </message>
   <message name="findCentroPorResponse">
     <part name="parameters" element="tns:findCentroPorResponse" />
   </message>
-  <message name="createCentro">
-    <part name="parameters" element="tns:createCentro" />
+  <message name="seleccionarCentroFull">
+    <part name="parameters" element="tns:seleccionarCentroFull" />
   </message>
-  <message name="removeCentro">
-    <part name="parameters" element="tns:removeCentro" />
+  <message name="seleccionarCentroFullResponse">
+    <part name="parameters" element="tns:seleccionarCentroFullResponse" />
   </message>
-  <message name="editCentro">
-    <part name="parameters" element="tns:editCentro" />
+  <message name="seleccionarCentroFullPor">
+    <part name="parameters" element="tns:seleccionarCentroFullPor" />
+  </message>
+  <message name="seleccionarCentroFullPorResponse">
+    <part name="parameters" element="tns:seleccionarCentroFullPorResponse" />
   </message>
   <portType name="CentroWS">
-    <operation name="findCentro">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroRequest" message="tns:findCentro" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroResponse" message="tns:findCentroResponse" />
+    <operation name="removeCentro">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/removeCentro" message="tns:removeCentro" />
     </operation>
     <operation name="findAllCentro">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findAllCentroRequest" message="tns:findAllCentro" />
       <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findAllCentroResponse" message="tns:findAllCentroResponse" />
     </operation>
-    <operation name="findCentroPor">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorRequest" message="tns:findCentroPor" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorResponse" message="tns:findCentroPorResponse" />
+    <operation name="editCentro">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/editCentro" message="tns:editCentro" />
+    </operation>
+    <operation name="findCentro">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroRequest" message="tns:findCentro" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroResponse" message="tns:findCentroResponse" />
     </operation>
     <operation name="createCentro">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/createCentro" message="tns:createCentro" />
     </operation>
-    <operation name="removeCentro">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/removeCentro" message="tns:removeCentro" />
+    <operation name="findCentroPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorRequest" message="tns:findCentroPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorResponse" message="tns:findCentroPorResponse" />
     </operation>
-    <operation name="editCentro">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/editCentro" message="tns:editCentro" />
+    <operation name="seleccionarCentroFull">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullRequest" message="tns:seleccionarCentroFull" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullResponse" message="tns:seleccionarCentroFullResponse" />
+    </operation>
+    <operation name="seleccionarCentroFullPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullPorRequest" message="tns:seleccionarCentroFullPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullPorResponse" message="tns:seleccionarCentroFullPorResponse" />
     </operation>
   </portType>
   <binding name="CentroWSPortBinding" type="tns:CentroWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="findCentro">
+    <operation name="removeCentro">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
       </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
     </operation>
     <operation name="findAllCentro">
       <soap:operation soapAction="" />
@@ -75,7 +92,13 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="findCentroPor">
+    <operation name="editCentro">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findCentro">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -90,17 +113,32 @@
         <soap:body use="literal" />
       </input>
     </operation>
-    <operation name="removeCentro">
+    <operation name="findCentroPor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
       </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
     </operation>
-    <operation name="editCentro">
+    <operation name="seleccionarCentroFull">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
       </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="seleccionarCentroFullPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
     </operation>
   </binding>
   <service name="CentroWS">

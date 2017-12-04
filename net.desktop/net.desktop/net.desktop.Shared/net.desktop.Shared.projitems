@@ -29,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\UsuarioEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SessionManagerTools\SessionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Alert.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\HashPwd.cs" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\favicon.scale-140.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\logo-cem.png" />
     <Content Include="$(MSBuildThisFileDirectory)DataModel\SampleData.json" />

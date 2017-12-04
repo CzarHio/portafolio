@@ -18,6 +18,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Diagnostics;
 using net.desktop.Services;
+using net.desktop.Utilities;
+using System.Threading.Tasks;
+using net.desktop.Entities;
 
 // The Universal Hub Application project template is documented at http://go.microsoft.com/fwlink/?LinkID=391955
 
@@ -69,10 +72,83 @@ namespace net.desktop
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            var item = await this.CentroService.Find((int)e.NavigationParameter);
-            item.Participaciones = await this.ParticipacionService.All("id_centro", item.Id_Centro.ToString());
-            
+            CentroEntity item = await this.Find_Centro((int)e.NavigationParameter);
+
+            if (item != null)
+            {
+                item.Participaciones = await this.Find_Participaciones(item.Id_Centro.ToString());
+            }
+            else
+            {
+                Alert.CreateAlert("Ocurrió un error al obtener la información del Centro, intente más tarde.");
+            }
+
+            ProgressRing Loading = (ProgressRing)FindChildControl<ProgressRing>(this, "Progress");
+            Loading.Visibility = Visibility.Collapsed;
+
             this.DefaultViewModel["Item"] = item;
+        }
+
+        private async Task<CentroEntity> Find_Centro(int id)
+        {
+            CentroEntity response = null;
+
+            try
+            {
+                response = await CentroService.Find(id);
+
+            }
+            catch (Exception)
+            {
+                Alert.CreateAlert("Ocurrió un error al intentar conectar. Compruebe su conexión e intente más tarde.", "Sistema CEM - Error de conexión");
+            }
+
+            return response;
+
+        }
+
+        private async Task<List<ParticipacionEntity>> Find_Participaciones(String id_centro)
+        {
+            List<ParticipacionEntity> response = null;
+
+            try
+            {
+                response = await this.ParticipacionService.All("id_centro", id_centro);
+
+            }
+            catch (Exception)
+            {
+                Alert.CreateAlert("No se encontraron datos u ocurrió un error al intentar conectar. Compruebe su conexión e intente más tarde.", "Sistema CEM - Error de conexión");
+            }
+
+            return response;
+
+        }
+
+        private DependencyObject FindChildControl<T>(DependencyObject control, string ctrlName)
+        {
+            int childNumber = VisualTreeHelper.GetChildrenCount(control);
+            for (int i = 0; i < childNumber; i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(control, i);
+                FrameworkElement fe = child as FrameworkElement;
+                // Not a framework element or is null
+                if (fe == null) return null;
+
+                if (child is T && fe.Name == ctrlName)
+                {
+                    // Found the control so return
+                    return child;
+                }
+                else
+                {
+                    // Not found it - search children
+                    DependencyObject nextLevel = FindChildControl<T>(child, ctrlName);
+                    if (nextLevel != null)
+                        return nextLevel;
+                }
+            }
+            return null;
         }
 
         #region NavigationHelper registration
@@ -97,5 +173,6 @@ namespace net.desktop
         }
 
         #endregion
+
     }
 }

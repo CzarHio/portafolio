@@ -14,7 +14,7 @@
     <RootPropertyPathName Name="ImagePath" />
     <RootPropertyPathName Name="NavigationHelper" />
     <RootPropertyPathName Name="GoBackCommand" />
-    <RootPropertyPathName Name="Section3Items" />
+    <RootPropertyPathName Name="Section2Items" />
     <RootPropertyPathName Name="Items" />
     <RootPropertyPathName Name="Group" />
     <RootPropertyPathName Name="Description" />
@@ -164,14 +164,14 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.HubSection">
-      <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="Header" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="ContentTemplate" />
       <RootProperty Name="DataContext" />
-      <RootProperty Name="Padding" />
+      <RootProperty Name="Header" />
+      <RootProperty Name="Width" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalContentAlignment" />
       <RootProperty Name="VerticalContentAlignment" />
     </RootType>
@@ -187,6 +187,14 @@
       <RootProperty Name="Header" />
       <RootProperty Name="ItemContainerStyle" />
       <RootEvent Name="ItemClick" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
+      <RootProperty Name="IsActive" />
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
       <RootProperty Name="ImageSource" />
@@ -213,14 +221,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarToggleButton">
       <RootProperty Name="Margin" />
-      <RootProperty Name="Foreground" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
-      <RootProperty Name="IsActive" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
       <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="net.desktop.HubPage" />
