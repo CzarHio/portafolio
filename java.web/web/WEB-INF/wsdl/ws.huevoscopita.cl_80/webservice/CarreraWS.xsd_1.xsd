@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.cem.pft8461.duoc.cl/">
+
+<xs:element name="carrera" type="tns:carrera"/>
+
+<xs:element name="createCarrera" type="tns:createCarrera"/>
+
+<xs:element name="editCarrera" type="tns:editCarrera"/>
+
+<xs:element name="findAllCarrera" type="tns:findAllCarrera"/>
+
+<xs:element name="findAllCarreraResponse" type="tns:findAllCarreraResponse"/>
+
+<xs:element name="findCarrera" type="tns:findCarrera"/>
+
+<xs:element name="findCarreraPor" type="tns:findCarreraPor"/>
+
+<xs:element name="findCarreraPorResponse" type="tns:findCarreraPorResponse"/>
+
+<xs:element name="findCarreraResponse" type="tns:findCarreraResponse"/>
+
+<xs:element name="removeCarrera" type="tns:removeCarrera"/>
+
+<xs:complexType name="findAllCarrera">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllCarreraResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:carrera" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="carrera">
+<xs:sequence>
+<xs:element name="idCarrera" type="xs:decimal" minOccurs="0"/>
+<xs:element name="nombreCarrera" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findCarrera">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findCarreraResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:carrera" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findCarreraPor">
+<xs:sequence>
+<xs:element name="campo" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findCarreraPorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:carrera" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeCarrera">
+<xs:sequence>
+<xs:element name="entity" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createCarrera">
+<xs:sequence>
+<xs:element name="nombre_carrera" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editCarrera">
+<xs:sequence>
+<xs:element name="id_carrera" type="xs:int"/>
+<xs:element name="nombre_carrera" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

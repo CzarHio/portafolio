@@ -7,7 +7,13 @@ package cl.duoc.pft8461.cem.controllers;
 
 import cl.duoc.pft8461.cem.entidades.UsuarioEntity;
 import cl.duoc.pft8461.cem.utilities.HashPwd;
-import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS_Service;
+import cl.duoc.pft8461.cem.utilities.Mail;
+import cl.duoc.pft8461.cem.ws.Carrera;
+import cl.duoc.pft8461.cem.ws.CarreraWS;
+import cl.duoc.pft8461.cem.ws.CarreraWS_Service;
+import cl.duoc.pft8461.cem.ws.Centro;
+import cl.duoc.pft8461.cem.ws.CentroWS;
+import cl.duoc.pft8461.cem.ws.CentroWS_Service;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
+import java.util.List;
 
 /**
  *
@@ -30,7 +37,6 @@ import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
 public class LoginController {
     
     private final UsuarioWS_Service ws = new UsuarioWS_Service();
-    private final PerfilUsuarioWS_Service wsPerfil = new PerfilUsuarioWS_Service();
     
     public LoginController() {
     }
@@ -49,6 +55,7 @@ public class LoginController {
     public ModelAndView form(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
+        //this.sendMail("");
         mav.setViewName("login");
         return mav;
     }
@@ -124,6 +131,14 @@ public class LoginController {
     public ModelAndView register(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
+        
+        CentroWS centroWS = new CentroWS_Service().getCentroWSPort();
+        CarreraWS carreraWS = new CarreraWS_Service().getCarreraWSPort();
+        List<Centro> listaCentro = centroWS.findAllCentro();
+        List<Carrera> listaCarrera = carreraWS.findAllCarrera();
+        mav.addObject("listaCentro", listaCentro);
+        mav.addObject("listaCarrera", listaCarrera);
+                    
         mav.setViewName("register");
         return mav;
     }
@@ -140,7 +155,7 @@ public class LoginController {
     @RequestMapping(value = {"registro.htm"}, method = RequestMethod.POST)
     public ModelAndView postRegister(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        //HttpSession session = request.getSession();
+        
         ModelAndView mav = new ModelAndView();
         
         if (request.getParameter("pass").equals(request.getParameter("pass1"))) {
@@ -165,6 +180,92 @@ public class LoginController {
             
         }
         
+    }
+    
+    @RequestMapping(value = {"registro_alumno.htm"}, method = RequestMethod.POST)
+    public ModelAndView postRegisterAlumno(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        
+        ModelAndView mav = new ModelAndView();
+        
+        if (request.getParameter("pass").equals(request.getParameter("pass1"))) {
+            
+            String usuario = request.getParameter("login");
+            String clave = request.getParameter("pass");
+            String email = request.getParameter("email");
+            String nombre = request.getParameter("nombre");
+            String apellidoPat = request.getParameter("apellidoPat");
+            String apellidoMat = request.getParameter("apellidoMat");
+            int idCarrera = Integer.parseInt(request.getParameter("idCarrera"));
+            int semestre = Integer.parseInt(request.getParameter("semestre"));
+            int ingreso = Integer.parseInt(request.getParameter("ingreso"));
+            
+            this.ws.getUsuarioWSPort().createUsuarioAlumno(usuario, clave, nombre, apellidoPat, apellidoMat, email, 4, idCarrera, semestre, ingreso);
+            response.sendRedirect("./login.htm");
+            return null;
+            
+        } else {
+        
+            mav.addObject("error", "Contraseñas no coinciden.");
+            mav.setViewName("register");
+            return mav;
+            
+        }
+        
+    }
+    
+    @RequestMapping(value = {"registro_familia.htm"}, method = RequestMethod.POST)
+    public ModelAndView postRegisterFamilia(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        
+        ModelAndView mav = new ModelAndView();
+        
+        if (request.getParameter("pass").equals(request.getParameter("pass1"))) {
+            
+            String usuario = request.getParameter("login");
+            String clave = request.getParameter("pass");
+            String email = request.getParameter("email");
+            String nombre = request.getParameter("nombre");
+            String apellidoPat = request.getParameter("apellidoPat");
+            String apellidoMat = request.getParameter("apellidoMat");
+            int idCentro = Integer.parseInt(request.getParameter("idCentro"));
+            String nombreFamilia = request.getParameter("nombreFamilia");
+            String descripcion = request.getParameter("descripcion");
+            String direccion = request.getParameter("direccion");
+            
+            this.ws.getUsuarioWSPort().createUsuarioFamilia(usuario, clave, nombre, apellidoPat, apellidoMat, email, 5, idCentro, nombreFamilia, descripcion, direccion);
+            
+            response.sendRedirect("./login.htm");
+            return null;
+            
+        } else {
+        
+            mav.addObject("error", "Contraseñas no coinciden.");
+            mav.setViewName("register");
+            return mav;
+            
+        }
+        
+    }
+    
+    private boolean sendMailBienvenida(String to) {
+        boolean sent = false;
+        try {
+            Mail mail = new Mail();
+            mail.init();
+            mail.from("mail@test.com");
+            mail.to(to);
+            mail.subject("Bienvenido al Sistema CEM");
+            mail.content("Estimado,\n\nLe damos la más cordial bienvenida "
+                    + "al Sistema CEM.\nAquí podrá postular a programas (si es un Alumno) "
+                    + "o participar de uno como Familia.\n\nGracias por confiar en nosotros\n"
+                    + "\n\n\n\n\nCentro de Estudios Montreal");
+            sent = mail.send();
+        } catch (Exception e) {
+            System.out.println("Error mail: " + e);
+        }
+        
+        return sent;
     }
     
 }

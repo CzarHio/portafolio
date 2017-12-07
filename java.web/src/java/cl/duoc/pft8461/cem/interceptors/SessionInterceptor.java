@@ -30,6 +30,7 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
                 && !request.getRequestURI().equals("/java.web/postLogin.htm")
                 && !request.getRequestURI().equals("/java.web/registro.htm")
                 && !request.getRequestURI().equals("/java.web/registrarse.htm")
+                && !request.getRequestURI().equals("/java.web/programa/certificado.htm")
                 && !request.getRequestURI().equals("/java.web/salir.htm")) {
             if (session.getAttribute("logeado") == null || !session.getAttribute("logeado").equals("1")) {
                 //whatever you want to do

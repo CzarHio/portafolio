@@ -378,5 +378,37 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/FotoWS"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-CentroWS, wsimport-client-ParticipacionWS, wsimport-client-EstadoParticipacionWS, wsimport-client-ProgramaWS, wsimport-client-EstadoProgramaWS, wsimport-client-PaisWS, wsimport-client-CiudadWS, wsimport-client-PerfilUsuarioWS, wsimport-client-NotaWS, wsimport-client-CursoWS, wsimport-client-DocumentoWS, wsimport-client-TipoDocumentoWS, wsimport-client-EstadoDocumentoWS, wsimport-client-RegionWS, wsimport-client-UsuarioWS, wsimport-client-MenuWS, wsimport-client-MenuItemWS, wsimport-client-PostulacionWS, wsimport-client-EstadoPostulacionWS, wsimport-client-FamiliaWS, wsimport-client-EstadoFamiliaWS, wsimport-client-FotoWS"/>
+    <target name="wsimport-client-AlumnoWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/AlumnoWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/AlumnoWS" destdir="${build.generated.dir}/jax-wsCache/AlumnoWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AlumnoWS/wsdl/ws.huevoscopita.cl/webservice/AlumnoWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/AlumnoWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/AlumnoWS/wsdl/ws.huevoscopita.cl/webservice/AlumnoWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/AlumnoWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/AlumnoWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-AlumnoWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/AlumnoWS"/>
+    </target>
+    <target name="wsimport-client-CarreraWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CarreraWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CarreraWS" destdir="${build.generated.dir}/jax-wsCache/CarreraWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CarreraWS/wsdl/ws.huevoscopita.cl/webservice/CarreraWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://ws.huevoscopita.cl/webservice/CarreraWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CarreraWS/wsdl/ws.huevoscopita.cl/webservice/CarreraWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CarreraWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CarreraWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CarreraWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/cl/duoc/pft8461/cem/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CarreraWS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-CentroWS, wsimport-client-ParticipacionWS, wsimport-client-EstadoParticipacionWS, wsimport-client-ProgramaWS, wsimport-client-EstadoProgramaWS, wsimport-client-PaisWS, wsimport-client-CiudadWS, wsimport-client-PerfilUsuarioWS, wsimport-client-NotaWS, wsimport-client-CursoWS, wsimport-client-DocumentoWS, wsimport-client-TipoDocumentoWS, wsimport-client-EstadoDocumentoWS, wsimport-client-RegionWS, wsimport-client-UsuarioWS, wsimport-client-MenuWS, wsimport-client-MenuItemWS, wsimport-client-PostulacionWS, wsimport-client-EstadoPostulacionWS, wsimport-client-FamiliaWS, wsimport-client-EstadoFamiliaWS, wsimport-client-FotoWS, wsimport-client-AlumnoWS, wsimport-client-CarreraWS"/>
 </project>

@@ -29,7 +29,7 @@ public class HashPwd {
         byte[] salt = SecureRandom.getInstance("SHA1PRNG").generateSeed(SALT_LEN);
         PropertiesManager pm = new PropertiesManager();
         
-        return Base64.encodeBase64(salt) + "$" + hash(password, pm.getProperty("APP_KEY"));
+        return Base64.encodeBase64(salt) + "$" + hash(password, pm.get("APP_KEY"));
     }
 
     /**
@@ -47,7 +47,7 @@ public class HashPwd {
         if (saltAndPass.length != 2) {
             throw new IllegalStateException("The stored password have the form 'salt$hash'");
         }
-        String hashOfInput = hash(password, pm.getProperty("APP_KEY"));
+        String hashOfInput = hash(password, pm.get("APP_KEY"));
         return hashOfInput.equals(saltAndPass[1]);
     }
     

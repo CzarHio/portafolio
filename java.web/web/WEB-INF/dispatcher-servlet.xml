@@ -29,6 +29,8 @@
                 <prop key="login.htm">login</prop>
                 <prop key="postLogin.htm">login</prop>
                 <prop key="registrarse.htm">login</prop>
+                <prop key="registro_alumno.htm">login</prop>
+                <prop key="registro_familia.htm">login</prop>
                 <prop key="registro.htm">login</prop>
                 <prop key="salir.htm">login</prop>
                 <!-- Home Routes  -->
@@ -73,6 +75,7 @@
                 <prop key="programa/guardar.htm">programa</prop>
                 <prop key="programa/unirse.htm">programa</prop>
                 <prop key="programa/postulacion.htm">programa</prop>
+                <prop key="programa/certificado.htm">programa</prop>
                 <!-- Cursos Routes  -->
                 <prop key="cursos/lista.htm">curso</prop>
                 <prop key="cursos/editar.htm">curso</prop>

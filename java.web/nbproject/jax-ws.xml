@@ -707,5 +707,71 @@
         </wsimport-option>
       </wsimport-options>
     </client>
+    <client name="AlumnoWS">
+      <wsdl-url>http://ws.huevoscopita.cl/webservice/AlumnoWS?WSDL</wsdl-url>
+      <local-wsdl-file>ws.huevoscopita.cl/webservice/AlumnoWS.wsdl</local-wsdl-file>
+      <package-name>cl.duoc.pft8461.cem.ws</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-dispatch>true</use-dispatch>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://ws.huevoscopita.cl/webservice/AlumnoWS?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="CarreraWS">
+      <wsdl-url>http://ws.huevoscopita.cl/webservice/CarreraWS?WSDL</wsdl-url>
+      <local-wsdl-file>ws.huevoscopita.cl/webservice/CarreraWS.wsdl</local-wsdl-file>
+      <package-name>cl.duoc.pft8461.cem.ws</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-dispatch>true</use-dispatch>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://ws.huevoscopita.cl/webservice/CarreraWS?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
   </clients>
 </jax-ws>
