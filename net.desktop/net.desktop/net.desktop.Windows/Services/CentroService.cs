@@ -23,14 +23,16 @@ namespace net.desktop.Services
 
             if (String.IsNullOrEmpty(key) && String.IsNullOrEmpty(value))
             {
-                findAllCentroResponse Response = await this.Service.findAllCentroAsync();
+                seleccionarAllCentroFullResponse Response = await this.Service.seleccionarAllCentroFullAsync();
                 foreach (centro c in Response.@return)
                 {
                     Centro = new CentroEntity();
                     Centro.Id_Centro = (int)c.idCentro;
                     Centro.Nombre_Centro = c.nombreCentro;
-                    Centro.Ciudad = await this.CiudadService.Find(c.idCiudad); ;
-                    Centro.Usuario = await this.UsuarioService.Find(c.idUsuario);
+                    Centro.Nombre_Ciudad = c.nombreCiudad;
+                    Centro.Nombre_Region = c.nombreRegion;
+                    Centro.Nombre_Pais = c.nombrePais;
+                    Centro.Nombre_Usuario = c.nombreUsuario;
                     Centro.Foto = await this.FotoService.Find("2", (int) c.idCentro);
                     Centros.Add(Centro); 
                 }
@@ -53,8 +55,10 @@ namespace net.desktop.Services
             findCentroResponse Response = await this.Service.findCentroAsync(id);
             Centro.Id_Centro = (int)Response.@return.idCentro;
             Centro.Nombre_Centro = Response.@return.nombreCentro;
-            Centro.Ciudad = await this.CiudadService.Find(Response.@return.idCiudad); ;
-            Centro.Usuario = await this.UsuarioService.Find(Response.@return.idUsuario);
+            Centro.Nombre_Ciudad = Response.@return.nombreCiudad;
+            Centro.Nombre_Region = Response.@return.nombreRegion;
+            Centro.Nombre_Pais = Response.@return.nombrePais;
+            Centro.Nombre_Usuario = Response.@return.nombreUsuario;
             Centro.Foto = await this.FotoService.Find("2", (int)Response.@return.idCentro);
 
             return Centro;

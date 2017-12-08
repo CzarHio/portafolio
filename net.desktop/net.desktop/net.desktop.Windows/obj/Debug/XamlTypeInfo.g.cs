@@ -670,7 +670,3 @@ namespace net.desktop.net_desktop_Windows_XamlTypeInfo
 }
 
 
-
-
-
-

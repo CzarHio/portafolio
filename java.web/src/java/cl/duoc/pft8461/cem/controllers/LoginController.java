@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,6 +60,9 @@ public class LoginController {
         throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
         //this.sendMail("");
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+        System.out.println(timeStamp);
+        
         mav.setViewName("login");
         return mav;
     }
@@ -78,12 +83,6 @@ public class LoginController {
         ModelAndView mav = new ModelAndView();
         
         try {
-            System.out.println();
-            // test string "asdasd"
-            System.out.println("L0+h5zDT8Q==$ee0ce6c01fe5d84297de6b7c4da5c83d2bd4746874cf5c07e33d1d1da76cef5347d8f1ba686a355a7f7eed8ea78842163efe46292b7e2bdc85964f1f6c1ba951");
-            System.out.println(HashPwd.check(request.getParameter("password"), "L0+h5zDT8Q==$ee0ce6c01fe5d84297de6b7c4da5c83d2bd4746874cf5c07e33d1d1da76cef5347d8f1ba686a355a7f7eed8ea78842163efe46292b7e2bdc85964f1f6c1ba951"));
-            
-//System.out.println(this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), HashPwd.getHash(request.getParameter("password"))));
             UsuarioEntity usr = new UsuarioEntity(this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), HashPwd.getHash(request.getParameter("password"))));
 
             if(usr != null){

@@ -2,14 +2,10 @@
 <Roots xmlns="clr-namespace:Microsoft.Xaml.Tools.XamlCompiler.RootLog;assembly=Microsoft.Windows.UI.Xaml.81.Build.Tasks">
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="DefaultViewModel" />
-    <RootPropertyPathName Name="Ciudad" />
-    <RootPropertyPathName Name="Region" />
-    <RootPropertyPathName Name="Pais" />
     <RootPropertyPathName Name="Nombre_Pais" />
     <RootPropertyPathName Name="Nombre_Region" />
     <RootPropertyPathName Name="Nombre_Ciudad" />
-    <RootPropertyPathName Name="Usuario" />
-    <RootPropertyPathName Name="Nombre_Completo" />
+    <RootPropertyPathName Name="Nombre_Usuario" />
     <RootPropertyPathName Name="Nombre_Centro" />
     <RootPropertyPathName Name="Foto" />
     <RootPropertyPathName Name="Nombre_Archivo" />
@@ -29,6 +25,7 @@
     <RootPropertyPathName Name="Alumno" />
     <RootPropertyPathName Name="Nombre" />
     <RootPropertyPathName Name="Programa" />
+    <RootPropertyPathName Name="Pais" />
     <RootPropertyPathName Name="Nombre_Programa" />
     <RootPropertyPathName Name="Item" />
     <RootPropertyPathName Name="Participaciones" />
@@ -136,6 +133,9 @@
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Icon" />
       <RootProperty Name="Label" />
+      <RootProperty Name="Tag" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Padding" />
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
@@ -164,14 +164,23 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Background" />
+      <RootProperty Name="Width" />
       <RootEvent Name="Click" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
+      <RootProperty Name="IsActive" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="HorizontalAlignment" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.HubSection">
+      <RootProperty Name="DataContext" />
+      <RootProperty Name="Header" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Visibility" />
       <RootProperty Name="ContentTemplate" />
-      <RootProperty Name="DataContext" />
-      <RootProperty Name="Header" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="Margin" />
@@ -191,14 +200,6 @@
       <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="Background" />
       <RootEvent Name="ItemClick" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">
-      <RootProperty Name="IsActive" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Foreground" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
       <RootProperty Name="ImageSource" />

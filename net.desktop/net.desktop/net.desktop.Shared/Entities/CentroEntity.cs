@@ -19,13 +19,25 @@ namespace net.desktop.Entities
             get;
         }
 
-        public CiudadEntity Ciudad
+        public string Nombre_Ciudad
         {
             set;
             get;
         }
 
-        public UsuarioEntity Usuario
+        public string Nombre_Pais
+        {
+            set;
+            get;
+        }
+
+        public string Nombre_Region
+        {
+            set;
+            get;
+        }
+
+        public string Nombre_Usuario
         {
             set;
             get;

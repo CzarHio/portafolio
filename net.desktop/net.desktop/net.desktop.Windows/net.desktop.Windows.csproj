@@ -214,6 +214,9 @@
     <None Include="net.desktop.Windows_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\WebServiceCentro\net.desktop.WebServiceCentro.seleccionarAllCentroFullResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WebServiceCentro\net.desktop.WebServiceCentro.seleccionarCentroFullPorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
