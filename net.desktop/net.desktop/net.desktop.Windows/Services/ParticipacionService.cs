@@ -42,32 +42,33 @@ namespace net.desktop.Services
                     Participaciones.Add(Participacion);
                 }
 
-                return Participaciones;
             }
             else
             {
                 findParticipacionPorResponse Response = await this.Service.findParticipacionPorAsync(key, value);
-                
+
                 foreach (participacion p in Response.@return)
                 {
-                    
                     Participacion = new ParticipacionEntity();
+                    
                     Participacion.Id_Participacion = (int)p.idParticipacion;
-                    Participacion.Programa = await this.ProgramaService.Find((int)p.idPrograma); ;
+                    Participacion.Programa = await this.ProgramaService.Find((int)p.idPrograma);
 
                     try
                     {
-                        Participacion.Postulaciones = await this.PostulacionService.All("id_participacion", ((int)p.idParticipacion).ToString());
+                        Participacion.Postulaciones = await this.PostulacionService.All("pa.id_participacion", p.idParticipacion.ToString());
+
+                        Participaciones.Add(Participacion);
                     }
                     catch (Exception e) {
                         Debug.WriteLine(e);
                     }
 
-                    Participaciones.Add(Participacion);
-                }
 
-                return Participaciones;
+                }
             }
+
+            return Participaciones;
         }
 
     }

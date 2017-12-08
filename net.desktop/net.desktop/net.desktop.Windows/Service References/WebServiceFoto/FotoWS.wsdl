@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="FotoWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/FotoWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="findInstanciaFoto">
+    <part name="parameters" element="tns:findInstanciaFoto" />
+  </message>
+  <message name="findInstanciaFotoResponse">
+    <part name="parameters" element="tns:findInstanciaFotoResponse" />
+  </message>
+  <message name="editFoto">
+    <part name="parameters" element="tns:editFoto" />
+  </message>
+  <message name="removeFoto">
+    <part name="parameters" element="tns:removeFoto" />
+  </message>
+  <message name="createFoto">
+    <part name="parameters" element="tns:createFoto" />
+  </message>
+  <message name="findAllFoto">
+    <part name="parameters" element="tns:findAllFoto" />
+  </message>
+  <message name="findAllFotoResponse">
+    <part name="parameters" element="tns:findAllFotoResponse" />
+  </message>
+  <message name="findFotoPor">
+    <part name="parameters" element="tns:findFotoPor" />
+  </message>
+  <message name="findFotoPorResponse">
+    <part name="parameters" element="tns:findFotoPorResponse" />
+  </message>
+  <message name="findFoto">
+    <part name="parameters" element="tns:findFoto" />
+  </message>
+  <message name="findFotoResponse">
+    <part name="parameters" element="tns:findFotoResponse" />
+  </message>
+  <portType name="FotoWS">
+    <operation name="findInstanciaFoto">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/findInstanciaFotoRequest" message="tns:findInstanciaFoto" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/findInstanciaFotoResponse" message="tns:findInstanciaFotoResponse" />
+    </operation>
+    <operation name="editFoto">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/editFoto" message="tns:editFoto" />
+    </operation>
+    <operation name="removeFoto">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/removeFoto" message="tns:removeFoto" />
+    </operation>
+    <operation name="createFoto">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/createFoto" message="tns:createFoto" />
+    </operation>
+    <operation name="findAllFoto">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/findAllFotoRequest" message="tns:findAllFoto" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/findAllFotoResponse" message="tns:findAllFotoResponse" />
+    </operation>
+    <operation name="findFotoPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/findFotoPorRequest" message="tns:findFotoPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/findFotoPorResponse" message="tns:findFotoPorResponse" />
+    </operation>
+    <operation name="findFoto">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/findFotoRequest" message="tns:findFoto" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FotoWS/findFotoResponse" message="tns:findFotoResponse" />
+    </operation>
+  </portType>
+  <binding name="FotoWSPortBinding" type="tns:FotoWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="findInstanciaFoto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="editFoto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="removeFoto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="createFoto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findAllFoto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findFotoPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findFoto">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="FotoWS">
+    <port name="FotoWSPort" binding="tns:FotoWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/FotoWS" />
+    </port>
+  </service>
+</definitions>

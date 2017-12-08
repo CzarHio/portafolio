@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\CiudadEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\CursoEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\FamiliaEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\FotoEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\NotaEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\PaisEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\ParticipacionEntity.cs" />

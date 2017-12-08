@@ -48,11 +48,6 @@
       <xs:element name="id_ciudad" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="removeCentro">
-    <xs:sequence>
-      <xs:element name="entity" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="createCentro">
     <xs:sequence>
       <xs:element minOccurs="0" name="nombre_centro" type="xs:string" />
@@ -60,15 +55,9 @@
       <xs:element name="id_ciudad" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="findCentroPor">
+  <xs:complexType name="removeCentro">
     <xs:sequence>
-      <xs:element minOccurs="0" name="campo" type="xs:string" />
-      <xs:element minOccurs="0" name="valor" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="findCentroPorResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:centro" />
+      <xs:element name="entity" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="seleccionarCentroFull">
@@ -88,6 +77,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="seleccionarCentroFullPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:centro" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCentroPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCentroPorResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:centro" />
     </xs:sequence>

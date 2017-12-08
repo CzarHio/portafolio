@@ -5,15 +5,6 @@
       <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/UsuarioWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
     </xsd:schema>
   </types>
-  <message name="autenticar">
-    <part name="parameters" element="tns:autenticar" />
-  </message>
-  <message name="autenticarResponse">
-    <part name="parameters" element="tns:autenticarResponse" />
-  </message>
-  <message name="editUsuario">
-    <part name="parameters" element="tns:editUsuario" />
-  </message>
   <message name="removeUsuario">
     <part name="parameters" element="tns:removeUsuario" />
   </message>
@@ -23,23 +14,31 @@
   <message name="findUsuarioResponse">
     <part name="parameters" element="tns:findUsuarioResponse" />
   </message>
+  <message name="createUsuario">
+    <part name="parameters" element="tns:createUsuario" />
+  </message>
+  <message name="editUsuario">
+    <part name="parameters" element="tns:editUsuario" />
+  </message>
+  <message name="findUsuarioPor">
+    <part name="parameters" element="tns:findUsuarioPor" />
+  </message>
+  <message name="findUsuarioPorResponse">
+    <part name="parameters" element="tns:findUsuarioPorResponse" />
+  </message>
+  <message name="autenticar">
+    <part name="parameters" element="tns:autenticar" />
+  </message>
+  <message name="autenticarResponse">
+    <part name="parameters" element="tns:autenticarResponse" />
+  </message>
   <message name="findAllUsuarios">
     <part name="parameters" element="tns:findAllUsuarios" />
   </message>
   <message name="findAllUsuariosResponse">
     <part name="parameters" element="tns:findAllUsuariosResponse" />
   </message>
-  <message name="createUsuario">
-    <part name="parameters" element="tns:createUsuario" />
-  </message>
   <portType name="UsuarioWS">
-    <operation name="autenticar">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarRequest" message="tns:autenticar" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarResponse" message="tns:autenticarResponse" />
-    </operation>
-    <operation name="editUsuario">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/editUsuario" message="tns:editUsuario" />
-    </operation>
     <operation name="removeUsuario">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/removeUsuario" message="tns:removeUsuario" />
     </operation>
@@ -47,31 +46,27 @@
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioRequest" message="tns:findUsuario" />
       <output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioResponse" message="tns:findUsuarioResponse" />
     </operation>
+    <operation name="createUsuario">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuario" message="tns:createUsuario" />
+    </operation>
+    <operation name="editUsuario">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/editUsuario" message="tns:editUsuario" />
+    </operation>
+    <operation name="findUsuarioPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorRequest" message="tns:findUsuarioPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorResponse" message="tns:findUsuarioPorResponse" />
+    </operation>
+    <operation name="autenticar">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarRequest" message="tns:autenticar" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarResponse" message="tns:autenticarResponse" />
+    </operation>
     <operation name="findAllUsuarios">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosRequest" message="tns:findAllUsuarios" />
       <output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosResponse" message="tns:findAllUsuariosResponse" />
     </operation>
-    <operation name="createUsuario">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuario" message="tns:createUsuario" />
-    </operation>
   </portType>
   <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="autenticar">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="editUsuario">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-    </operation>
     <operation name="removeUsuario">
       <soap:operation soapAction="" />
       <input>
@@ -87,7 +82,19 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="findAllUsuarios">
+    <operation name="createUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="editUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findUsuarioPor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -96,11 +103,23 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="createUsuario">
+    <operation name="autenticar">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
       </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findAllUsuarios">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
     </operation>
   </binding>
   <service name="UsuarioWS">

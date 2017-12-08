@@ -31,6 +31,12 @@ namespace net.desktop.Entities
             get;
         }
 
+        public FotoEntity Foto
+        {
+            set;
+            get;
+        }
+
         public List<ParticipacionEntity> Participaciones
         {
             set;

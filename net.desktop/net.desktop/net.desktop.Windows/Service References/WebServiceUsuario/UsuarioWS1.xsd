@@ -7,8 +7,9 @@
   <xs:element name="findAllUsuarios" type="tns:findAllUsuarios" />
   <xs:element name="findAllUsuariosResponse" type="tns:findAllUsuariosResponse" />
   <xs:element name="findUsuario" type="tns:findUsuario" />
+  <xs:element name="findUsuarioPor" type="tns:findUsuarioPor" />
+  <xs:element name="findUsuarioPorResponse" type="tns:findUsuarioPorResponse" />
   <xs:element name="findUsuarioResponse" type="tns:findUsuarioResponse" />
-  <xs:element name="perfilUsuario" type="tns:perfilUsuario" />
   <xs:element name="removeUsuario" type="tns:removeUsuario" />
   <xs:element name="usuario" type="tns:usuario" />
   <xs:complexType name="findAllUsuarios">
@@ -26,17 +27,11 @@
       <xs:element minOccurs="0" name="clave" type="xs:string" />
       <xs:element minOccurs="0" name="creado" type="xs:dateTime" />
       <xs:element minOccurs="0" name="email" type="xs:string" />
-      <xs:element minOccurs="0" name="idPerfilUsuario" type="tns:perfilUsuario" />
+      <xs:element name="idPerfilUsuario" type="xs:int" />
       <xs:element minOccurs="0" name="idUsuario" type="xs:decimal" />
       <xs:element minOccurs="0" name="nombre" type="xs:string" />
       <xs:element minOccurs="0" name="token" type="xs:string" />
       <xs:element minOccurs="0" name="usuario" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="perfilUsuario">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="idPerfilUsuario" type="xs:decimal" />
-      <xs:element minOccurs="0" name="nombrePerfil" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="removeUsuario">
@@ -63,6 +58,17 @@
       <xs:element minOccurs="0" name="apellido_mat" type="xs:string" />
       <xs:element minOccurs="0" name="email" type="xs:string" />
       <xs:element name="perfil_usuario" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findUsuarioPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findUsuarioPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="editUsuario">

@@ -670,4 +670,3 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
 }
 
 
-

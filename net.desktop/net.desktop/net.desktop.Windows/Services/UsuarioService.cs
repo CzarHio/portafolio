@@ -16,12 +16,14 @@ namespace net.desktop.Services
         {
             UsuarioEntity Usuario = new UsuarioEntity();
             findUsuarioResponse Response = await this.Service.findUsuarioAsync(id);
-            Usuario.Id_Usuario = (int)Response.@return.idUsuario;
-            Usuario.Nombre = Response.@return.nombre;
-            Usuario.Apellido_Pat = Response.@return.apellidoPat;
-            Usuario.Apellido_Mat = Response.@return.apellidoMat;
-            Usuario.Nombre_Completo = Usuario.Nombre + " " + Usuario.Apellido_Pat + " " + Usuario.Apellido_Mat;
-
+            if (Response.@return != null)
+            {
+                Usuario.Id_Usuario = (int)Response.@return.idUsuario;
+                Usuario.Nombre = Response.@return.nombre;
+                Usuario.Apellido_Pat = Response.@return.apellidoPat;
+                Usuario.Apellido_Mat = Response.@return.apellidoMat;
+                Usuario.Nombre_Completo = Usuario.Nombre + " " + Usuario.Apellido_Pat + " " + Usuario.Apellido_Mat;
+            }
             return Usuario;
         }
     }

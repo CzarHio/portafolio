@@ -18,10 +18,14 @@ namespace net.desktop.Services
         public async Task<FamiliaEntity> Find(int id)
         {
             FamiliaEntity Familia = new FamiliaEntity();
-            findFamiliaResponse Response = await this.Service.findFamiliaAsync(id);
-            Familia.Id_Familia = (int)Response.@return.idFamilia;
-            Familia.Representante = await this.UsuarioService.Find((int)Response.@return.idUsuario);
-            Familia.Centro = await this.CentroService.Find((int)Response.@return.idCentro);
+
+            if (id > 0)
+            {
+                findFamiliaResponse Response = await this.Service.findFamiliaAsync(id);
+                Familia.Id_Familia = (int)Response.@return.idFamilia;
+                Familia.Representante = await this.UsuarioService.Find((int)Response.@return.idUsuario);
+                Familia.Centro = await this.CentroService.Find((int)Response.@return.idCentro);
+            }
 
             return Familia;
         }

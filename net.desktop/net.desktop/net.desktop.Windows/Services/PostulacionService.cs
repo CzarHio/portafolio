@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,15 +45,17 @@ namespace net.desktop.Services
             }
             else
             {
-                findPostulacionPorResponse Response = await this.Service.findPostulacionPorAsync(key, value);
+                findPostulacionFullPorResponse Response = await this.Service.findPostulacionFullPorAsync(key, value);
 
                 foreach (postulacion p in Response.@return)
                 {
                     Postulacion = new PostulacionEntity();
                     Postulacion.Id_Postulacion = (int)p.idPostulacion;
-                    Postulacion.Alumno = await this.UsuarioService.Find((int)p.idUsuario);
-                    Postulacion.Familia = await this.FamiliaService.Find((int)p.idFamilia);
-                    Postulacion.Fecha_Creacion = p.fechaCreacion.ToString();
+                    //Postulacion.Alumno = await this.UsuarioService.Find((int)p.idUsuario);
+                    //Postulacion.Familia = await this.FamiliaService.Find((int)p.idFamilia);
+                    //Postulacion.Fecha_Creacion = p.fechaCreacion.ToString();
+                    Postulacion.Nombre_Alumno = "ALUMNO: " + p.nombreAlumno;
+                    Postulacion.Nombre_Familia = "FAMILIA: " + p.nombreFamilia;
                     try
                     {
                         Postulacion.Notas = await this.NotaService.All("id_postulacion", ((int)p.idPostulacion).ToString());

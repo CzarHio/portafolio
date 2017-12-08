@@ -85,8 +85,8 @@ namespace net.desktop
             this.Loading_Show(true);
             string usuario = ((TextBox)FindChildControl<TextBox>(LoginForm, "Usuario")).Text;
             
-            //string password = HashPwd.GetHash(((PasswordBox)FindChildControl<PasswordBox>(LoginForm, "Password")).Password);
-            string password = ((PasswordBox)FindChildControl<PasswordBox>(LoginForm, "Password")).Password;
+            string password = HashPwd.GetHash(((PasswordBox)FindChildControl<PasswordBox>(LoginForm, "Password")).Password);
+            //string password = ((PasswordBox)FindChildControl<PasswordBox>(LoginForm, "Password")).Password;
 
             bool remember = (bool)((AppBarToggleButton)FindChildControl<AppBarToggleButton>(LoginForm, "Remember")).IsChecked;
             

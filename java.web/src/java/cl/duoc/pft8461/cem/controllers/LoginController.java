@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -82,8 +84,8 @@ public class LoginController {
             System.out.println(HashPwd.check(request.getParameter("password"), "L0+h5zDT8Q==$ee0ce6c01fe5d84297de6b7c4da5c83d2bd4746874cf5c07e33d1d1da76cef5347d8f1ba686a355a7f7eed8ea78842163efe46292b7e2bdc85964f1f6c1ba951"));
             
 //System.out.println(this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), HashPwd.getHash(request.getParameter("password"))));
-//            UsuarioEntity usr = new UsuarioEntity(this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), HashPwd.getHash(request.getParameter("password"))));
-            UsuarioEntity usr = new UsuarioEntity(this.ws.getUsuarioWSPort().findUsuario(2));
+            UsuarioEntity usr = new UsuarioEntity(this.ws.getUsuarioWSPort().autenticar(request.getParameter("login"), HashPwd.getHash(request.getParameter("password"))));
+
             if(usr != null){
                 session.setAttribute("usuario", usr);
                 session.setAttribute("logeado", "1");
@@ -154,14 +156,14 @@ public class LoginController {
      */
     @RequestMapping(value = {"registro.htm"}, method = RequestMethod.POST)
     public ModelAndView postRegister(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+        throws ServletException, IOException, Exception {
         
         ModelAndView mav = new ModelAndView();
         
         if (request.getParameter("pass").equals(request.getParameter("pass1"))) {
             
             String usuario = request.getParameter("login");
-            String clave = request.getParameter("pass");
+            String clave = HashPwd.getHash(request.getParameter("pass"));
             String email = request.getParameter("email");
             String nombre = request.getParameter("nombre");
             String apellidoPat = request.getParameter("apellidoPat");
@@ -190,20 +192,25 @@ public class LoginController {
         
         if (request.getParameter("pass").equals(request.getParameter("pass1"))) {
             
-            String usuario = request.getParameter("login");
-            String clave = request.getParameter("pass");
-            String email = request.getParameter("email");
-            String nombre = request.getParameter("nombre");
-            String apellidoPat = request.getParameter("apellidoPat");
-            String apellidoMat = request.getParameter("apellidoMat");
-            int idCarrera = Integer.parseInt(request.getParameter("idCarrera"));
-            int semestre = Integer.parseInt(request.getParameter("semestre"));
-            int ingreso = Integer.parseInt(request.getParameter("ingreso"));
+            try {
+                String usuario = request.getParameter("login");
+                String clave = HashPwd.getHash(request.getParameter("pass"));
+                String email = request.getParameter("email");
+                String nombre = request.getParameter("nombre");
+                String apellidoPat = request.getParameter("apellidoPat");
+                String apellidoMat = request.getParameter("apellidoMat");
+                int idCarrera = Integer.parseInt(request.getParameter("idCarrera"));
+                int semestre = Integer.parseInt(request.getParameter("semestre"));
+                int ingreso = Integer.parseInt(request.getParameter("ingreso"));
+                
+                this.ws.getUsuarioWSPort().createUsuarioAlumno(usuario, clave, nombre, apellidoPat, apellidoMat, email, 4, idCarrera, semestre, ingreso);
+                
+            } catch (Exception ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
-            this.ws.getUsuarioWSPort().createUsuarioAlumno(usuario, clave, nombre, apellidoPat, apellidoMat, email, 4, idCarrera, semestre, ingreso);
             response.sendRedirect("./login.htm");
             return null;
-            
         } else {
         
             mav.addObject("error", "Contraseñas no coinciden.");
@@ -222,18 +229,23 @@ public class LoginController {
         
         if (request.getParameter("pass").equals(request.getParameter("pass1"))) {
             
-            String usuario = request.getParameter("login");
-            String clave = request.getParameter("pass");
-            String email = request.getParameter("email");
-            String nombre = request.getParameter("nombre");
-            String apellidoPat = request.getParameter("apellidoPat");
-            String apellidoMat = request.getParameter("apellidoMat");
-            int idCentro = Integer.parseInt(request.getParameter("idCentro"));
-            String nombreFamilia = request.getParameter("nombreFamilia");
-            String descripcion = request.getParameter("descripcion");
-            String direccion = request.getParameter("direccion");
-            
-            this.ws.getUsuarioWSPort().createUsuarioFamilia(usuario, clave, nombre, apellidoPat, apellidoMat, email, 5, idCentro, nombreFamilia, descripcion, direccion);
+            try {
+                String usuario = request.getParameter("login");
+                String clave = HashPwd.getHash(request.getParameter("pass"));
+                String email = request.getParameter("email");
+                String nombre = request.getParameter("nombre");
+                String apellidoPat = request.getParameter("apellidoPat");
+                String apellidoMat = request.getParameter("apellidoMat");
+                int idCentro = Integer.parseInt(request.getParameter("idCentro"));
+                String nombreFamilia = request.getParameter("nombreFamilia");
+                String descripcion = request.getParameter("descripcion");
+                String direccion = request.getParameter("direccion");
+                
+                this.ws.getUsuarioWSPort().createUsuarioFamilia(usuario, clave, nombre, apellidoPat, apellidoMat, email, 5, idCentro, nombreFamilia, descripcion, direccion);
+                
+            } catch (Exception ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             response.sendRedirect("./login.htm");
             return null;

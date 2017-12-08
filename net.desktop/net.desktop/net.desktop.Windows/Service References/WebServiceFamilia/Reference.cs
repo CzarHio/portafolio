@@ -22,13 +22,13 @@ namespace net.desktop.WebServiceFamilia {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task createFamiliaAsync(net.desktop.WebServiceFamilia.createFamilia request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findAllFamiliaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findAllFamiliaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findAllFamiliaResponse> findAllFamiliaAsync(net.desktop.WebServiceFamilia.findAllFamiliaRequest request);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaPorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFamiliaPorResponse> findFamiliaPorAsync(net.desktop.WebServiceFamilia.findFamiliaPorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findAllFamiliaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findAllFamiliaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findAllFamiliaResponse> findAllFamiliaAsync(net.desktop.WebServiceFamilia.findAllFamiliaRequest request);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/removeFamilia")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -41,6 +41,18 @@ namespace net.desktop.WebServiceFamilia {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/editFamilia")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task editFamiliaAsync(net.desktop.WebServiceFamilia.editFamilia request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFullFamiliaResponse> findFullFamiliaAsync(net.desktop.WebServiceFamilia.findFullFamiliaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullAllFamiliaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullAllFamiliaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFullAllFamiliaResponse> findFullAllFamiliaAsync(net.desktop.WebServiceFamilia.findFullAllFamiliaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaPorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFullFamiliaPorResponse> findFullFamiliaPorAsync(net.desktop.WebServiceFamilia.findFullFamiliaPorRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -61,21 +73,46 @@ namespace net.desktop.WebServiceFamilia {
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int id_estado;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string direccion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre_familia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string descripcion;
+        
         public createFamilia() {
         }
         
-        public createFamilia(int id_usuario, int id_centro, int id_estado) {
+        public createFamilia(int id_usuario, int id_centro, int id_estado, string direccion, string nombre_familia, string descripcion) {
             this.id_usuario = id_usuario;
             this.id_centro = id_centro;
             this.id_estado = id_estado;
+            this.direccion = direccion;
+            this.nombre_familia = nombre_familia;
+            this.descripcion = descripcion;
         }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/")]
     public partial class familia : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string apellidoMatField;
+        
+        private string apellidoPatField;
+        
+        private string descripcionField;
+        
+        private string direccionField;
+        
+        private string emailField;
         
         private int idCentroField;
         
@@ -87,10 +124,74 @@ namespace net.desktop.WebServiceFamilia {
         
         private int idUsuarioField;
         
-        private postulacion postulacionField;
+        private string nombreField;
+        
+        private string nombre_familiaField;
+        
+        private string usuarioField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string apellidoMat {
+            get {
+                return this.apellidoMatField;
+            }
+            set {
+                this.apellidoMatField = value;
+                this.RaisePropertyChanged("apellidoMat");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string apellidoPat {
+            get {
+                return this.apellidoPatField;
+            }
+            set {
+                this.apellidoPatField = value;
+                this.RaisePropertyChanged("apellidoPat");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string descripcion {
+            get {
+                return this.descripcionField;
+            }
+            set {
+                this.descripcionField = value;
+                this.RaisePropertyChanged("descripcion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string direccion {
+            get {
+                return this.direccionField;
+            }
+            set {
+                this.direccionField = value;
+                this.RaisePropertyChanged("direccion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string email {
+            get {
+                return this.emailField;
+            }
+            set {
+                this.emailField = value;
+                this.RaisePropertyChanged("email");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public int idCentro {
             get {
                 return this.idCentroField;
@@ -102,7 +203,7 @@ namespace net.desktop.WebServiceFamilia {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public int idEstado {
             get {
                 return this.idEstadoField;
@@ -114,7 +215,7 @@ namespace net.desktop.WebServiceFamilia {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public decimal idFamilia {
             get {
                 return this.idFamiliaField;
@@ -138,7 +239,7 @@ namespace net.desktop.WebServiceFamilia {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public int idUsuario {
             get {
                 return this.idUsuarioField;
@@ -150,14 +251,38 @@ namespace net.desktop.WebServiceFamilia {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public postulacion postulacion {
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public string nombre {
             get {
-                return this.postulacionField;
+                return this.nombreField;
             }
             set {
-                this.postulacionField = value;
-                this.RaisePropertyChanged("postulacion");
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string nombre_familia {
+            get {
+                return this.nombre_familiaField;
+            }
+            set {
+                this.nombre_familiaField = value;
+                this.RaisePropertyChanged("nombre_familia");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public string usuario {
+            get {
+                return this.usuarioField;
+            }
+            set {
+                this.usuarioField = value;
+                this.RaisePropertyChanged("usuario");
             }
         }
         
@@ -168,162 +293,6 @@ namespace net.desktop.WebServiceFamilia {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/")]
-    public partial class postulacion : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private System.DateTime fechaCreacionField;
-        
-        private bool fechaCreacionFieldSpecified;
-        
-        private int idEstadoField;
-        
-        private int idFamiliaField;
-        
-        private int idParticipacionField;
-        
-        private decimal idPostulacionField;
-        
-        private bool idPostulacionFieldSpecified;
-        
-        private int idUsuarioField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public System.DateTime fechaCreacion {
-            get {
-                return this.fechaCreacionField;
-            }
-            set {
-                this.fechaCreacionField = value;
-                this.RaisePropertyChanged("fechaCreacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool fechaCreacionSpecified {
-            get {
-                return this.fechaCreacionFieldSpecified;
-            }
-            set {
-                this.fechaCreacionFieldSpecified = value;
-                this.RaisePropertyChanged("fechaCreacionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int idEstado {
-            get {
-                return this.idEstadoField;
-            }
-            set {
-                this.idEstadoField = value;
-                this.RaisePropertyChanged("idEstado");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public int idFamilia {
-            get {
-                return this.idFamiliaField;
-            }
-            set {
-                this.idFamiliaField = value;
-                this.RaisePropertyChanged("idFamilia");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public int idParticipacion {
-            get {
-                return this.idParticipacionField;
-            }
-            set {
-                this.idParticipacionField = value;
-                this.RaisePropertyChanged("idParticipacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
-        public decimal idPostulacion {
-            get {
-                return this.idPostulacionField;
-            }
-            set {
-                this.idPostulacionField = value;
-                this.RaisePropertyChanged("idPostulacion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool idPostulacionSpecified {
-            get {
-                return this.idPostulacionFieldSpecified;
-            }
-            set {
-                this.idPostulacionFieldSpecified = value;
-                this.RaisePropertyChanged("idPostulacionSpecified");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
-        public int idUsuario {
-            get {
-                return this.idUsuarioField;
-            }
-            set {
-                this.idUsuarioField = value;
-                this.RaisePropertyChanged("idUsuario");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllFamilia", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findAllFamiliaRequest {
-        
-        public findAllFamiliaRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllFamiliaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findAllFamiliaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServiceFamilia.familia[] @return;
-        
-        public findAllFamiliaResponse() {
-        }
-        
-        public findAllFamiliaResponse(net.desktop.WebServiceFamilia.familia[] @return) {
-            this.@return = @return;
         }
     }
     
@@ -364,6 +333,34 @@ namespace net.desktop.WebServiceFamilia {
         }
         
         public findFamiliaPorResponse(net.desktop.WebServiceFamilia.familia[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllFamilia", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findAllFamiliaRequest {
+        
+        public findAllFamiliaRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllFamiliaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findAllFamiliaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceFamilia.familia[] @return;
+        
+        public findAllFamiliaResponse() {
+        }
+        
+        public findAllFamiliaResponse(net.desktop.WebServiceFamilia.familia[] @return) {
             this.@return = @return;
         }
     }
@@ -444,14 +441,134 @@ namespace net.desktop.WebServiceFamilia {
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int id_estado;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string direccion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre_familia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string descripcion;
+        
         public editFamilia() {
         }
         
-        public editFamilia(int id_familia, int id_usuario, int id_centro, int id_estado) {
+        public editFamilia(int id_familia, int id_usuario, int id_centro, int id_estado, string direccion, string nombre_familia, string descripcion) {
             this.id_familia = id_familia;
             this.id_usuario = id_usuario;
             this.id_centro = id_centro;
             this.id_estado = id_estado;
+            this.direccion = direccion;
+            this.nombre_familia = nombre_familia;
+            this.descripcion = descripcion;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullFamilia", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullFamiliaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public findFullFamiliaRequest() {
+        }
+        
+        public findFullFamiliaRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullFamiliaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullFamiliaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceFamilia.familia @return;
+        
+        public findFullFamiliaResponse() {
+        }
+        
+        public findFullFamiliaResponse(net.desktop.WebServiceFamilia.familia @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullAllFamilia", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullAllFamiliaRequest {
+        
+        public findFullAllFamiliaRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullAllFamiliaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullAllFamiliaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceFamilia.familia[] @return;
+        
+        public findFullAllFamiliaResponse() {
+        }
+        
+        public findFullAllFamiliaResponse(net.desktop.WebServiceFamilia.familia[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullFamiliaPor", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullFamiliaPorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string campo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string valor;
+        
+        public findFullFamiliaPorRequest() {
+        }
+        
+        public findFullFamiliaPorRequest(string campo, string valor) {
+            this.campo = campo;
+            this.valor = valor;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullFamiliaPorResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullFamiliaPorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceFamilia.familia[] @return;
+        
+        public findFullFamiliaPorResponse() {
+        }
+        
+        public findFullFamiliaPorResponse(net.desktop.WebServiceFamilia.familia[] @return) {
+            this.@return = @return;
         }
     }
     
@@ -503,22 +620,15 @@ namespace net.desktop.WebServiceFamilia {
             return base.Channel.createFamiliaAsync(request);
         }
         
-        public System.Threading.Tasks.Task createFamiliaAsync(int id_usuario, int id_centro, int id_estado) {
+        public System.Threading.Tasks.Task createFamiliaAsync(int id_usuario, int id_centro, int id_estado, string direccion, string nombre_familia, string descripcion) {
             net.desktop.WebServiceFamilia.createFamilia inValue = new net.desktop.WebServiceFamilia.createFamilia();
             inValue.id_usuario = id_usuario;
             inValue.id_centro = id_centro;
             inValue.id_estado = id_estado;
+            inValue.direccion = direccion;
+            inValue.nombre_familia = nombre_familia;
+            inValue.descripcion = descripcion;
             return ((net.desktop.WebServiceFamilia.FamiliaWS)(this)).createFamiliaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findAllFamiliaResponse> net.desktop.WebServiceFamilia.FamiliaWS.findAllFamiliaAsync(net.desktop.WebServiceFamilia.findAllFamiliaRequest request) {
-            return base.Channel.findAllFamiliaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findAllFamiliaResponse> findAllFamiliaAsync() {
-            net.desktop.WebServiceFamilia.findAllFamiliaRequest inValue = new net.desktop.WebServiceFamilia.findAllFamiliaRequest();
-            return ((net.desktop.WebServiceFamilia.FamiliaWS)(this)).findAllFamiliaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -531,6 +641,16 @@ namespace net.desktop.WebServiceFamilia {
             inValue.campo = campo;
             inValue.valor = valor;
             return ((net.desktop.WebServiceFamilia.FamiliaWS)(this)).findFamiliaPorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findAllFamiliaResponse> net.desktop.WebServiceFamilia.FamiliaWS.findAllFamiliaAsync(net.desktop.WebServiceFamilia.findAllFamiliaRequest request) {
+            return base.Channel.findAllFamiliaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findAllFamiliaResponse> findAllFamiliaAsync() {
+            net.desktop.WebServiceFamilia.findAllFamiliaRequest inValue = new net.desktop.WebServiceFamilia.findAllFamiliaRequest();
+            return ((net.desktop.WebServiceFamilia.FamiliaWS)(this)).findAllFamiliaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -560,13 +680,49 @@ namespace net.desktop.WebServiceFamilia {
             return base.Channel.editFamiliaAsync(request);
         }
         
-        public System.Threading.Tasks.Task editFamiliaAsync(int id_familia, int id_usuario, int id_centro, int id_estado) {
+        public System.Threading.Tasks.Task editFamiliaAsync(int id_familia, int id_usuario, int id_centro, int id_estado, string direccion, string nombre_familia, string descripcion) {
             net.desktop.WebServiceFamilia.editFamilia inValue = new net.desktop.WebServiceFamilia.editFamilia();
             inValue.id_familia = id_familia;
             inValue.id_usuario = id_usuario;
             inValue.id_centro = id_centro;
             inValue.id_estado = id_estado;
+            inValue.direccion = direccion;
+            inValue.nombre_familia = nombre_familia;
+            inValue.descripcion = descripcion;
             return ((net.desktop.WebServiceFamilia.FamiliaWS)(this)).editFamiliaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFullFamiliaResponse> net.desktop.WebServiceFamilia.FamiliaWS.findFullFamiliaAsync(net.desktop.WebServiceFamilia.findFullFamiliaRequest request) {
+            return base.Channel.findFullFamiliaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFullFamiliaResponse> findFullFamiliaAsync(int id) {
+            net.desktop.WebServiceFamilia.findFullFamiliaRequest inValue = new net.desktop.WebServiceFamilia.findFullFamiliaRequest();
+            inValue.id = id;
+            return ((net.desktop.WebServiceFamilia.FamiliaWS)(this)).findFullFamiliaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFullAllFamiliaResponse> net.desktop.WebServiceFamilia.FamiliaWS.findFullAllFamiliaAsync(net.desktop.WebServiceFamilia.findFullAllFamiliaRequest request) {
+            return base.Channel.findFullAllFamiliaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFullAllFamiliaResponse> findFullAllFamiliaAsync() {
+            net.desktop.WebServiceFamilia.findFullAllFamiliaRequest inValue = new net.desktop.WebServiceFamilia.findFullAllFamiliaRequest();
+            return ((net.desktop.WebServiceFamilia.FamiliaWS)(this)).findFullAllFamiliaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFullFamiliaPorResponse> net.desktop.WebServiceFamilia.FamiliaWS.findFullFamiliaPorAsync(net.desktop.WebServiceFamilia.findFullFamiliaPorRequest request) {
+            return base.Channel.findFullFamiliaPorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceFamilia.findFullFamiliaPorResponse> findFullFamiliaPorAsync(string campo, string valor) {
+            net.desktop.WebServiceFamilia.findFullFamiliaPorRequest inValue = new net.desktop.WebServiceFamilia.findFullFamiliaPorRequest();
+            inValue.campo = campo;
+            inValue.valor = valor;
+            return ((net.desktop.WebServiceFamilia.FamiliaWS)(this)).findFullFamiliaPorAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

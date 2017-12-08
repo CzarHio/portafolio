@@ -118,6 +118,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\WebServiceFoto\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\WebServiceNota\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -193,6 +198,7 @@
     <Compile Include="Services\CiudadService.cs" />
     <Compile Include="Services\CursoService.cs" />
     <Compile Include="Services\FamiliaService.cs" />
+    <Compile Include="Services\FotoService.cs" />
     <Compile Include="Services\NotaService.cs" />
     <Compile Include="Services\ParticipacionService.cs" />
     <Compile Include="Services\PaisService.cs" />
@@ -227,6 +233,31 @@
     <None Include="Service References\WebServiceCurso\net.desktop.WebServiceCurso.findCursoResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WebServiceFamilia\net.desktop.WebServiceFamilia.findFullAllFamiliaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceFamilia\net.desktop.WebServiceFamilia.findFullFamiliaPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceFamilia\net.desktop.WebServiceFamilia.findFullFamiliaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceFoto\FotoWS.wsdl" />
+    <None Include="Service References\WebServiceFoto\FotoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceFoto\net.desktop.WebServiceFoto.findAllFotoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceFoto\net.desktop.WebServiceFoto.findFotoPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceFoto\net.desktop.WebServiceFoto.findFotoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceFoto\net.desktop.WebServiceFoto.findInstanciaFotoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WebServiceNota\net.desktop.WebServiceNota.findAllNotaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -239,6 +270,24 @@
     <None Include="Service References\WebServiceNota\NotaWS.wsdl" />
     <None Include="Service References\WebServiceNota\NotaWS.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebServiceParticipacion\net.desktop.WebServiceParticipacion.findFullAllParticipacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceParticipacion\net.desktop.WebServiceParticipacion.findFullParticipacionPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceParticipacion\net.desktop.WebServiceParticipacion.findFullParticipacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePostulacion\net.desktop.WebServicePostulacion.findFullAllPostulacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePostulacion\net.desktop.WebServicePostulacion.findFullPostulacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePostulacion\net.desktop.WebServicePostulacion.findPostulacionFullPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebServiceRegion\net.desktop.WebServiceRegion.findAllRegionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -402,6 +451,9 @@
     <None Include="Service References\WebServiceUsuario\net.desktop.WebServiceUsuario.findAllUsuariosResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WebServiceUsuario\net.desktop.WebServiceUsuario.findUsuarioPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WebServiceUsuario\net.desktop.WebServiceUsuario.findUsuarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -421,6 +473,12 @@
     <Content Include="Assets\Square150x150Logo.scale-80.png" />
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\WideLogo.scale-100.png" />
+    <None Include="Service References\WebServiceFoto\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\WebServiceFoto\configuration.svcinfo" />
+    <None Include="Service References\WebServiceFoto\configuration91.svcinfo" />
     <None Include="Service References\WebServiceCurso\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -537,6 +595,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\WebServiceCurso\" />
+    <WCFMetadataStorage Include="Service References\WebServiceFoto\" />
     <WCFMetadataStorage Include="Service References\WebServiceNota\" />
     <WCFMetadataStorage Include="Service References\WebServiceRegion\" />
     <WCFMetadataStorage Include="Service References\WebServiceCentro\" />

@@ -18,9 +18,21 @@ namespace net.desktop.WebServiceCentro {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", ConfigurationName="WebServiceCentro.CentroWS")]
     public interface CentroWS {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/CentroWS/removeCentro")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task removeCentroAsync(net.desktop.WebServiceCentro.removeCentro request);
+        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullResponse> seleccionarCentroFullAsync(net.desktop.WebServiceCentro.seleccionarCentroFullRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullPorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullPorResponse> seleccionarCentroFullPorAsync(net.desktop.WebServiceCentro.seleccionarCentroFullPorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroResponse> findCentroAsync(net.desktop.WebServiceCentro.findCentroRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroPorResponse> findCentroPorAsync(net.desktop.WebServiceCentro.findCentroPorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findAllCentroRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/CentroWS/findAllCentroResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -30,43 +42,13 @@ namespace net.desktop.WebServiceCentro {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task editCentroAsync(net.desktop.WebServiceCentro.editCentro request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroResponse> findCentroAsync(net.desktop.WebServiceCentro.findCentroRequest request);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/CentroWS/createCentro")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task createCentroAsync(net.desktop.WebServiceCentro.createCentro request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/CentroWS/findCentroPorResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/CentroWS/removeCentro")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroPorResponse> findCentroPorAsync(net.desktop.WebServiceCentro.findCentroPorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullResponse> seleccionarCentroFullAsync(net.desktop.WebServiceCentro.seleccionarCentroFullRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/CentroWS/seleccionarCentroFullPorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullPorResponse> seleccionarCentroFullPorAsync(net.desktop.WebServiceCentro.seleccionarCentroFullPorRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="removeCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class removeCentro {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int entity;
-        
-        public removeCentro() {
-        }
-        
-        public removeCentro(int entity) {
-            this.entity = entity;
-        }
+        System.Threading.Tasks.Task removeCentroAsync(net.desktop.WebServiceCentro.removeCentro request);
     }
     
     /// <remarks/>
@@ -158,172 +140,6 @@ namespace net.desktop.WebServiceCentro {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findAllCentroRequest {
-        
-        public findAllCentroRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllCentroResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findAllCentroResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServiceCentro.centro[] @return;
-        
-        public findAllCentroResponse() {
-        }
-        
-        public findAllCentroResponse(net.desktop.WebServiceCentro.centro[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="editCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class editCentro {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_centro;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre_centro;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_usuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_ciudad;
-        
-        public editCentro() {
-        }
-        
-        public editCentro(int id_centro, string nombre_centro, int id_usuario, int id_ciudad) {
-            this.id_centro = id_centro;
-            this.nombre_centro = nombre_centro;
-            this.id_usuario = id_usuario;
-            this.id_ciudad = id_ciudad;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findCentroRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public findCentroRequest() {
-        }
-        
-        public findCentroRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findCentroResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findCentroResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServiceCentro.centro @return;
-        
-        public findCentroResponse() {
-        }
-        
-        public findCentroResponse(net.desktop.WebServiceCentro.centro @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="createCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class createCentro {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre_centro;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_usuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_ciudad;
-        
-        public createCentro() {
-        }
-        
-        public createCentro(string nombre_centro, int id_usuario, int id_ciudad) {
-            this.nombre_centro = nombre_centro;
-            this.id_usuario = id_usuario;
-            this.id_ciudad = id_ciudad;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findCentroPor", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findCentroPorRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string campo;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string valor;
-        
-        public findCentroPorRequest() {
-        }
-        
-        public findCentroPorRequest(string campo, string valor) {
-            this.campo = campo;
-            this.valor = valor;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findCentroPorResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findCentroPorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServiceCentro.centro[] @return;
-        
-        public findCentroPorResponse() {
-        }
-        
-        public findCentroPorResponse(net.desktop.WebServiceCentro.centro[] @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="seleccionarCentroFull", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
     public partial class seleccionarCentroFullRequest {
         
@@ -398,6 +214,190 @@ namespace net.desktop.WebServiceCentro {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findCentroRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public findCentroRequest() {
+        }
+        
+        public findCentroRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findCentroResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findCentroResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceCentro.centro @return;
+        
+        public findCentroResponse() {
+        }
+        
+        public findCentroResponse(net.desktop.WebServiceCentro.centro @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findCentroPor", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findCentroPorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string campo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string valor;
+        
+        public findCentroPorRequest() {
+        }
+        
+        public findCentroPorRequest(string campo, string valor) {
+            this.campo = campo;
+            this.valor = valor;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findCentroPorResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findCentroPorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceCentro.centro[] @return;
+        
+        public findCentroPorResponse() {
+        }
+        
+        public findCentroPorResponse(net.desktop.WebServiceCentro.centro[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findAllCentroRequest {
+        
+        public findAllCentroRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllCentroResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findAllCentroResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceCentro.centro[] @return;
+        
+        public findAllCentroResponse() {
+        }
+        
+        public findAllCentroResponse(net.desktop.WebServiceCentro.centro[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="editCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class editCentro {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_centro;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre_centro;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_usuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_ciudad;
+        
+        public editCentro() {
+        }
+        
+        public editCentro(int id_centro, string nombre_centro, int id_usuario, int id_ciudad) {
+            this.id_centro = id_centro;
+            this.nombre_centro = nombre_centro;
+            this.id_usuario = id_usuario;
+            this.id_ciudad = id_ciudad;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="createCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class createCentro {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre_centro;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_usuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_ciudad;
+        
+        public createCentro() {
+        }
+        
+        public createCentro(string nombre_centro, int id_usuario, int id_ciudad) {
+            this.nombre_centro = nombre_centro;
+            this.id_usuario = id_usuario;
+            this.id_ciudad = id_ciudad;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="removeCentro", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class removeCentro {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int entity;
+        
+        public removeCentro() {
+        }
+        
+        public removeCentro(int entity) {
+            this.entity = entity;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface CentroWSChannel : net.desktop.WebServiceCentro.CentroWS, System.ServiceModel.IClientChannel {
     }
@@ -442,14 +442,49 @@ namespace net.desktop.WebServiceCentro {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task net.desktop.WebServiceCentro.CentroWS.removeCentroAsync(net.desktop.WebServiceCentro.removeCentro request) {
-            return base.Channel.removeCentroAsync(request);
+        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullResponse> net.desktop.WebServiceCentro.CentroWS.seleccionarCentroFullAsync(net.desktop.WebServiceCentro.seleccionarCentroFullRequest request) {
+            return base.Channel.seleccionarCentroFullAsync(request);
         }
         
-        public System.Threading.Tasks.Task removeCentroAsync(int entity) {
-            net.desktop.WebServiceCentro.removeCentro inValue = new net.desktop.WebServiceCentro.removeCentro();
-            inValue.entity = entity;
-            return ((net.desktop.WebServiceCentro.CentroWS)(this)).removeCentroAsync(inValue);
+        public System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullResponse> seleccionarCentroFullAsync(int id) {
+            net.desktop.WebServiceCentro.seleccionarCentroFullRequest inValue = new net.desktop.WebServiceCentro.seleccionarCentroFullRequest();
+            inValue.id = id;
+            return ((net.desktop.WebServiceCentro.CentroWS)(this)).seleccionarCentroFullAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullPorResponse> net.desktop.WebServiceCentro.CentroWS.seleccionarCentroFullPorAsync(net.desktop.WebServiceCentro.seleccionarCentroFullPorRequest request) {
+            return base.Channel.seleccionarCentroFullPorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullPorResponse> seleccionarCentroFullPorAsync(string campo, string valor) {
+            net.desktop.WebServiceCentro.seleccionarCentroFullPorRequest inValue = new net.desktop.WebServiceCentro.seleccionarCentroFullPorRequest();
+            inValue.campo = campo;
+            inValue.valor = valor;
+            return ((net.desktop.WebServiceCentro.CentroWS)(this)).seleccionarCentroFullPorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroResponse> net.desktop.WebServiceCentro.CentroWS.findCentroAsync(net.desktop.WebServiceCentro.findCentroRequest request) {
+            return base.Channel.findCentroAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroResponse> findCentroAsync(int id) {
+            net.desktop.WebServiceCentro.findCentroRequest inValue = new net.desktop.WebServiceCentro.findCentroRequest();
+            inValue.id = id;
+            return ((net.desktop.WebServiceCentro.CentroWS)(this)).findCentroAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroPorResponse> net.desktop.WebServiceCentro.CentroWS.findCentroPorAsync(net.desktop.WebServiceCentro.findCentroPorRequest request) {
+            return base.Channel.findCentroPorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroPorResponse> findCentroPorAsync(string campo, string valor) {
+            net.desktop.WebServiceCentro.findCentroPorRequest inValue = new net.desktop.WebServiceCentro.findCentroPorRequest();
+            inValue.campo = campo;
+            inValue.valor = valor;
+            return ((net.desktop.WebServiceCentro.CentroWS)(this)).findCentroPorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -477,17 +512,6 @@ namespace net.desktop.WebServiceCentro {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroResponse> net.desktop.WebServiceCentro.CentroWS.findCentroAsync(net.desktop.WebServiceCentro.findCentroRequest request) {
-            return base.Channel.findCentroAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroResponse> findCentroAsync(int id) {
-            net.desktop.WebServiceCentro.findCentroRequest inValue = new net.desktop.WebServiceCentro.findCentroRequest();
-            inValue.id = id;
-            return ((net.desktop.WebServiceCentro.CentroWS)(this)).findCentroAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task net.desktop.WebServiceCentro.CentroWS.createCentroAsync(net.desktop.WebServiceCentro.createCentro request) {
             return base.Channel.createCentroAsync(request);
         }
@@ -501,38 +525,14 @@ namespace net.desktop.WebServiceCentro {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroPorResponse> net.desktop.WebServiceCentro.CentroWS.findCentroPorAsync(net.desktop.WebServiceCentro.findCentroPorRequest request) {
-            return base.Channel.findCentroPorAsync(request);
+        System.Threading.Tasks.Task net.desktop.WebServiceCentro.CentroWS.removeCentroAsync(net.desktop.WebServiceCentro.removeCentro request) {
+            return base.Channel.removeCentroAsync(request);
         }
         
-        public System.Threading.Tasks.Task<net.desktop.WebServiceCentro.findCentroPorResponse> findCentroPorAsync(string campo, string valor) {
-            net.desktop.WebServiceCentro.findCentroPorRequest inValue = new net.desktop.WebServiceCentro.findCentroPorRequest();
-            inValue.campo = campo;
-            inValue.valor = valor;
-            return ((net.desktop.WebServiceCentro.CentroWS)(this)).findCentroPorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullResponse> net.desktop.WebServiceCentro.CentroWS.seleccionarCentroFullAsync(net.desktop.WebServiceCentro.seleccionarCentroFullRequest request) {
-            return base.Channel.seleccionarCentroFullAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullResponse> seleccionarCentroFullAsync(int id) {
-            net.desktop.WebServiceCentro.seleccionarCentroFullRequest inValue = new net.desktop.WebServiceCentro.seleccionarCentroFullRequest();
-            inValue.id = id;
-            return ((net.desktop.WebServiceCentro.CentroWS)(this)).seleccionarCentroFullAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullPorResponse> net.desktop.WebServiceCentro.CentroWS.seleccionarCentroFullPorAsync(net.desktop.WebServiceCentro.seleccionarCentroFullPorRequest request) {
-            return base.Channel.seleccionarCentroFullPorAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<net.desktop.WebServiceCentro.seleccionarCentroFullPorResponse> seleccionarCentroFullPorAsync(string campo, string valor) {
-            net.desktop.WebServiceCentro.seleccionarCentroFullPorRequest inValue = new net.desktop.WebServiceCentro.seleccionarCentroFullPorRequest();
-            inValue.campo = campo;
-            inValue.valor = valor;
-            return ((net.desktop.WebServiceCentro.CentroWS)(this)).seleccionarCentroFullPorAsync(inValue);
+        public System.Threading.Tasks.Task removeCentroAsync(int entity) {
+            net.desktop.WebServiceCentro.removeCentro inValue = new net.desktop.WebServiceCentro.removeCentro();
+            inValue.entity = entity;
+            return ((net.desktop.WebServiceCentro.CentroWS)(this)).removeCentroAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

@@ -7,6 +7,7 @@ package cl.duoc.pft8461.cem.controllers;
 
 
 import cl.duoc.pft8461.cem.entidades.UsuarioEntity;
+import cl.duoc.pft8461.cem.utilities.HashPwd;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -109,7 +110,7 @@ public class UsuarioController extends BaseController {
             if (this.isEmpty(request.getParameter("idUsuario"))) {
                 this.usuarioWS.createUsuario(
                     request.getParameter("usuario"),
-                    request.getParameter("clave"),
+                    HashPwd.getHash(request.getParameter("clave")),
                     request.getParameter("nombre"),
                     request.getParameter("apellidoPat"),
                     request.getParameter("apellidoMat"),

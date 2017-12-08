@@ -11,7 +11,8 @@
     <RootPropertyPathName Name="Usuario" />
     <RootPropertyPathName Name="Nombre_Completo" />
     <RootPropertyPathName Name="Nombre_Centro" />
-    <RootPropertyPathName Name="ImagePath" />
+    <RootPropertyPathName Name="Foto" />
+    <RootPropertyPathName Name="Nombre_Archivo" />
     <RootPropertyPathName Name="NavigationHelper" />
     <RootPropertyPathName Name="GoBackCommand" />
     <RootPropertyPathName Name="Section2Items" />
@@ -20,6 +21,7 @@
     <RootPropertyPathName Name="Description" />
     <RootPropertyPathName Name="Subtitle" />
     <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="ImagePath" />
     <RootPropertyPathName Name="Postulaciones" />
     <RootPropertyPathName Name="Fecha_Creacion" />
     <RootPropertyPathName Name="Familia" />
@@ -34,7 +36,8 @@
     <RootPropertyPathName Name="Curso" />
     <RootPropertyPathName Name="Nombre_Curso" />
     <RootPropertyPathName Name="Nota" />
-    <RootPropertyPathName Name="Representante" />
+    <RootPropertyPathName Name="Nombre_Familia" />
+    <RootPropertyPathName Name="Nombre_Alumno" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
@@ -186,6 +189,7 @@
       <RootProperty Name="Padding" />
       <RootProperty Name="Header" />
       <RootProperty Name="ItemContainerStyle" />
+      <RootProperty Name="Background" />
       <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing">

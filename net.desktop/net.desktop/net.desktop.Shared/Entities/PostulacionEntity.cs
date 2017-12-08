@@ -35,5 +35,17 @@ namespace net.desktop.Entities
             set;
             get;
         }
+
+        public string Nombre_Alumno
+        {
+            set;
+            get;
+        }
+
+        public string Nombre_Familia
+        {
+            set;
+            get;
+        }
     }
 }

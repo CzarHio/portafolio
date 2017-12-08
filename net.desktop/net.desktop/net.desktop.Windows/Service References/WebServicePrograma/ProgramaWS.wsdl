@@ -5,23 +5,17 @@
       <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/ProgramaWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
     </xsd:schema>
   </types>
+  <message name="editPrograma">
+    <part name="parameters" element="tns:editPrograma" />
+  </message>
+  <message name="removePrograma">
+    <part name="parameters" element="tns:removePrograma" />
+  </message>
   <message name="findPrograma">
     <part name="parameters" element="tns:findPrograma" />
   </message>
   <message name="findProgramaResponse">
     <part name="parameters" element="tns:findProgramaResponse" />
-  </message>
-  <message name="editPrograma">
-    <part name="parameters" element="tns:editPrograma" />
-  </message>
-  <message name="findProgramaPor">
-    <part name="parameters" element="tns:findProgramaPor" />
-  </message>
-  <message name="findProgramaPorResponse">
-    <part name="parameters" element="tns:findProgramaPorResponse" />
-  </message>
-  <message name="createPrograma">
-    <part name="parameters" element="tns:createPrograma" />
   </message>
   <message name="findAllPrograma">
     <part name="parameters" element="tns:findAllPrograma" />
@@ -29,34 +23,52 @@
   <message name="findAllProgramaResponse">
     <part name="parameters" element="tns:findAllProgramaResponse" />
   </message>
-  <message name="removePrograma">
-    <part name="parameters" element="tns:removePrograma" />
+  <message name="createPrograma">
+    <part name="parameters" element="tns:createPrograma" />
+  </message>
+  <message name="findProgramaPor">
+    <part name="parameters" element="tns:findProgramaPor" />
+  </message>
+  <message name="findProgramaPorResponse">
+    <part name="parameters" element="tns:findProgramaPorResponse" />
   </message>
   <portType name="ProgramaWS">
-    <operation name="findPrograma">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaRequest" message="tns:findPrograma" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaResponse" message="tns:findProgramaResponse" />
-    </operation>
     <operation name="editPrograma">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/editPrograma" message="tns:editPrograma" />
     </operation>
-    <operation name="findProgramaPor">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaPorRequest" message="tns:findProgramaPor" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaPorResponse" message="tns:findProgramaPorResponse" />
+    <operation name="removePrograma">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/removePrograma" message="tns:removePrograma" />
     </operation>
-    <operation name="createPrograma">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/createPrograma" message="tns:createPrograma" />
+    <operation name="findPrograma">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaRequest" message="tns:findPrograma" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaResponse" message="tns:findProgramaResponse" />
     </operation>
     <operation name="findAllPrograma">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findAllProgramaRequest" message="tns:findAllPrograma" />
       <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findAllProgramaResponse" message="tns:findAllProgramaResponse" />
     </operation>
-    <operation name="removePrograma">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/removePrograma" message="tns:removePrograma" />
+    <operation name="createPrograma">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/createPrograma" message="tns:createPrograma" />
+    </operation>
+    <operation name="findProgramaPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaPorRequest" message="tns:findProgramaPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaPorResponse" message="tns:findProgramaPorResponse" />
     </operation>
   </portType>
   <binding name="ProgramaWSPortBinding" type="tns:ProgramaWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="editPrograma">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="removePrograma">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
     <operation name="findPrograma">
       <soap:operation soapAction="" />
       <input>
@@ -66,13 +78,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="editPrograma">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-    </operation>
-    <operation name="findProgramaPor">
+    <operation name="findAllPrograma">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -87,7 +93,7 @@
         <soap:body use="literal" />
       </input>
     </operation>
-    <operation name="findAllPrograma">
+    <operation name="findProgramaPor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -95,12 +101,6 @@
       <output>
         <soap:body use="literal" />
       </output>
-    </operation>
-    <operation name="removePrograma">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
     </operation>
   </binding>
   <service name="ProgramaWS">

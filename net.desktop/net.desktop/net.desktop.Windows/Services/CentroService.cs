@@ -14,6 +14,7 @@ namespace net.desktop.Services
         private CentroWSClient Service = new CentroWSClient();
         private UsuarioService UsuarioService = new UsuarioService();
         private CiudadService CiudadService = new CiudadService();
+        private FotoService FotoService = new FotoService();
 
         public async Task<Object> All(string key = null, string value = null)
         {
@@ -30,6 +31,7 @@ namespace net.desktop.Services
                     Centro.Nombre_Centro = c.nombreCentro;
                     Centro.Ciudad = await this.CiudadService.Find(c.idCiudad); ;
                     Centro.Usuario = await this.UsuarioService.Find(c.idUsuario);
+                    Centro.Foto = await this.FotoService.Find("2", (int) c.idCentro);
                     Centros.Add(Centro); 
                 }
 
@@ -53,6 +55,7 @@ namespace net.desktop.Services
             Centro.Nombre_Centro = Response.@return.nombreCentro;
             Centro.Ciudad = await this.CiudadService.Find(Response.@return.idCiudad); ;
             Centro.Usuario = await this.UsuarioService.Find(Response.@return.idUsuario);
+            Centro.Foto = await this.FotoService.Find("2", (int)Response.@return.idCentro);
 
             return Centro;
         }
