@@ -144,26 +144,14 @@ namespace net.desktop
             {
                 Section2Header.Visibility = Visibility.Collapsed;
                 Perfil.Visibility = Visibility.Visible;
+                ProgressRing LoadingSection = (ProgressRing)FindChildControl<ProgressRing>(Sections, "ProgressCentros");
+                LoadingSection.Visibility = Visibility.Visible;
 
                 JObject json = JObject.Parse((this.SessionManager.Get("usuario")));
                 UsuarioEntity usuario = await this.UsuarioService.Find((int)json["Id_Usuario"]);
 
                 this.defaultViewModel["Usuario"] = usuario;
-                /*Image U_Imagen = (Image)FindChildControl<Image>(Sections, "u_imagen");
-                TextBlock U_Nombre = (TextBlock)FindChildControl<TextBlock>(Sections, "u_nombre");
-                TextBlock U_Email = (TextBlock)FindChildControl<TextBlock>(Sections, "u_email");
-                TextBlock U_Perfil = (TextBlock)FindChildControl<TextBlock>(Sections, "u_perfil");
-
-                try
-                {
-                    U_Imagen.Source = new BitmapImage(new Uri(usuario["Foto"]["Nombre_Archivo"].ToString()));
-                }
-                catch (Exception) {}
-
-                U_Nombre.Text = "Nombre: " + usuario["Nombre_Completo"].ToString();
-                U_Email.Text = "Email: " + usuario["Email"].ToString();
-                U_Perfil.Text = "Perfil: " + usuario["Perfil"]["NOmbre_Perfil"].ToString();
-                */
+                LoadingSection.Visibility = Visibility.Collapsed;
 
             }
         }

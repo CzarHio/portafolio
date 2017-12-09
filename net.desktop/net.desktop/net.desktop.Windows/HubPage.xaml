@@ -98,7 +98,7 @@
                 <DataTemplate>
                     <Border Width="900" BorderBrush="#FFDCC4C4" BorderThickness="4" Padding="10">
                         <Grid Width="900">
-                            <Border Background="#FFD4C8C8" Height="334" Width="348" HorizontalAlignment="Left">
+                            <Border Background="#FFD4C8C8" Height="334" Width="334" HorizontalAlignment="Left">
                                 <Image x:Name="u_imagen" Source="{Binding Foto.Nombre_Archivo}" HorizontalAlignment="Left" VerticalAlignment="Top" />
                             </Border>
                             <TextBlock x:Name="u_nombre" Text="{Binding Nombre_Completo}" Width="300" Margin="150,-250,0,0" Height="50" FontSize="23"/>

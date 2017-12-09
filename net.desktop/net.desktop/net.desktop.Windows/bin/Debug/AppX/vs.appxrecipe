@@ -34,7 +34,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\net.desktop.Windows.exe">
       <PackagePath>net.desktop.Windows.exe</PackagePath>
-      <Modified>2017-12-09T01:45:00.673</Modified>
+      <Modified>2017-12-09T01:52:33.651</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -121,7 +121,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\HubPage.xbf">
       <PackagePath>HubPage.xbf</PackagePath>
-      <Modified>2017-12-09T01:21:17.312</Modified>
+      <Modified>2017-12-09T01:50:36.936</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\SectionPage.xbf">
       <PackagePath>SectionPage.xbf</PackagePath>
