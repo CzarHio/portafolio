@@ -12,11 +12,16 @@
 
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading ">
-                        Postulaciones a Programas
+                <div class="box box-solid box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Postulaciones a Programas</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-original-title="Minimizar" data-toggle="tooltip">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="box-body">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -44,11 +49,16 @@
 
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading ">
-                        Mis Documentos
+                <div class="box box-solid box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Mis Documentos</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-original-title="Minimizar" data-toggle="tooltip">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="box-body">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>

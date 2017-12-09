@@ -11,11 +11,16 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-primary">
-                    <div class="panel-heading ">
-                        Participación a Programa Pendientes
+                <div class="box box-solid box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Participación a Programa Pendientes</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-original-title="Minimizar" data-toggle="tooltip">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="panel-body">
+                    <div class="box-body">
                         <table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>

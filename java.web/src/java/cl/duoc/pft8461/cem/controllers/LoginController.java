@@ -42,11 +42,12 @@ import java.util.logging.Logger;
 
 @Controller
 @SessionAttributes
-public class LoginController {
+public class LoginController extends BaseController {
     
     private final UsuarioWS_Service ws = new UsuarioWS_Service();
     
     public LoginController() {
+        this.reloadFotos();
     }
     
     /**
@@ -94,6 +95,7 @@ public class LoginController {
                 session.setAttribute("logeado", "1");
                 session.setAttribute("userSession", usr.getNombre() + " " + usr.getApellidoPat() + " " + usr.getApellidoMat());
                 session.setAttribute("perfil", usr.getIdPerfilUsuario());
+                session.setAttribute("foto", this.fotos.containsKey(usr.getIdUsuario().toString()+"1")?this.fotos.get(usr.getIdUsuario()+"1").getNombreArchivo():"/java.web/resources/dist/img/app/no_img.png");
                 //session.setAttribute("since", usr.getCreado().toString());
                 session.setAttribute("id_usuario", usr.getIdUsuario());
                 switch (usr.getIdPerfilUsuario()) {
