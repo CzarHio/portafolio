@@ -8,6 +8,18 @@
 
 <xs:element name="findAllParticipacionResponse" type="tns:findAllParticipacionResponse"/>
 
+<xs:element name="findFullAllParticipacion" type="tns:findFullAllParticipacion"/>
+
+<xs:element name="findFullAllParticipacionResponse" type="tns:findFullAllParticipacionResponse"/>
+
+<xs:element name="findFullParticipacion" type="tns:findFullParticipacion"/>
+
+<xs:element name="findFullParticipacionPor" type="tns:findFullParticipacionPor"/>
+
+<xs:element name="findFullParticipacionPorResponse" type="tns:findFullParticipacionPorResponse"/>
+
+<xs:element name="findFullParticipacionResponse" type="tns:findFullParticipacionResponse"/>
+
 <xs:element name="findParticipacion" type="tns:findParticipacion"/>
 
 <xs:element name="findParticipacionPor" type="tns:findParticipacionPor"/>
@@ -17,8 +29,6 @@
 <xs:element name="findParticipacionResponse" type="tns:findParticipacionResponse"/>
 
 <xs:element name="participacion" type="tns:participacion"/>
-
-<xs:element name="postulacion" type="tns:postulacion"/>
 
 <xs:element name="removeParticipacion" type="tns:removeParticipacion"/>
 
@@ -40,22 +50,47 @@
 
 <xs:complexType name="participacion">
 <xs:sequence>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
+<xs:element name="fecha" type="xs:dateTime" minOccurs="0"/>
 <xs:element name="idCentro" type="xs:int"/>
 <xs:element name="idEstado" type="xs:int"/>
 <xs:element name="idParticipacion" type="xs:decimal" minOccurs="0"/>
 <xs:element name="idPrograma" type="xs:int"/>
-<xs:element name="postulacion" type="tns:postulacion" minOccurs="0"/>
+<xs:element name="idTipoPrograma" type="xs:int"/>
+<xs:element name="maxcupos" type="xs:int"/>
+<xs:element name="mincupos" type="xs:int"/>
+<xs:element name="nombreCentro" type="xs:string" minOccurs="0"/>
+<xs:element name="nombrePrograma" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre_revisor" type="xs:string" minOccurs="0"/>
+<xs:element name="postulacionesSeleccionadas" type="xs:int"/>
+<xs:element name="revision" type="xs:string" minOccurs="0"/>
+<xs:element name="revisor" type="xs:int"/>
+<xs:element name="tipoPrograma" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="postulacion">
+<xs:complexType name="findFullParticipacion">
 <xs:sequence>
-<xs:element name="fechaCreacion" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="idEstado" type="xs:int"/>
-<xs:element name="idFamilia" type="xs:int"/>
-<xs:element name="idParticipacion" type="xs:int"/>
-<xs:element name="idPostulacion" type="xs:decimal" minOccurs="0"/>
-<xs:element name="idUsuario" type="xs:int"/>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFullParticipacionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:participacion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFullParticipacionPor">
+<xs:sequence>
+<xs:element name="campo" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFullParticipacionPorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:participacion" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -98,6 +133,16 @@
 <xs:complexType name="findParticipacionResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:participacion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFullAllParticipacion">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findFullAllParticipacionResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:participacion" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://ws.huevoscopita.cl/webservice/ParticipacionWS?WSDL" uri="src/conf/xml-resources/web-service-references/ParticipacionWS/wsdl/ws.huevoscopita.cl/webservice/ParticipacionWS.wsdl"/>
-    <system systemId="http://ws.huevoscopita.cl:80/webservice/ParticipacionWS?xsd=1" uri="src/conf/xml-resources/web-service-references/ParticipacionWS/wsdl/ws.huevoscopita.cl_80/webservice/ParticipacionWS.xsd_1.xsd"/>
     <system systemId="http://ws.huevoscopita.cl/webservice/EstadoParticipacionWS?WSDL" uri="src/conf/xml-resources/web-service-references/EstadoParticipacionWS/wsdl/ws.huevoscopita.cl/webservice/EstadoParticipacionWS.wsdl"/>
     <system systemId="http://ws.huevoscopita.cl:80/webservice/EstadoParticipacionWS?xsd=1" uri="src/conf/xml-resources/web-service-references/EstadoParticipacionWS/wsdl/ws.huevoscopita.cl_80/webservice/EstadoParticipacionWS.xsd_1.xsd"/>
     <system systemId="http://ws.huevoscopita.cl/webservice/EstadoProgramaWS?WSDL" uri="src/conf/xml-resources/web-service-references/EstadoProgramaWS/wsdl/ws.huevoscopita.cl/webservice/EstadoProgramaWS.wsdl"/>
@@ -47,6 +45,8 @@
     <system systemId="http://ws.huevoscopita.cl:80/webservice/CursoWS?xsd=1" uri="src/conf/xml-resources/web-service-references/CursoWS/wsdl/ws.huevoscopita.cl_80/webservice/CursoWS.xsd_1.xsd"/>
     <system systemId="http://ws.huevoscopita.cl/webservice/NotaWS?WSDL" uri="src/conf/xml-resources/web-service-references/NotaWS/wsdl/ws.huevoscopita.cl/webservice/NotaWS.wsdl"/>
     <system systemId="http://ws.huevoscopita.cl:80/webservice/NotaWS?xsd=1" uri="src/conf/xml-resources/web-service-references/NotaWS/wsdl/ws.huevoscopita.cl_80/webservice/NotaWS.xsd_1.xsd"/>
+    <system systemId="http://ws.huevoscopita.cl/webservice/ParticipacionWS?WSDL" uri="src/conf/xml-resources/web-service-references/ParticipacionWS/wsdl/ws.huevoscopita.cl/webservice/ParticipacionWS.wsdl"/>
+    <system systemId="http://ws.huevoscopita.cl:80/webservice/ParticipacionWS?xsd=1" uri="src/conf/xml-resources/web-service-references/ParticipacionWS/wsdl/ws.huevoscopita.cl_80/webservice/ParticipacionWS.xsd_1.xsd"/>
     <system systemId="http://ws.huevoscopita.cl/webservice/PostulacionWS?WSDL" uri="src/conf/xml-resources/web-service-references/PostulacionWS/wsdl/ws.huevoscopita.cl/webservice/PostulacionWS.wsdl"/>
     <system systemId="http://ws.huevoscopita.cl:80/webservice/PostulacionWS?xsd=1" uri="src/conf/xml-resources/web-service-references/PostulacionWS/wsdl/ws.huevoscopita.cl_80/webservice/PostulacionWS.xsd_1.xsd"/>
 </catalog>
