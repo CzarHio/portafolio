@@ -96,6 +96,8 @@
                 <prop key="menu/editar.htm">menu</prop>
                 <prop key="menu/borrar.htm">menu</prop>
                 <prop key="menu/guardar.htm">menu</prop>
+                <!-- Postulacion Routes  -->
+                <prop key="postulacion/guardar.htm">postulacion</prop>
             </props>
         </property>
     </bean>
@@ -121,6 +123,7 @@
     <bean name="ciudad" class="cl.duoc.pft8461.cem.controllers.CiudadController"/>
     <bean name="perfilUsuario" class="cl.duoc.pft8461.cem.controllers.PerfilUsuarioController"/>
     <bean name="menu" class="cl.duoc.pft8461.cem.controllers.MenuController"/>
+    <bean name="postulacion" class="cl.duoc.pft8461.cem.controllers.PostulacionController"/>
     <!--
     The index controller.
     -->

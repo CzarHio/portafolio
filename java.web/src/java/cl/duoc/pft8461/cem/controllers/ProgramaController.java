@@ -6,13 +6,18 @@
 package cl.duoc.pft8461.cem.controllers;
 
 
+import cl.duoc.pft8461.cem.entidades.ParticipacionEntity;
 import cl.duoc.pft8461.cem.entidades.ProgramaEntity;
 import cl.duoc.pft8461.cem.ws.EstadoPrograma;
 import cl.duoc.pft8461.cem.ws.EstadoProgramaWS;
 import cl.duoc.pft8461.cem.ws.EstadoProgramaWS_Service;
+import cl.duoc.pft8461.cem.ws.Familia;
+import cl.duoc.pft8461.cem.ws.FamiliaWS_Service;
 import cl.duoc.pft8461.cem.ws.Pais;
 import cl.duoc.pft8461.cem.ws.PaisWS;
 import cl.duoc.pft8461.cem.ws.PaisWS_Service;
+import cl.duoc.pft8461.cem.ws.Participacion;
+import cl.duoc.pft8461.cem.ws.ParticipacionWS_Service;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -177,4 +182,36 @@ public class ProgramaController extends BaseController {
 
     }
     
+    @RequestMapping(value = {"programa/ver.htm"}, method = RequestMethod.POST)
+    public ModelAndView ver(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+
+        Participacion par = new  ParticipacionWS_Service().getParticipacionWSPort().findFullParticipacion(Integer.parseInt(request.getParameter("idParticipacion")));
+        Programa pro = new  ProgramaWS_Service().getProgramaWSPort().findFullPrograma(par.getIdPrograma());
+        
+        mav.addObject("participacion", par);
+        mav.addObject("programa", pro);
+        mav.setViewName("programa/ver");
+        
+        return mav;
+
+    }
+    
+     @RequestMapping(value = {"programa/resumen.htm"}, method = RequestMethod.POST)
+    public ModelAndView resumen(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+
+        Familia fam = new  FamiliaWS_Service().getFamiliaWSPort().findFullFamilia(Integer.parseInt(request.getParameter("idFamilia")));
+        Participacion par = new  ParticipacionWS_Service().getParticipacionWSPort().findFullParticipacion(Integer.parseInt(request.getParameter("idParticipacion")));
+        
+       // mav.addObject("participacion", par);
+        mav.addObject("familia", fam);
+        mav.addObject("participacion", par);
+        mav.setViewName("programa/resumen");
+        
+        return mav;
+
+    }
 }
