@@ -7,14 +7,11 @@
 <message name="createMenuItem">
 <part name="parameters" element="tns:createMenuItem"/>
 </message>
+<message name="removeMenuItem">
+<part name="parameters" element="tns:removeMenuItem"/>
+</message>
 <message name="editMenuItem">
 <part name="parameters" element="tns:editMenuItem"/>
-</message>
-<message name="findAllMenuItem">
-<part name="parameters" element="tns:findAllMenuItem"/>
-</message>
-<message name="findAllMenuItemResponse">
-<part name="parameters" element="tns:findAllMenuItemResponse"/>
 </message>
 <message name="findMenuItem">
 <part name="parameters" element="tns:findMenuItem"/>
@@ -22,36 +19,39 @@
 <message name="findMenuItemResponse">
 <part name="parameters" element="tns:findMenuItemResponse"/>
 </message>
-<message name="removeMenuItem">
-<part name="parameters" element="tns:removeMenuItem"/>
-</message>
 <message name="findMenuItemPor">
 <part name="parameters" element="tns:findMenuItemPor"/>
 </message>
 <message name="findMenuItemPorResponse">
 <part name="parameters" element="tns:findMenuItemPorResponse"/>
 </message>
+<message name="findAllMenuItem">
+<part name="parameters" element="tns:findAllMenuItem"/>
+</message>
+<message name="findAllMenuItemResponse">
+<part name="parameters" element="tns:findAllMenuItemResponse"/>
+</message>
 <portType name="MenuItemWS">
 <operation name="createMenuItem">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/createMenuItem" message="tns:createMenuItem"/>
 </operation>
+<operation name="removeMenuItem">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/removeMenuItem" message="tns:removeMenuItem"/>
+</operation>
 <operation name="editMenuItem">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/editMenuItem" message="tns:editMenuItem"/>
-</operation>
-<operation name="findAllMenuItem">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findAllMenuItemRequest" message="tns:findAllMenuItem"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findAllMenuItemResponse" message="tns:findAllMenuItemResponse"/>
 </operation>
 <operation name="findMenuItem">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findMenuItemRequest" message="tns:findMenuItem"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findMenuItemResponse" message="tns:findMenuItemResponse"/>
 </operation>
-<operation name="removeMenuItem">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/removeMenuItem" message="tns:removeMenuItem"/>
-</operation>
 <operation name="findMenuItemPor">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findMenuItemPorRequest" message="tns:findMenuItemPor"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findMenuItemPorResponse" message="tns:findMenuItemPorResponse"/>
+</operation>
+<operation name="findAllMenuItem">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findAllMenuItemRequest" message="tns:findAllMenuItem"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findAllMenuItemResponse" message="tns:findAllMenuItemResponse"/>
 </operation>
 </portType>
 <binding name="MenuItemWSPortBinding" type="tns:MenuItemWS">
@@ -62,20 +62,17 @@
 <soap:body use="literal"/>
 </input>
 </operation>
-<operation name="editMenuItem">
+<operation name="removeMenuItem">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
 </input>
 </operation>
-<operation name="findAllMenuItem">
+<operation name="editMenuItem">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
 </input>
-<output>
-<soap:body use="literal"/>
-</output>
 </operation>
 <operation name="findMenuItem">
 <soap:operation soapAction=""/>
@@ -86,13 +83,16 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="removeMenuItem">
+<operation name="findMenuItemPor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
 </input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
-<operation name="findMenuItemPor">
+<operation name="findAllMenuItem">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

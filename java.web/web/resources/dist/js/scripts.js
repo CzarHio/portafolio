@@ -168,12 +168,66 @@
         cem.clearFormMantanedor();
         $('#new').modal('show');
     });
+    
+    $('body').on('click', '.newMenuItem', function () {
+        cem.clearFormMantanedor('addMenuItem');
+        $('#_menu').val($(this).attr('data-menu'));
+        $('#newItemMenu').modal('show');
+    });
 
     $('#addNew').on('click', function () {
         var data = cem.dataFormMantenedor();
         if (!cem.validForm())
             return;
         //$('#new').modal('hide');
+        var url = $(this).attr('data-url');
+        swal({
+            title: 'Envío de datos',
+            text: 'Está seguro de la información ingresada?',
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            animation: 'slide-from-top',
+            showLoaderOnConfirm: true
+        },
+        function () {
+            $.ajax({
+                url: url,
+                data: data,
+                type: "POST",
+                success: function (data) {
+                    if (data.response === 1) {
+                        swal({
+                            title: "Datos guardados!",
+                            text: "",
+                            type: "success"
+                        },
+                        function () {
+                            location.reload();
+                        });
+                    } else {
+                        swal({
+                            title: "Error al guardar los datos!",
+                            text: data.msg || "Intente nuevamente.",
+                            type: "error"
+                        });
+                    }
+                },
+                error: function () {
+                    swal({
+                        title: "Error al guardar los datos!",
+                        text: "Intente nuevamente.",
+                        type: "error"
+                    });
+                }
+            });
+        });
+    });
+    
+    $('#saveMenuItem').on('click', function () {
+        var data = cem.dataFormMantenedor('addMenuItem');
+        if (!cem.validForm('addMenuItem'))
+            return;
         var url = $(this).attr('data-url');
         swal({
             title: 'Envío de datos',
@@ -333,8 +387,18 @@
         $('#notas').modal('show');
     });
 
+    $('body').on('click', '.menuItem', function () {
+        $(this).children('.fa').toggleClass('fa-minus', 'fa-plus');
+        $('#' + $(this).attr('data-id')).slideToggle('slow');
+    });
+
     $('body').on('click', '.editaCurso', function () {
         cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'), 'addCurso');
+    });
+
+    $('body').on('click', '.btnEditarItem', function () {
+        cem.fillInputMenuItem($(this).attr('data-id'), $(this).attr('data-menu'), $(this).attr('data-url'), 'addMenuItem');
+        $('#newItemMenu').modal('show');
     });
 
     $('body').on('click', '.getCert', function () {
@@ -452,6 +516,37 @@
                                     $(this).html('<div class="alert alert-warning"><strong>Atención!</strong> EL Centro no registra una imagen.</div>');
                             } else if ($(this).is('select'))
                                 $(this).select2('val', data.data[$(this).attr('name')]);
+                            else
+                                $(this).val(data.data[$(this).attr('name')]);
+                        });
+                    }
+                }
+            });
+        },
+        fillInputMenuItem: function(id, menu, url, form) {
+            form = form || 'addForm';
+            $.ajax({
+                url: url,
+                data: 'id=' + id,
+                type: "POST",
+                success: function (data) {
+                    if (data.response === 0) {
+                        swal({
+                            title: "Error al obtener datos!",
+                            text: data.msg || "Intente nuevamente.",
+                            type: "error"
+                        });
+                    } else {
+                        $('#' + form).find('.form-control, .image').each(function () {
+                            if ($(this).hasClass('image')) {
+                                if (data.data.src !== undefined)
+                                    $(this).html('<img src="' + data.data['src'] + '" class="img-responsive img-thumbnail"/>');
+                                else
+                                    $(this).html('<div class="alert alert-warning"><strong>Atención!</strong> EL Centro no registra una imagen.</div>');
+                            } else if ($(this).is('select'))
+                                $(this).select2('val', data.data[$(this).attr('name')]);
+                            else if ($(this).attr('name') === 'idMenu')
+                                $(this).val(menu);
                             else
                                 $(this).val(data.data[$(this).attr('name')]);
                         });

@@ -77,22 +77,7 @@ $.AdminLTE.options = {
   //to allow boxes to be collapsed and/or removed
   enableBoxWidget: true,
   //Box Widget plugin options
-  boxWidgetOptions: {
-    boxWidgetIcons: {
-      //Collapse icon
-      collapse: 'fa-minus',
-      //Open icon
-      open: 'fa-plus',
-      //Remove icon
-      remove: 'fa-times'
-    },
-    boxWidgetSelectors: {
-      //Remove button selector
-      remove: '[data-widget="remove"]',
-      //Collapse button selector
-      collapse: '[data-widget="collapse"]'
-    }
-  },
+  
   //Direct Chat plugin options
   directChat: {
     //Enable direct chat by default
@@ -189,9 +174,9 @@ $(function () {
   }
 
   //Activate box widget
-  if (o.enableBoxWidget) {
+  /*if (o.enableBoxWidget) {
     $.AdminLTE.boxWidget.activate();
-  }
+  }*/
 
   //Activate fast click
   if (o.enableFastclick && typeof FastClick != 'undefined') {
@@ -533,9 +518,9 @@ function _init() {
    * @usage $.AdminLTE.boxWidget.activate()
    *        Set all your options in the main $.AdminLTE.options object
    */
-  $.AdminLTE.boxWidget = {
-    selectors: $.AdminLTE.options.boxWidgetOptions.boxWidgetSelectors,
-    icons: $.AdminLTE.options.boxWidgetOptions.boxWidgetIcons,
+  $.AdminLTE.boxWidget = {}
+  /*  //selectors: $.AdminLTE.options.boxWidgetOptions.boxWidgetSelectors,
+    //icons: $.AdminLTE.options.boxWidgetOptions.boxWidgetIcons,
     animationSpeed: $.AdminLTE.options.animationSpeed,
     activate: function (_box) {
       var _this = this;
@@ -543,7 +528,7 @@ function _init() {
         _box = document; // activate all boxes per default
       }
       //Listen for collapse event triggers
-      $(_box).on('click', _this.selectors.collapse, function (e) {
+      /*$(_box).on('click', _this.selectors.collapse, function (e) {
         e.preventDefault();
         _this.collapse($(this));
       });
@@ -585,7 +570,7 @@ function _init() {
       var box = element.parents(".box").first();
       box.slideUp(this.animationSpeed);
     }
-  };
+  };*/
 }
 
 /* ------------------

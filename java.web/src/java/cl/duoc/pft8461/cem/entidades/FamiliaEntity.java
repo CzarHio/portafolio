@@ -19,6 +19,9 @@ public class FamiliaEntity extends Familia implements Model, Serializable {
         this.idEstado = f.getIdEstado();
         this.idFamilia = f.getIdFamilia();
         this.idUsuario = f.getIdUsuario();
+        this.direccion = f.getDireccion();
+        this.nombreFamilia = f.getNombreFamilia();
+        this.descripcion = f.getDescripcion();
     }
     
     
@@ -28,6 +31,9 @@ public class FamiliaEntity extends Familia implements Model, Serializable {
         json += "\"idCentro\" : " + this.idCentro + ",";
         json += "\"idEstado\" : " + this.idEstado + ",";
         json += "\"idFamilia\" : " + this.idFamilia + ",";
+        json += "\"direccion\" : \"" + this.direccion + "\",";
+        json += "\"nombreFamilia\" : \"" + this.nombreFamilia + "\",";
+        json += "\"descripcion\" : \"" + this.descripcion + "\",";
         json += "\"idUsuario\" : " + this.idUsuario + "";
         json += "}}";
         

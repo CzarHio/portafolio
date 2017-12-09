@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="/java.web" class="logo">
+    <a href="/java.web/home.htm" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>CE</b>M</span>
       <!-- logo for regular state and mobile devices -->
@@ -18,13 +18,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="/java.web/resources/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="${sessionScope.foto}" class="user-image" alt="User Image">
               <span class="hidden-xs">${sessionScope.userSession}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="/java.web/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="${sessionScope.foto}" class="img-circle" alt="User Image">
 
                 <p>
                   ${useSession}

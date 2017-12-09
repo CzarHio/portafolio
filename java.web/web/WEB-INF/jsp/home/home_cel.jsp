@@ -1,7 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="../include/top.jsp" />
-<div class="row">
-    <div class="well"><h1>Bienvenido CEL</h1></div>
-</div>
-<jsp:include page="../include/bottom.jsp" />
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+
+<t:Master>
+    <jsp:body>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well"><h1>Bienvenido CEL</h1></div>
+            </div>
+        </div>
+    </jsp:body>
+</t:Master>

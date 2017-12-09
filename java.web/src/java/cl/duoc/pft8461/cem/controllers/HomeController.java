@@ -95,7 +95,7 @@ public class HomeController {
                 break;
             case 3:
                 BigDecimal idCentro = (BigDecimal) session.getAttribute("id_centro");
-                listaParticipacion = this.participacionWS.findFullParticipacionPor("id_centro", idCentro.toString());
+                listaParticipacion = this.participacionWS.findFullParticipacionPor("p.id_centro", idCentro.toString());
                 listaFamilia = this.familiaWS.findAllFamilia();
                 mav.addObject("listaParticipacion", listaParticipacion);
                 mav.addObject("listaFamilia", listaFamilia);
