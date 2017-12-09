@@ -6,7 +6,6 @@
 package cl.duoc.pft8461.cem.controllers;
 
 import cl.duoc.pft8461.cem.entidades.CiudadEntity;
-import cl.duoc.pft8461.cem.entidades.RegionEntity;
 import cl.duoc.pft8461.cem.ws.Ciudad;
 import cl.duoc.pft8461.cem.ws.CiudadWS;
 import cl.duoc.pft8461.cem.ws.CiudadWS_Service;

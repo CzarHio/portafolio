@@ -6,16 +6,15 @@
 package cl.duoc.pft8461.cem.controllers;
 
 import cl.duoc.pft8461.cem.entidades.CursoEntity;
-import cl.duoc.pft8461.cem.ws.Ciudad;
-import cl.duoc.pft8461.cem.ws.CiudadWS;
-import cl.duoc.pft8461.cem.ws.CiudadWS_Service;
+import cl.duoc.pft8461.cem.utilities.PDF;
 import cl.duoc.pft8461.cem.ws.Curso;
 import cl.duoc.pft8461.cem.ws.CursoWS;
 import cl.duoc.pft8461.cem.ws.CursoWS_Service;
+import com.itextpdf.text.DocumentException;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.json.JSONArray;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +42,7 @@ public class CursosController extends BaseController {
     public ModelAndView lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        List<Curso> listaCurso = this.cursoWS.findCursoPor("id_programa", request.getParameter("id"));
+        List<Curso> listaCurso = this.cursoWS.findFullCursoPor("c.id_programa", request.getParameter("id"));
         JSONArray json = new JSONArray(listaCurso);
         mav.addObject("json", json);
         mav.setViewName("include/json");
@@ -58,6 +57,25 @@ public class CursosController extends BaseController {
 
         CursoEntity cur = new CursoEntity(this.cursoWS.findCurso(Integer.parseInt(request.getParameter("id"))));
         mav.addObject("json", cur.toJson());
+        mav.setViewName("include/json");
+        
+        return mav;
+    }
+
+    @RequestMapping(value = {"cursos/certificado.htm"}, method = RequestMethod.POST)
+    public ModelAndView certificado(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+        
+        PDF pdf = new PDF();
+        String certificado = "";
+        try {
+            certificado = pdf.generate(request, Integer.parseInt(request.getParameter("id")));
+        } catch (DocumentException ex) {
+            Logger.getLogger(CursosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        mav.addObject("json", "{\"url\": \"" + certificado + "\"}");
         mav.setViewName("include/json");
         
         return mav;
@@ -91,12 +109,16 @@ public class CursosController extends BaseController {
             if (this.isEmpty(request.getParameter("idCurso"))) {
                 this.cursoWS.createCurso(
                     Integer.parseInt(request.getParameter("idPrograma")),
-                    request.getParameter("nombreCurso"));
+                    request.getParameter("nombreCurso"),
+                    Integer.parseInt(request.getParameter("creditos")),
+                    request.getParameter("descripcion"));
             } else {
                 this.cursoWS.editCurso(
                     Integer.parseInt(request.getParameter("idCurso")),
                     Integer.parseInt(request.getParameter("idPrograma")),
-                    request.getParameter("nombreCurso"));
+                    request.getParameter("nombreCurso"),
+                    Integer.parseInt(request.getParameter("creditos")),
+                    request.getParameter("descripcion"));
             }
         } catch (Exception e) {
             System.out.println(e);

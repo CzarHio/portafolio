@@ -6,7 +6,6 @@
 package cl.duoc.pft8461.cem.entidades;
 
 import cl.duoc.pft8461.cem.ws.Familia;
-import cl.duoc.pft8461.cem.ws.Usuario;
 import java.io.Serializable;
 
 /**

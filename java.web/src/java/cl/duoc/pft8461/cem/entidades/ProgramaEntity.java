@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Joe-Xidu
+ * @author Joe
  */
 public class ProgramaEntity extends Programa implements Model, Serializable  {
     
@@ -21,6 +21,13 @@ public class ProgramaEntity extends Programa implements Model, Serializable  {
         this.idPais = p.getIdPais();
         this.idEstado = p.getIdEstado();
         this.fechaCreacion = p.getFechaCreacion();
+        this.idTipoPrograma = p.getIdTipoPrograma();
+        this.tipoPrograma = p.getTipoPrograma();
+        this.estado = p.getEstado();
+        this.maxcupos = p.getMaxcupos();
+        this.mincupos = p.getMincupos();
+        this.nombrePais = p.getNombrePais();
+        
     }
     
     @Override
@@ -30,6 +37,11 @@ public class ProgramaEntity extends Programa implements Model, Serializable  {
         json += "\"fechaCreacion\" : \"" + this.fechaCreacion + "\",";
         json += "\"idPais\" : " + this.idPais + ",";
         json += "\"idEstado\" : " + this.idEstado + ",";
+        json += "\"idTipoPrograma\" : " + this.idTipoPrograma + ",";
+        json += "\"tipoPrograma\" : \"" + this.tipoPrograma + "\",";
+        json += "\"estado\" : \"" + this.estado + "\",";
+        json += "\"maxcupos\" : " + this.maxcupos + ",";
+        json += "\"mincupos\" : " + this.mincupos + ",";
         json += "\"idPrograma\" : " + this.idPrograma + "";
         json += "}}";
         

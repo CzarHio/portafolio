@@ -8,6 +8,18 @@
 
 <xs:element name="findAllProgramaResponse" type="tns:findAllProgramaResponse"/>
 
+<xs:element name="findFullAllPrograma" type="tns:findFullAllPrograma"/>
+
+<xs:element name="findFullAllProgramaResponse" type="tns:findFullAllProgramaResponse"/>
+
+<xs:element name="findFullPrograma" type="tns:findFullPrograma"/>
+
+<xs:element name="findFullProgramaPor" type="tns:findFullProgramaPor"/>
+
+<xs:element name="findFullProgramaPorResponse" type="tns:findFullProgramaPorResponse"/>
+
+<xs:element name="findFullProgramaResponse" type="tns:findFullProgramaResponse"/>
+
 <xs:element name="findPrograma" type="tns:findPrograma"/>
 
 <xs:element name="findProgramaPor" type="tns:findProgramaPor"/>
@@ -19,6 +31,17 @@
 <xs:element name="programa" type="tns:programa"/>
 
 <xs:element name="removePrograma" type="tns:removePrograma"/>
+
+<xs:complexType name="createPrograma">
+<xs:sequence>
+<xs:element name="id_estado" type="xs:int"/>
+<xs:element name="nombre_programa" type="xs:string" minOccurs="0"/>
+<xs:element name="id_pais" type="xs:int"/>
+<xs:element name="id_tipo_programa" type="xs:int"/>
+<xs:element name="maxcupos" type="xs:int"/>
+<xs:element name="mincupos" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="findPrograma">
 <xs:sequence>
@@ -34,19 +57,17 @@
 
 <xs:complexType name="programa">
 <xs:sequence>
+<xs:element name="estado" type="xs:string" minOccurs="0"/>
 <xs:element name="fechaCreacion" type="xs:dateTime" minOccurs="0"/>
 <xs:element name="idEstado" type="xs:int"/>
 <xs:element name="idPais" type="xs:int"/>
 <xs:element name="idPrograma" type="xs:decimal" minOccurs="0"/>
+<xs:element name="idTipoPrograma" type="xs:int"/>
+<xs:element name="maxcupos" type="xs:int"/>
+<xs:element name="mincupos" type="xs:int"/>
+<xs:element name="nombrePais" type="xs:string" minOccurs="0"/>
 <xs:element name="nombrePrograma" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="createPrograma">
-<xs:sequence>
-<xs:element name="id_estado" type="xs:int"/>
-<xs:element name="nombre_programa" type="xs:string" minOccurs="0"/>
-<xs:element name="id_pais" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoPrograma" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -61,7 +82,10 @@
 <xs:element name="id_programa" type="xs:int"/>
 <xs:element name="id_estado" type="xs:int"/>
 <xs:element name="nombre_programa" type="xs:string" minOccurs="0"/>
-<xs:element name="id_pais" type="xs:string" minOccurs="0"/>
+<xs:element name="id_pais" type="xs:int"/>
+<xs:element name="id_tipo_programa" type="xs:int"/>
+<xs:element name="maxcupos" type="xs:int"/>
+<xs:element name="mincupos" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -78,11 +102,46 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="findFullProgramaPor">
+<xs:sequence>
+<xs:element name="campo" type="xs:string" minOccurs="0"/>
+<xs:element name="valor" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFullProgramaPorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:programa" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFullPrograma">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFullProgramaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:programa" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="findAllPrograma">
 <xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="findAllProgramaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:programa" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findFullAllPrograma">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findFullAllProgramaResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:programa" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>

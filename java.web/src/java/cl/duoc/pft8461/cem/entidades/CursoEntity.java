@@ -19,6 +19,8 @@ public class CursoEntity extends Curso implements Model, Serializable  {
         this.idCurso = c.getIdCurso();
         this.nombreCurso = c.getNombreCurso();
         this.idPrograma = c.getIdPrograma();
+        this.creditos = c.getCreditos();
+        this.descripcion = c.getDescripcion();
     }
     
     @Override
@@ -26,6 +28,8 @@ public class CursoEntity extends Curso implements Model, Serializable  {
         String json = "{\"data\":{";
         json += "\"idCurso\" : " + this.idCurso + ",";
         json += "\"nombreCurso\" : \"" + this.nombreCurso + "\",";
+        json += "\"creditos\" : " + this.creditos + ",";
+        json += "\"descripcion\" : \"" + this.descripcion + "\",";
         json += "\"idPrograma\" : " + this.idPrograma + "";
         json += "}}";
         

@@ -267,6 +267,54 @@
         });
     });
     
+    $('#saveNota').on('click', function () {
+        var data = cem.dataFormMantenedor('notaForm');
+        if (!cem.validForm('notaForm'))
+            return;
+        var url = $(this).attr('data-url');
+        swal({
+            title: 'Envío de datos',
+            text: 'Está seguro de la información ingresada?',
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            animation: 'slide-from-top',
+            showLoaderOnConfirm: true
+        },
+        function () {
+            $.ajax({
+                url: url,
+                data: data,
+                type: "POST",
+                success: function (data) {
+                    if (data.response === 1) {
+                        swal({
+                            title: "Datos guardados!",
+                            text: "",
+                            type: "success"
+                        },
+                        function () {
+                            location.reload();
+                        });
+                    } else {
+                        swal({
+                            title: "Error al guardar los datos!",
+                            text: data.msg || "Intente nuevamente.",
+                            type: "error"
+                        });
+                    }
+                },
+                error: function () {
+                    swal({
+                        title: "Error al guardar los datos!",
+                        text: "Intente nuevamente.",
+                        type: "error"
+                    });
+                }
+            });
+        });
+    });
+    
     $('#new').on('hidden.bs.modal', function () {
         cem.clearFormMantanedor();
     });
@@ -280,8 +328,22 @@
         $('#cursos').modal('show');
     });
 
+    $('body').on('click', '.notaAlumnos', function () {
+        cem.fillTableNotas($(this).attr('data-id'), $(this).attr('data-url'));
+        $('#notas').modal('show');
+    });
+
     $('body').on('click', '.editaCurso', function () {
         cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'), 'addCurso');
+    });
+
+    $('body').on('click', '.getCert', function () {
+        cem.getCertificado($(this).attr('data-id'), $(this).attr('data-url'));
+    });
+
+    $('body').on('click', '.editaNota', function () {
+        cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'), 'addNota');
+        $('#saveNota').show();
     });
 
     $('body').on('click', '.btnEditar', function () {
@@ -410,7 +472,10 @@
                     var row;
                     
                     for (var i in data) {
-                        row = $('<tr><td>' + data[i].idCurso + '</td><td>' + data[i].nombreCurso + '</td><td>' +
+                        row = $('<tr><td>' + data[i].idCurso + '</td><td>' + data[i].nombreCurso + '</td><td>' + data[i].creditos + '</td><td>' + data[i].descripcion + '</td><td>' +
+                            '<a class="btn btn-success notaAlumnos" data-url="/java.web/notas/lista.htm" data-toggle="tooltip" data-original-title="Notas Alumnos" data-id="' + data[i].idCurso + '">' +
+                                '<i class="fa fa-bookmark"></i>' +
+                            '</a> ' +
                             '<a class="btn btn-primary editaCurso" data-url="/java.web/cursos/editar.htm" data-toggle="tooltip" data-original-title="Editar" data-id="' + data[i].idCurso + '">' +
                                 '<i class="fa fa-pencil-square-o"></i>' +
                             '</a> ' +
@@ -422,6 +487,68 @@
                         table.append(row);
                     }
                 }
+            });
+        },
+        fillTableNotas: function(id, url, table) {
+            table = table || 'table-notas';
+            $.ajax({
+                url: url,
+                data: 'id=' + id,
+                type: "POST",
+                success: function (data) {
+                    table = $('#' + table).children('tbody').text('');
+                    
+                    var row;
+                    
+                    for (var i in data) {
+                        row = $('<tr><td>' + data[i].nombreAlumno + '</td><td>' + data[i].nota + '</td><td>' +
+                            (data[i].nota >= 4? '<a class="btn btn-default getCert" data-url="/java.web/cursos/certificado.htm" data-toggle="tooltip" data-original-title="Certificado Aprobación" data-id="' + data[i].idAlumno + '">' +
+                                '<i class="fa fa-file-pdf-o"></i>' +
+                            '</a> ' : '') +
+                            '<a class="btn btn-primary editaNota" data-url="/java.web/notas/editar.htm" data-toggle="tooltip" data-original-title="Editar" data-id="' + data[i].idNota + '">' +
+                                '<i class="fa fa-pencil-square-o"></i>' +
+                            '</a> ' +
+                            /*'<a class="btn btn-danger btnEliminar" data-url="/java.web/notas/borrar.htm" data-toggle="tooltip" data-original-title="Eliminar" data-id="' + data[i].idNota + '">' +
+                                '<i class="fa fa-times-circle"></i>' +
+                            '</a>' +*/
+                        '</td></tr>');
+
+                        table.append(row);
+                    }
+                }
+            });
+        },
+        getCertificado: function(id, url) {
+            swal({
+                title: 'Generar Certificado?',
+                text: 'A continuación se generará el certificado...',
+                type: "warning",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                animation: 'slide-from-top',
+                showLoaderOnConfirm: true
+            },
+            function () {
+                $.ajax({
+                    url: url,
+                    data: 'id=' + id,
+                    type: "POST",
+                    success: function (data) {
+                        if (data.url !== undefined && data.url !== '')
+                            swal({
+                                title: "Certificado generado!",
+                                text: 'Puede descargar su certificado <a href="' + data.url + '" target="_blank">aquí</a>',
+                                type: "success",
+                                html: "true"
+                            });
+                        else
+                            swal({
+                                title: "Error al generar certificado!",
+                                text: "Intente nuevamente.",
+                                type: "error"
+                            });
+                    }
+                });
             });
         },
         validForm: function(form) {
@@ -457,4 +584,7 @@
         return re.test(email);
     }
     
+    function openInNewTab(url) {
+        $("<a>").attr("href", url).attr("target", "_blank")[0].click();
+    }
 }(jQuery));

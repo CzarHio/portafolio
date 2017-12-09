@@ -4,14 +4,11 @@
 <xsd:import namespace="http://ws.cem.pft8461.duoc.cl/" schemaLocation="http://ws.huevoscopita.cl:80/webservice/NotaWS?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="editNota">
+<part name="parameters" element="tns:editNota"/>
+</message>
 <message name="createNota">
 <part name="parameters" element="tns:createNota"/>
-</message>
-<message name="findAllNota">
-<part name="parameters" element="tns:findAllNota"/>
-</message>
-<message name="findAllNotaResponse">
-<part name="parameters" element="tns:findAllNotaResponse"/>
 </message>
 <message name="findNotaPor">
 <part name="parameters" element="tns:findNotaPor"/>
@@ -22,22 +19,42 @@
 <message name="removeNota">
 <part name="parameters" element="tns:removeNota"/>
 </message>
+<message name="findAllNota">
+<part name="parameters" element="tns:findAllNota"/>
+</message>
+<message name="findAllNotaResponse">
+<part name="parameters" element="tns:findAllNotaResponse"/>
+</message>
 <message name="findNota">
 <part name="parameters" element="tns:findNota"/>
 </message>
 <message name="findNotaResponse">
 <part name="parameters" element="tns:findNotaResponse"/>
 </message>
-<message name="editNota">
-<part name="parameters" element="tns:editNota"/>
+<message name="findFullNota">
+<part name="parameters" element="tns:findFullNota"/>
+</message>
+<message name="findFullNotaResponse">
+<part name="parameters" element="tns:findFullNotaResponse"/>
+</message>
+<message name="findFullNotaPor">
+<part name="parameters" element="tns:findFullNotaPor"/>
+</message>
+<message name="findFullNotaPorResponse">
+<part name="parameters" element="tns:findFullNotaPorResponse"/>
+</message>
+<message name="findFullAllNota">
+<part name="parameters" element="tns:findFullAllNota"/>
+</message>
+<message name="findFullAllNotaResponse">
+<part name="parameters" element="tns:findFullAllNotaResponse"/>
 </message>
 <portType name="NotaWS">
+<operation name="editNota">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/editNota" message="tns:editNota"/>
+</operation>
 <operation name="createNota">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/createNota" message="tns:createNota"/>
-</operation>
-<operation name="findAllNota">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findAllNotaRequest" message="tns:findAllNota"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findAllNotaResponse" message="tns:findAllNotaResponse"/>
 </operation>
 <operation name="findNotaPor">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaPorRequest" message="tns:findNotaPor"/>
@@ -46,30 +63,40 @@
 <operation name="removeNota">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/removeNota" message="tns:removeNota"/>
 </operation>
+<operation name="findAllNota">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findAllNotaRequest" message="tns:findAllNota"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findAllNotaResponse" message="tns:findAllNotaResponse"/>
+</operation>
 <operation name="findNota">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaRequest" message="tns:findNota"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaResponse" message="tns:findNotaResponse"/>
 </operation>
-<operation name="editNota">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/editNota" message="tns:editNota"/>
+<operation name="findFullNota">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullNotaRequest" message="tns:findFullNota"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullNotaResponse" message="tns:findFullNotaResponse"/>
+</operation>
+<operation name="findFullNotaPor">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullNotaPorRequest" message="tns:findFullNotaPor"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullNotaPorResponse" message="tns:findFullNotaPorResponse"/>
+</operation>
+<operation name="findFullAllNota">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullAllNotaRequest" message="tns:findFullAllNota"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullAllNotaResponse" message="tns:findFullAllNotaResponse"/>
 </operation>
 </portType>
 <binding name="NotaWSPortBinding" type="tns:NotaWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="editNota">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
 <operation name="createNota">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
 </input>
-</operation>
-<operation name="findAllNota">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
 </operation>
 <operation name="findNotaPor">
 <soap:operation soapAction=""/>
@@ -86,6 +113,15 @@
 <soap:body use="literal"/>
 </input>
 </operation>
+<operation name="findAllNota">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="findNota">
 <soap:operation soapAction=""/>
 <input>
@@ -95,11 +131,32 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="editNota">
+<operation name="findFullNota">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
 </input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="findFullNotaPor">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="findFullAllNota">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
 </binding>
 <service name="NotaWS">

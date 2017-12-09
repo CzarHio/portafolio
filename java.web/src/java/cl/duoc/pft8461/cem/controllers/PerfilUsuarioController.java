@@ -6,11 +6,9 @@
 package cl.duoc.pft8461.cem.controllers;
 
 import cl.duoc.pft8461.cem.entidades.PerfilUsuarioEntity;
-import cl.duoc.pft8461.cem.entidades.RegionEntity;
 import cl.duoc.pft8461.cem.ws.PerfilUsuario;
 import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS;
 import cl.duoc.pft8461.cem.ws.PerfilUsuarioWS_Service;
-import cl.duoc.pft8461.cem.ws.Region;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
