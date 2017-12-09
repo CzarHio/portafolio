@@ -118,13 +118,19 @@ public class FamiliaController extends BaseController {
                 this.familiaWS.createFamilia(
                     Integer.parseInt(request.getParameter("idUsuario")),
                     Integer.parseInt(request.getParameter("idCentro")),
-                    Integer.parseInt(request.getParameter("idEstado")));
+                    Integer.parseInt(request.getParameter("idEstado")),
+                    request.getParameter("direccion"),
+                    request.getParameter("nombreFamilia"),
+                    request.getParameter("descripcion"));
             } else {
                 this.familiaWS.editFamilia(
                     Integer.parseInt(request.getParameter("idFamilia")),
                     Integer.parseInt(request.getParameter("idUsuario")),
                     Integer.parseInt(request.getParameter("idCentro")),
-                    Integer.parseInt(request.getParameter("idEstado")));
+                    Integer.parseInt(request.getParameter("idEstado")),
+                    request.getParameter("direccion"),
+                    request.getParameter("nombreFamilia"),
+                    request.getParameter("descripcion"));
             }
         } catch (Exception e) {
             System.out.println(e);

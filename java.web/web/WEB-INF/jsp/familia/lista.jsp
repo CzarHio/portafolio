@@ -17,22 +17,24 @@
                             <table class="table table-bordered table-hover" id="mantenedor">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
+                                        <th>Nonbre</th>
+                                        <th>Dirección</th>
                                         <th>Centro</th>
                                         <th>Usuario</th>
+                                        <th>Descripción</th>
                                         <th>Estado</th>
-                                        <th>Postulación</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${listado}" var="familia">
                                         <tr>
-                                            <td>${familia.getIdFamilia()}</td>
+                                            <td>${familia.getNombreFamilia()}</td>
+                                            <td>${familia.getDireccion()}</td>
                                             <td>${centros.get(familia.getIdCentro()).getNombreCentro()}</td>
                                             <td>${usuarios.get(familia.getIdUsuario()).getNombre()} ${usuarios.get(familia.getIdUsuario()).getApellidoPat()}</td>
+                                            <td>${familia.getDescripcion()}</td>
                                             <td>${estadosFamilia.get(familia.getIdEstado()).getEstado()}</td>
-                                            <td>${familia.getPostulacion()}</td>
                                             <td>
                                                 <a class="btn btn-primary btnEditar" data-url="editar.htm" data-toggle="tooltip" data-original-title="Editar" data-id="${familia.getIdFamilia()}">
                                                     <i class="fa fa-pencil-square-o"></i>
@@ -61,6 +63,24 @@
                             <h4 class="modal-title">Campos Familia</h4>
                         </div>
                         <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nombreFamilia" class="col-sm-2 control-label">Nombre Familia</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="nombreFamilia" name="nombreFamilia" placeholder="Nombre..." required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="direccion" class="col-sm-2 control-label">Dirección Familia</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección..." required="required">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion" class="col-sm-2 control-label">Descripción</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripción..." required="required">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="idCentro" class="col-sm-2 control-label">Centro</label>
                                 <div class="col-sm-10">

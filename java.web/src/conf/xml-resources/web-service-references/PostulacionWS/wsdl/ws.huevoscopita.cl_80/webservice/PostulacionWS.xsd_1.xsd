@@ -72,7 +72,7 @@
 
 <xs:complexType name="createPostulacion">
 <xs:sequence>
-<xs:element name="id_usuario" type="xs:int"/>
+<xs:element name="id_alumno" type="xs:int"/>
 <xs:element name="id_familia" type="xs:int"/>
 <xs:element name="id_estado" type="xs:int"/>
 <xs:element name="id_participacion" type="xs:int"/>
@@ -82,7 +82,7 @@
 <xs:complexType name="editPostulacion">
 <xs:sequence>
 <xs:element name="id_postulacion" type="xs:int"/>
-<xs:element name="id_usuario" type="xs:int"/>
+<xs:element name="id_alumno" type="xs:int"/>
 <xs:element name="id_familia" type="xs:int"/>
 <xs:element name="id_estado" type="xs:int"/>
 <xs:element name="id_participacion" type="xs:int"/>
