@@ -37,7 +37,7 @@
                 IsOpen="True" 
                 IsSticky="True" Height="90" BorderBrush="White" Background="#FF3C8DBC">
             <AppBarButton x:Name="Home" Icon="Home" Label="Inicio" Click="Home_Click"/>
-            <AppBarButton x:Name="Profile" Icon="Contact" Label="Cuenta"/>
+            <AppBarButton x:Name="Profile" Icon="Contact" Label="Cuenta" Click="Profile_Click"/>
             <AppBarButton x:Name="Logout" Icon="Cancel" Label="Desconectar" Click="Logout_Click"/>
         </CommandBar>
 
@@ -94,13 +94,21 @@
                     <ProgressRing x:Name="ProgressCentros" IsActive="True" Grid.Column="1" Margin="460,0,54,41" Height="46" Width="46" Foreground="White"/>
                 </Grid>
             </Hub.Header>
-            <!-- 
-            <HubSection Width="780" Margin="0,0,80,0">
-                <HubSection.Background>
-                    <ImageBrush ImageSource="Assets/MediumGray.png" Stretch="UniformToFill" />
-                </HubSection.Background>
+            <HubSection x:Name="Perfil" DataContext="{Binding Usuario}" Visibility="Collapsed">
+                <DataTemplate>
+                    <Border Width="900" BorderBrush="#FFDCC4C4" BorderThickness="4" Padding="10">
+                        <Grid Width="900">
+                            <Border Background="#FFD4C8C8" Height="334" Width="348" HorizontalAlignment="Left">
+                                <Image x:Name="u_imagen" Source="{Binding Foto.Nombre_Archivo}" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            </Border>
+                            <TextBlock x:Name="u_nombre" Text="{Binding Nombre_Completo}" Width="300" Margin="150,-250,0,0" Height="50" FontSize="23"/>
+                            <TextBlock x:Name="u_email" Text="{Binding Email}" Width="300" Margin="150,-90,0,0" Height="50" FontSize="23"/>
+                            <TextBlock x:Name="u_perfil" Text="{Binding Perfil.Nombre_Perfil}" Width="300" Margin="150,0,0,0" Height="50" FontSize="23"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
             </HubSection>
-            <HubSection IsHeaderInteractive="True" DataContext="{Binding Section3Items}" d:DataContext="{Binding Groups[3], Source={d:DesignData Source=../net.desktop.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+            <!--<HubSection IsHeaderInteractive="True" DataContext="{Binding Section3Items}" d:DataContext="{Binding Groups[3], Source={d:DesignData Source=../net.desktop.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
                         x:Uid="Section2Header" Header="Centros" Padding="40,40,40,32">
                 <DataTemplate>
                     <GridView

@@ -11,6 +11,8 @@ namespace net.desktop.Services
     class UsuarioService
     {
         private UsuarioWSClient Service = new UsuarioWSClient();
+        private FotoService FotoService = new FotoService();
+        private PerfilService PerfilService = new PerfilService();
 
         public async Task<UsuarioEntity> Find(int id)
         {
@@ -23,6 +25,9 @@ namespace net.desktop.Services
                 Usuario.Apellido_Pat = Response.@return.apellidoPat;
                 Usuario.Apellido_Mat = Response.@return.apellidoMat;
                 Usuario.Nombre_Completo = Usuario.Nombre + " " + Usuario.Apellido_Pat + " " + Usuario.Apellido_Mat;
+                Usuario.Email = Response.@return.email;
+                Usuario.Foto = await this.FotoService.Find("1", (int)Response.@return.idUsuario);
+                Usuario.Perfil = await this.PerfilService.Find(Response.@return.idPerfilUsuario);
             }
             return Usuario;
         }

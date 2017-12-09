@@ -20,14 +20,14 @@ C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Wi
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\ItemPage.g.cs
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\XamlTypeInfo.g.cs
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\App.xaml
-C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\HubPage.xaml
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\SectionPage.xaml
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\ItemPage.xaml
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\App.xbf
-C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\HubPage.xbf
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\SectionPage.xbf
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\ItemPage.xbf
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\XamlSaveStateFile.xml
+C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\HubPage.xaml
+C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\HubPage.xbf
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\net.desktop.Windows.exe
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\net.desktop.Windows.pdb
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\net.desktop.Windows.csproj.GenerateResource.Cache

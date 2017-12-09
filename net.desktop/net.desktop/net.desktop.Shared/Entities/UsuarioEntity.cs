@@ -73,5 +73,17 @@ namespace net.desktop.Entities
             get;
         }
 
+        public FotoEntity Foto
+        {
+            set;
+            get;
+        }
+
+        public PerfilEntity Perfil
+        {
+            set;
+            get;
+        }
+
     }
 }

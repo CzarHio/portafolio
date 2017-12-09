@@ -37,8 +37,8 @@
                 IsOpen="True" 
                 IsSticky="True" Height="90" BorderBrush="White" Background="#FF3C8DBC">
             <AppBarButton x:ConnectionId='1' x:Name="Home" Icon="Home" Label="Inicio"                   />
-            <AppBarButton x:Name="Profile" Icon="Contact" Label="Cuenta"/>
-            <AppBarButton x:ConnectionId='2' x:Name="Logout" Icon="Cancel" Label="Desconectar"                     />
+            <AppBarButton x:ConnectionId='2' x:Name="Profile" Icon="Contact" Label="Cuenta"                      />
+            <AppBarButton x:ConnectionId='3' x:Name="Logout" Icon="Cancel" Label="Desconectar"                     />
         </CommandBar>
 
     </Page.BottomAppBar>
@@ -65,15 +65,15 @@
                         <PasswordBox x:Name="Password" HorizontalAlignment="Left" Padding="10" Margin="0,170,0,0" VerticalAlignment="Top" Width="420" PlaceholderText="Contraseña" FontSize="30"/>
                         <AppBarToggleButton x:Name="Remember" Margin="-20,250,0,0" Foreground="#FF3C8DBC"/>
                         <TextBlock x:Name="RememberText" Margin="60,260,0,0" Text="Recordarme en este equipo" Padding="10" FontSize="25" Foreground="#FF3C8DBC"/>
-                        <Button x:ConnectionId='6' x:Name="ClearInput" Content="Limpiar" Padding="30,10,30,10" HorizontalAlignment="Left" Margin="0,330,0,0" VerticalAlignment="Top" FontSize="30" Background="#FF3C8DBC" BorderBrush="#FF3C8DBC"                         />
-                        <Button x:ConnectionId='7' x:Name="Authenticate" Content="Ingresar" Padding="30,10,30,10" HorizontalAlignment="Right" Margin="0,330,0,0" VerticalAlignment="Top" FontSize="30" Background="#FF3C8DBC" BorderBrush="#FF3C8DBC"                           />
+                        <Button x:ConnectionId='7' x:Name="ClearInput" Content="Limpiar" Padding="30,10,30,10" HorizontalAlignment="Left" Margin="0,330,0,0" VerticalAlignment="Top" FontSize="30" Background="#FF3C8DBC" BorderBrush="#FF3C8DBC"                         />
+                        <Button x:ConnectionId='8' x:Name="Authenticate" Content="Ingresar" Padding="30,10,30,10" HorizontalAlignment="Right" Margin="0,330,0,0" VerticalAlignment="Top" FontSize="30" Background="#FF3C8DBC" BorderBrush="#FF3C8DBC"                           />
                         <ProgressRing x:Name="ProgressLogin" IsActive="false" HorizontalAlignment="Left" Margin="0,330,0,0" Height="50" Width="50" Foreground="#FF3C8DBC"/>
                         <TextBlock x:Name="ProcessTextLogin" Visibility="Collapsed" Margin="60,330,0,0" Text="conectando..." Padding="10" FontSize="30" Foreground="#FF3C8DBC"/>
                     </Grid>
                 </DataTemplate>
             </HubSection>
         </Hub>
-        <Hub x:ConnectionId='3' x:Name="Sections" Visibility="Visible"                                             Background="#FF3C8DBC">
+        <Hub x:ConnectionId='4' x:Name="Sections" Visibility="Visible"                                             Background="#FF3C8DBC">
             <Hub.Header>
                 <!-- Back button and page title -->
                 <Grid>
@@ -90,17 +90,25 @@
                         AutomationProperties.ItemType="Navigation Button" BorderBrush="White" Foreground="White"/>
                     <TextBlock x:Name="pageTitle" x:Uid="Header" Text="Sistema CEM" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
-                    <AppBarButton x:ConnectionId='4' x:Name="Reload" Tag="play" Icon="Refresh" Grid.Column="1"                        Margin="350,-13,0,0" Padding="0"/>
+                    <AppBarButton x:ConnectionId='5' x:Name="Reload" Tag="play" Icon="Refresh" Grid.Column="1"                        Margin="350,-13,0,0" Padding="0"/>
                     <ProgressRing x:Name="ProgressCentros" IsActive="True" Grid.Column="1" Margin="460,0,54,41" Height="46" Width="46" Foreground="White"/>
                 </Grid>
             </Hub.Header>
-            <!-- 
-            <HubSection Width="780" Margin="0,0,80,0">
-                <HubSection.Background>
-                    <ImageBrush ImageSource="Assets/MediumGray.png" Stretch="UniformToFill" />
-                </HubSection.Background>
+            <HubSection x:Name="Perfil" DataContext="{Binding Usuario}" Visibility="Collapsed">
+                <DataTemplate>
+                    <Border Width="900" BorderBrush="#FFDCC4C4" BorderThickness="4" Padding="10">
+                        <Grid Width="900">
+                            <Border Background="#FFD4C8C8" Height="334" Width="348" HorizontalAlignment="Left">
+                                <Image x:Name="u_imagen" Source="{Binding Foto.Nombre_Archivo}" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            </Border>
+                            <TextBlock x:Name="u_nombre" Text="{Binding Nombre_Completo}" Width="300" Margin="150,-250,0,0" Height="50" FontSize="23"/>
+                            <TextBlock x:Name="u_email" Text="{Binding Email}" Width="300" Margin="150,-90,0,0" Height="50" FontSize="23"/>
+                            <TextBlock x:Name="u_perfil" Text="{Binding Perfil.Nombre_Perfil}" Width="300" Margin="150,0,0,0" Height="50" FontSize="23"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
             </HubSection>
-            <HubSection IsHeaderInteractive="True" DataContext="{Binding Section3Items}" d:DataContext="{Binding Groups[3], Source={d:DesignData Source=../net.desktop.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+            <!--<HubSection IsHeaderInteractive="True" DataContext="{Binding Section3Items}" d:DataContext="{Binding Groups[3], Source={d:DesignData Source=../net.desktop.Shared/DataModel/SampleData.json, Type=data:SampleDataSource}}"
                         x:Uid="Section2Header" Header="Centros" Padding="40,40,40,32">
                 <DataTemplate>
                     <GridView
@@ -118,7 +126,7 @@
             </HubSection>-->
             <HubSection DataContext="{Binding Section2Items}" x:Name="Section2Header" x:Uid="Section2Header" Header="Centros" Padding="40,40,40,32" Visibility="Visible">
                 <DataTemplate>
-                    <GridView x:ConnectionId='5'
+                    <GridView x:ConnectionId='6'
                         x:Name="itemGridView"
                         ItemsSource="{Binding}"
                         Margin="-9,-14,0,0"

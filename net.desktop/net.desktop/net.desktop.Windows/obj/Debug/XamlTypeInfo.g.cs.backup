@@ -13,13 +13,13 @@ namespace net.desktop
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        private global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlTypeInfoProvider _provider;
 
         public global::Windows.UI.Xaml.Markup.IXamlType GetXamlType(global::System.Type type)
         {
             if(_provider == null)
             {
-                _provider = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByType(type);
         }
@@ -28,7 +28,7 @@ namespace net.desktop
         {
             if(_provider == null)
             {
-                _provider = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByName(fullName);
         }
@@ -40,7 +40,7 @@ namespace net.desktop
     }
 }
 
-namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
+namespace net.desktop.net_desktop_Windows_XamlTypeInfo
 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
@@ -195,8 +195,8 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType userType;
+            global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
@@ -204,7 +204,7 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
             {
 
             case 0:   //  net.desktop.HubPage
-                userType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_0_HubPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
@@ -213,26 +213,26 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
                 break;
 
             case 1:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 2:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 3:   //  net.desktop.Common.NavigationHelper
-                userType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
+                userType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 4:   //  Windows.UI.Xaml.DependencyObject
-                xamlType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 5:   //  net.desktop.Common.ObservableDictionary
-                userType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.DictionaryAdd = MapAdd_5_ObservableDictionary;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
@@ -240,15 +240,15 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
                 break;
 
             case 6:   //  Object
-                xamlType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 7:   //  String
-                xamlType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 8:   //  net.desktop.SectionPage
-                userType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_8_SectionPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
@@ -257,7 +257,7 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
                 break;
 
             case 9:   //  net.desktop.ItemPage
-                userType = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_9_ItemPage;
                 userType.AddMemberName("NavigationHelper");
                 userType.AddMemberName("DefaultViewModel");
@@ -302,44 +302,44 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlMember xamlMember = null;
-            global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType userType;
+            global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlMember xamlMember = null;
+            global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType userType;
 
             switch (longMemberName)
             {
             case "net.desktop.HubPage.NavigationHelper":
-                userType = (global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.HubPage");
-                xamlMember = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "net.desktop.Common.NavigationHelper");
+                userType = (global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.HubPage");
+                xamlMember = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlMember(this, "NavigationHelper", "net.desktop.Common.NavigationHelper");
                 xamlMember.Getter = get_0_HubPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "net.desktop.HubPage.DefaultViewModel":
-                userType = (global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.HubPage");
-                xamlMember = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "net.desktop.Common.ObservableDictionary");
+                userType = (global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.HubPage");
+                xamlMember = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "net.desktop.Common.ObservableDictionary");
                 xamlMember.Getter = get_1_HubPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "net.desktop.SectionPage.NavigationHelper":
-                userType = (global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.SectionPage");
-                xamlMember = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "net.desktop.Common.NavigationHelper");
+                userType = (global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.SectionPage");
+                xamlMember = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlMember(this, "NavigationHelper", "net.desktop.Common.NavigationHelper");
                 xamlMember.Getter = get_2_SectionPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "net.desktop.SectionPage.DefaultViewModel":
-                userType = (global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.SectionPage");
-                xamlMember = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "net.desktop.Common.ObservableDictionary");
+                userType = (global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.SectionPage");
+                xamlMember = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "net.desktop.Common.ObservableDictionary");
                 xamlMember.Getter = get_3_SectionPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "net.desktop.ItemPage.NavigationHelper":
-                userType = (global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.ItemPage");
-                xamlMember = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlMember(this, "NavigationHelper", "net.desktop.Common.NavigationHelper");
+                userType = (global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.ItemPage");
+                xamlMember = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlMember(this, "NavigationHelper", "net.desktop.Common.NavigationHelper");
                 xamlMember.Getter = get_4_ItemPage_NavigationHelper;
                 xamlMember.SetIsReadOnly();
                 break;
             case "net.desktop.ItemPage.DefaultViewModel":
-                userType = (global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.ItemPage");
-                xamlMember = new global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "net.desktop.Common.ObservableDictionary");
+                userType = (global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("net.desktop.ItemPage");
+                xamlMember = new global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlMember(this, "DefaultViewModel", "net.desktop.Common.ObservableDictionary");
                 xamlMember.Getter = get_5_ItemPage_DefaultViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
@@ -399,9 +399,9 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlSystemBaseType
     {
-        global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
@@ -415,7 +415,7 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -608,7 +608,7 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -617,7 +617,7 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::net.desktop.net_desktop_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::net.desktop.net_desktop_Windows_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;
@@ -668,5 +668,7 @@ namespace net.desktop.net_desktop_WindowsPhone_XamlTypeInfo
         }
     }
 }
+
+
 
 

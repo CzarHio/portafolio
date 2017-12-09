@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.cem.pft8461.duoc.cl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="PerfilUsuarioWS" targetNamespace="http://ws.cem.pft8461.duoc.cl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/PerfilUsuarioWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
+    </xsd:schema>
+  </types>
+  <message name="editPerfilUsuario">
+    <part name="parameters" element="tns:editPerfilUsuario" />
+  </message>
+  <message name="removePerfilUsuario">
+    <part name="parameters" element="tns:removePerfilUsuario" />
+  </message>
+  <message name="findAllPerfilUsuario">
+    <part name="parameters" element="tns:findAllPerfilUsuario" />
+  </message>
+  <message name="findAllPerfilUsuarioResponse">
+    <part name="parameters" element="tns:findAllPerfilUsuarioResponse" />
+  </message>
+  <message name="findPerfilUsuarioPor">
+    <part name="parameters" element="tns:findPerfilUsuarioPor" />
+  </message>
+  <message name="findPerfilUsuarioPorResponse">
+    <part name="parameters" element="tns:findPerfilUsuarioPorResponse" />
+  </message>
+  <message name="findPerfilUsuario">
+    <part name="parameters" element="tns:findPerfilUsuario" />
+  </message>
+  <message name="findPerfilUsuarioResponse">
+    <part name="parameters" element="tns:findPerfilUsuarioResponse" />
+  </message>
+  <message name="createPerfilUsuario">
+    <part name="parameters" element="tns:createPerfilUsuario" />
+  </message>
+  <portType name="PerfilUsuarioWS">
+    <operation name="editPerfilUsuario">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PerfilUsuarioWS/editPerfilUsuario" message="tns:editPerfilUsuario" />
+    </operation>
+    <operation name="removePerfilUsuario">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PerfilUsuarioWS/removePerfilUsuario" message="tns:removePerfilUsuario" />
+    </operation>
+    <operation name="findAllPerfilUsuario">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PerfilUsuarioWS/findAllPerfilUsuarioRequest" message="tns:findAllPerfilUsuario" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PerfilUsuarioWS/findAllPerfilUsuarioResponse" message="tns:findAllPerfilUsuarioResponse" />
+    </operation>
+    <operation name="findPerfilUsuarioPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PerfilUsuarioWS/findPerfilUsuarioPorRequest" message="tns:findPerfilUsuarioPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PerfilUsuarioWS/findPerfilUsuarioPorResponse" message="tns:findPerfilUsuarioPorResponse" />
+    </operation>
+    <operation name="findPerfilUsuario">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PerfilUsuarioWS/findPerfilUsuarioRequest" message="tns:findPerfilUsuario" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PerfilUsuarioWS/findPerfilUsuarioResponse" message="tns:findPerfilUsuarioResponse" />
+    </operation>
+    <operation name="createPerfilUsuario">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PerfilUsuarioWS/createPerfilUsuario" message="tns:createPerfilUsuario" />
+    </operation>
+  </portType>
+  <binding name="PerfilUsuarioWSPortBinding" type="tns:PerfilUsuarioWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="editPerfilUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="removePerfilUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+    <operation name="findAllPerfilUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findPerfilUsuarioPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findPerfilUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="createPerfilUsuario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+    </operation>
+  </binding>
+  <service name="PerfilUsuarioWS">
+    <port name="PerfilUsuarioWSPort" binding="tns:PerfilUsuarioWSPortBinding">
+      <soap:address location="http://ws.huevoscopita.cl:80/webservice/PerfilUsuarioWS" />
+    </port>
+  </service>
+</definitions>

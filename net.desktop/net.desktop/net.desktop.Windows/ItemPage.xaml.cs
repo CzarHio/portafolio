@@ -21,6 +21,7 @@ using net.desktop.Services;
 using net.desktop.Utilities;
 using System.Threading.Tasks;
 using net.desktop.Entities;
+using System.Collections.ObjectModel;
 
 // The Universal Hub Application project template is documented at http://go.microsoft.com/fwlink/?LinkID=391955
 
@@ -35,6 +36,7 @@ namespace net.desktop
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private CentroService CentroService = new CentroService();
         private ParticipacionService ParticipacionService = new ParticipacionService();
+        private Dictionary<int, CursoEntity> Cursos = new Dictionary<int, CursoEntity>();
 
         public ItemPage()
         {
@@ -173,6 +175,5 @@ namespace net.desktop
         }
 
         #endregion
-
     }
 }

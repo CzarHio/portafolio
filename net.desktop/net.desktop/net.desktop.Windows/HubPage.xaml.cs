@@ -20,6 +20,8 @@ using net.desktop.SessionManagerTools;
 using System.Diagnostics;
 using net.desktop.Services;
 using net.desktop.Entities;
+using Newtonsoft.Json.Linq;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Universal Hub Application project template is documented at http://go.microsoft.com/fwlink/?LinkID=391955
 
@@ -35,6 +37,7 @@ namespace net.desktop
         private SessionManager SessionManager = new SessionManager();
         private AuthenticationService AuthService = new AuthenticationService();
         private CentroService CentroService = new CentroService();
+        private UsuarioService UsuarioService = new UsuarioService();
 
         /// <summary>
         /// Gets the NavigationHelper used to aid in navigation and process lifetime management.
@@ -71,7 +74,13 @@ namespace net.desktop
             Sections.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
             bottomAppBar.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
             Login.Visibility = show ? Visibility.Collapsed : Visibility.Visible;
-            
+
+            if (show)
+            {
+                var centros = await this.Find_Centros();
+                this.DefaultViewModel["Section2Items"] = centros;
+            }
+
         }
 
         private void ClearInput_Click(object sender, RoutedEventArgs e)
@@ -129,6 +138,36 @@ namespace net.desktop
             }
         }
 
+        private async void Profile_Click(object sender, RoutedEventArgs e)
+        {
+            if (Perfil.Visibility == Visibility.Collapsed)
+            {
+                Section2Header.Visibility = Visibility.Collapsed;
+                Perfil.Visibility = Visibility.Visible;
+
+                JObject json = JObject.Parse((this.SessionManager.Get("usuario")));
+                UsuarioEntity usuario = await this.UsuarioService.Find((int)json["Id_Usuario"]);
+
+                this.defaultViewModel["Usuario"] = usuario;
+                /*Image U_Imagen = (Image)FindChildControl<Image>(Sections, "u_imagen");
+                TextBlock U_Nombre = (TextBlock)FindChildControl<TextBlock>(Sections, "u_nombre");
+                TextBlock U_Email = (TextBlock)FindChildControl<TextBlock>(Sections, "u_email");
+                TextBlock U_Perfil = (TextBlock)FindChildControl<TextBlock>(Sections, "u_perfil");
+
+                try
+                {
+                    U_Imagen.Source = new BitmapImage(new Uri(usuario["Foto"]["Nombre_Archivo"].ToString()));
+                }
+                catch (Exception) {}
+
+                U_Nombre.Text = "Nombre: " + usuario["Nombre_Completo"].ToString();
+                U_Email.Text = "Email: " + usuario["Email"].ToString();
+                U_Perfil.Text = "Perfil: " + usuario["Perfil"]["NOmbre_Perfil"].ToString();
+                */
+
+            }
+        }
+
         private void Loading_Show(Boolean loading)
         {
             Button ClearInput = (Button)FindChildControl<Button>(LoginForm, "ClearInput");
@@ -171,17 +210,13 @@ namespace net.desktop
                 //this.ShowSections(false);
                 if (await this.SessionManager.Exist("usuario"))
                 {
-                    var centros = await this.Find_Centros();
-
-                    this.DefaultViewModel["Section2Items"] = centros;
-
-                    ProgressRing LoadingSection = (ProgressRing)FindChildControl<ProgressRing>(Sections, "ProgressCentros");
-                    LoadingSection.Visibility = Visibility.Collapsed;
+                    this.Get_Centros();
                 }
+               
 
-            } catch (Exception)
+            } catch (Exception ex)
             {
-
+                Debug.WriteLine(ex);
             }
         }
 
@@ -264,9 +299,14 @@ namespace net.desktop
             Frame.Navigate(typeof(HubPage));
         }
 
-        private async void Reload_Centros(object sender, RoutedEventArgs e)
+        private void Reload_Centros(object sender, RoutedEventArgs e)
         {
-            
+            this.Get_Centros();
+        }
+
+        private async void Get_Centros()
+        {
+
             ProgressRing LoadingSection = (ProgressRing)FindChildControl<ProgressRing>(Sections, "ProgressCentros");
             HubSection Section2Header = (HubSection)FindChildControl<HubSection>(Sections, "Section2Header");
             Section2Header.Visibility = Visibility.Collapsed;
@@ -275,6 +315,7 @@ namespace net.desktop
 
             this.DefaultViewModel["Section2Items"] = centros;
             Section2Header.Visibility = Visibility.Visible;
+
         }
 
         private async Task<Object> Find_Centros()

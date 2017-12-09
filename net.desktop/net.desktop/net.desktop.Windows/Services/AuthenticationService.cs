@@ -11,6 +11,8 @@ namespace net.desktop.Services
     class AuthenticationService
     {
         private UsuarioWSClient service = new UsuarioWSClient();
+        private FotoService FotoService = new FotoService();
+        private PerfilService PerfilService = new PerfilService();
         private autenticarResponse response;
         private UsuarioEntity usuario;
 
@@ -26,14 +28,13 @@ namespace net.desktop.Services
                 this.usuario = new UsuarioEntity();
                 this.usuario.Id_Usuario = (int)this.response.@return.idUsuario;
                 this.usuario.Nombre = this.response.@return.nombre;
+                this.usuario.Nombre_Completo = this.response.@return.nombre +  " " + this.response.@return.apellidoPat + " " + this.response.@return.apellidoMat;
                 this.usuario.Usuario = this.response.@return.usuario1;
                 this.usuario.Email = this.response.@return.email;
                 this.usuario.Apellido_Pat = this.response.@return.apellidoPat;
                 this.usuario.Apellido_Mat = this.response.@return.apellidoMat;
-                //this.usuario.Clave = this.response.@return.clave;
-                //this.usuario.Perfil_Usuario = this.response.@return.idPerfilUsuario.idPerfilUsuario;
-                //this.usuario.Token = this.response.@return.token;
-                //this.usuario.Creado = this.response.@return.creado;
+                this.usuario.Foto = await this.FotoService.Find("1", (int)this.response.@return.idUsuario);
+                this.usuario.Perfil = await this.PerfilService.Find((int)this.response.@return.idPerfilUsuario);
 
                 return this.usuario;
             }

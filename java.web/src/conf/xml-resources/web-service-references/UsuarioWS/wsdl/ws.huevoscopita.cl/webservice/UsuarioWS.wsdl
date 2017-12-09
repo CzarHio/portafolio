@@ -4,32 +4,14 @@
 <xsd:import namespace="http://ws.cem.pft8461.duoc.cl/" schemaLocation="http://ws.huevoscopita.cl:80/webservice/UsuarioWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="createUsuario">
-<part name="parameters" element="tns:createUsuario"/>
-</message>
-<message name="autenticar">
-<part name="parameters" element="tns:autenticar"/>
-</message>
-<message name="autenticarResponse">
-<part name="parameters" element="tns:autenticarResponse"/>
-</message>
-<message name="editUsuario">
-<part name="parameters" element="tns:editUsuario"/>
-</message>
 <message name="findAllUsuarios">
 <part name="parameters" element="tns:findAllUsuarios"/>
 </message>
 <message name="findAllUsuariosResponse">
 <part name="parameters" element="tns:findAllUsuariosResponse"/>
 </message>
-<message name="findUsuario">
-<part name="parameters" element="tns:findUsuario"/>
-</message>
-<message name="findUsuarioResponse">
-<part name="parameters" element="tns:findUsuarioResponse"/>
-</message>
-<message name="removeUsuario">
-<part name="parameters" element="tns:removeUsuario"/>
+<message name="createUsuario">
+<part name="parameters" element="tns:createUsuario"/>
 </message>
 <message name="findUsuarioPor">
 <part name="parameters" element="tns:findUsuarioPor"/>
@@ -37,68 +19,65 @@
 <message name="findUsuarioPorResponse">
 <part name="parameters" element="tns:findUsuarioPorResponse"/>
 </message>
-<message name="createUsuarioAlumno">
-<part name="parameters" element="tns:createUsuarioAlumno"/>
+<message name="editUsuario">
+<part name="parameters" element="tns:editUsuario"/>
+</message>
+<message name="findUsuario">
+<part name="parameters" element="tns:findUsuario"/>
+</message>
+<message name="findUsuarioResponse">
+<part name="parameters" element="tns:findUsuarioResponse"/>
+</message>
+<message name="autenticar">
+<part name="parameters" element="tns:autenticar"/>
+</message>
+<message name="autenticarResponse">
+<part name="parameters" element="tns:autenticarResponse"/>
+</message>
+<message name="removeUsuario">
+<part name="parameters" element="tns:removeUsuario"/>
 </message>
 <message name="createUsuarioFamilia">
 <part name="parameters" element="tns:createUsuarioFamilia"/>
 </message>
+<message name="createUsuarioAlumno">
+<part name="parameters" element="tns:createUsuarioAlumno"/>
+</message>
 <portType name="UsuarioWS">
-<operation name="createUsuario">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuario" message="tns:createUsuario"/>
-</operation>
-<operation name="autenticar">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarRequest" message="tns:autenticar"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarResponse" message="tns:autenticarResponse"/>
-</operation>
-<operation name="editUsuario">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/editUsuario" message="tns:editUsuario"/>
-</operation>
 <operation name="findAllUsuarios">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosRequest" message="tns:findAllUsuarios"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosResponse" message="tns:findAllUsuariosResponse"/>
 </operation>
-<operation name="findUsuario">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioRequest" message="tns:findUsuario"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioResponse" message="tns:findUsuarioResponse"/>
-</operation>
-<operation name="removeUsuario">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/removeUsuario" message="tns:removeUsuario"/>
+<operation name="createUsuario">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuario" message="tns:createUsuario"/>
 </operation>
 <operation name="findUsuarioPor">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorRequest" message="tns:findUsuarioPor"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorResponse" message="tns:findUsuarioPorResponse"/>
 </operation>
-<operation name="createUsuarioAlumno">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuarioAlumno" message="tns:createUsuarioAlumno"/>
+<operation name="editUsuario">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/editUsuario" message="tns:editUsuario"/>
+</operation>
+<operation name="findUsuario">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioRequest" message="tns:findUsuario"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioResponse" message="tns:findUsuarioResponse"/>
+</operation>
+<operation name="autenticar">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarRequest" message="tns:autenticar"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarResponse" message="tns:autenticarResponse"/>
+</operation>
+<operation name="removeUsuario">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/removeUsuario" message="tns:removeUsuario"/>
 </operation>
 <operation name="createUsuarioFamilia">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuarioFamilia" message="tns:createUsuarioFamilia"/>
 </operation>
+<operation name="createUsuarioAlumno">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuarioAlumno" message="tns:createUsuarioAlumno"/>
+</operation>
 </portType>
 <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="createUsuario">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
-<operation name="autenticar">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="editUsuario">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
 <operation name="findAllUsuarios">
 <soap:operation soapAction=""/>
 <input>
@@ -108,16 +87,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="findUsuario">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="removeUsuario">
+<operation name="createUsuario">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -132,13 +102,43 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="createUsuarioAlumno">
+<operation name="editUsuario">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="findUsuario">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="autenticar">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="removeUsuario">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
 </input>
 </operation>
 <operation name="createUsuarioFamilia">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="createUsuarioAlumno">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

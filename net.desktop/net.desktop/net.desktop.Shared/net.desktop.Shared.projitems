@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entities\NotaEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\PaisEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\ParticipacionEntity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entities\PerfilEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\PostulacionEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\ProgramaEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entities\RegionEntity.cs" />

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="createPerfilUsuario" type="tns:createPerfilUsuario" />
+  <xs:element name="editPerfilUsuario" type="tns:editPerfilUsuario" />
+  <xs:element name="findAllPerfilUsuario" type="tns:findAllPerfilUsuario" />
+  <xs:element name="findAllPerfilUsuarioResponse" type="tns:findAllPerfilUsuarioResponse" />
+  <xs:element name="findPerfilUsuario" type="tns:findPerfilUsuario" />
+  <xs:element name="findPerfilUsuarioPor" type="tns:findPerfilUsuarioPor" />
+  <xs:element name="findPerfilUsuarioPorResponse" type="tns:findPerfilUsuarioPorResponse" />
+  <xs:element name="findPerfilUsuarioResponse" type="tns:findPerfilUsuarioResponse" />
+  <xs:element name="perfilUsuario" type="tns:perfilUsuario" />
+  <xs:element name="removePerfilUsuario" type="tns:removePerfilUsuario" />
+  <xs:complexType name="findPerfilUsuarioPor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campo" type="xs:string" />
+      <xs:element minOccurs="0" name="valor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPerfilUsuarioPorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:perfilUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="perfilUsuario">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idPerfilUsuario" type="xs:decimal" />
+      <xs:element minOccurs="0" name="nombrePerfil" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="editPerfilUsuario">
+    <xs:sequence>
+      <xs:element name="id_perfil_usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_perfil" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createPerfilUsuario">
+    <xs:sequence>
+      <xs:element name="id_perfil_usuario" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_perfil" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPerfilUsuario">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findPerfilUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:perfilUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removePerfilUsuario">
+    <xs:sequence>
+      <xs:element name="entity" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllPerfilUsuario">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findAllPerfilUsuarioResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:perfilUsuario" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
