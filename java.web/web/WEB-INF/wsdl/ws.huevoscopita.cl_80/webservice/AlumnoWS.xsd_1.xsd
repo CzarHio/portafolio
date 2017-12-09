@@ -2,8 +2,6 @@
 
 <xs:element name="alumno" type="tns:alumno"/>
 
-<xs:element name="carrera" type="tns:carrera"/>
-
 <xs:element name="createAlumno" type="tns:createAlumno"/>
 
 <xs:element name="editAlumno" type="tns:editAlumno"/>
@@ -19,6 +17,10 @@
 <xs:element name="findAlumnoPorResponse" type="tns:findAlumnoPorResponse"/>
 
 <xs:element name="findAlumnoResponse" type="tns:findAlumnoResponse"/>
+
+<xs:element name="findFullAllAlumno" type="tns:findFullAllAlumno"/>
+
+<xs:element name="findFullAllAlumnoResponse" type="tns:findFullAllAlumnoResponse"/>
 
 <xs:element name="removeAlumno" type="tns:removeAlumno"/>
 
@@ -37,6 +39,8 @@
 <xs:element name="semestre" type="xs:int"/>
 <xs:element name="id_alumno" type="xs:int"/>
 <xs:element name="ingreso" type="xs:int"/>
+<xs:element name="moroso" type="xs:int"/>
+<xs:element name="vigente" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -55,17 +59,16 @@
 
 <xs:complexType name="alumno">
 <xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
 <xs:element name="idAlumno" type="xs:decimal" minOccurs="0"/>
-<xs:element name="idCarrera" type="tns:carrera" minOccurs="0"/>
+<xs:element name="idCarrera" type="xs:int"/>
+<xs:element name="idUsuario" type="xs:int"/>
 <xs:element name="ingreso" type="xs:integer" minOccurs="0"/>
-<xs:element name="semestre" type="xs:integer" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="carrera">
-<xs:sequence>
-<xs:element name="idCarrera" type="xs:decimal" minOccurs="0"/>
+<xs:element name="moroso" type="xs:int"/>
 <xs:element name="nombreCarrera" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreUsuario" type="xs:string" minOccurs="0"/>
+<xs:element name="semestre" type="xs:integer" minOccurs="0"/>
+<xs:element name="vigente" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -81,9 +84,13 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="removeAlumno">
+<xs:complexType name="findFullAllAlumno">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findFullAllAlumnoResponse">
 <xs:sequence>
-<xs:element name="entity" type="xs:int"/>
+<xs:element name="return" type="tns:alumno" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -93,6 +100,12 @@
 <xs:element name="id_carrera" type="xs:int"/>
 <xs:element name="semestre" type="xs:int"/>
 <xs:element name="ingreso" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeAlumno">
+<xs:sequence>
+<xs:element name="entity" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -108,16 +121,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="findAllAlumno">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="findAllAlumnoResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:alumno" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="findAlumnoPor">
 <xs:sequence>
 <xs:element name="campo" type="xs:string" minOccurs="0"/>
@@ -126,6 +129,16 @@
 </xs:complexType>
 
 <xs:complexType name="findAlumnoPorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:alumno" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAllAlumno">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllAlumnoResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:alumno" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>

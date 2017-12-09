@@ -513,7 +513,7 @@
                                 if (data.data.src !== undefined)
                                     $(this).html('<img src="' + data.data['src'] + '" class="img-responsive img-thumbnail"/>');
                                 else
-                                    $(this).html('<div class="alert alert-warning"><strong>Atención!</strong> EL Centro no registra una imagen.</div>');
+                                    $(this).html('<div class="alert alert-warning"><strong>Atención!</strong> No se ha ingresado una imagen.</div>');
                             } else if ($(this).is('select'))
                                 $(this).select2('val', data.data[$(this).attr('name')]);
                             else

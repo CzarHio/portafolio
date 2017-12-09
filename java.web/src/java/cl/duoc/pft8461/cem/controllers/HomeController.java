@@ -39,7 +39,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 @SessionAttributes
-public class HomeController {
+public class HomeController extends BaseController {
 
     private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
     private final ParticipacionWS participacionWS = new ParticipacionWS_Service().getParticipacionWSPort();
@@ -120,8 +120,10 @@ public class HomeController {
             default:
                 mav.setViewName("home/home");
                 break;
-        };
+        }
 
+        this.reloadFotos();
+        mav.addObject("fotos", this.fotos);
         return mav;
 
     }

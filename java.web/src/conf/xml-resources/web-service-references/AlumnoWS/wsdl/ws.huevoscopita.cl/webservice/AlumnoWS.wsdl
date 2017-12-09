@@ -4,17 +4,20 @@
 <xsd:import namespace="http://ws.cem.pft8461.duoc.cl/" schemaLocation="http://ws.huevoscopita.cl:80/webservice/AlumnoWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="editAlumno">
-<part name="parameters" element="tns:editAlumno"/>
+<message name="findAlumnoPor">
+<part name="parameters" element="tns:findAlumnoPor"/>
+</message>
+<message name="findAlumnoPorResponse">
+<part name="parameters" element="tns:findAlumnoPorResponse"/>
+</message>
+<message name="createAlumno">
+<part name="parameters" element="tns:createAlumno"/>
 </message>
 <message name="removeAlumno">
 <part name="parameters" element="tns:removeAlumno"/>
 </message>
-<message name="findAlumno">
-<part name="parameters" element="tns:findAlumno"/>
-</message>
-<message name="findAlumnoResponse">
-<part name="parameters" element="tns:findAlumnoResponse"/>
+<message name="editAlumno">
+<part name="parameters" element="tns:editAlumno"/>
 </message>
 <message name="findAllAlumno">
 <part name="parameters" element="tns:findAllAlumno"/>
@@ -22,14 +25,11 @@
 <message name="findAllAlumnoResponse">
 <part name="parameters" element="tns:findAllAlumnoResponse"/>
 </message>
-<message name="createAlumno">
-<part name="parameters" element="tns:createAlumno"/>
+<message name="findAlumno">
+<part name="parameters" element="tns:findAlumno"/>
 </message>
-<message name="findAlumnoPor">
-<part name="parameters" element="tns:findAlumnoPor"/>
-</message>
-<message name="findAlumnoPorResponse">
-<part name="parameters" element="tns:findAlumnoPorResponse"/>
+<message name="findAlumnoResponse">
+<part name="parameters" element="tns:findAlumnoResponse"/>
 </message>
 <message name="seleccionarAlumnoFull">
 <part name="parameters" element="tns:seleccionarAlumnoFull"/>
@@ -43,27 +43,33 @@
 <message name="seleccionarAlumnoFullPorResponse">
 <part name="parameters" element="tns:seleccionarAlumnoFullPorResponse"/>
 </message>
+<message name="findFullAllAlumno">
+<part name="parameters" element="tns:findFullAllAlumno"/>
+</message>
+<message name="findFullAllAlumnoResponse">
+<part name="parameters" element="tns:findFullAllAlumnoResponse"/>
+</message>
 <portType name="AlumnoWS">
-<operation name="editAlumno">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/editAlumno" message="tns:editAlumno"/>
+<operation name="findAlumnoPor">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAlumnoPorRequest" message="tns:findAlumnoPor"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAlumnoPorResponse" message="tns:findAlumnoPorResponse"/>
+</operation>
+<operation name="createAlumno">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/createAlumno" message="tns:createAlumno"/>
 </operation>
 <operation name="removeAlumno">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/removeAlumno" message="tns:removeAlumno"/>
 </operation>
-<operation name="findAlumno">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAlumnoRequest" message="tns:findAlumno"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAlumnoResponse" message="tns:findAlumnoResponse"/>
+<operation name="editAlumno">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/editAlumno" message="tns:editAlumno"/>
 </operation>
 <operation name="findAllAlumno">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAllAlumnoRequest" message="tns:findAllAlumno"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAllAlumnoResponse" message="tns:findAllAlumnoResponse"/>
 </operation>
-<operation name="createAlumno">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/createAlumno" message="tns:createAlumno"/>
-</operation>
-<operation name="findAlumnoPor">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAlumnoPorRequest" message="tns:findAlumnoPor"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAlumnoPorResponse" message="tns:findAlumnoPorResponse"/>
+<operation name="findAlumno">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAlumnoRequest" message="tns:findAlumno"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findAlumnoResponse" message="tns:findAlumnoResponse"/>
 </operation>
 <operation name="seleccionarAlumnoFull">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/seleccionarAlumnoFullRequest" message="tns:seleccionarAlumnoFull"/>
@@ -73,31 +79,14 @@
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/seleccionarAlumnoFullPorRequest" message="tns:seleccionarAlumnoFullPor"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/seleccionarAlumnoFullPorResponse" message="tns:seleccionarAlumnoFullPorResponse"/>
 </operation>
+<operation name="findFullAllAlumno">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findFullAllAlumnoRequest" message="tns:findFullAllAlumno"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/AlumnoWS/findFullAllAlumnoResponse" message="tns:findFullAllAlumnoResponse"/>
+</operation>
 </portType>
 <binding name="AlumnoWSPortBinding" type="tns:AlumnoWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="editAlumno">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
-<operation name="removeAlumno">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
-<operation name="findAlumno">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="findAllAlumno">
+<operation name="findAlumnoPor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -112,7 +101,28 @@
 <soap:body use="literal"/>
 </input>
 </operation>
-<operation name="findAlumnoPor">
+<operation name="removeAlumno">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="editAlumno">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="findAllAlumno">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="findAlumno">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -131,6 +141,15 @@
 </output>
 </operation>
 <operation name="seleccionarAlumnoFullPor">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="findFullAllAlumno">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

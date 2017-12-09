@@ -182,7 +182,7 @@ public class CentroController extends BaseController {
                     if (!this.fotos.containsKey(id.concat(tipo))) {
                         this.fotoWS.createFoto(tipo, usrSession.getIdUsuario().intValue(), web_path, 1, Integer.parseInt(id), "Foto Centro", "");
                     } else {
-                        this.fotoWS.editFoto(tipo, this.fotos.get(id.concat(tipo)).getIdFoto().intValue(), usrSession.getIdUsuario().intValue(), web_path, 1, Integer.parseInt(id), "Foto Perfil", "");
+                        this.fotoWS.editFoto(tipo, this.fotos.get(id.concat(tipo)).getIdFoto().intValue(), usrSession.getIdUsuario().intValue(), web_path, 1, Integer.parseInt(id), "Foto Centro", "");
                     }
                 } else
                     mav.addObject("error", "Ocurrió un error al intentar subir el archivo. Intente nuevamente.");

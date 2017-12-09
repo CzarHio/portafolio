@@ -97,9 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dialog -->
         </div>
         
         <div class="modal fade" id="image" style="display: none;">

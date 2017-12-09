@@ -6,13 +6,14 @@
 package cl.duoc.pft8461.cem.controllers;
 
 
-import cl.duoc.pft8461.cem.entidades.ParticipacionEntity;
 import cl.duoc.pft8461.cem.entidades.ProgramaEntity;
+import cl.duoc.pft8461.cem.entidades.UsuarioEntity;
 import cl.duoc.pft8461.cem.ws.EstadoPrograma;
 import cl.duoc.pft8461.cem.ws.EstadoProgramaWS;
 import cl.duoc.pft8461.cem.ws.EstadoProgramaWS_Service;
 import cl.duoc.pft8461.cem.ws.Familia;
 import cl.duoc.pft8461.cem.ws.FamiliaWS_Service;
+import cl.duoc.pft8461.cem.ws.Foto;
 import cl.duoc.pft8461.cem.ws.Pais;
 import cl.duoc.pft8461.cem.ws.PaisWS;
 import cl.duoc.pft8461.cem.ws.PaisWS_Service;
@@ -33,6 +34,8 @@ import cl.duoc.pft8461.cem.ws.ProgramaWS_Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**
@@ -213,5 +216,58 @@ public class ProgramaController extends BaseController {
         
         return mav;
 
+    }
+
+    @RequestMapping(value = {"programa/findImagen.htm"}, method = RequestMethod.POST)
+    public ModelAndView findImagen(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+        String json = "{\"data\": {";
+        
+        String id = request.getParameter("id");
+        String tipo = this.pm.get("TIPO_PROGRAMA");
+        
+        if (this.fotos.containsKey(id.concat(tipo))) {
+            Foto foto = this.fotos.get(id.concat(tipo));
+            json += "\"src\": \"" + foto.getNombreArchivo() + "\"";
+        }
+        
+        json += "}}";
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
+        
+        return mav;
+    }
+    
+    @RequestMapping(value = {"programa/imagen.htm"},headers = "Content-Type=multipart/form-data", method = RequestMethod.POST)
+    public void imagen(@RequestParam("file") MultipartFile file, HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+        UsuarioEntity usrSession = (UsuarioEntity) request.getSession().getAttribute("usuario");
+        try {
+            if (!file.isEmpty()) {
+                String tipo = this.pm.get("TIPO_PROGRAMA");
+                String id = request.getParameter("id");
+                String fileName = "programa_" + id + "." + file.getContentType().split("/")[1];
+                String path = request.getSession().getServletContext().getRealPath("/resources/") + this.pm.get("FILES_PATH") + fileName;
+                String web_path = this.pm.get("WEB_PATH") + fileName;
+                
+                if (this.saveFile(file.getBytes(), path)) {
+                    if (!this.fotos.containsKey(id.concat(tipo))) {
+                        this.fotoWS.createFoto(tipo, usrSession.getIdUsuario().intValue(), web_path, 1, Integer.parseInt(id), "Foto Programa", "");
+                    } else {
+                        this.fotoWS.editFoto(tipo, this.fotos.get(id.concat(tipo)).getIdFoto().intValue(), usrSession.getIdUsuario().intValue(), web_path, 1, Integer.parseInt(id), "Foto Programa", "");
+                    }
+                } else
+                    mav.addObject("error", "Ocurrió un error al intentar subir el archivo. Intente nuevamente.");
+            }
+        } catch (Exception e) {
+            mav.addObject("error", "Ocurrió un error al intentar subir el archivo. Intente nuevamente.");
+            System.out.println(e);
+        }
+        
+        this.reloadFotos();
+        response.sendRedirect("/java.web/programa/lista.htm");
+        
     }
 }

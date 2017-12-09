@@ -29,7 +29,7 @@
         </dl>
 
         <div class="modal-footer">
-            <button id="btnPostular" type="button" class="btn btn-default" data-id-centro="${participacion.getIdCentro()}">Postular</button>   
+            <button id="btnPostular" type="button" class="btn btn-success" data-id-centro="${participacion.getIdCentro()}">Postular</button>   
         </div>
     </div>
 </div>

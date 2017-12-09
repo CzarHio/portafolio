@@ -55,7 +55,7 @@
                     <div class="box box-widget widget-user">
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <a class="btnVerPrograma" data-url="programa/ver.htm" data-toggle="tooltip" data-id-participacion="${participacion.getIdParticipacion()}" href="#">
-                            <div class="widget-user-header bg-aqua-active">
+                            <div class="widget-user-header bg-aqua-active" style="background: url('${fotos.containsKey(participacion.getIdPrograma()+="3")?fotos.get(participacion.getIdPrograma()+="3").getNombreArchivo():''}') center center;">
                                 <h3 class="widget-user-username">${participacion.getNombrePrograma()}</h3>
                                 <h5 class="widget-user-desc">${participacion.getNombreCentro()}</h5>
                             </div>

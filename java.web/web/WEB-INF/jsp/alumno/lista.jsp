@@ -8,22 +8,41 @@
             <div class="col-xs-12 col-lg-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <div class="form-group col-md-5">
-                            <label for="alumno" class="col-sm-2 control-label">Alumnos</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" id="idRegion" name="alumno" style="width: 100%" required="required">
-                                    <c:forEach items="${alumnos}" var="alumno">
-                                        <option value="${alumno.getIdAlumno()}">${alumno.getIdAlumno()}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-success pull-right" data-toggle="tooltip" data-original-title="Nuevo Registro" id="newItem">
-                            <i class="fa-plus fa"></i> Nueva Ciudad
-                        </button>
+                        <c:if test="${!sessionScope.perfil.equals('4')}">
+                            <form action="" method="GET">
+                                <div class="form-group col-md-5">
+                                    <label for="alumno" class="col-sm-2 control-label">Alumno</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" id="idRegion" name="alumno" style="width: 100%" required="required">
+                                            <c:forEach items="${alumnos}" var="alumno">
+                                                <option value="${alumno.getIdAlumno()}">${alumno.getNombreUsuario()}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success pull-right" data-toggle="tooltip" data-original-title="Filtrar">
+                                    Filtrar
+                                </button>
+                            </form>
+                        </c:if>
                     </div>
                     <div class="box-body">
-                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover" id="mantenedor">
+                                <thead>
+                                    <tr>
+                                        <th>Nonbre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach items="${cursos}" var="curso">
+                                        <tr>
+                                            <td>${curso.getNombreCurso()}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

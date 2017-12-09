@@ -47,7 +47,7 @@ public class BaseController {
     protected void reloadFotos() {
         this.listaFotos = this.fotoWS.findAllFoto();
         for (Foto foto : this.listaFotos) {
-            this.fotos.put(foto.getIdInstancia().toString() + foto.getTipo().toString(), foto);
+            this.fotos.put(foto.getIdInstancia().toString().concat(foto.getTipo().toString()), foto);
         }
     }
     

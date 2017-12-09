@@ -22,6 +22,6 @@
     <input type="hidden" name="idFamilia" id="idFamilia" value="${familia.getIdFamilia()}">
     <input type="hidden" name="idParticipacion" id="idParticipacion" value="${participacion.getIdParticipacion()}">
     <div class="modal-footer">
-        <button id="btnConfirmarPostulacion" type="submit" class="btn btn-default">Confirmar</button>   
+        <button id="btnConfirmarPostulacion" type="submit" class="btn btn-success">Confirmar</button>   
     </div>
 </form>
