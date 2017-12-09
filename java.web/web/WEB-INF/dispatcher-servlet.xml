@@ -98,6 +98,8 @@
                 <prop key="menu/guardar.htm">menu</prop>
                 <!-- Postulacion Routes  -->
                 <prop key="postulacion/guardar.htm">postulacion</prop>
+                <!-- Alumno Routes  -->
+                <prop key="alumno/calificaciones.htm">alumno</prop>
                 <!-- MeniItem Routes  -->
                 <prop key="menuItem/editar.htm">menuItem</prop>
                 <prop key="menuItem/borrar.htm">menuItem</prop>
@@ -129,6 +131,7 @@
     <bean name="menu" class="cl.duoc.pft8461.cem.controllers.MenuController"/>
     <bean name="menuItem" class="cl.duoc.pft8461.cem.controllers.MenuItemController"/>
     <bean name="postulacion" class="cl.duoc.pft8461.cem.controllers.PostulacionController"/>
+    <bean name="alumno" class="cl.duoc.pft8461.cem.controllers.AlumnoController"/>
     <!--
     The index controller.
     -->

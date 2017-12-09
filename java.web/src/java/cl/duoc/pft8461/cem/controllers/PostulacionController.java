@@ -8,13 +8,9 @@ package cl.duoc.pft8461.cem.controllers;
 import cl.duoc.pft8461.cem.ws.EstadoPostulacion;
 import cl.duoc.pft8461.cem.ws.EstadoPostulacionWS;
 import cl.duoc.pft8461.cem.ws.EstadoPostulacionWS_Service;
-import cl.duoc.pft8461.cem.ws.Familia;
-import cl.duoc.pft8461.cem.ws.FamiliaWS_Service;
 import cl.duoc.pft8461.cem.ws.Pais;
 import cl.duoc.pft8461.cem.ws.PaisWS;
 import cl.duoc.pft8461.cem.ws.PaisWS_Service;
-import cl.duoc.pft8461.cem.ws.Postulacion;
-import cl.duoc.pft8461.cem.ws.PostulacionWS_Service;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -86,9 +82,7 @@ public class PostulacionController extends BaseController {
     @RequestMapping(value = {"postulacion/guardar.htm"}, method = RequestMethod.POST)
     public void guardar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ModelAndView mav = new ModelAndView();
         HttpSession session = request.getSession();
-        System.out.println("llego");
         postulacionWS.createPostulacion(
                 ((BigDecimal) session.getAttribute("id_alumno")).intValueExact(),
                 Integer.parseInt(request.getParameter("idFamilia")),
@@ -96,8 +90,7 @@ public class PostulacionController extends BaseController {
                 Integer.parseInt(request.getParameter("idParticipacion"))
         );
 
-        response.setHeader("Refresh", "0; URL=" + request.getContextPath());
-       // return mav;
+        response.sendRedirect("/java.web/home.htm");
 
     }
 

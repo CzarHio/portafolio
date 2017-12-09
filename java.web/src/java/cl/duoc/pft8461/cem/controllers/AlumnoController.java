@@ -40,14 +40,14 @@ public class AlumnoController extends BaseController {
      * @throws ServletException
      * @throws IOException
      */
-    @RequestMapping(value = {"alumno/lista.htm"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"alumno/calificaciones.htm"}, method = RequestMethod.GET)
     public ModelAndView lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
         
         List<Alumno> alumnos = this.alumnoWS.findAllAlumno();
         
-        mav.addObject("listado", alumnos);
+        mav.addObject("alumnos", alumnos);
         mav.addObject("tituloPagina", "Alumno");
         mav.addObject("subtituloPagina", "Calificaciones:");
         mav.setViewName("alumno/lista");

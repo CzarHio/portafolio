@@ -147,8 +147,8 @@ public class FamiliaController extends BaseController {
     public ModelAndView selfam(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        List<Familia> listadoFamilia = new FamiliaWS_Service().getFamiliaWSPort().findFamiliaPor("id_centro", request.getParameter("id"));
-        System.out.println(request.getParameter("id"));
+        List<Familia> listadoFamilia = new FamiliaWS_Service().getFamiliaWSPort().findFamiliaPor("id_centro", request.getParameter("idCentro"));
+
         mav.addObject("ListadoFamilia", listadoFamilia);
         mav.setViewName("familia/setfam");
         
