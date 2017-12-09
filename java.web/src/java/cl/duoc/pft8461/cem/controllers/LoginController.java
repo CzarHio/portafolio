@@ -8,12 +8,16 @@ package cl.duoc.pft8461.cem.controllers;
 import cl.duoc.pft8461.cem.entidades.UsuarioEntity;
 import cl.duoc.pft8461.cem.utilities.HashPwd;
 import cl.duoc.pft8461.cem.utilities.Mail;
+import cl.duoc.pft8461.cem.ws.Alumno;
+import cl.duoc.pft8461.cem.ws.AlumnoWS_Service;
 import cl.duoc.pft8461.cem.ws.Carrera;
 import cl.duoc.pft8461.cem.ws.CarreraWS;
 import cl.duoc.pft8461.cem.ws.CarreraWS_Service;
 import cl.duoc.pft8461.cem.ws.Centro;
 import cl.duoc.pft8461.cem.ws.CentroWS;
 import cl.duoc.pft8461.cem.ws.CentroWS_Service;
+import cl.duoc.pft8461.cem.ws.Familia;
+import cl.duoc.pft8461.cem.ws.FamiliaWS_Service;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -91,6 +95,21 @@ public class LoginController {
                 session.setAttribute("userSession", usr.getNombre() + " " + usr.getApellidoPat() + " " + usr.getApellidoMat());
                 session.setAttribute("perfil", usr.getIdPerfilUsuario());
                 //session.setAttribute("since", usr.getCreado().toString());
+                session.setAttribute("id_usuario", usr.getIdUsuario());
+                switch (usr.getIdPerfilUsuario()) {
+                    case 3:
+                        List<Centro> listCentro = new CentroWS_Service().getCentroWSPort().findCentroPor("id_usuario", usr.getIdUsuario().toString());
+                        session.setAttribute("id_centro", listCentro.get(0).getIdCentro());
+                        break;
+                    case 4:
+                        List<Alumno> listAlumno = new AlumnoWS_Service().getAlumnoWSPort().findAlumnoPor("id_usuario", usr.getIdUsuario().toString());
+                        session.setAttribute("id_alumno", listAlumno.get(0).getIdAlumno());
+                        break;
+                    case 5:
+                        List<Familia> listFamilia = new FamiliaWS_Service().getFamiliaWSPort().findFamiliaPor("id_usuario", usr.getIdUsuario().toString());
+                        session.setAttribute("id_familia", listFamilia.get(0).getIdFamilia());
+                        break;
+                }
                 response.sendRedirect("./home.htm");
                 return null;
             }
