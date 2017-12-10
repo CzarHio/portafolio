@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-12-08T23:52:50.844</Modified>
+      <Modified>2017-12-10T03:01:37.792</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\net.desktop.Windows.exe">
       <PackagePath>net.desktop.Windows.exe</PackagePath>
-      <Modified>2017-12-09T01:52:33.651</Modified>
+      <Modified>2017-12-10T03:01:37.623</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -117,23 +117,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2017-12-08T23:20:17.841</Modified>
+      <Modified>2017-12-10T02:57:34.926</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\HubPage.xbf">
       <PackagePath>HubPage.xbf</PackagePath>
-      <Modified>2017-12-09T01:50:36.936</Modified>
+      <Modified>2017-12-10T02:57:34.927</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\SectionPage.xbf">
       <PackagePath>SectionPage.xbf</PackagePath>
-      <Modified>2017-12-08T23:20:17.841</Modified>
+      <Modified>2017-12-10T02:57:34.927</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\ItemPage.xbf">
       <PackagePath>ItemPage.xbf</PackagePath>
-      <Modified>2017-12-08T23:52:49.958</Modified>
+      <Modified>2017-12-10T02:57:34.927</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2017-12-08T23:52:50.497</Modified>
+      <Modified>2017-12-10T03:01:37.717</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

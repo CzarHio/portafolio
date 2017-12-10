@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://ws.cem.pft8461.duoc.cl/" targetNamespace="http://ws.cem.pft8461.duoc.cl/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="cambiarEstadoPostulacion" type="tns:cambiarEstadoPostulacion" />
+  <xs:element name="cambiarEstadoPostulacionResponse" type="tns:cambiarEstadoPostulacionResponse" />
   <xs:element name="createPostulacion" type="tns:createPostulacion" />
   <xs:element name="editPostulacion" type="tns:editPostulacion" />
   <xs:element name="findAllPostulacion" type="tns:findAllPostulacion" />
@@ -31,6 +33,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="estado" type="xs:string" />
       <xs:element minOccurs="0" name="fechaCreacion" type="xs:dateTime" />
+      <xs:element name="idAlumno" type="xs:int" />
       <xs:element name="idCentro" type="xs:int" />
       <xs:element name="idEstado" type="xs:int" />
       <xs:element name="idFamilia" type="xs:int" />
@@ -49,9 +52,18 @@
       <xs:element name="entity" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="cambiarEstadoPostulacion">
+    <xs:sequence>
+      <xs:element name="id_postulacion" type="xs:int" />
+      <xs:element name="id_estado" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cambiarEstadoPostulacionResponse">
+    <xs:sequence />
+  </xs:complexType>
   <xs:complexType name="createPostulacion">
     <xs:sequence>
-      <xs:element name="id_usuario" type="xs:int" />
+      <xs:element name="id_alumno" type="xs:int" />
       <xs:element name="id_familia" type="xs:int" />
       <xs:element name="id_estado" type="xs:int" />
       <xs:element name="id_participacion" type="xs:int" />
@@ -60,7 +72,7 @@
   <xs:complexType name="editPostulacion">
     <xs:sequence>
       <xs:element name="id_postulacion" type="xs:int" />
-      <xs:element name="id_usuario" type="xs:int" />
+      <xs:element name="id_alumno" type="xs:int" />
       <xs:element name="id_familia" type="xs:int" />
       <xs:element name="id_estado" type="xs:int" />
       <xs:element name="id_participacion" type="xs:int" />

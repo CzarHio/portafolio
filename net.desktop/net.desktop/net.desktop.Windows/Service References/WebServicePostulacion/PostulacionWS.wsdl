@@ -5,17 +5,8 @@
       <xsd:import schemaLocation="http://ws.huevoscopita.cl:80/webservice/PostulacionWS?xsd=1" namespace="http://ws.cem.pft8461.duoc.cl/" />
     </xsd:schema>
   </types>
-  <message name="editPostulacion">
-    <part name="parameters" element="tns:editPostulacion" />
-  </message>
-  <message name="findPostulacion">
-    <part name="parameters" element="tns:findPostulacion" />
-  </message>
-  <message name="findPostulacionResponse">
-    <part name="parameters" element="tns:findPostulacionResponse" />
-  </message>
-  <message name="createPostulacion">
-    <part name="parameters" element="tns:createPostulacion" />
+  <message name="removePostulacion">
+    <part name="parameters" element="tns:removePostulacion" />
   </message>
   <message name="findFullAllPostulacion">
     <part name="parameters" element="tns:findFullAllPostulacion" />
@@ -23,11 +14,26 @@
   <message name="findFullAllPostulacionResponse">
     <part name="parameters" element="tns:findFullAllPostulacionResponse" />
   </message>
+  <message name="cambiarEstadoPostulacion">
+    <part name="parameters" element="tns:cambiarEstadoPostulacion" />
+  </message>
+  <message name="cambiarEstadoPostulacionResponse">
+    <part name="parameters" element="tns:cambiarEstadoPostulacionResponse" />
+  </message>
+  <message name="findFullPostulacion">
+    <part name="parameters" element="tns:findFullPostulacion" />
+  </message>
+  <message name="findFullPostulacionResponse">
+    <part name="parameters" element="tns:findFullPostulacionResponse" />
+  </message>
   <message name="findPostulacionFullPor">
     <part name="parameters" element="tns:findPostulacionFullPor" />
   </message>
   <message name="findPostulacionFullPorResponse">
     <part name="parameters" element="tns:findPostulacionFullPorResponse" />
+  </message>
+  <message name="createPostulacion">
+    <part name="parameters" element="tns:createPostulacion" />
   </message>
   <message name="findPostulacionPor">
     <part name="parameters" element="tns:findPostulacionPor" />
@@ -41,33 +47,37 @@
   <message name="findAllPostulacionResponse">
     <part name="parameters" element="tns:findAllPostulacionResponse" />
   </message>
-  <message name="removePostulacion">
-    <part name="parameters" element="tns:removePostulacion" />
+  <message name="findPostulacion">
+    <part name="parameters" element="tns:findPostulacion" />
   </message>
-  <message name="findFullPostulacion">
-    <part name="parameters" element="tns:findFullPostulacion" />
+  <message name="findPostulacionResponse">
+    <part name="parameters" element="tns:findPostulacionResponse" />
   </message>
-  <message name="findFullPostulacionResponse">
-    <part name="parameters" element="tns:findFullPostulacionResponse" />
+  <message name="editPostulacion">
+    <part name="parameters" element="tns:editPostulacion" />
   </message>
   <portType name="PostulacionWS">
-    <operation name="editPostulacion">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/editPostulacion" message="tns:editPostulacion" />
-    </operation>
-    <operation name="findPostulacion">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionRequest" message="tns:findPostulacion" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionResponse" message="tns:findPostulacionResponse" />
-    </operation>
-    <operation name="createPostulacion">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/createPostulacion" message="tns:createPostulacion" />
+    <operation name="removePostulacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/removePostulacion" message="tns:removePostulacion" />
     </operation>
     <operation name="findFullAllPostulacion">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullAllPostulacionRequest" message="tns:findFullAllPostulacion" />
       <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullAllPostulacionResponse" message="tns:findFullAllPostulacionResponse" />
     </operation>
+    <operation name="cambiarEstadoPostulacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/cambiarEstadoPostulacionRequest" message="tns:cambiarEstadoPostulacion" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/cambiarEstadoPostulacionResponse" message="tns:cambiarEstadoPostulacionResponse" />
+    </operation>
+    <operation name="findFullPostulacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullPostulacionRequest" message="tns:findFullPostulacion" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullPostulacionResponse" message="tns:findFullPostulacionResponse" />
+    </operation>
     <operation name="findPostulacionFullPor">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionFullPorRequest" message="tns:findPostulacionFullPor" />
       <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionFullPorResponse" message="tns:findPostulacionFullPorResponse" />
+    </operation>
+    <operation name="createPostulacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/createPostulacion" message="tns:createPostulacion" />
     </operation>
     <operation name="findPostulacionPor">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionPorRequest" message="tns:findPostulacionPor" />
@@ -77,23 +87,23 @@
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findAllPostulacionRequest" message="tns:findAllPostulacion" />
       <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findAllPostulacionResponse" message="tns:findAllPostulacionResponse" />
     </operation>
-    <operation name="removePostulacion">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/removePostulacion" message="tns:removePostulacion" />
+    <operation name="findPostulacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionRequest" message="tns:findPostulacion" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionResponse" message="tns:findPostulacionResponse" />
     </operation>
-    <operation name="findFullPostulacion">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullPostulacionRequest" message="tns:findFullPostulacion" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullPostulacionResponse" message="tns:findFullPostulacionResponse" />
+    <operation name="editPostulacion">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/editPostulacion" message="tns:editPostulacion" />
     </operation>
   </portType>
   <binding name="PostulacionWSPortBinding" type="tns:PostulacionWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="editPostulacion">
+    <operation name="removePostulacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
       </input>
     </operation>
-    <operation name="findPostulacion">
+    <operation name="findFullAllPostulacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -102,13 +112,16 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="createPostulacion">
+    <operation name="cambiarEstadoPostulacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
       </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
     </operation>
-    <operation name="findFullAllPostulacion">
+    <operation name="findFullPostulacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -125,6 +138,12 @@
       <output>
         <soap:body use="literal" />
       </output>
+    </operation>
+    <operation name="createPostulacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
     </operation>
     <operation name="findPostulacionPor">
       <soap:operation soapAction="" />
@@ -144,13 +163,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="removePostulacion">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-    </operation>
-    <operation name="findFullPostulacion">
+    <operation name="findPostulacion">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -158,6 +171,12 @@
       <output>
         <soap:body use="literal" />
       </output>
+    </operation>
+    <operation name="editPostulacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
     </operation>
   </binding>
   <service name="PostulacionWS">

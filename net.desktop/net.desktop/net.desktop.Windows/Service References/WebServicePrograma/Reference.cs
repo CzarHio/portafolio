@@ -18,13 +18,17 @@ namespace net.desktop.WebServicePrograma {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", ConfigurationName="WebServicePrograma.ProgramaWS")]
     public interface ProgramaWS {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/editPrograma")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findFullProgramaPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findFullProgramaPorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task editProgramaAsync(net.desktop.WebServicePrograma.editPrograma request);
+        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findFullProgramaPorResponse> findFullProgramaPorAsync(net.desktop.WebServicePrograma.findFullProgramaPorRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/removePrograma")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findFullAllProgramaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findFullAllProgramaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task removeProgramaAsync(net.desktop.WebServicePrograma.removePrograma request);
+        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findFullAllProgramaResponse> findFullAllProgramaAsync(net.desktop.WebServicePrograma.findFullAllProgramaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaPorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findProgramaPorResponse> findProgramaPorAsync(net.desktop.WebServicePrograma.findProgramaPorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -34,64 +38,21 @@ namespace net.desktop.WebServicePrograma {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findAllProgramaResponse> findAllProgramaAsync(net.desktop.WebServicePrograma.findAllProgramaRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/editPrograma")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task editProgramaAsync(net.desktop.WebServicePrograma.editPrograma request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findFullProgramaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findFullProgramaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findFullProgramaResponse> findFullProgramaAsync(net.desktop.WebServicePrograma.findFullProgramaRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/createPrograma")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task createProgramaAsync(net.desktop.WebServicePrograma.createPrograma request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/ProgramaWS/findProgramaPorResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/ProgramaWS/removePrograma")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findProgramaPorResponse> findProgramaPorAsync(net.desktop.WebServicePrograma.findProgramaPorRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="editPrograma", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class editPrograma {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_programa;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_estado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre_programa;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string id_pais;
-        
-        public editPrograma() {
-        }
-        
-        public editPrograma(int id_programa, int id_estado, string nombre_programa, string id_pais) {
-            this.id_programa = id_programa;
-            this.id_estado = id_estado;
-            this.nombre_programa = nombre_programa;
-            this.id_pais = id_pais;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="removePrograma", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class removePrograma {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int entity;
-        
-        public removePrograma() {
-        }
-        
-        public removePrograma(int entity) {
-            this.entity = entity;
-        }
+        System.Threading.Tasks.Task removeProgramaAsync(net.desktop.WebServicePrograma.removePrograma request);
     }
     
     /// <remarks/>
@@ -99,6 +60,8 @@ namespace net.desktop.WebServicePrograma {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/")]
     public partial class programa : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private string estadoField;
         
         private System.DateTime fechaCreacionField;
         
@@ -112,10 +75,32 @@ namespace net.desktop.WebServicePrograma {
         
         private bool idProgramaFieldSpecified;
         
+        private int idTipoProgramaField;
+        
+        private int maxcuposField;
+        
+        private int mincuposField;
+        
+        private string nombrePaisField;
+        
         private string nombreProgramaField;
+        
+        private string tipoProgramaField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string estado {
+            get {
+                return this.estadoField;
+            }
+            set {
+                this.estadoField = value;
+                this.RaisePropertyChanged("estado");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
         public System.DateTime fechaCreacion {
             get {
                 return this.fechaCreacionField;
@@ -139,7 +124,7 @@ namespace net.desktop.WebServicePrograma {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public int idEstado {
             get {
                 return this.idEstadoField;
@@ -151,7 +136,7 @@ namespace net.desktop.WebServicePrograma {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public int idPais {
             get {
                 return this.idPaisField;
@@ -163,7 +148,7 @@ namespace net.desktop.WebServicePrograma {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public decimal idPrograma {
             get {
                 return this.idProgramaField;
@@ -187,7 +172,55 @@ namespace net.desktop.WebServicePrograma {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public int idTipoPrograma {
+            get {
+                return this.idTipoProgramaField;
+            }
+            set {
+                this.idTipoProgramaField = value;
+                this.RaisePropertyChanged("idTipoPrograma");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public int maxcupos {
+            get {
+                return this.maxcuposField;
+            }
+            set {
+                this.maxcuposField = value;
+                this.RaisePropertyChanged("maxcupos");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public int mincupos {
+            get {
+                return this.mincuposField;
+            }
+            set {
+                this.mincuposField = value;
+                this.RaisePropertyChanged("mincupos");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string nombrePais {
+            get {
+                return this.nombrePaisField;
+            }
+            set {
+                this.nombrePaisField = value;
+                this.RaisePropertyChanged("nombrePais");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public string nombrePrograma {
             get {
                 return this.nombreProgramaField;
@@ -198,6 +231,18 @@ namespace net.desktop.WebServicePrograma {
             }
         }
         
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string tipoPrograma {
+            get {
+                return this.tipoProgramaField;
+            }
+            set {
+                this.tipoProgramaField = value;
+                this.RaisePropertyChanged("tipoPrograma");
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -205,6 +250,116 @@ namespace net.desktop.WebServicePrograma {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullProgramaPor", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullProgramaPorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string campo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string valor;
+        
+        public findFullProgramaPorRequest() {
+        }
+        
+        public findFullProgramaPorRequest(string campo, string valor) {
+            this.campo = campo;
+            this.valor = valor;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullProgramaPorResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullProgramaPorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServicePrograma.programa[] @return;
+        
+        public findFullProgramaPorResponse() {
+        }
+        
+        public findFullProgramaPorResponse(net.desktop.WebServicePrograma.programa[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullAllPrograma", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullAllProgramaRequest {
+        
+        public findFullAllProgramaRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullAllProgramaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullAllProgramaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServicePrograma.programa[] @return;
+        
+        public findFullAllProgramaResponse() {
+        }
+        
+        public findFullAllProgramaResponse(net.desktop.WebServicePrograma.programa[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findProgramaPor", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findProgramaPorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string campo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string valor;
+        
+        public findProgramaPorRequest() {
+        }
+        
+        public findProgramaPorRequest(string campo, string valor) {
+            this.campo = campo;
+            this.valor = valor;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findProgramaPorResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findProgramaPorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServicePrograma.programa[] @return;
+        
+        public findProgramaPorResponse() {
+        }
+        
+        public findProgramaPorResponse(net.desktop.WebServicePrograma.programa[] @return) {
+            this.@return = @return;
         }
     }
     
@@ -275,6 +430,90 @@ namespace net.desktop.WebServicePrograma {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="editPrograma", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class editPrograma {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_programa;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_estado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre_programa;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_pais;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_tipo_programa;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int maxcupos;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int mincupos;
+        
+        public editPrograma() {
+        }
+        
+        public editPrograma(int id_programa, int id_estado, string nombre_programa, int id_pais, int id_tipo_programa, int maxcupos, int mincupos) {
+            this.id_programa = id_programa;
+            this.id_estado = id_estado;
+            this.nombre_programa = nombre_programa;
+            this.id_pais = id_pais;
+            this.id_tipo_programa = id_tipo_programa;
+            this.maxcupos = maxcupos;
+            this.mincupos = mincupos;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullPrograma", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullProgramaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public findFullProgramaRequest() {
+        }
+        
+        public findFullProgramaRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullProgramaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullProgramaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServicePrograma.programa @return;
+        
+        public findFullProgramaResponse() {
+        }
+        
+        public findFullProgramaResponse(net.desktop.WebServicePrograma.programa @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="createPrograma", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
     public partial class createPrograma {
         
@@ -288,56 +527,48 @@ namespace net.desktop.WebServicePrograma {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string id_pais;
+        public int id_pais;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_tipo_programa;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int maxcupos;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int mincupos;
         
         public createPrograma() {
         }
         
-        public createPrograma(int id_estado, string nombre_programa, string id_pais) {
+        public createPrograma(int id_estado, string nombre_programa, int id_pais, int id_tipo_programa, int maxcupos, int mincupos) {
             this.id_estado = id_estado;
             this.nombre_programa = nombre_programa;
             this.id_pais = id_pais;
+            this.id_tipo_programa = id_tipo_programa;
+            this.maxcupos = maxcupos;
+            this.mincupos = mincupos;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findProgramaPor", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findProgramaPorRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="removePrograma", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class removePrograma {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string campo;
+        public int entity;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string valor;
-        
-        public findProgramaPorRequest() {
+        public removePrograma() {
         }
         
-        public findProgramaPorRequest(string campo, string valor) {
-            this.campo = campo;
-            this.valor = valor;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findProgramaPorResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findProgramaPorResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServicePrograma.programa[] @return;
-        
-        public findProgramaPorResponse() {
-        }
-        
-        public findProgramaPorResponse(net.desktop.WebServicePrograma.programa[] @return) {
-            this.@return = @return;
+        public removePrograma(int entity) {
+            this.entity = entity;
         }
     }
     
@@ -385,28 +616,37 @@ namespace net.desktop.WebServicePrograma {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task net.desktop.WebServicePrograma.ProgramaWS.editProgramaAsync(net.desktop.WebServicePrograma.editPrograma request) {
-            return base.Channel.editProgramaAsync(request);
+        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findFullProgramaPorResponse> net.desktop.WebServicePrograma.ProgramaWS.findFullProgramaPorAsync(net.desktop.WebServicePrograma.findFullProgramaPorRequest request) {
+            return base.Channel.findFullProgramaPorAsync(request);
         }
         
-        public System.Threading.Tasks.Task editProgramaAsync(int id_programa, int id_estado, string nombre_programa, string id_pais) {
-            net.desktop.WebServicePrograma.editPrograma inValue = new net.desktop.WebServicePrograma.editPrograma();
-            inValue.id_programa = id_programa;
-            inValue.id_estado = id_estado;
-            inValue.nombre_programa = nombre_programa;
-            inValue.id_pais = id_pais;
-            return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).editProgramaAsync(inValue);
+        public System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findFullProgramaPorResponse> findFullProgramaPorAsync(string campo, string valor) {
+            net.desktop.WebServicePrograma.findFullProgramaPorRequest inValue = new net.desktop.WebServicePrograma.findFullProgramaPorRequest();
+            inValue.campo = campo;
+            inValue.valor = valor;
+            return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).findFullProgramaPorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task net.desktop.WebServicePrograma.ProgramaWS.removeProgramaAsync(net.desktop.WebServicePrograma.removePrograma request) {
-            return base.Channel.removeProgramaAsync(request);
+        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findFullAllProgramaResponse> net.desktop.WebServicePrograma.ProgramaWS.findFullAllProgramaAsync(net.desktop.WebServicePrograma.findFullAllProgramaRequest request) {
+            return base.Channel.findFullAllProgramaAsync(request);
         }
         
-        public System.Threading.Tasks.Task removeProgramaAsync(int entity) {
-            net.desktop.WebServicePrograma.removePrograma inValue = new net.desktop.WebServicePrograma.removePrograma();
-            inValue.entity = entity;
-            return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).removeProgramaAsync(inValue);
+        public System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findFullAllProgramaResponse> findFullAllProgramaAsync() {
+            net.desktop.WebServicePrograma.findFullAllProgramaRequest inValue = new net.desktop.WebServicePrograma.findFullAllProgramaRequest();
+            return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).findFullAllProgramaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findProgramaPorResponse> net.desktop.WebServicePrograma.ProgramaWS.findProgramaPorAsync(net.desktop.WebServicePrograma.findProgramaPorRequest request) {
+            return base.Channel.findProgramaPorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findProgramaPorResponse> findProgramaPorAsync(string campo, string valor) {
+            net.desktop.WebServicePrograma.findProgramaPorRequest inValue = new net.desktop.WebServicePrograma.findProgramaPorRequest();
+            inValue.campo = campo;
+            inValue.valor = valor;
+            return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).findProgramaPorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -431,28 +671,58 @@ namespace net.desktop.WebServicePrograma {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task net.desktop.WebServicePrograma.ProgramaWS.editProgramaAsync(net.desktop.WebServicePrograma.editPrograma request) {
+            return base.Channel.editProgramaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task editProgramaAsync(int id_programa, int id_estado, string nombre_programa, int id_pais, int id_tipo_programa, int maxcupos, int mincupos) {
+            net.desktop.WebServicePrograma.editPrograma inValue = new net.desktop.WebServicePrograma.editPrograma();
+            inValue.id_programa = id_programa;
+            inValue.id_estado = id_estado;
+            inValue.nombre_programa = nombre_programa;
+            inValue.id_pais = id_pais;
+            inValue.id_tipo_programa = id_tipo_programa;
+            inValue.maxcupos = maxcupos;
+            inValue.mincupos = mincupos;
+            return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).editProgramaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findFullProgramaResponse> net.desktop.WebServicePrograma.ProgramaWS.findFullProgramaAsync(net.desktop.WebServicePrograma.findFullProgramaRequest request) {
+            return base.Channel.findFullProgramaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findFullProgramaResponse> findFullProgramaAsync(int id) {
+            net.desktop.WebServicePrograma.findFullProgramaRequest inValue = new net.desktop.WebServicePrograma.findFullProgramaRequest();
+            inValue.id = id;
+            return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).findFullProgramaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task net.desktop.WebServicePrograma.ProgramaWS.createProgramaAsync(net.desktop.WebServicePrograma.createPrograma request) {
             return base.Channel.createProgramaAsync(request);
         }
         
-        public System.Threading.Tasks.Task createProgramaAsync(int id_estado, string nombre_programa, string id_pais) {
+        public System.Threading.Tasks.Task createProgramaAsync(int id_estado, string nombre_programa, int id_pais, int id_tipo_programa, int maxcupos, int mincupos) {
             net.desktop.WebServicePrograma.createPrograma inValue = new net.desktop.WebServicePrograma.createPrograma();
             inValue.id_estado = id_estado;
             inValue.nombre_programa = nombre_programa;
             inValue.id_pais = id_pais;
+            inValue.id_tipo_programa = id_tipo_programa;
+            inValue.maxcupos = maxcupos;
+            inValue.mincupos = mincupos;
             return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).createProgramaAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findProgramaPorResponse> net.desktop.WebServicePrograma.ProgramaWS.findProgramaPorAsync(net.desktop.WebServicePrograma.findProgramaPorRequest request) {
-            return base.Channel.findProgramaPorAsync(request);
+        System.Threading.Tasks.Task net.desktop.WebServicePrograma.ProgramaWS.removeProgramaAsync(net.desktop.WebServicePrograma.removePrograma request) {
+            return base.Channel.removeProgramaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<net.desktop.WebServicePrograma.findProgramaPorResponse> findProgramaPorAsync(string campo, string valor) {
-            net.desktop.WebServicePrograma.findProgramaPorRequest inValue = new net.desktop.WebServicePrograma.findProgramaPorRequest();
-            inValue.campo = campo;
-            inValue.valor = valor;
-            return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).findProgramaPorAsync(inValue);
+        public System.Threading.Tasks.Task removeProgramaAsync(int entity) {
+            net.desktop.WebServicePrograma.removePrograma inValue = new net.desktop.WebServicePrograma.removePrograma();
+            inValue.entity = entity;
+            return ((net.desktop.WebServicePrograma.ProgramaWS)(this)).removeProgramaAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

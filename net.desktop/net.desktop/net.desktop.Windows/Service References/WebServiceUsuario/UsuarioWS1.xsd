@@ -3,6 +3,8 @@
   <xs:element name="autenticar" type="tns:autenticar" />
   <xs:element name="autenticarResponse" type="tns:autenticarResponse" />
   <xs:element name="createUsuario" type="tns:createUsuario" />
+  <xs:element name="createUsuarioAlumno" type="tns:createUsuarioAlumno" />
+  <xs:element name="createUsuarioFamilia" type="tns:createUsuarioFamilia" />
   <xs:element name="editUsuario" type="tns:editUsuario" />
   <xs:element name="findAllUsuarios" type="tns:findAllUsuarios" />
   <xs:element name="findAllUsuariosResponse" type="tns:findAllUsuariosResponse" />
@@ -49,6 +51,21 @@
       <xs:element minOccurs="0" name="return" type="tns:usuario" />
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="createUsuarioFamilia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="clave" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="apellido_pat" type="xs:string" />
+      <xs:element minOccurs="0" name="apellido_mat" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element name="perfil_usuario" type="xs:int" />
+      <xs:element name="id_centro" type="xs:int" />
+      <xs:element minOccurs="0" name="nombre_familia" type="xs:string" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="direccion" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="createUsuario">
     <xs:sequence>
       <xs:element minOccurs="0" name="usuario" type="xs:string" />
@@ -69,6 +86,20 @@
   <xs:complexType name="findUsuarioPorResponse">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:usuario" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUsuarioAlumno">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="usuario" type="xs:string" />
+      <xs:element minOccurs="0" name="clave" type="xs:string" />
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+      <xs:element minOccurs="0" name="apellido_pat" type="xs:string" />
+      <xs:element minOccurs="0" name="apellido_mat" type="xs:string" />
+      <xs:element minOccurs="0" name="email" type="xs:string" />
+      <xs:element name="perfil_usuario" type="xs:int" />
+      <xs:element name="id_carrera" type="xs:int" />
+      <xs:element name="semestre" type="xs:int" />
+      <xs:element name="ingreso" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="editUsuario">

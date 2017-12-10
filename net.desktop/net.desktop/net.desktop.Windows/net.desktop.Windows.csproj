@@ -270,6 +270,15 @@
     <None Include="Service References\WebServiceNota\net.desktop.WebServiceNota.findAllNotaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WebServiceNota\net.desktop.WebServiceNota.findFullAllNotaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceNota\net.desktop.WebServiceNota.findFullNotaPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServiceNota\net.desktop.WebServiceNota.findFullNotaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WebServiceNota\net.desktop.WebServiceNota.findNotaPorResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -302,6 +311,9 @@
     <None Include="Service References\WebServicePerfil\PerfilUsuarioWS.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\WebServicePostulacion\net.desktop.WebServicePostulacion.cambiarEstadoPostulacionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WebServicePostulacion\net.desktop.WebServicePostulacion.findFullAllPostulacionResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -309,6 +321,15 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebServicePostulacion\net.desktop.WebServicePostulacion.findPostulacionFullPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePrograma\net.desktop.WebServicePrograma.findFullAllProgramaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePrograma\net.desktop.WebServicePrograma.findFullProgramaPorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebServicePrograma\net.desktop.WebServicePrograma.findFullProgramaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebServiceRegion\net.desktop.WebServiceRegion.findAllRegionResponse.datasource">

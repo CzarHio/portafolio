@@ -18,25 +18,29 @@ namespace net.desktop.WebServicePostulacion {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", ConfigurationName="WebServicePostulacion.PostulacionWS")]
     public interface PostulacionWS {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/editPostulacion")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/removePostulacion")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task editPostulacionAsync(net.desktop.WebServicePostulacion.editPostulacion request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findPostulacionResponse> findPostulacionAsync(net.desktop.WebServicePostulacion.findPostulacionRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/createPostulacion")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task createPostulacionAsync(net.desktop.WebServicePostulacion.createPostulacion request);
+        System.Threading.Tasks.Task removePostulacionAsync(net.desktop.WebServicePostulacion.removePostulacion request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullAllPostulacionRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullAllPostulacionResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findFullAllPostulacionResponse> findFullAllPostulacionAsync(net.desktop.WebServicePostulacion.findFullAllPostulacionRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/cambiarEstadoPostulacionRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/PostulacionWS/cambiarEstadoPostulacionResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.cambiarEstadoPostulacionResponse> cambiarEstadoPostulacionAsync(net.desktop.WebServicePostulacion.cambiarEstadoPostulacionRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullPostulacionRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullPostulacionResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findFullPostulacionResponse> findFullPostulacionAsync(net.desktop.WebServicePostulacion.findFullPostulacionRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionFullPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionFullPorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findPostulacionFullPorResponse> findPostulacionFullPorAsync(net.desktop.WebServicePostulacion.findPostulacionFullPorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/createPostulacion")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task createPostulacionAsync(net.desktop.WebServicePostulacion.createPostulacion request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionPorResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -46,50 +50,30 @@ namespace net.desktop.WebServicePostulacion {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findAllPostulacionResponse> findAllPostulacionAsync(net.desktop.WebServicePostulacion.findAllPostulacionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/removePostulacion")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findPostulacionResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task removePostulacionAsync(net.desktop.WebServicePostulacion.removePostulacion request);
+        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findPostulacionResponse> findPostulacionAsync(net.desktop.WebServicePostulacion.findPostulacionRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullPostulacionRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/PostulacionWS/findFullPostulacionResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/PostulacionWS/editPostulacion")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findFullPostulacionResponse> findFullPostulacionAsync(net.desktop.WebServicePostulacion.findFullPostulacionRequest request);
+        System.Threading.Tasks.Task editPostulacionAsync(net.desktop.WebServicePostulacion.editPostulacion request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="editPostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class editPostulacion {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="removePostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class removePostulacion {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_postulacion;
+        public int entity;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_usuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_familia;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_estado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=4)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_participacion;
-        
-        public editPostulacion() {
+        public removePostulacion() {
         }
         
-        public editPostulacion(int id_postulacion, int id_usuario, int id_familia, int id_estado, int id_participacion) {
-            this.id_postulacion = id_postulacion;
-            this.id_usuario = id_usuario;
-            this.id_familia = id_familia;
-            this.id_estado = id_estado;
-            this.id_participacion = id_participacion;
+        public removePostulacion(int entity) {
+            this.entity = entity;
         }
     }
     
@@ -104,6 +88,8 @@ namespace net.desktop.WebServicePostulacion {
         private System.DateTime fechaCreacionField;
         
         private bool fechaCreacionFieldSpecified;
+        
+        private int idAlumnoField;
         
         private int idCentroField;
         
@@ -167,6 +153,18 @@ namespace net.desktop.WebServicePostulacion {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public int idAlumno {
+            get {
+                return this.idAlumnoField;
+            }
+            set {
+                this.idAlumnoField = value;
+                this.RaisePropertyChanged("idAlumno");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public int idCentro {
             get {
                 return this.idCentroField;
@@ -178,7 +176,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public int idEstado {
             get {
                 return this.idEstadoField;
@@ -190,7 +188,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public int idFamilia {
             get {
                 return this.idFamiliaField;
@@ -202,7 +200,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public int idParticipacion {
             get {
                 return this.idParticipacionField;
@@ -214,7 +212,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public decimal idPostulacion {
             get {
                 return this.idPostulacionField;
@@ -238,7 +236,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public int idPrograma {
             get {
                 return this.idProgramaField;
@@ -250,7 +248,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public int idUsuario {
             get {
                 return this.idUsuarioField;
@@ -262,7 +260,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
         public string nombreAlumno {
             get {
                 return this.nombreAlumnoField;
@@ -274,7 +272,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
         public string nombreCentro {
             get {
                 return this.nombreCentroField;
@@ -286,7 +284,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public string nombreFamilia {
             get {
                 return this.nombreFamiliaField;
@@ -298,7 +296,7 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
         public string nombrePrograma {
             get {
                 return this.nombreProgramaField;
@@ -316,75 +314,6 @@ namespace net.desktop.WebServicePostulacion {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findPostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findPostulacionRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
-        
-        public findPostulacionRequest() {
-        }
-        
-        public findPostulacionRequest(int id) {
-            this.id = id;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findPostulacionResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findPostulacionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServicePostulacion.postulacion @return;
-        
-        public findPostulacionResponse() {
-        }
-        
-        public findPostulacionResponse(net.desktop.WebServicePostulacion.postulacion @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="createPostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class createPostulacion {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_usuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_familia;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_estado;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_participacion;
-        
-        public createPostulacion() {
-        }
-        
-        public createPostulacion(int id_usuario, int id_familia, int id_estado, int id_participacion) {
-            this.id_usuario = id_usuario;
-            this.id_familia = id_familia;
-            this.id_estado = id_estado;
-            this.id_participacion = id_participacion;
         }
     }
     
@@ -412,6 +341,75 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         public findFullAllPostulacionResponse(net.desktop.WebServicePostulacion.postulacion[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="cambiarEstadoPostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class cambiarEstadoPostulacionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_postulacion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_estado;
+        
+        public cambiarEstadoPostulacionRequest() {
+        }
+        
+        public cambiarEstadoPostulacionRequest(int id_postulacion, int id_estado) {
+            this.id_postulacion = id_postulacion;
+            this.id_estado = id_estado;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="cambiarEstadoPostulacionResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class cambiarEstadoPostulacionResponse {
+        
+        public cambiarEstadoPostulacionResponse() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullPostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullPostulacionRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
+        
+        public findFullPostulacionRequest() {
+        }
+        
+        public findFullPostulacionRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullPostulacionResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullPostulacionResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServicePostulacion.postulacion @return;
+        
+        public findFullPostulacionResponse() {
+        }
+        
+        public findFullPostulacionResponse(net.desktop.WebServicePostulacion.postulacion @return) {
             this.@return = @return;
         }
     }
@@ -454,6 +452,39 @@ namespace net.desktop.WebServicePostulacion {
         
         public findPostulacionFullPorResponse(net.desktop.WebServicePostulacion.postulacion[] @return) {
             this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="createPostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class createPostulacion {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_alumno;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_familia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_estado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_participacion;
+        
+        public createPostulacion() {
+        }
+        
+        public createPostulacion(int id_alumno, int id_familia, int id_estado, int id_participacion) {
+            this.id_alumno = id_alumno;
+            this.id_familia = id_familia;
+            this.id_estado = id_estado;
+            this.id_participacion = id_participacion;
         }
     }
     
@@ -529,35 +560,17 @@ namespace net.desktop.WebServicePostulacion {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="removePostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class removePostulacion {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int entity;
-        
-        public removePostulacion() {
-        }
-        
-        public removePostulacion(int entity) {
-            this.entity = entity;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullPostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findFullPostulacionRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findPostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findPostulacionRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int id;
         
-        public findFullPostulacionRequest() {
+        public findPostulacionRequest() {
         }
         
-        public findFullPostulacionRequest(int id) {
+        public findPostulacionRequest(int id) {
             this.id = id;
         }
     }
@@ -565,18 +578,56 @@ namespace net.desktop.WebServicePostulacion {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullPostulacionResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findFullPostulacionResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findPostulacionResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findPostulacionResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public net.desktop.WebServicePostulacion.postulacion @return;
         
-        public findFullPostulacionResponse() {
+        public findPostulacionResponse() {
         }
         
-        public findFullPostulacionResponse(net.desktop.WebServicePostulacion.postulacion @return) {
+        public findPostulacionResponse(net.desktop.WebServicePostulacion.postulacion @return) {
             this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="editPostulacion", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class editPostulacion {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_postulacion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_alumno;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_familia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_estado;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_participacion;
+        
+        public editPostulacion() {
+        }
+        
+        public editPostulacion(int id_postulacion, int id_alumno, int id_familia, int id_estado, int id_participacion) {
+            this.id_postulacion = id_postulacion;
+            this.id_alumno = id_alumno;
+            this.id_familia = id_familia;
+            this.id_estado = id_estado;
+            this.id_participacion = id_participacion;
         }
     }
     
@@ -624,43 +675,14 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task net.desktop.WebServicePostulacion.PostulacionWS.editPostulacionAsync(net.desktop.WebServicePostulacion.editPostulacion request) {
-            return base.Channel.editPostulacionAsync(request);
+        System.Threading.Tasks.Task net.desktop.WebServicePostulacion.PostulacionWS.removePostulacionAsync(net.desktop.WebServicePostulacion.removePostulacion request) {
+            return base.Channel.removePostulacionAsync(request);
         }
         
-        public System.Threading.Tasks.Task editPostulacionAsync(int id_postulacion, int id_usuario, int id_familia, int id_estado, int id_participacion) {
-            net.desktop.WebServicePostulacion.editPostulacion inValue = new net.desktop.WebServicePostulacion.editPostulacion();
-            inValue.id_postulacion = id_postulacion;
-            inValue.id_usuario = id_usuario;
-            inValue.id_familia = id_familia;
-            inValue.id_estado = id_estado;
-            inValue.id_participacion = id_participacion;
-            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).editPostulacionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findPostulacionResponse> net.desktop.WebServicePostulacion.PostulacionWS.findPostulacionAsync(net.desktop.WebServicePostulacion.findPostulacionRequest request) {
-            return base.Channel.findPostulacionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findPostulacionResponse> findPostulacionAsync(int id) {
-            net.desktop.WebServicePostulacion.findPostulacionRequest inValue = new net.desktop.WebServicePostulacion.findPostulacionRequest();
-            inValue.id = id;
-            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).findPostulacionAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task net.desktop.WebServicePostulacion.PostulacionWS.createPostulacionAsync(net.desktop.WebServicePostulacion.createPostulacion request) {
-            return base.Channel.createPostulacionAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task createPostulacionAsync(int id_usuario, int id_familia, int id_estado, int id_participacion) {
-            net.desktop.WebServicePostulacion.createPostulacion inValue = new net.desktop.WebServicePostulacion.createPostulacion();
-            inValue.id_usuario = id_usuario;
-            inValue.id_familia = id_familia;
-            inValue.id_estado = id_estado;
-            inValue.id_participacion = id_participacion;
-            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).createPostulacionAsync(inValue);
+        public System.Threading.Tasks.Task removePostulacionAsync(int entity) {
+            net.desktop.WebServicePostulacion.removePostulacion inValue = new net.desktop.WebServicePostulacion.removePostulacion();
+            inValue.entity = entity;
+            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).removePostulacionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -674,6 +696,29 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.cambiarEstadoPostulacionResponse> net.desktop.WebServicePostulacion.PostulacionWS.cambiarEstadoPostulacionAsync(net.desktop.WebServicePostulacion.cambiarEstadoPostulacionRequest request) {
+            return base.Channel.cambiarEstadoPostulacionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.cambiarEstadoPostulacionResponse> cambiarEstadoPostulacionAsync(int id_postulacion, int id_estado) {
+            net.desktop.WebServicePostulacion.cambiarEstadoPostulacionRequest inValue = new net.desktop.WebServicePostulacion.cambiarEstadoPostulacionRequest();
+            inValue.id_postulacion = id_postulacion;
+            inValue.id_estado = id_estado;
+            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).cambiarEstadoPostulacionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findFullPostulacionResponse> net.desktop.WebServicePostulacion.PostulacionWS.findFullPostulacionAsync(net.desktop.WebServicePostulacion.findFullPostulacionRequest request) {
+            return base.Channel.findFullPostulacionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findFullPostulacionResponse> findFullPostulacionAsync(int id) {
+            net.desktop.WebServicePostulacion.findFullPostulacionRequest inValue = new net.desktop.WebServicePostulacion.findFullPostulacionRequest();
+            inValue.id = id;
+            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).findFullPostulacionAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findPostulacionFullPorResponse> net.desktop.WebServicePostulacion.PostulacionWS.findPostulacionFullPorAsync(net.desktop.WebServicePostulacion.findPostulacionFullPorRequest request) {
             return base.Channel.findPostulacionFullPorAsync(request);
         }
@@ -683,6 +728,20 @@ namespace net.desktop.WebServicePostulacion {
             inValue.campo = campo;
             inValue.valor = valor;
             return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).findPostulacionFullPorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task net.desktop.WebServicePostulacion.PostulacionWS.createPostulacionAsync(net.desktop.WebServicePostulacion.createPostulacion request) {
+            return base.Channel.createPostulacionAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task createPostulacionAsync(int id_alumno, int id_familia, int id_estado, int id_participacion) {
+            net.desktop.WebServicePostulacion.createPostulacion inValue = new net.desktop.WebServicePostulacion.createPostulacion();
+            inValue.id_alumno = id_alumno;
+            inValue.id_familia = id_familia;
+            inValue.id_estado = id_estado;
+            inValue.id_participacion = id_participacion;
+            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).createPostulacionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -708,25 +767,29 @@ namespace net.desktop.WebServicePostulacion {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task net.desktop.WebServicePostulacion.PostulacionWS.removePostulacionAsync(net.desktop.WebServicePostulacion.removePostulacion request) {
-            return base.Channel.removePostulacionAsync(request);
+        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findPostulacionResponse> net.desktop.WebServicePostulacion.PostulacionWS.findPostulacionAsync(net.desktop.WebServicePostulacion.findPostulacionRequest request) {
+            return base.Channel.findPostulacionAsync(request);
         }
         
-        public System.Threading.Tasks.Task removePostulacionAsync(int entity) {
-            net.desktop.WebServicePostulacion.removePostulacion inValue = new net.desktop.WebServicePostulacion.removePostulacion();
-            inValue.entity = entity;
-            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).removePostulacionAsync(inValue);
+        public System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findPostulacionResponse> findPostulacionAsync(int id) {
+            net.desktop.WebServicePostulacion.findPostulacionRequest inValue = new net.desktop.WebServicePostulacion.findPostulacionRequest();
+            inValue.id = id;
+            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).findPostulacionAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findFullPostulacionResponse> net.desktop.WebServicePostulacion.PostulacionWS.findFullPostulacionAsync(net.desktop.WebServicePostulacion.findFullPostulacionRequest request) {
-            return base.Channel.findFullPostulacionAsync(request);
+        System.Threading.Tasks.Task net.desktop.WebServicePostulacion.PostulacionWS.editPostulacionAsync(net.desktop.WebServicePostulacion.editPostulacion request) {
+            return base.Channel.editPostulacionAsync(request);
         }
         
-        public System.Threading.Tasks.Task<net.desktop.WebServicePostulacion.findFullPostulacionResponse> findFullPostulacionAsync(int id) {
-            net.desktop.WebServicePostulacion.findFullPostulacionRequest inValue = new net.desktop.WebServicePostulacion.findFullPostulacionRequest();
-            inValue.id = id;
-            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).findFullPostulacionAsync(inValue);
+        public System.Threading.Tasks.Task editPostulacionAsync(int id_postulacion, int id_alumno, int id_familia, int id_estado, int id_participacion) {
+            net.desktop.WebServicePostulacion.editPostulacion inValue = new net.desktop.WebServicePostulacion.editPostulacion();
+            inValue.id_postulacion = id_postulacion;
+            inValue.id_alumno = id_alumno;
+            inValue.id_familia = id_familia;
+            inValue.id_estado = id_estado;
+            inValue.id_participacion = id_participacion;
+            return ((net.desktop.WebServicePostulacion.PostulacionWS)(this)).editPostulacionAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

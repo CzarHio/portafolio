@@ -8,11 +8,23 @@
   <message name="createFamilia">
     <part name="parameters" element="tns:createFamilia" />
   </message>
-  <message name="findFamiliaPor">
-    <part name="parameters" element="tns:findFamiliaPor" />
+  <message name="findFullFamiliaPor">
+    <part name="parameters" element="tns:findFullFamiliaPor" />
   </message>
-  <message name="findFamiliaPorResponse">
-    <part name="parameters" element="tns:findFamiliaPorResponse" />
+  <message name="findFullFamiliaPorResponse">
+    <part name="parameters" element="tns:findFullFamiliaPorResponse" />
+  </message>
+  <message name="findFullAllFamilia">
+    <part name="parameters" element="tns:findFullAllFamilia" />
+  </message>
+  <message name="findFullAllFamiliaResponse">
+    <part name="parameters" element="tns:findFullAllFamiliaResponse" />
+  </message>
+  <message name="findFamilia">
+    <part name="parameters" element="tns:findFamilia" />
+  </message>
+  <message name="findFamiliaResponse">
+    <part name="parameters" element="tns:findFamiliaResponse" />
   </message>
   <message name="findAllFamilia">
     <part name="parameters" element="tns:findAllFamilia" />
@@ -23,11 +35,11 @@
   <message name="removeFamilia">
     <part name="parameters" element="tns:removeFamilia" />
   </message>
-  <message name="findFamilia">
-    <part name="parameters" element="tns:findFamilia" />
+  <message name="findFamiliaPor">
+    <part name="parameters" element="tns:findFamiliaPor" />
   </message>
-  <message name="findFamiliaResponse">
-    <part name="parameters" element="tns:findFamiliaResponse" />
+  <message name="findFamiliaPorResponse">
+    <part name="parameters" element="tns:findFamiliaPorResponse" />
   </message>
   <message name="editFamilia">
     <part name="parameters" element="tns:editFamilia" />
@@ -38,25 +50,21 @@
   <message name="findFullFamiliaResponse">
     <part name="parameters" element="tns:findFullFamiliaResponse" />
   </message>
-  <message name="findFullAllFamilia">
-    <part name="parameters" element="tns:findFullAllFamilia" />
-  </message>
-  <message name="findFullAllFamiliaResponse">
-    <part name="parameters" element="tns:findFullAllFamiliaResponse" />
-  </message>
-  <message name="findFullFamiliaPor">
-    <part name="parameters" element="tns:findFullFamiliaPor" />
-  </message>
-  <message name="findFullFamiliaPorResponse">
-    <part name="parameters" element="tns:findFullFamiliaPorResponse" />
-  </message>
   <portType name="FamiliaWS">
     <operation name="createFamilia">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/createFamilia" message="tns:createFamilia" />
     </operation>
-    <operation name="findFamiliaPor">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaPorRequest" message="tns:findFamiliaPor" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaPorResponse" message="tns:findFamiliaPorResponse" />
+    <operation name="findFullFamiliaPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaPorRequest" message="tns:findFullFamiliaPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaPorResponse" message="tns:findFullFamiliaPorResponse" />
+    </operation>
+    <operation name="findFullAllFamilia">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullAllFamiliaRequest" message="tns:findFullAllFamilia" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullAllFamiliaResponse" message="tns:findFullAllFamiliaResponse" />
+    </operation>
+    <operation name="findFamilia">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaRequest" message="tns:findFamilia" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaResponse" message="tns:findFamiliaResponse" />
     </operation>
     <operation name="findAllFamilia">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findAllFamiliaRequest" message="tns:findAllFamilia" />
@@ -65,9 +73,9 @@
     <operation name="removeFamilia">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/removeFamilia" message="tns:removeFamilia" />
     </operation>
-    <operation name="findFamilia">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaRequest" message="tns:findFamilia" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaResponse" message="tns:findFamiliaResponse" />
+    <operation name="findFamiliaPor">
+      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaPorRequest" message="tns:findFamiliaPor" />
+      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFamiliaPorResponse" message="tns:findFamiliaPorResponse" />
     </operation>
     <operation name="editFamilia">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/editFamilia" message="tns:editFamilia" />
@@ -75,14 +83,6 @@
     <operation name="findFullFamilia">
       <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaRequest" message="tns:findFullFamilia" />
       <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaResponse" message="tns:findFullFamiliaResponse" />
-    </operation>
-    <operation name="findFullAllFamilia">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullAllFamiliaRequest" message="tns:findFullAllFamilia" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullAllFamiliaResponse" message="tns:findFullAllFamiliaResponse" />
-    </operation>
-    <operation name="findFullFamiliaPor">
-      <input wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaPorRequest" message="tns:findFullFamiliaPor" />
-      <output wsam:Action="http://ws.cem.pft8461.duoc.cl/FamiliaWS/findFullFamiliaPorResponse" message="tns:findFullFamiliaPorResponse" />
     </operation>
   </portType>
   <binding name="FamiliaWSPortBinding" type="tns:FamiliaWS">
@@ -93,7 +93,25 @@
         <soap:body use="literal" />
       </input>
     </operation>
-    <operation name="findFamiliaPor">
+    <operation name="findFullFamiliaPor">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findFullAllFamilia">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findFamilia">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -117,7 +135,7 @@
         <soap:body use="literal" />
       </input>
     </operation>
-    <operation name="findFamilia">
+    <operation name="findFamiliaPor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -133,24 +151,6 @@
       </input>
     </operation>
     <operation name="findFullFamilia">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="findFullAllFamilia">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
-    <operation name="findFullFamiliaPor">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

@@ -18,6 +18,34 @@ namespace net.desktop.WebServiceUsuario {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", ConfigurationName="WebServiceUsuario.UsuarioWS")]
     public interface UsuarioWS {
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuario")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task createUsuarioAsync(net.desktop.WebServiceUsuario.createUsuario request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioPorResponse> findUsuarioPorAsync(net.desktop.WebServiceUsuario.findUsuarioPorRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findAllUsuariosResponse> findAllUsuariosAsync(net.desktop.WebServiceUsuario.findAllUsuariosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.autenticarResponse> autenticarAsync(net.desktop.WebServiceUsuario.autenticarRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuarioFamilia")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task createUsuarioFamiliaAsync(net.desktop.WebServiceUsuario.createUsuarioFamilia request);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuarioAlumno")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task createUsuarioAlumnoAsync(net.desktop.WebServiceUsuario.createUsuarioAlumno request);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/editUsuario")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task editUsuarioAsync(net.desktop.WebServiceUsuario.editUsuario request);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/removeUsuario")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task removeUsuarioAsync(net.desktop.WebServiceUsuario.removeUsuario request);
@@ -25,43 +53,53 @@ namespace net.desktop.WebServiceUsuario {
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioResponse> findUsuarioAsync(net.desktop.WebServiceUsuario.findUsuarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuario")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task createUsuarioAsync(net.desktop.WebServiceUsuario.createUsuario request);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/editUsuario")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task editUsuarioAsync(net.desktop.WebServiceUsuario.editUsuario request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioPorResponse> findUsuarioPorAsync(net.desktop.WebServiceUsuario.findUsuarioPorRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.autenticarResponse> autenticarAsync(net.desktop.WebServiceUsuario.autenticarRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findAllUsuariosResponse> findAllUsuariosAsync(net.desktop.WebServiceUsuario.findAllUsuariosRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="removeUsuario", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class removeUsuario {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="createUsuario", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class createUsuario {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
+        public string usuario;
         
-        public removeUsuario() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string clave;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string apellido_pat;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string apellido_mat;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string email;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int perfil_usuario;
+        
+        public createUsuario() {
         }
         
-        public removeUsuario(int id) {
-            this.id = id;
+        public createUsuario(string usuario, string clave, string nombre, string apellido_pat, string apellido_mat, string email, int perfil_usuario) {
+            this.usuario = usuario;
+            this.clave = clave;
+            this.nombre = nombre;
+            this.apellido_pat = apellido_pat;
+            this.apellido_mat = apellido_mat;
+            this.email = email;
+            this.perfil_usuario = perfil_usuario;
         }
     }
     
@@ -252,35 +290,40 @@ namespace net.desktop.WebServiceUsuario {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findUsuario", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findUsuarioRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findUsuarioPor", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findUsuarioPorRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id;
+        public string campo;
         
-        public findUsuarioRequest() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string valor;
+        
+        public findUsuarioPorRequest() {
         }
         
-        public findUsuarioRequest(int id) {
-            this.id = id;
+        public findUsuarioPorRequest(string campo, string valor) {
+            this.campo = campo;
+            this.valor = valor;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findUsuarioResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findUsuarioResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findUsuarioPorResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findUsuarioPorResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServiceUsuario.usuario @return;
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceUsuario.usuario[] @return;
         
-        public findUsuarioResponse() {
+        public findUsuarioPorResponse() {
         }
         
-        public findUsuarioResponse(net.desktop.WebServiceUsuario.usuario @return) {
+        public findUsuarioPorResponse(net.desktop.WebServiceUsuario.usuario[] @return) {
             this.@return = @return;
         }
     }
@@ -288,8 +331,77 @@ namespace net.desktop.WebServiceUsuario {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="createUsuario", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class createUsuario {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllUsuarios", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findAllUsuariosRequest {
+        
+        public findAllUsuariosRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllUsuariosResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findAllUsuariosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceUsuario.usuario[] @return;
+        
+        public findAllUsuariosResponse() {
+        }
+        
+        public findAllUsuariosResponse(net.desktop.WebServiceUsuario.usuario[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="autenticar", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class autenticarRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string usuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string clave;
+        
+        public autenticarRequest() {
+        }
+        
+        public autenticarRequest(string usuario, string clave) {
+            this.usuario = usuario;
+            this.clave = clave;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="autenticarResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class autenticarResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceUsuario.usuario @return;
+        
+        public autenticarResponse() {
+        }
+        
+        public autenticarResponse(net.desktop.WebServiceUsuario.usuario @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="createUsuarioFamilia", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class createUsuarioFamilia {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
@@ -319,10 +431,26 @@ namespace net.desktop.WebServiceUsuario {
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int perfil_usuario;
         
-        public createUsuario() {
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_centro;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre_familia;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string descripcion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string direccion;
+        
+        public createUsuarioFamilia() {
         }
         
-        public createUsuario(string usuario, string clave, string nombre, string apellido_pat, string apellido_mat, string email, int perfil_usuario) {
+        public createUsuarioFamilia(string usuario, string clave, string nombre, string apellido_pat, string apellido_mat, string email, int perfil_usuario, int id_centro, string nombre_familia, string descripcion, string direccion) {
             this.usuario = usuario;
             this.clave = clave;
             this.nombre = nombre;
@@ -330,6 +458,73 @@ namespace net.desktop.WebServiceUsuario {
             this.apellido_mat = apellido_mat;
             this.email = email;
             this.perfil_usuario = perfil_usuario;
+            this.id_centro = id_centro;
+            this.nombre_familia = nombre_familia;
+            this.descripcion = descripcion;
+            this.direccion = direccion;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="createUsuarioAlumno", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class createUsuarioAlumno {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string usuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string clave;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string apellido_pat;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string apellido_mat;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string email;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int perfil_usuario;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_carrera;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int semestre;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int ingreso;
+        
+        public createUsuarioAlumno() {
+        }
+        
+        public createUsuarioAlumno(string usuario, string clave, string nombre, string apellido_pat, string apellido_mat, string email, int perfil_usuario, int id_carrera, int semestre, int ingreso) {
+            this.usuario = usuario;
+            this.clave = clave;
+            this.nombre = nombre;
+            this.apellido_pat = apellido_pat;
+            this.apellido_mat = apellido_mat;
+            this.email = email;
+            this.perfil_usuario = perfil_usuario;
+            this.id_carrera = id_carrera;
+            this.semestre = semestre;
+            this.ingreso = ingreso;
         }
     }
     
@@ -384,109 +579,53 @@ namespace net.desktop.WebServiceUsuario {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findUsuarioPor", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findUsuarioPorRequest {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="removeUsuario", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class removeUsuario {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string campo;
+        public int id;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string valor;
-        
-        public findUsuarioPorRequest() {
+        public removeUsuario() {
         }
         
-        public findUsuarioPorRequest(string campo, string valor) {
-            this.campo = campo;
-            this.valor = valor;
+        public removeUsuario(int id) {
+            this.id = id;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findUsuarioPorResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findUsuarioPorResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findUsuario", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findUsuarioRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServiceUsuario.usuario[] @return;
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id;
         
-        public findUsuarioPorResponse() {
+        public findUsuarioRequest() {
         }
         
-        public findUsuarioPorResponse(net.desktop.WebServiceUsuario.usuario[] @return) {
-            this.@return = @return;
+        public findUsuarioRequest(int id) {
+            this.id = id;
         }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="autenticar", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class autenticarRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string usuario;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string clave;
-        
-        public autenticarRequest() {
-        }
-        
-        public autenticarRequest(string usuario, string clave) {
-            this.usuario = usuario;
-            this.clave = clave;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="autenticarResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class autenticarResponse {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findUsuarioResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findUsuarioResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public net.desktop.WebServiceUsuario.usuario @return;
         
-        public autenticarResponse() {
+        public findUsuarioResponse() {
         }
         
-        public autenticarResponse(net.desktop.WebServiceUsuario.usuario @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllUsuarios", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findAllUsuariosRequest {
-        
-        public findAllUsuariosRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllUsuariosResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findAllUsuariosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServiceUsuario.usuario[] @return;
-        
-        public findAllUsuariosResponse() {
-        }
-        
-        public findAllUsuariosResponse(net.desktop.WebServiceUsuario.usuario[] @return) {
+        public findUsuarioResponse(net.desktop.WebServiceUsuario.usuario @return) {
             this.@return = @return;
         }
     }
@@ -535,28 +674,6 @@ namespace net.desktop.WebServiceUsuario {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task net.desktop.WebServiceUsuario.UsuarioWS.removeUsuarioAsync(net.desktop.WebServiceUsuario.removeUsuario request) {
-            return base.Channel.removeUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task removeUsuarioAsync(int id) {
-            net.desktop.WebServiceUsuario.removeUsuario inValue = new net.desktop.WebServiceUsuario.removeUsuario();
-            inValue.id = id;
-            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).removeUsuarioAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioResponse> net.desktop.WebServiceUsuario.UsuarioWS.findUsuarioAsync(net.desktop.WebServiceUsuario.findUsuarioRequest request) {
-            return base.Channel.findUsuarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioResponse> findUsuarioAsync(int id) {
-            net.desktop.WebServiceUsuario.findUsuarioRequest inValue = new net.desktop.WebServiceUsuario.findUsuarioRequest();
-            inValue.id = id;
-            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).findUsuarioAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task net.desktop.WebServiceUsuario.UsuarioWS.createUsuarioAsync(net.desktop.WebServiceUsuario.createUsuario request) {
             return base.Channel.createUsuarioAsync(request);
         }
@@ -571,6 +688,81 @@ namespace net.desktop.WebServiceUsuario {
             inValue.email = email;
             inValue.perfil_usuario = perfil_usuario;
             return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).createUsuarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioPorResponse> net.desktop.WebServiceUsuario.UsuarioWS.findUsuarioPorAsync(net.desktop.WebServiceUsuario.findUsuarioPorRequest request) {
+            return base.Channel.findUsuarioPorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioPorResponse> findUsuarioPorAsync(string campo, string valor) {
+            net.desktop.WebServiceUsuario.findUsuarioPorRequest inValue = new net.desktop.WebServiceUsuario.findUsuarioPorRequest();
+            inValue.campo = campo;
+            inValue.valor = valor;
+            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).findUsuarioPorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findAllUsuariosResponse> net.desktop.WebServiceUsuario.UsuarioWS.findAllUsuariosAsync(net.desktop.WebServiceUsuario.findAllUsuariosRequest request) {
+            return base.Channel.findAllUsuariosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findAllUsuariosResponse> findAllUsuariosAsync() {
+            net.desktop.WebServiceUsuario.findAllUsuariosRequest inValue = new net.desktop.WebServiceUsuario.findAllUsuariosRequest();
+            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).findAllUsuariosAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.autenticarResponse> net.desktop.WebServiceUsuario.UsuarioWS.autenticarAsync(net.desktop.WebServiceUsuario.autenticarRequest request) {
+            return base.Channel.autenticarAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.autenticarResponse> autenticarAsync(string usuario, string clave) {
+            net.desktop.WebServiceUsuario.autenticarRequest inValue = new net.desktop.WebServiceUsuario.autenticarRequest();
+            inValue.usuario = usuario;
+            inValue.clave = clave;
+            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).autenticarAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task net.desktop.WebServiceUsuario.UsuarioWS.createUsuarioFamiliaAsync(net.desktop.WebServiceUsuario.createUsuarioFamilia request) {
+            return base.Channel.createUsuarioFamiliaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task createUsuarioFamiliaAsync(string usuario, string clave, string nombre, string apellido_pat, string apellido_mat, string email, int perfil_usuario, int id_centro, string nombre_familia, string descripcion, string direccion) {
+            net.desktop.WebServiceUsuario.createUsuarioFamilia inValue = new net.desktop.WebServiceUsuario.createUsuarioFamilia();
+            inValue.usuario = usuario;
+            inValue.clave = clave;
+            inValue.nombre = nombre;
+            inValue.apellido_pat = apellido_pat;
+            inValue.apellido_mat = apellido_mat;
+            inValue.email = email;
+            inValue.perfil_usuario = perfil_usuario;
+            inValue.id_centro = id_centro;
+            inValue.nombre_familia = nombre_familia;
+            inValue.descripcion = descripcion;
+            inValue.direccion = direccion;
+            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).createUsuarioFamiliaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task net.desktop.WebServiceUsuario.UsuarioWS.createUsuarioAlumnoAsync(net.desktop.WebServiceUsuario.createUsuarioAlumno request) {
+            return base.Channel.createUsuarioAlumnoAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task createUsuarioAlumnoAsync(string usuario, string clave, string nombre, string apellido_pat, string apellido_mat, string email, int perfil_usuario, int id_carrera, int semestre, int ingreso) {
+            net.desktop.WebServiceUsuario.createUsuarioAlumno inValue = new net.desktop.WebServiceUsuario.createUsuarioAlumno();
+            inValue.usuario = usuario;
+            inValue.clave = clave;
+            inValue.nombre = nombre;
+            inValue.apellido_pat = apellido_pat;
+            inValue.apellido_mat = apellido_mat;
+            inValue.email = email;
+            inValue.perfil_usuario = perfil_usuario;
+            inValue.id_carrera = id_carrera;
+            inValue.semestre = semestre;
+            inValue.ingreso = ingreso;
+            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).createUsuarioAlumnoAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -591,37 +783,25 @@ namespace net.desktop.WebServiceUsuario {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioPorResponse> net.desktop.WebServiceUsuario.UsuarioWS.findUsuarioPorAsync(net.desktop.WebServiceUsuario.findUsuarioPorRequest request) {
-            return base.Channel.findUsuarioPorAsync(request);
+        System.Threading.Tasks.Task net.desktop.WebServiceUsuario.UsuarioWS.removeUsuarioAsync(net.desktop.WebServiceUsuario.removeUsuario request) {
+            return base.Channel.removeUsuarioAsync(request);
         }
         
-        public System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioPorResponse> findUsuarioPorAsync(string campo, string valor) {
-            net.desktop.WebServiceUsuario.findUsuarioPorRequest inValue = new net.desktop.WebServiceUsuario.findUsuarioPorRequest();
-            inValue.campo = campo;
-            inValue.valor = valor;
-            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).findUsuarioPorAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.autenticarResponse> net.desktop.WebServiceUsuario.UsuarioWS.autenticarAsync(net.desktop.WebServiceUsuario.autenticarRequest request) {
-            return base.Channel.autenticarAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.autenticarResponse> autenticarAsync(string usuario, string clave) {
-            net.desktop.WebServiceUsuario.autenticarRequest inValue = new net.desktop.WebServiceUsuario.autenticarRequest();
-            inValue.usuario = usuario;
-            inValue.clave = clave;
-            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).autenticarAsync(inValue);
+        public System.Threading.Tasks.Task removeUsuarioAsync(int id) {
+            net.desktop.WebServiceUsuario.removeUsuario inValue = new net.desktop.WebServiceUsuario.removeUsuario();
+            inValue.id = id;
+            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).removeUsuarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findAllUsuariosResponse> net.desktop.WebServiceUsuario.UsuarioWS.findAllUsuariosAsync(net.desktop.WebServiceUsuario.findAllUsuariosRequest request) {
-            return base.Channel.findAllUsuariosAsync(request);
+        System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioResponse> net.desktop.WebServiceUsuario.UsuarioWS.findUsuarioAsync(net.desktop.WebServiceUsuario.findUsuarioRequest request) {
+            return base.Channel.findUsuarioAsync(request);
         }
         
-        public System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findAllUsuariosResponse> findAllUsuariosAsync() {
-            net.desktop.WebServiceUsuario.findAllUsuariosRequest inValue = new net.desktop.WebServiceUsuario.findAllUsuariosRequest();
-            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).findAllUsuariosAsync(inValue);
+        public System.Threading.Tasks.Task<net.desktop.WebServiceUsuario.findUsuarioResponse> findUsuarioAsync(int id) {
+            net.desktop.WebServiceUsuario.findUsuarioRequest inValue = new net.desktop.WebServiceUsuario.findUsuarioRequest();
+            inValue.id = id;
+            return ((net.desktop.WebServiceUsuario.UsuarioWS)(this)).findUsuarioAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

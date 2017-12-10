@@ -18,17 +18,29 @@ namespace net.desktop.WebServiceNota {
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", ConfigurationName="WebServiceNota.NotaWS")]
     public interface NotaWS {
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/NotaWS/editNota")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task editNotaAsync(net.desktop.WebServiceNota.editNota request);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/NotaWS/createNota")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task createNotaAsync(net.desktop.WebServiceNota.createNota request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaPorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findNotaPorResponse> findNotaPorAsync(net.desktop.WebServiceNota.findNotaPorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findAllNotaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/NotaWS/findAllNotaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<net.desktop.WebServiceNota.findAllNotaResponse> findAllNotaAsync(net.desktop.WebServiceNota.findAllNotaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/NotaWS/findNotaPorResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullAllNotaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullAllNotaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findNotaPorResponse> findNotaPorAsync(net.desktop.WebServiceNota.findNotaPorRequest request);
+        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findFullAllNotaResponse> findFullAllNotaAsync(net.desktop.WebServiceNota.findFullAllNotaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullNotaPorRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullNotaPorResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findFullNotaPorResponse> findFullNotaPorAsync(net.desktop.WebServiceNota.findFullNotaPorRequest request);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/NotaWS/removeNota")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -38,9 +50,42 @@ namespace net.desktop.WebServiceNota {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<net.desktop.WebServiceNota.findNotaResponse> findNotaAsync(net.desktop.WebServiceNota.findNotaRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://ws.cem.pft8461.duoc.cl/NotaWS/editNota")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullNotaRequest", ReplyAction="http://ws.cem.pft8461.duoc.cl/NotaWS/findFullNotaResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Threading.Tasks.Task editNotaAsync(net.desktop.WebServiceNota.editNota request);
+        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findFullNotaResponse> findFullNotaAsync(net.desktop.WebServiceNota.findFullNotaRequest request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="editNota", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class editNota {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_nota;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_postulacion;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int id_curso;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int nota;
+        
+        public editNota() {
+        }
+        
+        public editNota(int id_nota, int id_postulacion, int id_curso, int nota) {
+            this.id_nota = id_nota;
+            this.id_postulacion = id_postulacion;
+            this.id_curso = id_curso;
+            this.nota = nota;
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -72,10 +117,18 @@ namespace net.desktop.WebServiceNota {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/")]
     public partial class nota : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private System.DateTime fechaCreacionField;
+        
+        private bool fechaCreacionFieldSpecified;
+        
+        private System.DateTime fechaPostulacionField;
+        
+        private bool fechaPostulacionFieldSpecified;
         
         private int idCursoField;
         
@@ -85,10 +138,60 @@ namespace net.desktop.WebServiceNota {
         
         private int idPostulacionField;
         
+        private string nombreCursoField;
+        
         private string nota1Field;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public System.DateTime fechaCreacion {
+            get {
+                return this.fechaCreacionField;
+            }
+            set {
+                this.fechaCreacionField = value;
+                this.RaisePropertyChanged("fechaCreacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaCreacionSpecified {
+            get {
+                return this.fechaCreacionFieldSpecified;
+            }
+            set {
+                this.fechaCreacionFieldSpecified = value;
+                this.RaisePropertyChanged("fechaCreacionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public System.DateTime fechaPostulacion {
+            get {
+                return this.fechaPostulacionField;
+            }
+            set {
+                this.fechaPostulacionField = value;
+                this.RaisePropertyChanged("fechaPostulacion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool fechaPostulacionSpecified {
+            get {
+                return this.fechaPostulacionFieldSpecified;
+            }
+            set {
+                this.fechaPostulacionFieldSpecified = value;
+                this.RaisePropertyChanged("fechaPostulacionSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public int idCurso {
             get {
                 return this.idCursoField;
@@ -100,7 +203,7 @@ namespace net.desktop.WebServiceNota {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public decimal idNota {
             get {
                 return this.idNotaField;
@@ -124,7 +227,7 @@ namespace net.desktop.WebServiceNota {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public int idPostulacion {
             get {
                 return this.idPostulacionField;
@@ -136,7 +239,19 @@ namespace net.desktop.WebServiceNota {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("nota", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="integer", Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string nombreCurso {
+            get {
+                return this.nombreCursoField;
+            }
+            set {
+                this.nombreCursoField = value;
+                this.RaisePropertyChanged("nombreCurso");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("nota", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="integer", Order=6)]
         public string nota1 {
             get {
                 return this.nota1Field;
@@ -154,34 +269,6 @@ namespace net.desktop.WebServiceNota {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllNota", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findAllNotaRequest {
-        
-        public findAllNotaRequest() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllNotaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class findAllNotaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public net.desktop.WebServiceNota.nota[] @return;
-        
-        public findAllNotaResponse() {
-        }
-        
-        public findAllNotaResponse(net.desktop.WebServiceNota.nota[] @return) {
-            this.@return = @return;
         }
     }
     
@@ -222,6 +309,103 @@ namespace net.desktop.WebServiceNota {
         }
         
         public findNotaPorResponse(net.desktop.WebServiceNota.nota[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllNota", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findAllNotaRequest {
+        
+        public findAllNotaRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findAllNotaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findAllNotaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceNota.nota[] @return;
+        
+        public findAllNotaResponse() {
+        }
+        
+        public findAllNotaResponse(net.desktop.WebServiceNota.nota[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullAllNota", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullAllNotaRequest {
+        
+        public findFullAllNotaRequest() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullAllNotaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullAllNotaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceNota.nota[] @return;
+        
+        public findFullAllNotaResponse() {
+        }
+        
+        public findFullAllNotaResponse(net.desktop.WebServiceNota.nota[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullNotaPor", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullNotaPorRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string campo;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string valor;
+        
+        public findFullNotaPorRequest() {
+        }
+        
+        public findFullNotaPorRequest(string campo, string valor) {
+            this.campo = campo;
+            this.valor = valor;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullNotaPorResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullNotaPorResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceNota.nota[] @return;
+        
+        public findFullNotaPorResponse() {
+        }
+        
+        public findFullNotaPorResponse(net.desktop.WebServiceNota.nota[] @return) {
             this.@return = @return;
         }
     }
@@ -283,33 +467,36 @@ namespace net.desktop.WebServiceNota {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="editNota", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
-    public partial class editNota {
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullNota", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullNotaRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_nota;
+        public int id;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_postulacion;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int id_curso;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=3)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public int nota;
-        
-        public editNota() {
+        public findFullNotaRequest() {
         }
         
-        public editNota(int id_nota, int id_postulacion, int id_curso, int nota) {
-            this.id_nota = id_nota;
-            this.id_postulacion = id_postulacion;
-            this.id_curso = id_curso;
-            this.nota = nota;
+        public findFullNotaRequest(int id) {
+            this.id = id;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="findFullNotaResponse", WrapperNamespace="http://ws.cem.pft8461.duoc.cl/", IsWrapped=true)]
+    public partial class findFullNotaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ws.cem.pft8461.duoc.cl/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public net.desktop.WebServiceNota.nota @return;
+        
+        public findFullNotaResponse() {
+        }
+        
+        public findFullNotaResponse(net.desktop.WebServiceNota.nota @return) {
+            this.@return = @return;
         }
     }
     
@@ -357,6 +544,20 @@ namespace net.desktop.WebServiceNota {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task net.desktop.WebServiceNota.NotaWS.editNotaAsync(net.desktop.WebServiceNota.editNota request) {
+            return base.Channel.editNotaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task editNotaAsync(int id_nota, int id_postulacion, int id_curso, int nota) {
+            net.desktop.WebServiceNota.editNota inValue = new net.desktop.WebServiceNota.editNota();
+            inValue.id_nota = id_nota;
+            inValue.id_postulacion = id_postulacion;
+            inValue.id_curso = id_curso;
+            inValue.nota = nota;
+            return ((net.desktop.WebServiceNota.NotaWS)(this)).editNotaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task net.desktop.WebServiceNota.NotaWS.createNotaAsync(net.desktop.WebServiceNota.createNota request) {
             return base.Channel.createNotaAsync(request);
         }
@@ -370,6 +571,18 @@ namespace net.desktop.WebServiceNota {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findNotaPorResponse> net.desktop.WebServiceNota.NotaWS.findNotaPorAsync(net.desktop.WebServiceNota.findNotaPorRequest request) {
+            return base.Channel.findNotaPorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceNota.findNotaPorResponse> findNotaPorAsync(string campo, string valor) {
+            net.desktop.WebServiceNota.findNotaPorRequest inValue = new net.desktop.WebServiceNota.findNotaPorRequest();
+            inValue.campo = campo;
+            inValue.valor = valor;
+            return ((net.desktop.WebServiceNota.NotaWS)(this)).findNotaPorAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task<net.desktop.WebServiceNota.findAllNotaResponse> net.desktop.WebServiceNota.NotaWS.findAllNotaAsync(net.desktop.WebServiceNota.findAllNotaRequest request) {
             return base.Channel.findAllNotaAsync(request);
         }
@@ -380,15 +593,25 @@ namespace net.desktop.WebServiceNota {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findNotaPorResponse> net.desktop.WebServiceNota.NotaWS.findNotaPorAsync(net.desktop.WebServiceNota.findNotaPorRequest request) {
-            return base.Channel.findNotaPorAsync(request);
+        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findFullAllNotaResponse> net.desktop.WebServiceNota.NotaWS.findFullAllNotaAsync(net.desktop.WebServiceNota.findFullAllNotaRequest request) {
+            return base.Channel.findFullAllNotaAsync(request);
         }
         
-        public System.Threading.Tasks.Task<net.desktop.WebServiceNota.findNotaPorResponse> findNotaPorAsync(string campo, string valor) {
-            net.desktop.WebServiceNota.findNotaPorRequest inValue = new net.desktop.WebServiceNota.findNotaPorRequest();
+        public System.Threading.Tasks.Task<net.desktop.WebServiceNota.findFullAllNotaResponse> findFullAllNotaAsync() {
+            net.desktop.WebServiceNota.findFullAllNotaRequest inValue = new net.desktop.WebServiceNota.findFullAllNotaRequest();
+            return ((net.desktop.WebServiceNota.NotaWS)(this)).findFullAllNotaAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findFullNotaPorResponse> net.desktop.WebServiceNota.NotaWS.findFullNotaPorAsync(net.desktop.WebServiceNota.findFullNotaPorRequest request) {
+            return base.Channel.findFullNotaPorAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<net.desktop.WebServiceNota.findFullNotaPorResponse> findFullNotaPorAsync(string campo, string valor) {
+            net.desktop.WebServiceNota.findFullNotaPorRequest inValue = new net.desktop.WebServiceNota.findFullNotaPorRequest();
             inValue.campo = campo;
             inValue.valor = valor;
-            return ((net.desktop.WebServiceNota.NotaWS)(this)).findNotaPorAsync(inValue);
+            return ((net.desktop.WebServiceNota.NotaWS)(this)).findFullNotaPorAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -414,17 +637,14 @@ namespace net.desktop.WebServiceNota {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task net.desktop.WebServiceNota.NotaWS.editNotaAsync(net.desktop.WebServiceNota.editNota request) {
-            return base.Channel.editNotaAsync(request);
+        System.Threading.Tasks.Task<net.desktop.WebServiceNota.findFullNotaResponse> net.desktop.WebServiceNota.NotaWS.findFullNotaAsync(net.desktop.WebServiceNota.findFullNotaRequest request) {
+            return base.Channel.findFullNotaAsync(request);
         }
         
-        public System.Threading.Tasks.Task editNotaAsync(int id_nota, int id_postulacion, int id_curso, int nota) {
-            net.desktop.WebServiceNota.editNota inValue = new net.desktop.WebServiceNota.editNota();
-            inValue.id_nota = id_nota;
-            inValue.id_postulacion = id_postulacion;
-            inValue.id_curso = id_curso;
-            inValue.nota = nota;
-            return ((net.desktop.WebServiceNota.NotaWS)(this)).editNotaAsync(inValue);
+        public System.Threading.Tasks.Task<net.desktop.WebServiceNota.findFullNotaResponse> findFullNotaAsync(int id) {
+            net.desktop.WebServiceNota.findFullNotaRequest inValue = new net.desktop.WebServiceNota.findFullNotaRequest();
+            inValue.id = id;
+            return ((net.desktop.WebServiceNota.NotaWS)(this)).findFullNotaAsync(inValue);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

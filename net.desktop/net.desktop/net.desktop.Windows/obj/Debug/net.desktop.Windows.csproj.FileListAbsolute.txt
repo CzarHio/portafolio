@@ -10,6 +10,7 @@ C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Wi
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\net.desktop.Windows.build.appxrecipe
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\Newtonsoft.Json.dll
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\bin\Debug\Newtonsoft.Json.xml
+C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\net.desktop.Windows.csprojResolveAssemblyReference.cache
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\App.g.i.cs
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\App.g.cs
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\HubPage.g.i.cs
@@ -20,14 +21,14 @@ C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Wi
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\ItemPage.g.cs
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\XamlTypeInfo.g.cs
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\App.xaml
+C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\HubPage.xaml
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\SectionPage.xaml
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\ItemPage.xaml
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\App.xbf
+C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\HubPage.xbf
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\SectionPage.xbf
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\ItemPage.xbf
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\XamlSaveStateFile.xml
-C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\HubPage.xaml
-C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\HubPage.xbf
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\net.desktop.Windows.exe
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\net.desktop.Windows.pdb
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\net.desktop.Windows.csproj.GenerateResource.Cache
@@ -43,4 +44,3 @@ C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Wi
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\qualifiers.txt.intermediate
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\ProjectArchitectures.txt
-C:\Portafolio\portafolioWeb\portafolioWeb\net.desktop\net.desktop\net.desktop.Windows\obj\Debug\net.desktop.Windows.csprojResolveAssemblyReference.cache
