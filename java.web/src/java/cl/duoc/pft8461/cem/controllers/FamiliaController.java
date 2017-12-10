@@ -5,6 +5,7 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
+import cl.duoc.pft8461.cem.entidades.DocumentoEntity;
 import cl.duoc.pft8461.cem.entidades.FamiliaEntity;
 import cl.duoc.pft8461.cem.ws.Centro;
 import cl.duoc.pft8461.cem.ws.CentroWS;
@@ -12,12 +13,16 @@ import cl.duoc.pft8461.cem.ws.CentroWS_Service;
 import cl.duoc.pft8461.cem.ws.Documento;
 import cl.duoc.pft8461.cem.ws.DocumentoWS;
 import cl.duoc.pft8461.cem.ws.DocumentoWS_Service;
+import cl.duoc.pft8461.cem.ws.EstadoDocumento;
+import cl.duoc.pft8461.cem.ws.EstadoDocumentoWS;
+import cl.duoc.pft8461.cem.ws.EstadoDocumentoWS_Service;
 import cl.duoc.pft8461.cem.ws.EstadoFamilia;
 import cl.duoc.pft8461.cem.ws.EstadoFamiliaWS;
 import cl.duoc.pft8461.cem.ws.EstadoFamiliaWS_Service;
 import cl.duoc.pft8461.cem.ws.Familia;
 import cl.duoc.pft8461.cem.ws.FamiliaWS;
 import cl.duoc.pft8461.cem.ws.FamiliaWS_Service;
+import cl.duoc.pft8461.cem.ws.TipoDocumento;
 import cl.duoc.pft8461.cem.ws.TipoDocumentoWS;
 import cl.duoc.pft8461.cem.ws.TipoDocumentoWS_Service;
 import cl.duoc.pft8461.cem.ws.Usuario;
@@ -30,10 +35,13 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -50,6 +58,9 @@ public class FamiliaController extends BaseController {
     private final EstadoFamiliaWS estadoFamiliaWS = new EstadoFamiliaWS_Service().getEstadoFamiliaWSPort();
     private final DocumentoWS documentoWS = new DocumentoWS_Service().getDocumentoWSPort();
     private final TipoDocumentoWS tipoDocumentoWS = new TipoDocumentoWS_Service().getTipoDocumentoWSPort();
+    private final EstadoDocumentoWS estadoDocumentoWS = new EstadoDocumentoWS_Service().getEstadoDocumentoWSPort();
+    private List<EstadoDocumento> listaEstadoDoc = this.estadoDocumentoWS.findAllEstadoDocumento();
+    private List<TipoDocumento> listaTipoDoc = this.tipoDocumentoWS.findAllTipoDocumento();
     private Map<Integer, Centro> centros = new HashMap<Integer, Centro>();
     private List<Centro> listaCentro = this.centroWS.findAllCentro();
     private Map<Integer, Usuario> usuarios = new HashMap<Integer, Usuario>();
@@ -79,6 +90,8 @@ public class FamiliaController extends BaseController {
         mav.addObject("centros", this.centros);
         mav.addObject("usuarios", this.usuarios);
         mav.addObject("estadosFamilia", this.estadosFamilia);
+        mav.addObject("listaTipoDoc", this.listaTipoDoc);
+        mav.addObject("listaEstadoDoc", this.listaEstadoDoc);
         mav.addObject("tituloPagina", "Familia");
         mav.addObject("subtituloPagina", "Listado de Familias:");
         mav.setViewName("familia/lista");
@@ -169,12 +182,84 @@ public class FamiliaController extends BaseController {
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
     
-        //List<Documento> listaDocumento = this.documentoWS.findDocumentoPor("id_familia", id);
-
-        //mav.addObject("ListadoFamilia", listaDocumento);
-        mav.setViewName("familia/setfam");
+        List<Documento> listaDocumento = this.documentoWS.findDocumentoPor("id_familia", request.getParameter("id"));
+        JSONArray json = new JSONArray(listaDocumento);
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
         
         return mav;
+    }
+    
+    @RequestMapping(value = {"familia/upload.htm"}, method = RequestMethod.POST)
+    public void upload(@RequestParam("file") MultipartFile file, HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+        
+        try {
+            if (!file.isEmpty()) {
+                String fileName = "familia_" + request.getParameter("idFamiliaDoc") + "_" + request.getParameter("titulo") + "." + file.getContentType().split("/")[1];
+                String path = request.getSession().getServletContext().getRealPath("/resources/") + this.pm.get("FILES_PATH") + fileName;
+                String web_path = this.pm.get("WEB_PATH") + fileName;
+                
+                if (this.saveFile(file.getBytes(), path)) {
+                    System.out.println(web_path);
+                    if (this.isEmpty(request.getParameter("idDocumento"))) {
+                        this.documentoWS.createDocumento(
+                            web_path,
+                            Integer.parseInt(request.getParameter("idFamiliaDoc")),
+                            request.getParameter("titulo"),
+                            Integer.parseInt(request.getParameter("idTipoDocumento")),
+                            request.getParameter("descripcion"),
+                            Integer.parseInt(request.getParameter("idEstado")));
+                    } else {
+                        this.documentoWS.editDocumento(
+                            Integer.parseInt(request.getParameter("idDocumento")),
+                            web_path,
+                            Integer.parseInt(request.getParameter("idFamiliaDoc")),
+                            request.getParameter("titulo"),
+                            Integer.parseInt(request.getParameter("idTipoDocumento")),
+                            request.getParameter("descripcion"),
+                            Integer.parseInt(request.getParameter("idEstado")));
+                    }
 
+                } else
+                    mav.addObject("error", "Ocurrió un error al intentar subir el archivo. Intente nuevamente.");
+            }
+        } catch (Exception e) {
+            mav.addObject("error", "Ocurrió un error al intentar subir el archivo. Intente nuevamente.");
+            System.out.println(e);
+        }
+        
+        response.sendRedirect("/java.web/familia/lista.htm");
+    }
+
+    @RequestMapping(value = {"familia/borrarDocumento.htm"}, method = RequestMethod.POST)
+    public ModelAndView borrarDocumento(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+        String json = "{\"response\": 0}";
+        try {
+            json = "{\"response\": 1}";
+            this.documentoWS.removeDocumento(Integer.parseInt(request.getParameter("id")));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
+        
+        return mav;
+    }
+
+    @RequestMapping(value = {"familia/editarDocumento.htm"}, method = RequestMethod.POST)
+    public ModelAndView editarDocumento(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+
+        DocumentoEntity doc = new DocumentoEntity(this.documentoWS.findDocumento(Integer.parseInt(request.getParameter("id"))));
+        mav.addObject("json", doc.toJson());
+        mav.setViewName("include/json");
+        
+        return mav;
     }
 }

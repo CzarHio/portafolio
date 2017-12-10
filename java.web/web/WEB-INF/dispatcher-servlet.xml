@@ -92,6 +92,11 @@
                 <prop key="familia/editar.htm">familia</prop>
                 <prop key="familia/borrar.htm">familia</prop>
                 <prop key="familia/guardar.htm">familia</prop>
+                <prop key="familia/selfam.htm">familia</prop>
+                <prop key="familia/archivos.htm">familia</prop>
+                <prop key="familia/pload.htm">familia</prop>
+                <prop key="familia/borrarDocumento.htm">familia</prop>
+                <prop key="familia/editarDocumento.htm">familia</prop>
                 <!-- Menu Routes  -->
                 <prop key="menu/lista.htm">menu</prop>
                 <prop key="menu/editar.htm">menu</prop>

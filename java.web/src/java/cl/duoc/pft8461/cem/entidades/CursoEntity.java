@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @author Joe
  */
-public class CursoEntity extends Curso implements Model, Serializable  {
+public class CursoEntity extends Curso implements Model, Serializable {
     
     
     public CursoEntity(Curso c) {

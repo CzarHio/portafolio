@@ -406,6 +406,11 @@
         $('#cursos').modal('show');
     });
 
+    $('body').on('click', '.btnFiles', function () {
+        cem.fillTableFiles($(this).attr('data-id'), $(this).attr('data-url'));
+        $('#archivos').modal('show');
+    });
+
     $('body').on('click', '.notaAlumnos', function () {
         cem.fillTableNotas($(this).attr('data-id'), $(this).attr('data-url'));
         $('#notas').modal('show');
@@ -418,6 +423,10 @@
 
     $('body').on('click', '.editaCurso', function () {
         cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'), 'addCurso');
+    });
+
+    $('body').on('click', '.editaDoc', function () {
+        cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'), 'addArchivo');
     });
 
     $('body').on('click', '.btnEditarItem', function () {
@@ -599,6 +608,36 @@
                                 '<i class="fa fa-pencil-square-o"></i>' +
                             '</a> ' +
                             '<a class="btn btn-danger btnEliminar" data-url="/java.web/cursos/borrar.htm" data-toggle="tooltip" data-original-title="Eliminar" data-id="' + data[i].idCurso + '">' +
+                                '<i class="fa fa-times-circle"></i>' +
+                            '</a>' +
+                        '</td></tr>');
+
+                        table.append(row);
+                    }
+                }
+            });
+        },
+        fillTableFiles: function(id, url, table) {
+            table = table || 'table-files';
+            $('#saveCurso').attr('data-programa', id);
+            $.ajax({
+                url: url,
+                data: 'id=' + id,
+                type: "POST",
+                success: function (data) {
+                    table = $('#' + table).children('tbody').text('');
+                    $('#idFamiliaDoc').val(id);
+                    var row;
+                    
+                    for (var i in data) {
+                        row = $('<tr><td>' + data[i].tipoDocumento + '</td><td>' + data[i].titulo + '</td><td>' + data[i].descripcion + '</td><td>' + data[i].revision + '</td><td>' + data[i].estado + '</td><td>' +
+                            '<a class="btn btn-default" data-url="' + data[i].ruta + '" data-toggle="tooltip" data-original-title="Ver Documento" target="_blank">' +
+                                '<i class="fa fa-file-pdf-o"></i>' +
+                            '</a> ' +
+                            '<a class="btn btn-primary editaDoc" data-url="/java.web/familia/editarDocumento.htm" data-toggle="tooltip" data-original-title="Editar" data-id="' + data[i].idDocumento + '">' +
+                                '<i class="fa fa-pencil-square-o"></i>' +
+                            '</a> ' +
+                            '<a class="btn btn-danger btnEliminar" data-url="/java.web/familia/borrarDocumento.htm" data-toggle="tooltip" data-original-title="Eliminar" data-id="' + data[i].idDocumento + '">' +
                                 '<i class="fa fa-times-circle"></i>' +
                             '</a>' +
                         '</td></tr>');
