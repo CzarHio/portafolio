@@ -9,12 +9,17 @@ import cl.duoc.pft8461.cem.entidades.FamiliaEntity;
 import cl.duoc.pft8461.cem.ws.Centro;
 import cl.duoc.pft8461.cem.ws.CentroWS;
 import cl.duoc.pft8461.cem.ws.CentroWS_Service;
+import cl.duoc.pft8461.cem.ws.Documento;
+import cl.duoc.pft8461.cem.ws.DocumentoWS;
+import cl.duoc.pft8461.cem.ws.DocumentoWS_Service;
 import cl.duoc.pft8461.cem.ws.EstadoFamilia;
 import cl.duoc.pft8461.cem.ws.EstadoFamiliaWS;
 import cl.duoc.pft8461.cem.ws.EstadoFamiliaWS_Service;
 import cl.duoc.pft8461.cem.ws.Familia;
 import cl.duoc.pft8461.cem.ws.FamiliaWS;
 import cl.duoc.pft8461.cem.ws.FamiliaWS_Service;
+import cl.duoc.pft8461.cem.ws.TipoDocumentoWS;
+import cl.duoc.pft8461.cem.ws.TipoDocumentoWS_Service;
 import cl.duoc.pft8461.cem.ws.Usuario;
 import cl.duoc.pft8461.cem.ws.UsuarioWS;
 import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
@@ -43,6 +48,8 @@ public class FamiliaController extends BaseController {
     private final CentroWS centroWS = new CentroWS_Service().getCentroWSPort();
     private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
     private final EstadoFamiliaWS estadoFamiliaWS = new EstadoFamiliaWS_Service().getEstadoFamiliaWSPort();
+    private final DocumentoWS documentoWS = new DocumentoWS_Service().getDocumentoWSPort();
+    private final TipoDocumentoWS tipoDocumentoWS = new TipoDocumentoWS_Service().getTipoDocumentoWSPort();
     private Map<Integer, Centro> centros = new HashMap<Integer, Centro>();
     private List<Centro> listaCentro = this.centroWS.findAllCentro();
     private Map<Integer, Usuario> usuarios = new HashMap<Integer, Usuario>();
@@ -67,6 +74,7 @@ public class FamiliaController extends BaseController {
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
         List<Familia> listaFamilia = this.familiaWS.findAllFamilia();
+        
         mav.addObject("listado", listaFamilia);
         mav.addObject("centros", this.centros);
         mav.addObject("usuarios", this.usuarios);
@@ -150,6 +158,20 @@ public class FamiliaController extends BaseController {
         List<Familia> listadoFamilia = new FamiliaWS_Service().getFamiliaWSPort().findFamiliaPor("id_centro", request.getParameter("idCentro"));
 
         mav.addObject("ListadoFamilia", listadoFamilia);
+        mav.setViewName("familia/setfam");
+        
+        return mav;
+
+    }
+    
+    @RequestMapping(value = {"familia/archivos.htm"}, method = RequestMethod.POST)
+    public ModelAndView archivos(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+    
+        //List<Documento> listaDocumento = this.documentoWS.findDocumentoPor("id_familia", id);
+
+        //mav.addObject("ListadoFamilia", listaDocumento);
         mav.setViewName("familia/setfam");
         
         return mav;

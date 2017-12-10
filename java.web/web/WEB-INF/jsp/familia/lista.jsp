@@ -36,6 +36,9 @@
                                             <td>${familia.getDescripcion()}</td>
                                             <td>${estadosFamilia.get(familia.getIdEstado()).getEstado()}</td>
                                             <td>
+                                                <a class="btn btn-warning btnFiles" data-url="archivos.htm" data-toggle="tooltip" data-original-title="Editar" data-id="${familia.getIdFamilia()}">
+                                                    <i class="fa fa-files-o"></i>
+                                                </a>
                                                 <a class="btn btn-primary btnEditar" data-url="editar.htm" data-toggle="tooltip" data-original-title="Editar" data-id="${familia.getIdFamilia()}">
                                                     <i class="fa fa-pencil-square-o"></i>
                                                 </a>
