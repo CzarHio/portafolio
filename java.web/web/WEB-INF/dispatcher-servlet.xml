@@ -32,6 +32,7 @@
                 <prop key="registro_alumno.htm">login</prop>
                 <prop key="registro_familia.htm">login</prop>
                 <prop key="registro.htm">login</prop>
+                <prop key="recupera.htm">login</prop>
                 <prop key="salir.htm">login</prop>
                 <!-- Home Routes  -->
                 <prop key="home.htm">home</prop>
@@ -100,7 +101,7 @@
                 <prop key="postulacion/guardar.htm">postulacion</prop>
                 <!-- Alumno Routes  -->
                 <prop key="alumno/calificaciones.htm">alumno</prop>
-                <!-- MeniItem Routes  -->
+                <!-- MenuItem Routes  -->
                 <prop key="menuItem/editar.htm">menuItem</prop>
                 <prop key="menuItem/borrar.htm">menuItem</prop>
                 <prop key="menuItem/guardar.htm">menuItem</prop>

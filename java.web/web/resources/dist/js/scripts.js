@@ -25,11 +25,11 @@
             type: "input",
             showCancelButton: true,
             closeOnConfirm: false,
-            inputPlaceholder: "correo@ejemplo.cl"
+            inputPlaceholder: "usuario"
         }, function (inputValue) {
             if (inputValue === false) return false;
-            if (inputValue === "" || !validateEmail(inputValue)) {
-                swal.showInputError("Debe ingresar un correo válido.");
+            if (inputValue === "") {
+                swal.showInputError("Debe ingresar un usuario válido.");
                 return false;
             }
             swal({
@@ -40,9 +40,33 @@
                 closeOnConfirm: false,
                 showLoaderOnConfirm: true
             }, function () {
-                setTimeout(function () {
-                    swal("Correo enviado!", "", "success");
-                }, 2000);
+                $.ajax({
+                    url: 'recupera.htm',
+                    data: 'user=' + inputValue,
+                    type: 'GET',
+                    success: function (data) {
+                        if (data.response === 1) {
+                            swal({
+                                title: "Correo enviado!",
+                                text: "",
+                                type: "success"
+                            });
+                        } else {
+                            swal({
+                                title: "Error al enviar correo!",
+                                text: "Intente nuevamente.",
+                                type: "error"
+                            });
+                        }
+                    },
+                    error: function () {
+                        swal({
+                            title: "Error al registrar el usuario!",
+                            text: "Intente nuevamente.",
+                            type: "error"
+                        });
+                    }
+                });
             });
         });
     });
@@ -63,9 +87,9 @@
                             text: "",
                             type: "success"
                         },
-                                function () {
-                                    location.reload();
-                                });
+                            function () {
+                                location.reload();
+                            });
                     } else {
                         swal({
                             title: "Error al registrar el usuario!",

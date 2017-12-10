@@ -5,7 +5,6 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
-import cl.duoc.pft8461.cem.entidades.MenuEntity;
 import cl.duoc.pft8461.cem.entidades.MenuItemEntity;
 import cl.duoc.pft8461.cem.ws.MenuItemWS;
 import cl.duoc.pft8461.cem.ws.MenuItemWS_Service;

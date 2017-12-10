@@ -29,11 +29,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  *
@@ -64,9 +67,6 @@ public class LoginController extends BaseController {
     public ModelAndView form(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
-        //this.sendMail("");
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-        System.out.println(timeStamp);
         
         mav.setViewName("login");
         return mav;
@@ -166,6 +166,50 @@ public class LoginController extends BaseController {
     }
     
     /**
+     * Método recupera
+     * 
+     * @param request
+     * @param response
+     * @return
+     * @throws ServletException
+     * @throws IOException 
+     */
+    @RequestMapping(value = {"recupera.htm"}, method = RequestMethod.GET)
+    public ModelAndView recupera(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+        String json = "{\"response\": 0}";
+        
+        String user = request.getParameter("user");
+        try {
+            //this.ws.getUsuarioWSPort().
+            
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+            Date now = new Date();
+            
+            byte[] tkn = (timeStamp + "$" + HashPwd.getHash(this.pm.get("APP_KEY"))).getBytes();
+            String token = new String(Base64.encodeBase64(tkn));
+            
+            //user, token -> email -> sendEmail
+            String _token = new String(Base64.decodeBase64(token.getBytes(Charset.forName("UTF-8"))));
+            Date tkn_date = new SimpleDateFormat("yyyyMMdd_HHmmss").parse(_token.split("$")[0]);
+            
+            System.out.println(token);
+            System.out.println();
+            System.out.println(now.before(tkn_date));
+            
+            json = "{\"response\": 1}";
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        mav.addObject("json", json);
+        mav.setViewName("include/json");
+        return mav;
+    }
+    
+    /**
      * Método postRegister
      * 
      * @param request
@@ -191,6 +235,7 @@ public class LoginController extends BaseController {
             
             this.ws.getUsuarioWSPort().createUsuario(usuario, clave, nombre, apellidoPat, apellidoMat, email, 0);
             
+            this.sendMailBienvenida(email);
             response.sendRedirect("./login.htm");
             return null;
             
@@ -225,6 +270,7 @@ public class LoginController extends BaseController {
                 
                 this.ws.getUsuarioWSPort().createUsuarioAlumno(usuario, clave, nombre, apellidoPat, apellidoMat, email, 4, idCarrera, semestre, ingreso);
                 
+                this.sendMailBienvenida(email);
             } catch (Exception ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -263,6 +309,7 @@ public class LoginController extends BaseController {
                 
                 this.ws.getUsuarioWSPort().createUsuarioFamilia(usuario, clave, nombre, apellidoPat, apellidoMat, email, 5, idCentro, nombreFamilia, descripcion, direccion);
                 
+                this.sendMailBienvenida(email);
             } catch (Exception ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }

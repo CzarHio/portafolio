@@ -11,8 +11,17 @@ import cl.duoc.pft8461.cem.ws.AlumnoWS_Service;
 import cl.duoc.pft8461.cem.ws.Curso;
 import cl.duoc.pft8461.cem.ws.CursoWS;
 import cl.duoc.pft8461.cem.ws.CursoWS_Service;
+import cl.duoc.pft8461.cem.ws.Nota;
+import cl.duoc.pft8461.cem.ws.NotaWS;
+import cl.duoc.pft8461.cem.ws.NotaWS_Service;
+import cl.duoc.pft8461.cem.ws.Postulacion;
+import cl.duoc.pft8461.cem.ws.PostulacionWS;
+import cl.duoc.pft8461.cem.ws.PostulacionWS_Service;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +38,8 @@ public class AlumnoController extends BaseController {
     
     private final AlumnoWS alumnoWS = new AlumnoWS_Service().getAlumnoWSPort();
     private final CursoWS cursoWS = new CursoWS_Service().getCursoWSPort();
+    private final PostulacionWS postulacionWS = new PostulacionWS_Service().getPostulacionWSPort();
+    private final NotaWS notaWS = new NotaWS_Service().getNotaWSPort();
 
     public AlumnoController() {
     }
@@ -65,8 +76,24 @@ public class AlumnoController extends BaseController {
         }
         
         if (alumno != null) {
-            List<Curso> cursos = this.cursoWS.findFullCursoPor("p.id_alumno", alumno.toString());
+            List<Curso> cursos = new ArrayList<Curso>();
+            List<Curso> aux_cursos = new ArrayList<Curso>();
+            List<Postulacion> postulaciones = this.postulacionWS.findPostulacionFullPor("p.id_alumno", alumno.toString());
+            List<Nota> aux_notas = this.notaWS.findFullNotaPor("id_alumno", alumno.toString());
+            Map<Integer, Nota> notas = new HashMap<Integer, Nota>();
+            
+            for(Nota n : aux_notas){
+                notas.put(n.getIdCurso(), n);
+            }
+            
+            for(Postulacion p : postulaciones){
+                aux_cursos = this.cursoWS.findFullCursoPor("c.id_programa", String.valueOf(p.getIdPrograma()));
+                for(Curso c : aux_cursos){
+                    cursos.add(c);
+                }
+            }
             mav.addObject("cursos", cursos);
+            mav.addObject("notas", notas);
         }
         
         mav.addObject("tituloPagina", "Alumno");

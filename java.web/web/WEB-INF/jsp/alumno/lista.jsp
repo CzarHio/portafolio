@@ -31,13 +31,17 @@
                             <table class="table table-bordered table-hover" id="mantenedor">
                                 <thead>
                                     <tr>
-                                        <th>Nonbre</th>
+                                        <th>Programa</th>
+                                        <th>Nombre Curso</th>
+                                        <th>Nota</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <c:forEach items="${cursos}" var="curso">
                                         <tr>
+                                            <td>${curso.getNombrePrograma()}</td>
                                             <td>${curso.getNombreCurso()}</td>
+                                            <td>${notas.get(curso.getIdCurso().intValue()).getNota()}</td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
