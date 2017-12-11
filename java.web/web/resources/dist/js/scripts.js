@@ -21,7 +21,7 @@
     $('#recover-password').on('click', function () {
         swal({
             title: "Recuperar contraseña",
-            text: "Ingrese su correo en el sistema:",
+            text: "Ingrese su usuario en el sistema:",
             type: "input",
             showCancelButton: true,
             closeOnConfirm: false,
