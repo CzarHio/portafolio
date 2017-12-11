@@ -106,4 +106,30 @@ public class PostulacionController extends BaseController {
         mav.setViewName("postulacion/ver");
         return mav;
     }
+    
+    @RequestMapping(value = {"postulacion/estado.htm"}, method = RequestMethod.POST)
+    public ModelAndView estado(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+
+        Postulacion pos = postulacionWS.findFullPostulacion(Integer.parseInt(request.getParameter("idPostulacion")));
+        List<EstadoPostulacion> listaEstados = new EstadoPostulacionWS_Service().getEstadoPostulacionWSPort().findAllEstadoPostulacion();
+        mav.addObject("postulacion", pos);
+        mav.addObject("listaEstados", listaEstados);
+
+        mav.setViewName("postulacion/estado");
+        return mav;
+    }
+    
+    @RequestMapping(value = {"postulacion/cambiarEstado.htm"}, method = RequestMethod.POST)
+    public void cambiarEstado(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        
+        postulacionWS.cambiarEstadoPostulacion(
+                Integer.parseInt(request.getParameter("idPostulacion")), 
+                Integer.parseInt(request.getParameter("idEstado"))
+        );
+       response.sendRedirect("/java.web/home.htm");
+    }
 }
