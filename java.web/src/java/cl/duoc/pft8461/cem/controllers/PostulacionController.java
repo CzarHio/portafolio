@@ -5,6 +5,8 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
+import cl.duoc.pft8461.cem.utilities.Mail;
+import cl.duoc.pft8461.cem.ws.Centro;
 import cl.duoc.pft8461.cem.ws.EstadoPostulacion;
 import cl.duoc.pft8461.cem.ws.EstadoPostulacionWS;
 import cl.duoc.pft8461.cem.ws.EstadoPostulacionWS_Service;
@@ -23,6 +25,9 @@ import org.springframework.web.servlet.ModelAndView;
 import cl.duoc.pft8461.cem.ws.Postulacion;
 import cl.duoc.pft8461.cem.ws.PostulacionWS;
 import cl.duoc.pft8461.cem.ws.PostulacionWS_Service;
+import cl.duoc.pft8461.cem.ws.Usuario;
+import cl.duoc.pft8461.cem.ws.UsuarioWS;
+import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +43,7 @@ import javax.servlet.http.HttpSession;
 public class PostulacionController extends BaseController {
 
     private final PostulacionWS postulacionWS = new PostulacionWS_Service().getPostulacionWSPort();
+    private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
     private final PaisWS paisWS = new PaisWS_Service().getPaisWSPort();
     private final EstadoPostulacionWS estadoPostulacionWS = new EstadoPostulacionWS_Service().getEstadoPostulacionWSPort();
     private Map<Integer, Pais> paises = new HashMap<Integer, Pais>();
@@ -124,12 +130,39 @@ public class PostulacionController extends BaseController {
     @RequestMapping(value = {"postulacion/cambiarEstado.htm"}, method = RequestMethod.POST)
     public void cambiarEstado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
         
         postulacionWS.cambiarEstadoPostulacion(
                 Integer.parseInt(request.getParameter("idPostulacion")), 
                 Integer.parseInt(request.getParameter("idEstado"))
         );
+        try {
+            Usuario usuario = this.usuarioWS.findUsuario(Integer.parseInt(request.getParameter("idUsuario")));
+            if (!this.isEmpty(usuario.getEmail()))
+                this.sendMail(usuario.getEmail());
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
        response.sendRedirect("/java.web/home.htm");
+    }
+    
+    private boolean sendMail(String to) {
+        boolean sent = false;
+        try {
+            Mail mail = new Mail();
+            mail.init();
+            mail.from("mail@test.com");
+            mail.to(to);
+            mail.subject("Aceptación de Participación");
+            mail.content("Estimado,\n\nEl siguiente correo tiene como fin "
+                    + "informar de que ha sido aprobado su participación en el programa."
+                    + "\n\nGracias por confiar en nosotros.\n"
+                    + "\n\n\n\n\nCentro de Estudios Montreal.");
+            sent = mail.send();
+        } catch (Exception e) {
+            System.out.println("Error mail: " + e);
+        }
+        
+        return sent;
     }
 }

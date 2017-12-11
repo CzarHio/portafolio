@@ -100,9 +100,11 @@ public class HomeController extends BaseController {
             case 3:
                 BigDecimal idCentro = (BigDecimal) session.getAttribute("id_centro");
                 List<Programa> listaPrograma = this.programaWS.findFullProgramaPor("p.id_estado", "2");
+                listaPostulacion = this.postulacionWS.findPostulacionFullPor("p.id_estado = 1 AND c.id_centro", idCentro.toString());
                 listaParticipacion = this.participacionWS.findFullParticipacionPor("p.id_centro", idCentro.toString());
                 listaFamilia = this.familiaWS.findAllFamilia();
                 mav.addObject("listaPrograma", listaPrograma);
+                 mav.addObject("listaPostulacion", listaPostulacion);
                 mav.addObject("listaParticipacion", listaParticipacion);
                 mav.addObject("listaFamilia", listaFamilia);
                 mav.setViewName("home/home_cel");

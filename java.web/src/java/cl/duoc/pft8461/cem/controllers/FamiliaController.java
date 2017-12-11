@@ -182,7 +182,7 @@ public class FamiliaController extends BaseController {
             throws ServletException, IOException {
         ModelAndView mav = new ModelAndView();
     
-        List<Documento> listaDocumento = this.documentoWS.findDocumentoPor("id_familia", request.getParameter("id"));
+        List<Documento> listaDocumento = this.documentoWS.findFullDocumentoPor("d.id_familia", request.getParameter("id"));
         JSONArray json = new JSONArray(listaDocumento);
         mav.addObject("json", json);
         mav.setViewName("include/json");

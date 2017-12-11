@@ -35,6 +35,7 @@
         </div>
         <br />
         <input name="idParticipacion" value="${participacion.getIdParticipacion()}" type="hidden">
+        <input name="idCentro" value="${participacion.getIdCentro()}" type="hidden">
         <div class="modal-footer">
             <button id="btnPostular" type="submit" class="btn btn-default" data-id-centro="${participacion.getIdCentro()}">Guardar</button>   
         </div>

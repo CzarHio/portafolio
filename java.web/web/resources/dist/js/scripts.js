@@ -547,6 +547,7 @@
                         });
                     } else {
                         $('#' + form).find('.form-control, .image').each(function () {
+                            
                             if ($(this).hasClass('image')) {
                                 if (data.data.src !== undefined)
                                     $(this).html('<img src="' + data.data['src'] + '" class="img-responsive img-thumbnail"/>');
@@ -554,7 +555,9 @@
                                     $(this).html('<div class="alert alert-warning"><strong>Atención!</strong> No se ha ingresado una imagen.</div>');
                             } else if ($(this).is('select'))
                                 $(this).select2('val', data.data[$(this).attr('name')]);
-                            else
+                            else if ($(this).attr('name') == 'idFamiliaDoc') {
+                                $(this).val(data.data.idFamilia);
+                            } else
                                 $(this).val(data.data[$(this).attr('name')]);
                         });
                     }
@@ -642,11 +645,11 @@
                     var row;
                     
                     for (var i in data) {
-                        row = $('<tr><td>' + data[i].tipoDocumento + '</td><td>' + data[i].titulo + '</td><td>' + data[i].descripcion + '</td><td>' + data[i].revision + '</td><td>' + data[i].estado + '</td><td>' +
-                            '<a class="btn btn-default" data-url="' + data[i].ruta + '" data-toggle="tooltip" data-original-title="Ver Documento" target="_blank">' +
+                        row = $('<tr><td>' + data[i].tipoDocumento + '</td><td>' + data[i].titulo + '</td><td>' + data[i].descripcion + '</td><td>' + (data[i].revision?data[i].revision:'') + '</td><td>' + data[i].estado + '</td><td>' +
+                            '<a class="btn btn-default" href="' + data[i].ruta + '" data-toggle="tooltip" data-original-title="Ver Documento" target="_blank">' +
                                 '<i class="fa fa-file-pdf-o"></i>' +
                             '</a> ' +
-                            '<a class="btn btn-primary editaDoc" data-url="/java.web/familia/editarDocumento.htm" data-toggle="tooltip" data-original-title="Editar" data-id="' + data[i].idDocumento + '">' +
+                            '<a class="btn btn-primary editaDoc" data-url="/java.web/familia/editarDocumento.htm" data-toggle="tooltip" data-original-title="Editar" data-id="' + data[i].idDocumento + '" data-familia="' + data[i].idFamilia + '">' +
                                 '<i class="fa fa-pencil-square-o"></i>' +
                             '</a> ' +
                             '<a class="btn btn-danger btnEliminar" data-url="/java.web/familia/borrarDocumento.htm" data-toggle="tooltip" data-original-title="Eliminar" data-id="' + data[i].idDocumento + '">' +

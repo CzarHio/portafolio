@@ -18,6 +18,7 @@ import cl.duoc.pft8461.cem.ws.Postulacion;
 import cl.duoc.pft8461.cem.ws.PostulacionWS;
 import cl.duoc.pft8461.cem.ws.PostulacionWS_Service;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -72,7 +73,7 @@ public class AlumnoController extends BaseController {
 
             mav.addObject("alumnos", alumnos);
         } else {
-            alumno = (Integer) session.getAttribute("id_alumno");
+            alumno = ((BigDecimal) session.getAttribute("id_alumno")).intValue();
         }
         
         if (alumno != null) {

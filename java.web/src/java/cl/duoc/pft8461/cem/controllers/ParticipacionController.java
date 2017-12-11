@@ -5,6 +5,10 @@
  */
 package cl.duoc.pft8461.cem.controllers;
 
+import cl.duoc.pft8461.cem.utilities.Mail;
+import cl.duoc.pft8461.cem.ws.Centro;
+import cl.duoc.pft8461.cem.ws.CentroWS;
+import cl.duoc.pft8461.cem.ws.CentroWS_Service;
 import cl.duoc.pft8461.cem.ws.EstadoParticipacion;
 import cl.duoc.pft8461.cem.ws.EstadoParticipacionWS;
 import cl.duoc.pft8461.cem.ws.EstadoParticipacionWS_Service;
@@ -23,6 +27,9 @@ import org.springframework.web.servlet.ModelAndView;
 import cl.duoc.pft8461.cem.ws.Participacion;
 import cl.duoc.pft8461.cem.ws.ParticipacionWS;
 import cl.duoc.pft8461.cem.ws.ParticipacionWS_Service;
+import cl.duoc.pft8461.cem.ws.Usuario;
+import cl.duoc.pft8461.cem.ws.UsuarioWS;
+import cl.duoc.pft8461.cem.ws.UsuarioWS_Service;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +45,8 @@ import javax.servlet.http.HttpSession;
 public class ParticipacionController extends BaseController {
 
     private final ParticipacionWS participacionWS = new ParticipacionWS_Service().getParticipacionWSPort();
+    private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
+    private final CentroWS centroWS = new CentroWS_Service().getCentroWSPort();
     private final PaisWS paisWS = new PaisWS_Service().getPaisWSPort();
     private final EstadoParticipacionWS estadoParticipacionWS = new EstadoParticipacionWS_Service().getEstadoParticipacionWSPort();
     private Map<Integer, Pais> paises = new HashMap<Integer, Pais>();
@@ -125,14 +134,42 @@ public class ParticipacionController extends BaseController {
     public void cambiarEstado(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        
-        System.out.println(session.getAttribute("id_usuario") + " " + session.getAttribute("userSession"));
-        
+       
         participacionWS.cambiarEstadoParticipacion(
                 Integer.parseInt(request.getParameter("idParticipacion")),
                 Integer.parseInt(request.getParameter("idEstado")),
                 request.getParameter("revision"),
                 ((BigDecimal) session.getAttribute("id_usuario")).intValueExact());
-       response.sendRedirect("/java.web/home.htm");
+        
+        try {
+            Centro centro = this.centroWS.findCentro(Integer.parseInt(request.getParameter("idCentro")));
+            Usuario usuario = this.usuarioWS.findUsuario(centro.getIdUsuario());
+            if (!this.isEmpty(usuario.getEmail()))
+                this.sendMail(usuario.getEmail());
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        response.sendRedirect("/java.web/home.htm");
+    }
+    
+    private boolean sendMail(String to) {
+        boolean sent = false;
+        try {
+            Mail mail = new Mail();
+            mail.init();
+            mail.from("mail@test.com");
+            mail.to(to);
+            mail.subject("Aceptación de Participación");
+            mail.content("Estimado,\n\nEl siguiente correo tiene como fin "
+                    + "informar de que ha sido aprobado su participación en el programa."
+                    + "\n\nGracias por confiar en nosotros.\n"
+                    + "\n\n\n\n\nCentro de Estudios Montreal.");
+            sent = mail.send();
+        } catch (Exception e) {
+            System.out.println("Error mail: " + e);
+        }
+        
+        return sent;
     }
 }

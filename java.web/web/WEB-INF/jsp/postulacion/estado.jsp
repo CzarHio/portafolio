@@ -28,6 +28,7 @@
         </div>
         <br />
         <input name="idPostulacion" value="${postulacion.getIdPostulacion()}" type="hidden">
+        <input name="idUsuario" value="${postulacion.getIdUsuario()}" type="hidden">
         <div class="modal-footer">
             <button id="btnPostular" type="submit" class="btn btn-default">Guardar</button>   
         </div>
