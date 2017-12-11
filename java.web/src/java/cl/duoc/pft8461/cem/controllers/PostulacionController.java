@@ -94,4 +94,16 @@ public class PostulacionController extends BaseController {
 
     }
 
+    @RequestMapping(value = {"postulacion/ver.htm"}, method = RequestMethod.POST)
+    public ModelAndView ver(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+
+        Postulacion pos = postulacionWS.findFullPostulacion(Integer.parseInt(request.getParameter("idPostulacion")));
+
+        mav.addObject("postulacion", pos);
+
+        mav.setViewName("postulacion/ver");
+        return mav;
+    }
 }

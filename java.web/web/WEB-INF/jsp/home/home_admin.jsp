@@ -9,9 +9,9 @@
                 <div class="well"><h1>Bienvenido Admin</h1></div>
             </div>
         </div>
-        <div class="row">
+      <div class="row">
             <div class="col-md-12">
-                <div class="box box-solid box-primary ">
+                <div class="box box-solid box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Participación a Programa Pendientes</h3>
                         <div class="box-tools pull-right">
@@ -28,6 +28,7 @@
                                     <th>Programa</th>
                                     <th>Fecha</th>
                                     <th>Estado</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,6 +38,18 @@
                                         <td>${participacion.getNombrePrograma()}</td>
                                         <td>${participacion.getFecha()}</td>
                                         <td>${participacion.getEstado()}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa fa-gears"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="btnCambiarEstadoParticipacion" href="#" data-toggle="tooltip" data-id-participacion="${participacion.getIdParticipacion()}"><i class="fa fa-adjust"></i>Cambiar Estado</a></li>
+                                                    <li><a class="btnVerParticipacion" href="#" href="#" data-toggle="tooltip" data-id-participacion="${participacion.getIdParticipacion()}"><i class="fa fa-eye"></i>Detalle</a></li>
+                                                    <li><a class="btnBorrarParticipacion" href="#" href="#" data-toggle="tooltip" data-id-participacion="${participacion.getIdParticipacion()}"><i class="fa fa-times"></i>Borrar</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -67,6 +80,7 @@
                                         <th>Familia</th>
                                         <th>Fecha</th>
                                         <th>Estado</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -78,6 +92,18 @@
                                             <td>${postulacion.getNombreFamilia()}</td>
                                             <td>${postulacion.getFechaCreacion()}</td>
                                             <td>${postulacion.getEstado()}</td>
+                                            <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa fa-gears"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a class="btnCambiarEstadoPostulacion" href="#" data-toggle="tooltip" data-id-postulacion="${postulacion.getIdPostulacion()}"><i class="fa fa-adjust"></i>Cambiar Estado</a></li>
+                                                    <li><a class="btnVerPostulacion" href="#" href="#" data-toggle="tooltip" data-id-postulacion="${postulacion.getIdPostulacion()}"><i class="fa fa-eye"></i>Detalle</a></li>
+                                                    <li><a class="btnBorrarPostulacion" href="#" href="#" data-toggle="tooltip" data-id-postulacion="${postulacion.getIdPostulacion()}"><i class="fa fa-times"></i>Borrar</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
@@ -158,5 +184,58 @@
                 </div>
             </div>  
         </div>
+        <div class="modal fade" id="modalParticipacion" style="display: none;">
+            <div class="modal-dialog">
+                <div id="modalTarget" class="modal-content">
+                    sdadsad
+                </div>
+            </div>
+        </div>
     </jsp:body>
 </t:Master>
+<script>
+    //// Participacion  ///
+    $('body').on('click', '.btnCambiarEstadoParticipacion', function () {
+       $("#modalTarget").html("");
+       $.post("participacion/estado.htm", {idParticipacion: $(this).data("id-participacion") }, function(data){
+            $("#modalTarget").html(data);
+        });
+        $('#modalParticipacion').modal('show');
+    });
+    $('body').on('click', '.btnVerParticipacion', function () {
+       $("#modalTarget").html("");
+       $.post("participacion/ver.htm", {idParticipacion: $(this).data("id-participacion") }, function(data){
+            $("#modalTarget").html(data);
+       });
+       $('#modalParticipacion').modal('show');
+    });
+    $('body').on('click', '.btnBorrarParticipacion', function () {
+       $("#modalTarget").html("");
+       $.post("participacion/borrar.htm", {idParticipacion: $(this).data("id-participacion") }, function(data){
+            $("#modalTarget").html(data);
+       });
+       $('#modalParticipacion').modal('show');
+    });
+    //// Postulacion  ///
+    $('body').on('click', '.btnCambiarEstadoPostulacion', function () {
+       $("#modalTarget").html("");
+       $.post("postulacion/estado.htm", {idPostulacion: $(this).data("id-postulacion") }, function(data){
+            $("#modalTarget").html(data);
+        });
+        $('#modalParticipacion').modal('show');
+    });
+    $('body').on('click', '.btnVerPostulacion', function () {
+       $("#modalTarget").html("");
+       $.post("postulacion/ver.htm", {idPostulacion: $(this).data("id-postulacion") }, function(data){
+            $("#modalTarget").html(data);
+       });
+       $('#modalParticipacion').modal('show');
+    });
+    $('body').on('click', '.btnBorrarPostulacion', function () {
+       $("#modalTarget").html("");
+       $.post("postulacion/borrar.htm", {idPostulacion: $(this).data("id-postulacion") }, function(data){
+            $("#modalTarget").html(data);
+       });
+       $('#modalParticipacion').modal('show');
+    });
+</script>
