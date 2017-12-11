@@ -160,7 +160,7 @@
         $.post("programa/participar.htm", {idPrograma: $(this).data("id-programa") }, function(data){
             $("#modalTarget").html(data);
         });
-    $('#verPrograma').modal('show');
+        $('#verPrograma').modal('show');
     });
       //// Postulacion  ///
     $('body').on('click', '.btnCambiarEstadoPostulacion', function () {
@@ -183,4 +183,5 @@
             $("#modalTarget").html(data);
        });
        $('#modalParticipacion').modal('show');
+    });
 </script>
