@@ -29,6 +29,8 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
         if (!request.getRequestURI().equals("/java.web/login.htm")
                 && !request.getRequestURI().equals("/java.web/postLogin.htm")
                 && !request.getRequestURI().equals("/java.web/registro.htm")
+                && !request.getRequestURI().equals("/java.web/registro_alumno.htm")
+                && !request.getRequestURI().equals("/java.web/registro_familia.htm")
                 && !request.getRequestURI().equals("/java.web/registrarse.htm")
                 && !request.getRequestURI().equals("/java.web/recupera.htm")
                 && !request.getRequestURI().equals("/java.web/postRecupera.htm")

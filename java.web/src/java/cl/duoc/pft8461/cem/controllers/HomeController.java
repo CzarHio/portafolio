@@ -17,6 +17,9 @@ import cl.duoc.pft8461.cem.ws.ParticipacionWS_Service;
 import cl.duoc.pft8461.cem.ws.Postulacion;
 import cl.duoc.pft8461.cem.ws.PostulacionWS;
 import cl.duoc.pft8461.cem.ws.PostulacionWS_Service;
+import cl.duoc.pft8461.cem.ws.Programa;
+import cl.duoc.pft8461.cem.ws.ProgramaWS;
+import cl.duoc.pft8461.cem.ws.ProgramaWS_Service;
 import cl.duoc.pft8461.cem.ws.Usuario;
 import cl.duoc.pft8461.cem.ws.UsuarioWS;
 import java.io.IOException;
@@ -43,10 +46,11 @@ public class HomeController extends BaseController {
 
     private final UsuarioWS usuarioWS = new UsuarioWS_Service().getUsuarioWSPort();
     private final ParticipacionWS participacionWS = new ParticipacionWS_Service().getParticipacionWSPort();
+    private final ProgramaWS programaWS = new ProgramaWS_Service().getProgramaWSPort();
     private final PostulacionWS postulacionWS = new PostulacionWS_Service().getPostulacionWSPort();
     private final FamiliaWS familiaWS = new FamiliaWS_Service().getFamiliaWSPort();
     private final DocumentoWS documentoWS = new DocumentoWS_Service().getDocumentoWSPort();
-    
+
     public HomeController() {
     }
 
@@ -70,7 +74,7 @@ public class HomeController extends BaseController {
         List<Postulacion> listaPostulacion;
         List<Familia> listaFamilia;
         List<Documento> listaDocumento;
-        
+
         switch ((Integer) session.getAttribute("perfil")) {
             case 1:
                 mav.setViewName("home/home_admin");
@@ -86,17 +90,19 @@ public class HomeController extends BaseController {
             case 2:
                 listaParticipacion = this.participacionWS.findFullParticipacionPor("p.id_estado", "1");
                 listaPostulacion = this.postulacionWS.findPostulacionFullPor("p.id_estado", "1");
-                listaUsuario = this.usuarioWS.findUsuarioPor("id_perfil_usuario", "4");     
+                listaUsuario = this.usuarioWS.findUsuarioPor("id_perfil_usuario", "4");
                 mav.addObject("listaParticipacion", listaParticipacion);
                 mav.addObject("listaPostulacion", listaPostulacion);
                 mav.addObject("listaUsuario", listaUsuario);
-                
+
                 mav.setViewName("home/home_cem");
                 break;
             case 3:
                 BigDecimal idCentro = (BigDecimal) session.getAttribute("id_centro");
+                List<Programa> listaPrograma = this.programaWS.findFullProgramaPor("p.id_estado", "2");
                 listaParticipacion = this.participacionWS.findFullParticipacionPor("p.id_centro", idCentro.toString());
                 listaFamilia = this.familiaWS.findAllFamilia();
+                mav.addObject("listaPrograma", listaPrograma);
                 mav.addObject("listaParticipacion", listaParticipacion);
                 mav.addObject("listaFamilia", listaFamilia);
                 mav.setViewName("home/home_cel");

@@ -4,32 +4,23 @@
 <xsd:import namespace="http://ws.cem.pft8461.duoc.cl/" schemaLocation="http://ws.huevoscopita.cl:80/webservice/ParticipacionWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="findAllParticipacion">
-<part name="parameters" element="tns:findAllParticipacion"/>
+<message name="removeParticipacion">
+<part name="parameters" element="tns:removeParticipacion"/>
 </message>
-<message name="findAllParticipacionResponse">
-<part name="parameters" element="tns:findAllParticipacionResponse"/>
+<message name="cambiarEstadoParticipacion">
+<part name="parameters" element="tns:cambiarEstadoParticipacion"/>
+</message>
+<message name="cambiarEstadoParticipacionResponse">
+<part name="parameters" element="tns:cambiarEstadoParticipacionResponse"/>
+</message>
+<message name="createParticipacion">
+<part name="parameters" element="tns:createParticipacion"/>
 </message>
 <message name="findParticipacionPor">
 <part name="parameters" element="tns:findParticipacionPor"/>
 </message>
 <message name="findParticipacionPorResponse">
 <part name="parameters" element="tns:findParticipacionPorResponse"/>
-</message>
-<message name="removeParticipacion">
-<part name="parameters" element="tns:removeParticipacion"/>
-</message>
-<message name="createParticipacion">
-<part name="parameters" element="tns:createParticipacion"/>
-</message>
-<message name="findFullParticipacion">
-<part name="parameters" element="tns:findFullParticipacion"/>
-</message>
-<message name="findFullParticipacionResponse">
-<part name="parameters" element="tns:findFullParticipacionResponse"/>
-</message>
-<message name="editParticipacion">
-<part name="parameters" element="tns:editParticipacion"/>
 </message>
 <message name="findParticipacion">
 <part name="parameters" element="tns:findParticipacion"/>
@@ -43,6 +34,21 @@
 <message name="findFullAllParticipacionResponse">
 <part name="parameters" element="tns:findFullAllParticipacionResponse"/>
 </message>
+<message name="findAllParticipacion">
+<part name="parameters" element="tns:findAllParticipacion"/>
+</message>
+<message name="findAllParticipacionResponse">
+<part name="parameters" element="tns:findAllParticipacionResponse"/>
+</message>
+<message name="editParticipacion">
+<part name="parameters" element="tns:editParticipacion"/>
+</message>
+<message name="findFullParticipacion">
+<part name="parameters" element="tns:findFullParticipacion"/>
+</message>
+<message name="findFullParticipacionResponse">
+<part name="parameters" element="tns:findFullParticipacionResponse"/>
+</message>
 <message name="findFullParticipacionPor">
 <part name="parameters" element="tns:findFullParticipacionPor"/>
 </message>
@@ -50,26 +56,19 @@
 <part name="parameters" element="tns:findFullParticipacionPorResponse"/>
 </message>
 <portType name="ParticipacionWS">
-<operation name="findAllParticipacion">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findAllParticipacionRequest" message="tns:findAllParticipacion"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findAllParticipacionResponse" message="tns:findAllParticipacionResponse"/>
-</operation>
-<operation name="findParticipacionPor">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findParticipacionPorRequest" message="tns:findParticipacionPor"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findParticipacionPorResponse" message="tns:findParticipacionPorResponse"/>
-</operation>
 <operation name="removeParticipacion">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/removeParticipacion" message="tns:removeParticipacion"/>
+</operation>
+<operation name="cambiarEstadoParticipacion">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/cambiarEstadoParticipacionRequest" message="tns:cambiarEstadoParticipacion"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/cambiarEstadoParticipacionResponse" message="tns:cambiarEstadoParticipacionResponse"/>
 </operation>
 <operation name="createParticipacion">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/createParticipacion" message="tns:createParticipacion"/>
 </operation>
-<operation name="findFullParticipacion">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findFullParticipacionRequest" message="tns:findFullParticipacion"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findFullParticipacionResponse" message="tns:findFullParticipacionResponse"/>
-</operation>
-<operation name="editParticipacion">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/editParticipacion" message="tns:editParticipacion"/>
+<operation name="findParticipacionPor">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findParticipacionPorRequest" message="tns:findParticipacionPor"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findParticipacionPorResponse" message="tns:findParticipacionPorResponse"/>
 </operation>
 <operation name="findParticipacion">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findParticipacionRequest" message="tns:findParticipacion"/>
@@ -79,6 +78,17 @@
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findFullAllParticipacionRequest" message="tns:findFullAllParticipacion"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findFullAllParticipacionResponse" message="tns:findFullAllParticipacionResponse"/>
 </operation>
+<operation name="findAllParticipacion">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findAllParticipacionRequest" message="tns:findAllParticipacion"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findAllParticipacionResponse" message="tns:findAllParticipacionResponse"/>
+</operation>
+<operation name="editParticipacion">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/editParticipacion" message="tns:editParticipacion"/>
+</operation>
+<operation name="findFullParticipacion">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findFullParticipacionRequest" message="tns:findFullParticipacion"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findFullParticipacionResponse" message="tns:findFullParticipacionResponse"/>
+</operation>
 <operation name="findFullParticipacionPor">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findFullParticipacionPorRequest" message="tns:findFullParticipacionPor"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/ParticipacionWS/findFullParticipacionPorResponse" message="tns:findFullParticipacionPorResponse"/>
@@ -86,7 +96,13 @@
 </portType>
 <binding name="ParticipacionWSPortBinding" type="tns:ParticipacionWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="findAllParticipacion">
+<operation name="removeParticipacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="cambiarEstadoParticipacion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -94,6 +110,12 @@
 <output>
 <soap:body use="literal"/>
 </output>
+</operation>
+<operation name="createParticipacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
 </operation>
 <operation name="findParticipacionPor">
 <soap:operation soapAction=""/>
@@ -104,19 +126,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="removeParticipacion">
+<operation name="findParticipacion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
 </input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
-<operation name="createParticipacion">
+<operation name="findFullAllParticipacion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
 </input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
-<operation name="findFullParticipacion">
+<operation name="findAllParticipacion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -131,16 +159,7 @@
 <soap:body use="literal"/>
 </input>
 </operation>
-<operation name="findParticipacion">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="findFullAllParticipacion">
+<operation name="findFullParticipacion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

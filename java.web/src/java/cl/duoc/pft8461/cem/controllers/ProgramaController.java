@@ -18,6 +18,7 @@ import cl.duoc.pft8461.cem.ws.Pais;
 import cl.duoc.pft8461.cem.ws.PaisWS;
 import cl.duoc.pft8461.cem.ws.PaisWS_Service;
 import cl.duoc.pft8461.cem.ws.Participacion;
+import cl.duoc.pft8461.cem.ws.ParticipacionWS;
 import cl.duoc.pft8461.cem.ws.ParticipacionWS_Service;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -48,6 +49,7 @@ public class ProgramaController extends BaseController {
 
     private final ProgramaWS programaWS = new ProgramaWS_Service().getProgramaWSPort();
     private final PaisWS paisWS = new PaisWS_Service().getPaisWSPort();
+    private final ParticipacionWS participacionWS = new ParticipacionWS_Service().getParticipacionWSPort();
     private final EstadoProgramaWS estadoProgramaWS = new EstadoProgramaWS_Service().getEstadoProgramaWSPort();
     private Map<Integer, Pais> paises = new HashMap<Integer, Pais>();
     private List<Pais> listaPais = this.paisWS.findAllPais();

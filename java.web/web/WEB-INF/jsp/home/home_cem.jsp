@@ -44,9 +44,9 @@
                                                     <i class="fa fa-gears"></i>
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="#"><i class="fa fa-adjust"></i>Cambiar Estado</a></li>
-                                                    <li><a href="#"><i class="fa fa-eye"></i>Detalle</a></li>
-                                                    <li><a href="#"><i class="fa fa-times"></i>Borrar</a></li>
+                                                    <li><a class="btnCambiarEstado" href="#" data-toggle="tooltip" data-id-participacion="${participacion.getIdParticipacion()}"><i class="fa fa-adjust"></i>Cambiar Estado</a></li>
+                                                    <li><a class="btnVer" href="#" href="#" data-toggle="tooltip" data-id-participacion="${participacion.getIdParticipacion()}"><i class="fa fa-eye"></i>Detalle</a></li>
+                                                    <li><a class="btnBorrar" href="#" href="#" data-toggle="tooltip" data-id-participacion="${participacion.getIdParticipacion()}"><i class="fa fa-times"></i>Borrar</a></li>
                                                 </ul>
                                             </div>
                                         </td>
@@ -58,5 +58,35 @@
                 </div>
             </div>  
         </div>
+        <div class="modal fade" id="modalParticipacion" style="display: none;">
+            <div class="modal-dialog">
+                <div id="modalTarget" class="modal-content">
+                    sdadsad
+                </div>
+            </div>
+        </div>
     </jsp:body>
 </t:Master>
+<script>
+    $('body').on('click', '.btnCambiarEstado', function () {
+       $("#modalTarget").html("");
+       $.post("participacion/estado.htm", {idParticipacion: $(this).data("id-participacion") }, function(data){
+            $("#modalTarget").html(data);
+        });
+        $('#modalParticipacion').modal('show');
+    });
+    $('body').on('click', '.btnVer', function () {
+       $("#modalTarget").html("");
+       $.post("participacion/ver.htm", {idParticipacion: $(this).data("id-participacion") }, function(data){
+            $("#modalTarget").html(data);
+       });
+       $('#modalParticipacion').modal('show');
+    });
+    $('body').on('click', '.btnBorrar', function () {
+       $("#modalTarget").html("");
+       $.post("familia/selfam.htm", {idParticipacion: $(this).data("id-participacion") }, function(data){
+            $("#modalTarget").html(data);
+       });
+       $('#modalParticipacion').modal('show');
+    });
+</script>
