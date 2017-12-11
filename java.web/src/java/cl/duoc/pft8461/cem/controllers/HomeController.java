@@ -8,6 +8,9 @@ package cl.duoc.pft8461.cem.controllers;
 import cl.duoc.pft8461.cem.ws.Documento;
 import cl.duoc.pft8461.cem.ws.DocumentoWS;
 import cl.duoc.pft8461.cem.ws.DocumentoWS_Service;
+import cl.duoc.pft8461.cem.ws.EstadoDocumento;
+import cl.duoc.pft8461.cem.ws.EstadoDocumentoWS;
+import cl.duoc.pft8461.cem.ws.EstadoDocumentoWS_Service;
 import cl.duoc.pft8461.cem.ws.Familia;
 import cl.duoc.pft8461.cem.ws.FamiliaWS;
 import cl.duoc.pft8461.cem.ws.FamiliaWS_Service;
@@ -20,6 +23,9 @@ import cl.duoc.pft8461.cem.ws.PostulacionWS_Service;
 import cl.duoc.pft8461.cem.ws.Programa;
 import cl.duoc.pft8461.cem.ws.ProgramaWS;
 import cl.duoc.pft8461.cem.ws.ProgramaWS_Service;
+import cl.duoc.pft8461.cem.ws.TipoDocumento;
+import cl.duoc.pft8461.cem.ws.TipoDocumentoWS;
+import cl.duoc.pft8461.cem.ws.TipoDocumentoWS_Service;
 import cl.duoc.pft8461.cem.ws.Usuario;
 import cl.duoc.pft8461.cem.ws.UsuarioWS;
 import java.io.IOException;
@@ -50,6 +56,10 @@ public class HomeController extends BaseController {
     private final PostulacionWS postulacionWS = new PostulacionWS_Service().getPostulacionWSPort();
     private final FamiliaWS familiaWS = new FamiliaWS_Service().getFamiliaWSPort();
     private final DocumentoWS documentoWS = new DocumentoWS_Service().getDocumentoWSPort();
+    private final TipoDocumentoWS tipoDocumentoWS = new TipoDocumentoWS_Service().getTipoDocumentoWSPort();
+    private final EstadoDocumentoWS estadoDocumentoWS = new EstadoDocumentoWS_Service().getEstadoDocumentoWSPort();
+    private List<EstadoDocumento> listaEstadoDoc = this.estadoDocumentoWS.findAllEstadoDocumento();
+    private List<TipoDocumento> listaTipoDoc = this.tipoDocumentoWS.findAllTipoDocumento();
 
     public HomeController() {
     }
@@ -121,6 +131,8 @@ public class HomeController extends BaseController {
                 BigDecimal idFamilia = (BigDecimal) session.getAttribute("id_familia");
                 listaPostulacion = this.postulacionWS.findPostulacionFullPor("f.id_familia", idFamilia.toString());
                 listaDocumento = this.documentoWS.findDocumentoPor("id_familia", idFamilia.toString());
+                mav.addObject("listaTipoDoc", this.listaTipoDoc);
+                mav.addObject("listaEstadoDoc", this.listaEstadoDoc);
                 mav.addObject("listaDocumento", listaDocumento);
                 mav.addObject("listaPostulacion", listaPostulacion);
                 mav.setViewName("home/home_familia");
