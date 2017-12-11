@@ -110,14 +110,14 @@ public class NotaController extends BaseController {
             json = "{\"response\": 1}";
             if (this.isEmpty(request.getParameter("idNota"))) {
                 this.notaWS.createNota(
-                    Integer.parseInt(request.getParameter("idCurso")),
                     Integer.parseInt(request.getParameter("idPostulacion")),
+                    Integer.parseInt(request.getParameter("idCurso")),
                     Integer.parseInt(request.getParameter("nota")));
             } else {
                 this.notaWS.editNota(
                     Integer.parseInt(request.getParameter("idNota")),
-                    Integer.parseInt(request.getParameter("idCurso")),
                     Integer.parseInt(request.getParameter("idPostulacion")),
+                    Integer.parseInt(request.getParameter("idCurso")),
                     Integer.parseInt(request.getParameter("nota")));
             }
         } catch (Exception e) {

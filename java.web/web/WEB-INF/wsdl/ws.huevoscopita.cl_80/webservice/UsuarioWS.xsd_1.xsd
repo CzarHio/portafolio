@@ -4,6 +4,10 @@
 
 <xs:element name="autenticarResponse" type="tns:autenticarResponse"/>
 
+<xs:element name="checkToken" type="tns:checkToken"/>
+
+<xs:element name="checkTokenResponse" type="tns:checkTokenResponse"/>
+
 <xs:element name="createUsuario" type="tns:createUsuario"/>
 
 <xs:element name="createUsuarioAlumno" type="tns:createUsuarioAlumno"/>
@@ -25,6 +29,14 @@
 <xs:element name="findUsuarioResponse" type="tns:findUsuarioResponse"/>
 
 <xs:element name="removeUsuario" type="tns:removeUsuario"/>
+
+<xs:element name="setPwd" type="tns:setPwd"/>
+
+<xs:element name="setPwdResponse" type="tns:setPwdResponse"/>
+
+<xs:element name="setToken" type="tns:setToken"/>
+
+<xs:element name="setTokenResponse" type="tns:setTokenResponse"/>
 
 <xs:element name="usuario" type="tns:usuario"/>
 
@@ -53,6 +65,35 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="setPwd">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setPwdResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="checkToken">
+<xs:sequence>
+<xs:element name="token" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkTokenResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeUsuario">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="findUsuario">
 <xs:sequence>
 <xs:element name="id" type="xs:int"/>
@@ -62,12 +103,6 @@
 <xs:complexType name="findUsuarioResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:usuario" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="removeUsuario">
-<xs:sequence>
-<xs:element name="id" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -124,6 +159,19 @@
 <xs:element name="id_carrera" type="xs:int"/>
 <xs:element name="semestre" type="xs:int"/>
 <xs:element name="ingreso" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setToken">
+<xs:sequence>
+<xs:element name="usuario" type="xs:string" minOccurs="0"/>
+<xs:element name="token" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setTokenResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

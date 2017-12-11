@@ -92,6 +92,9 @@ public class AlumnoController extends BaseController {
                     cursos.add(c);
                 }
             }
+            
+            mav.addObject("postulaciones", postulaciones);
+            mav.addObject("a", alumno);
             mav.addObject("cursos", cursos);
             mav.addObject("notas", notas);
         }

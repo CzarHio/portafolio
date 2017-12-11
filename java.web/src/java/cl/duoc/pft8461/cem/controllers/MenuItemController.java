@@ -69,7 +69,10 @@ public class MenuItemController extends BaseController {
                     request.getParameter("titulo"),
                     request.getParameter("url"),
                     Integer.parseInt(request.getParameter("idMenu")),
-                    Integer.parseInt(request.getParameter("orden")));
+                    Integer.parseInt(request.getParameter("orden")),
+                    Integer.parseInt(request.getParameter("padre")),
+                    request.getParameter("icono"),
+                    Integer.parseInt(request.getParameter("estado")));
             } else {
                 this.menuItemWS.editMenuItem(
                     Integer.parseInt(request.getParameter("idMenuItem")),
@@ -77,7 +80,9 @@ public class MenuItemController extends BaseController {
                     request.getParameter("url"),
                     Integer.parseInt(request.getParameter("idMenu")),
                     Integer.parseInt(request.getParameter("padre")),
-                    Integer.parseInt(request.getParameter("orden")));
+                    Integer.parseInt(request.getParameter("orden")),
+                    request.getParameter("icono"),
+                    Integer.parseInt(request.getParameter("estado")));
             }
         } catch (Exception e) {
             System.out.println(e);

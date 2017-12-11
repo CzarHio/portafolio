@@ -12,22 +12,25 @@
                 </a>
             </div>
             <div class="login-box-body">
-                <p class="login-box-msg">Ingresar a Sistema CEM</p>
-                <form class="form" action="./postLogin.htm" method="POST">
-                    <div class="form-group has-feedback">
-                        <input type="text" class="form-control" placeholder="Ingrese usuario" id="login" name="login" required="required">
-                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    </div>
-                    <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="Ingrese contraseña" id="password" name="password" required="required">
-                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4 pull-right">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat" id="login">Ingresar</button>
+                <p class="login-box-msg">Restablecer contraseña</p>
+                <c:if test="${not empty usuario}">
+                    <form class="form" action="./postRecupera.htm" method="POST">
+                        <div class="form-group has-feedback">
+                            <input type="password" class="form-control" placeholder="Ingrese Contraeña" id="password" name="password" required="required">
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
-                    </div>
-                </form>
+                        <div class="form-group has-feedback">
+                            <input type="password" class="form-control" placeholder="Repita contraseña" id="password1" name="password1" required="required">
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 pull-right">
+                                <button type="submit" class="btn btn-primary btn-block btn-flat" id="login">Guardar</button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="usuario" value="${usuario}">
+                    </form>
+                </c:if>
                 <br>
                 <c:if test="${not empty error}">
                     <div class="alert alert-danger alert-dismissible">
@@ -36,16 +39,6 @@
                         ${error}
                     </div>
                 </c:if>
-                <c:if test="${not empty success}">
-                    <div class="alert alert-success alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h4><i class="icon fa fa-check"></i> Bien!</h4>
-                        ${success}
-                    </div>
-                </c:if>
-                <a id="recover-password" href="#">Recuperar contraseña</a>
-                <br>
-                <a href="./registrarse.htm">Registrarse en el Sistema</a>
             </div>
         </div>
         <!-- jQuery 2.1.4 -->

@@ -33,6 +33,7 @@
                 <prop key="registro_familia.htm">login</prop>
                 <prop key="registro.htm">login</prop>
                 <prop key="recupera.htm">login</prop>
+                <prop key="postRecupera.htm">login</prop>
                 <prop key="salir.htm">login</prop>
                 <!-- Home Routes  -->
                 <prop key="home.htm">home</prop>

@@ -199,10 +199,9 @@ public class FamiliaController extends BaseController {
             if (!file.isEmpty()) {
                 String fileName = "familia_" + request.getParameter("idFamiliaDoc") + "_" + request.getParameter("titulo") + "." + file.getContentType().split("/")[1];
                 String path = request.getSession().getServletContext().getRealPath("/resources/") + this.pm.get("FILES_PATH") + fileName;
-                String web_path = this.pm.get("WEB_PATH") + fileName;
+                String web_path = this.pm.get("APP_HOST") + this.pm.get("WEB_PATH") + fileName;
                 
                 if (this.saveFile(file.getBytes(), path)) {
-                    System.out.println(web_path);
                     if (this.isEmpty(request.getParameter("idDocumento"))) {
                         this.documentoWS.createDocumento(
                             web_path,

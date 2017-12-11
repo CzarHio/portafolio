@@ -181,31 +181,88 @@ public class LoginController extends BaseController {
         String json = "{\"response\": 0}";
         
         String user = request.getParameter("user");
-        try {
-            //this.ws.getUsuarioWSPort().
+        String token = request.getParameter("tkn");
             
-            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-            Date now = new Date();
+        if (!this.isEmpty(user)) {
+            Calendar time = Calendar.getInstance();
+            time.add(Calendar.MINUTE, 30);
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(time.getTime());
             
-            byte[] tkn = (timeStamp + "$" + HashPwd.getHash(this.pm.get("APP_KEY"))).getBytes();
-            String token = new String(Base64.encodeBase64(tkn));
+            try {
+                byte[] tkn = (timeStamp + "$" + user + "$" + HashPwd.getHash(this.pm.get("APP_KEY"))).getBytes();
+                String new_token = new String(Base64.encodeBase64(tkn));
+                String email = this.ws.getUsuarioWSPort().setToken(user, new_token);
+                if (this.sendMailToken(email, this.pm.get("APP_HOST") + "/java.web/recupera.htm?tkn=" + new_token))
+                    json = "{\"response\": 1}";
+            } catch (Exception e) {
+                System.out.println(e);
+            }
             
-            //user, token -> email -> sendEmail
-            String _token = new String(Base64.decodeBase64(token.getBytes(Charset.forName("UTF-8"))));
-            Date tkn_date = new SimpleDateFormat("yyyyMMdd_HHmmss").parse(_token.split("$")[0]);
+            mav.addObject("json", json);
+            mav.setViewName("include/json");
             
-            System.out.println(token);
-            System.out.println();
-            System.out.println(now.before(tkn_date));
+        } else {
+            boolean error = true;
             
-            json = "{\"response\": 1}";
+            if (!this.isEmpty(token)) {
+                
+                Date now = new Date();
+                try {
+                    String _token = new String(Base64.decodeBase64(token.getBytes(Charset.forName("UTF-8"))));
+                    String[] data = _token.split("\\$");
+                    Date tkn_date = new SimpleDateFormat("yyyyMMdd_HHmmss").parse(data[0]);
+
+                    if (now.before(tkn_date)) {
+                        user = data[1];
+                        mav.addObject("usuario", user);
+                        error = false;
+                    }
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+
+            }
+            if (error)
+                mav.addObject("error", "Token no válido. Intente solicitando reestablecer contraseña nuevamente");
             
-        } catch (Exception e) {
-            System.out.println(e);
+            mav.setViewName("recupera");
+
         }
         
-        mav.addObject("json", json);
-        mav.setViewName("include/json");
+        return mav;
+    }
+    
+    /**
+     * Método recupera
+     * 
+     * @param request
+     * @param response
+     * @return
+     * @throws ServletException
+     * @throws IOException 
+     */
+    @RequestMapping(value = {"postRecupera.htm"}, method = RequestMethod.POST)
+    public ModelAndView postRecupera(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        ModelAndView mav = new ModelAndView();
+        
+        String usuario = request.getParameter("usuario");
+        
+        if (request.getParameter("password").equals(request.getParameter("password1"))) {
+            try {
+                this.ws.getUsuarioWSPort().setPwd(usuario, HashPwd.getHash(request.getParameter("password")));
+                mav.addObject("success", "Contraseña reestablecida.");
+            } catch (Exception ex) {
+                mav.addObject("error", "Ocurrió un error al intentar reestablecer contraseña. Intente solicitando un nuevo reestablecimiento.");
+                System.out.println(ex);
+            }
+            mav.setViewName("login");
+            
+        } else {
+            mav.addObject("usuario", usuario);
+            mav.addObject("error", "Contraseñas deben coincidir.");
+            mav.setViewName("recupera");
+        }
         return mav;
     }
     
@@ -339,6 +396,28 @@ public class LoginController extends BaseController {
                     + "al Sistema CEM.\nAquí podrá postular a programas (si es un Alumno) "
                     + "o participar de uno como Familia.\n\nGracias por confiar en nosotros\n"
                     + "\n\n\n\n\nCentro de Estudios Montreal");
+            sent = mail.send();
+        } catch (Exception e) {
+            System.out.println("Error mail: " + e);
+        }
+        
+        return sent;
+    }
+    
+    private boolean sendMailToken(String to, String link) {
+        boolean sent = false;
+        try {
+            Mail mail = new Mail();
+            mail.init();
+            mail.from("mail@test.com");
+            mail.to(to);
+            mail.subject("Recuperación de contraseña Sistema CEM");
+            mail.content("Estimado,\n\nEl siguiente correo fue generedao a"
+                    + " petición suya, para la recuperación de su contraseña.\n\n"
+                    + "A continuación, puede reestablecer su contraseña, ingresando al siguiente link:"
+                    + link
+                    + "\n\nGracias por confiar en nosotros.\n"
+                    + "\n\n\n\n\nCentro de Estudios Montreal.");
             sent = mail.send();
         } catch (Exception e) {
             System.out.println("Error mail: " + e);

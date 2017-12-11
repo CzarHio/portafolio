@@ -4,8 +4,32 @@
 <xsd:import namespace="http://ws.cem.pft8461.duoc.cl/" schemaLocation="http://ws.huevoscopita.cl:80/webservice/DocumentoWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="editDocumento">
-<part name="parameters" element="tns:editDocumento"/>
+<message name="findFullDocumento">
+<part name="parameters" element="tns:findFullDocumento"/>
+</message>
+<message name="findFullDocumentoResponse">
+<part name="parameters" element="tns:findFullDocumentoResponse"/>
+</message>
+<message name="findFullDocumentoPor">
+<part name="parameters" element="tns:findFullDocumentoPor"/>
+</message>
+<message name="findFullDocumentoPorResponse">
+<part name="parameters" element="tns:findFullDocumentoPorResponse"/>
+</message>
+<message name="cambiarEstadoDocumento">
+<part name="parameters" element="tns:cambiarEstadoDocumento"/>
+</message>
+<message name="cambiarEstadoDocumentoResponse">
+<part name="parameters" element="tns:cambiarEstadoDocumentoResponse"/>
+</message>
+<message name="findFullAllDocumento">
+<part name="parameters" element="tns:findFullAllDocumento"/>
+</message>
+<message name="findFullAllDocumentoResponse">
+<part name="parameters" element="tns:findFullAllDocumentoResponse"/>
+</message>
+<message name="removeDocumento">
+<part name="parameters" element="tns:removeDocumento"/>
 </message>
 <message name="findDocumento">
 <part name="parameters" element="tns:findDocumento"/>
@@ -16,24 +40,40 @@
 <message name="createDocumento">
 <part name="parameters" element="tns:createDocumento"/>
 </message>
-<message name="findDocumentoPor">
-<part name="parameters" element="tns:findDocumentoPor"/>
-</message>
-<message name="findDocumentoPorResponse">
-<part name="parameters" element="tns:findDocumentoPorResponse"/>
-</message>
 <message name="findAllDocumento">
 <part name="parameters" element="tns:findAllDocumento"/>
 </message>
 <message name="findAllDocumentoResponse">
 <part name="parameters" element="tns:findAllDocumentoResponse"/>
 </message>
-<message name="removeDocumento">
-<part name="parameters" element="tns:removeDocumento"/>
+<message name="findDocumentoPor">
+<part name="parameters" element="tns:findDocumentoPor"/>
+</message>
+<message name="findDocumentoPorResponse">
+<part name="parameters" element="tns:findDocumentoPorResponse"/>
+</message>
+<message name="editDocumento">
+<part name="parameters" element="tns:editDocumento"/>
 </message>
 <portType name="DocumentoWS">
-<operation name="editDocumento">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/editDocumento" message="tns:editDocumento"/>
+<operation name="findFullDocumento">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findFullDocumentoRequest" message="tns:findFullDocumento"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findFullDocumentoResponse" message="tns:findFullDocumentoResponse"/>
+</operation>
+<operation name="findFullDocumentoPor">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findFullDocumentoPorRequest" message="tns:findFullDocumentoPor"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findFullDocumentoPorResponse" message="tns:findFullDocumentoPorResponse"/>
+</operation>
+<operation name="cambiarEstadoDocumento">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/cambiarEstadoDocumentoRequest" message="tns:cambiarEstadoDocumento"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/cambiarEstadoDocumentoResponse" message="tns:cambiarEstadoDocumentoResponse"/>
+</operation>
+<operation name="findFullAllDocumento">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findFullAllDocumentoRequest" message="tns:findFullAllDocumento"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findFullAllDocumentoResponse" message="tns:findFullAllDocumentoResponse"/>
+</operation>
+<operation name="removeDocumento">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/removeDocumento" message="tns:removeDocumento"/>
 </operation>
 <operation name="findDocumento">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findDocumentoRequest" message="tns:findDocumento"/>
@@ -42,21 +82,57 @@
 <operation name="createDocumento">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/createDocumento" message="tns:createDocumento"/>
 </operation>
-<operation name="findDocumentoPor">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findDocumentoPorRequest" message="tns:findDocumentoPor"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findDocumentoPorResponse" message="tns:findDocumentoPorResponse"/>
-</operation>
 <operation name="findAllDocumento">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findAllDocumentoRequest" message="tns:findAllDocumento"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findAllDocumentoResponse" message="tns:findAllDocumentoResponse"/>
 </operation>
-<operation name="removeDocumento">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/removeDocumento" message="tns:removeDocumento"/>
+<operation name="findDocumentoPor">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findDocumentoPorRequest" message="tns:findDocumentoPor"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/findDocumentoPorResponse" message="tns:findDocumentoPorResponse"/>
+</operation>
+<operation name="editDocumento">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/DocumentoWS/editDocumento" message="tns:editDocumento"/>
 </operation>
 </portType>
 <binding name="DocumentoWSPortBinding" type="tns:DocumentoWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="editDocumento">
+<operation name="findFullDocumento">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="findFullDocumentoPor">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="cambiarEstadoDocumento">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="findFullAllDocumento">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="removeDocumento">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -77,15 +153,6 @@
 <soap:body use="literal"/>
 </input>
 </operation>
-<operation name="findDocumentoPor">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="findAllDocumento">
 <soap:operation soapAction=""/>
 <input>
@@ -95,7 +162,16 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="removeDocumento">
+<operation name="findDocumentoPor">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="editDocumento">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

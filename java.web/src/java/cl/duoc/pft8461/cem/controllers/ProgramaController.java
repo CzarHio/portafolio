@@ -250,7 +250,7 @@ public class ProgramaController extends BaseController {
                 String id = request.getParameter("id");
                 String fileName = "programa_" + id + "." + file.getContentType().split("/")[1];
                 String path = request.getSession().getServletContext().getRealPath("/resources/") + this.pm.get("FILES_PATH") + fileName;
-                String web_path = this.pm.get("WEB_PATH") + fileName;
+                String web_path = this.pm.get("APP_HOST") + this.pm.get("WEB_PATH") + fileName;
                 
                 if (this.saveFile(file.getBytes(), path)) {
                     if (!this.fotos.containsKey(id.concat(tipo))) {

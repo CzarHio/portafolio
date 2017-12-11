@@ -4,12 +4,6 @@
 <xsd:import namespace="http://ws.cem.pft8461.duoc.cl/" schemaLocation="http://ws.huevoscopita.cl:80/webservice/UsuarioWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="findAllUsuarios">
-<part name="parameters" element="tns:findAllUsuarios"/>
-</message>
-<message name="findAllUsuariosResponse">
-<part name="parameters" element="tns:findAllUsuariosResponse"/>
-</message>
 <message name="createUsuario">
 <part name="parameters" element="tns:createUsuario"/>
 </message>
@@ -19,14 +13,11 @@
 <message name="findUsuarioPorResponse">
 <part name="parameters" element="tns:findUsuarioPorResponse"/>
 </message>
-<message name="editUsuario">
-<part name="parameters" element="tns:editUsuario"/>
+<message name="findAllUsuarios">
+<part name="parameters" element="tns:findAllUsuarios"/>
 </message>
-<message name="findUsuario">
-<part name="parameters" element="tns:findUsuario"/>
-</message>
-<message name="findUsuarioResponse">
-<part name="parameters" element="tns:findUsuarioResponse"/>
+<message name="findAllUsuariosResponse">
+<part name="parameters" element="tns:findAllUsuariosResponse"/>
 </message>
 <message name="autenticar">
 <part name="parameters" element="tns:autenticar"/>
@@ -34,20 +25,43 @@
 <message name="autenticarResponse">
 <part name="parameters" element="tns:autenticarResponse"/>
 </message>
-<message name="removeUsuario">
-<part name="parameters" element="tns:removeUsuario"/>
-</message>
 <message name="createUsuarioFamilia">
 <part name="parameters" element="tns:createUsuarioFamilia"/>
 </message>
 <message name="createUsuarioAlumno">
 <part name="parameters" element="tns:createUsuarioAlumno"/>
 </message>
+<message name="editUsuario">
+<part name="parameters" element="tns:editUsuario"/>
+</message>
+<message name="checkToken">
+<part name="parameters" element="tns:checkToken"/>
+</message>
+<message name="checkTokenResponse">
+<part name="parameters" element="tns:checkTokenResponse"/>
+</message>
+<message name="removeUsuario">
+<part name="parameters" element="tns:removeUsuario"/>
+</message>
+<message name="findUsuario">
+<part name="parameters" element="tns:findUsuario"/>
+</message>
+<message name="findUsuarioResponse">
+<part name="parameters" element="tns:findUsuarioResponse"/>
+</message>
+<message name="setToken">
+<part name="parameters" element="tns:setToken"/>
+</message>
+<message name="setTokenResponse">
+<part name="parameters" element="tns:setTokenResponse"/>
+</message>
+<message name="setPwd">
+<part name="parameters" element="tns:setPwd"/>
+</message>
+<message name="setPwdResponse">
+<part name="parameters" element="tns:setPwdResponse"/>
+</message>
 <portType name="UsuarioWS">
-<operation name="findAllUsuarios">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosRequest" message="tns:findAllUsuarios"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosResponse" message="tns:findAllUsuariosResponse"/>
-</operation>
 <operation name="createUsuario">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuario" message="tns:createUsuario"/>
 </operation>
@@ -55,19 +69,13 @@
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorRequest" message="tns:findUsuarioPor"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioPorResponse" message="tns:findUsuarioPorResponse"/>
 </operation>
-<operation name="editUsuario">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/editUsuario" message="tns:editUsuario"/>
-</operation>
-<operation name="findUsuario">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioRequest" message="tns:findUsuario"/>
-<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioResponse" message="tns:findUsuarioResponse"/>
+<operation name="findAllUsuarios">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosRequest" message="tns:findAllUsuarios"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findAllUsuariosResponse" message="tns:findAllUsuariosResponse"/>
 </operation>
 <operation name="autenticar">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarRequest" message="tns:autenticar"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/autenticarResponse" message="tns:autenticarResponse"/>
-</operation>
-<operation name="removeUsuario">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/removeUsuario" message="tns:removeUsuario"/>
 </operation>
 <operation name="createUsuarioFamilia">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuarioFamilia" message="tns:createUsuarioFamilia"/>
@@ -75,18 +83,31 @@
 <operation name="createUsuarioAlumno">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/createUsuarioAlumno" message="tns:createUsuarioAlumno"/>
 </operation>
+<operation name="editUsuario">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/editUsuario" message="tns:editUsuario"/>
+</operation>
+<operation name="checkToken">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/checkTokenRequest" message="tns:checkToken"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/checkTokenResponse" message="tns:checkTokenResponse"/>
+</operation>
+<operation name="removeUsuario">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/removeUsuario" message="tns:removeUsuario"/>
+</operation>
+<operation name="findUsuario">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioRequest" message="tns:findUsuario"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/findUsuarioResponse" message="tns:findUsuarioResponse"/>
+</operation>
+<operation name="setToken">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/setTokenRequest" message="tns:setToken"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/setTokenResponse" message="tns:setTokenResponse"/>
+</operation>
+<operation name="setPwd">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/setPwdRequest" message="tns:setPwd"/>
+<output wsam:Action="http://ws.cem.pft8461.duoc.cl/UsuarioWS/setPwdResponse" message="tns:setPwdResponse"/>
+</operation>
 </portType>
 <binding name="UsuarioWSPortBinding" type="tns:UsuarioWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="findAllUsuarios">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="createUsuario">
 <soap:operation soapAction=""/>
 <input>
@@ -102,13 +123,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="editUsuario">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
-<operation name="findUsuario">
+<operation name="findAllUsuarios">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -126,12 +141,6 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="removeUsuario">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
 <operation name="createUsuarioFamilia">
 <soap:operation soapAction=""/>
 <input>
@@ -143,6 +152,54 @@
 <input>
 <soap:body use="literal"/>
 </input>
+</operation>
+<operation name="editUsuario">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="checkToken">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="removeUsuario">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="findUsuario">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="setToken">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="setPwd">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
 </operation>
 </binding>
 <service name="UsuarioWS">

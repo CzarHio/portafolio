@@ -4,14 +4,8 @@
 <xsd:import namespace="http://ws.cem.pft8461.duoc.cl/" schemaLocation="http://ws.huevoscopita.cl:80/webservice/MenuItemWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="createMenuItem">
-<part name="parameters" element="tns:createMenuItem"/>
-</message>
 <message name="removeMenuItem">
 <part name="parameters" element="tns:removeMenuItem"/>
-</message>
-<message name="editMenuItem">
-<part name="parameters" element="tns:editMenuItem"/>
 </message>
 <message name="findMenuItem">
 <part name="parameters" element="tns:findMenuItem"/>
@@ -31,15 +25,15 @@
 <message name="findAllMenuItemResponse">
 <part name="parameters" element="tns:findAllMenuItemResponse"/>
 </message>
+<message name="createMenuItem">
+<part name="parameters" element="tns:createMenuItem"/>
+</message>
+<message name="editMenuItem">
+<part name="parameters" element="tns:editMenuItem"/>
+</message>
 <portType name="MenuItemWS">
-<operation name="createMenuItem">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/createMenuItem" message="tns:createMenuItem"/>
-</operation>
 <operation name="removeMenuItem">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/removeMenuItem" message="tns:removeMenuItem"/>
-</operation>
-<operation name="editMenuItem">
-<input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/editMenuItem" message="tns:editMenuItem"/>
 </operation>
 <operation name="findMenuItem">
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findMenuItemRequest" message="tns:findMenuItem"/>
@@ -53,22 +47,16 @@
 <input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findAllMenuItemRequest" message="tns:findAllMenuItem"/>
 <output wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/findAllMenuItemResponse" message="tns:findAllMenuItemResponse"/>
 </operation>
+<operation name="createMenuItem">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/createMenuItem" message="tns:createMenuItem"/>
+</operation>
+<operation name="editMenuItem">
+<input wsam:Action="http://ws.cem.pft8461.duoc.cl/MenuItemWS/editMenuItem" message="tns:editMenuItem"/>
+</operation>
 </portType>
 <binding name="MenuItemWSPortBinding" type="tns:MenuItemWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="createMenuItem">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
 <operation name="removeMenuItem">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-</operation>
-<operation name="editMenuItem">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -100,6 +88,18 @@
 <output>
 <soap:body use="literal"/>
 </output>
+</operation>
+<operation name="createMenuItem">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+</operation>
+<operation name="editMenuItem">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
 </operation>
 </binding>
 <service name="MenuItemWS">

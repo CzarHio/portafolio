@@ -443,6 +443,11 @@
         $('#saveNota').show();
     });
 
+    $('body').on('click', '.subirNota', function () {
+        cem.fillInputNota($(this).attr('data-alumno'), $(this).attr('data-curso'), $(this).attr('data-postulacion'), 'addNota');
+        $('#notas').modal('show');
+    });
+
     $('body').on('click', '.btnEditar', function () {
         cem.fillInputMantenedor($(this).attr('data-id'), $(this).attr('data-url'));
         $('#new').modal('show');
@@ -585,6 +590,13 @@
                         });
                     }
                 }
+            });
+        },
+        fillInputNota: function(alumno, curso, postulacion, form) {
+            form = form || 'addForm';
+            var data = {idPostulacion: postulacion, idCurso: curso};
+            $('#' + form).find('.form-control').each(function () {
+                $(this).val(data[$(this).attr('name')]);
             });
         },
         fillTableCursos: function(id, url, table) {

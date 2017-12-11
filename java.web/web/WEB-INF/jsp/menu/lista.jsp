@@ -198,6 +198,15 @@
                                     </select>
                                 </div>
                             </div>
+                             <div class="form-group">
+                                <label for="estado" class="col-sm-2 control-label">Estado</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="estado" name="estado" style="width: 100%" required="required">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                    </select>
+                                </div>
+                            </div>
                             <input class="form-control" type="hidden" id="_menu" name="idMenu">
                             <input class="form-control" type="hidden" name="idMenuItem">
                         </div>
